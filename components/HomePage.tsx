@@ -21,6 +21,7 @@ import {
   PhoneCall,
   Radar,
   Shield,
+  ShieldCheck,
   Sparkles,
   X,
 } from "lucide-react";
@@ -30,20 +31,21 @@ import {
   caseStudies,
   certifications,
   company,
+  contactTrustCards,
   credibilitySignals,
+  deliveryModel,
   differentiators,
   faqs,
   featuredServices,
   floatingTech,
   footerLinks,
   industries,
-  insights,
   leadOffers,
   navigation,
   secondaryServices,
   services,
+  supportCapabilities,
   technologyEcosystem,
-  testimonials,
   trustBadges,
 } from "@/data/site";
 
@@ -474,7 +476,7 @@ function CaseStudiesSection() {
               className="glass-panel relative overflow-hidden rounded-[2.2rem] p-6"
             >
               <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-orange-400/10 blur-3xl" />
-              <p className="relative text-xs font-black uppercase tracking-[0.2em] text-orange-200">Scenario {String(index + 1).padStart(2, "0")}</p>
+              <p className="relative text-xs font-black uppercase tracking-[0.2em] text-orange-200">Enterprise engagement</p>
               <h3 className="relative mt-4 text-2xl font-black tracking-tight text-white">{study.title}</h3>
               <div className="relative mt-6 grid gap-4">
                 <div className="rounded-2xl bg-white/[0.045] p-4">
@@ -581,65 +583,64 @@ function LeadGenerationSection() {
   );
 }
 
-function TestimonialsSection() {
+function DeliveryModelSection() {
   return (
-    <section className="px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl overflow-hidden">
+    <section id="delivery" className="px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
         <SectionHeading
-          eyebrow="Client Voice"
-          title="Enterprise-focused feedback from realistic technology leadership roles"
-          description="The testimonial presentation is built for trust: clear roles, company context, and practical infrastructure outcomes."
+          eyebrow="Delivery Model"
+          title="Why enterprises engage ByteInfomedia"
+          description="A practical engagement model for teams that need trustworthy cloud guidance, secure implementation planning, and managed operational support."
         />
 
-        <motion.div
-          animate={{ x: [0, -24, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="mt-12 grid gap-5 md:grid-cols-3"
-        >
-          {testimonials.map((testimonial) => (
-            <figure key={testimonial.name} className="glass-panel rounded-[2rem] p-6 transition hover:-translate-y-2 hover:border-orange-300/35">
-              <div className="mb-6 flex items-center gap-3">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white text-sm font-black text-slate-950">
-                  {testimonial.company.slice(0, 2).toUpperCase()}
-                </span>
-                <div>
-                  <p className="font-bold text-white">{testimonial.company}</p>
-                  <p className="text-xs text-slate-500">Cloud transformation client</p>
-                </div>
-              </div>
-              <p className="text-lg leading-8 text-white">\"{testimonial.quote}\"</p>
-              <figcaption className="mt-6 border-t border-white/10 pt-5">
-                <p className="font-semibold text-orange-100">{testimonial.name}</p>
-                <p className="mt-1 text-sm text-slate-400">{testimonial.role}</p>
-              </figcaption>
-            </figure>
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {deliveryModel.map((item, index) => (
+            <motion.article
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              whileHover={{ y: -8 }}
+              className="glass-panel rounded-[2rem] p-6 transition hover:border-orange-300/35"
+            >
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-orange-300/10 text-orange-200">
+                <BadgeCheck className="h-6 w-6" />
+              </span>
+              <h3 className="mt-5 text-xl font-black text-white">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-400">{item.description}</p>
+            </motion.article>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 }
 
-function InsightsSection() {
+function SupportCapabilitiesSection() {
   return (
-    <section id="insights" className="px-4 py-20 sm:px-6 lg:px-8">
+    <section className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          eyebrow="Insights"
-          title="Authority content for cloud decision-makers"
-          description="Premium technical topics that help buyers understand AWS cost, migration, Kubernetes, security, and DevOps automation decisions."
+          eyebrow="Technology Expertise"
+          title="Support capabilities for cloud decision-makers"
+          description="A focused view of the delivery strengths buyers need to evaluate before starting a cloud, DevOps, or security engagement."
         />
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {insights.map((insight, index) => (
-            <article key={insight.title} className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-5 transition hover:-translate-y-2 hover:border-orange-300/35 hover:bg-white/[0.07] lg:[&:nth-child(1)]:col-span-2 lg:[&:nth-child(2)]:col-span-2">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-200">Guide {String(index + 1).padStart(2, "0")}</p>
-              <h3 className="mt-4 text-xl font-black leading-7 text-white">{insight.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-slate-400">{insight.description}</p>
-              <a href="#contact" className="mt-5 inline-flex items-center gap-2 text-sm font-black text-orange-200">
-                Ask an expert <ArrowRight className="h-4 w-4" />
-              </a>
-            </article>
+        <div className="mt-12 grid gap-5 lg:grid-cols-4">
+          {supportCapabilities.map((capability, index) => (
+            <motion.article
+              key={capability.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 transition hover:-translate-y-2 hover:border-orange-300/35 hover:bg-white/[0.07]"
+            >
+              <ShieldCheck className="h-7 w-7 text-orange-200" />
+              <h3 className="mt-5 text-xl font-black text-white">{capability.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-400">{capability.description}</p>
+            </motion.article>
           ))}
         </div>
       </div>
@@ -673,7 +674,7 @@ function FAQSection() {
 }
 
 function ContactSection() {
-  const contactTrustBadges = ["AWS Cloud Experts", "24/7 Managed Support", "Security-First Architecture", "Fast Response Team"];
+  const contactTrustBadges = ["AWS-focused cloud expertise", "DevOps automation specialists", "Security-first delivery", "Fast response consultation"];
 
   return (
     <section id="contact" className="px-4 py-20 sm:px-6 lg:px-8">
@@ -688,19 +689,19 @@ function ContactSection() {
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+        <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div className="grid gap-4">
             <a
               href={company.phoneHref}
-              className="group relative overflow-hidden rounded-[2.2rem] border border-cyan-300/25 bg-gradient-to-br from-cyan-300/18 via-white/[0.065] to-violet-400/10 p-6 shadow-[0_24px_80px_rgba(53,215,255,0.14)] backdrop-blur-2xl transition hover:-translate-y-1 hover:border-cyan-200/60 hover:shadow-[0_34px_100px_rgba(53,215,255,0.22)]"
+              className="group relative overflow-hidden rounded-[2.2rem] border border-orange-300/25 bg-gradient-to-br from-orange-300/18 via-white/[0.065] to-cyan-400/10 p-6 shadow-[0_24px_80px_rgba(255,91,35,0.14)] backdrop-blur-2xl transition hover:-translate-y-1 hover:border-orange-200/60 hover:shadow-[0_34px_100px_rgba(255,91,35,0.22)]"
             >
-              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-cyan-300/20 blur-3xl transition group-hover:bg-cyan-200/30" />
+              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-orange-300/20 blur-3xl transition group-hover:bg-orange-200/30" />
               <div className="relative flex items-center gap-4">
-                <span className="grid h-16 w-16 shrink-0 place-items-center rounded-3xl bg-cyan-300 text-slate-950 shadow-[0_18px_50px_rgba(53,215,255,0.28)]">
+                <span className="grid h-16 w-16 shrink-0 place-items-center rounded-3xl bg-[#ff5b23] text-white shadow-[0_18px_50px_rgba(255,91,35,0.28)]">
                   <PhoneCall className="h-7 w-7" />
                 </span>
                 <div>
-                  <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-100">Call Us Now</p>
+                  <p className="text-xs font-black uppercase tracking-[0.22em] text-orange-100">Call Us Now</p>
                   <p className="mt-2 text-3xl font-black tracking-tight text-white sm:text-4xl">{company.phone}</p>
                   <p className="mt-2 text-sm text-slate-300">Talk to an AWS, DevOps, or cybersecurity consultant.</p>
                 </div>
@@ -715,14 +716,14 @@ function ContactSection() {
                 className="group rounded-[1.8rem] border border-emerald-300/25 bg-emerald-300/10 p-5 transition hover:-translate-y-1 hover:border-emerald-200/60 hover:bg-emerald-300/16"
               >
                 <MessageCircle className="h-7 w-7 text-emerald-200" />
-                <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-emerald-100">WhatsApp CTA</p>
+                <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-emerald-100">WhatsApp</p>
                 <p className="mt-2 text-xl font-bold text-white">Chat on WhatsApp</p>
                 <p className="mt-2 text-sm leading-6 text-slate-400">Fast response for urgent cloud and security questions.</p>
               </a>
 
               <a
                 href={`mailto:${company.email}`}
-                className="rounded-[1.8rem] border border-white/10 bg-white/[0.055] p-5 transition hover:-translate-y-1 hover:border-cyan-300/35 hover:bg-cyan-300/[0.07]"
+                className="rounded-[1.8rem] border border-white/10 bg-white/[0.055] p-5 transition hover:-translate-y-1 hover:border-orange-300/35 hover:bg-orange-300/[0.07]"
               >
                 <Mail className="h-7 w-7 text-orange-200" />
                 <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-slate-500">Business Email</p>
@@ -745,37 +746,56 @@ function ContactSection() {
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-white/10 bg-slate-950/55 p-5">
-              <div className="grid gap-3 sm:grid-cols-2">
-                {contactTrustBadges.map((badge) => (
-                  <div key={badge} className="flex items-center gap-3 rounded-2xl bg-white/[0.055] px-4 py-3 text-sm font-semibold text-slate-100">
-                    <Check className="h-4 w-4 shrink-0 text-emerald-300" />
-                    {badge}
-                  </div>
-                ))}
-              </div>
-              <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-amber-300/20 bg-amber-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-amber-100">
-                <Headphones className="h-4 w-4" />
-                Limited free consultation slots available this week
-              </p>
-            </div>
-
-            <div className="overflow-hidden rounded-[1.8rem] border border-white/10 bg-slate-950/70">
-              <iframe
-                title="ByteInfomedia Dwarka office map"
-                src="https://www.google.com/maps?q=First%20Floor%2C%20PlotNo.27%2C%20Sector-19%2C%20Dwarka%2C%20New%20Delhi%20-%20110075&output=embed"
-                className="h-44 w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
+            <a
+              href={company.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-[1.8rem] border border-[#0a66c2]/35 bg-[#0a66c2]/10 p-5 transition hover:-translate-y-1 hover:border-[#65a9ee]/60 hover:bg-[#0a66c2]/16"
+            >
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-200">LinkedIn Company Page</p>
+              <p className="mt-2 text-xl font-bold text-white">Connect with ByteInfomedia on LinkedIn</p>
+              <p className="mt-2 text-sm leading-6 text-slate-400">Use LinkedIn as the primary social trust signal for company updates and professional validation.</p>
+            </a>
           </div>
 
-          <CRMLeadForm
-            intent="consultation"
-            title="Get Free AWS Consultation"
-            description="Share your cloud, DevOps, infrastructure, or cybersecurity requirement. Our team will review it and help you identify the fastest path to a secure, scalable solution."
-          />
+          <div className="grid gap-4">
+            <div className="glass-panel relative overflow-hidden rounded-[2.2rem] p-6">
+              <div className="absolute -right-20 -top-20 h-52 w-52 rounded-full bg-orange-300/10 blur-3xl" />
+              <div className="relative">
+                <p className="section-eyebrow">Enterprise Contact Trust</p>
+                <h3 className="mt-5 text-3xl font-black tracking-tight text-white">Clear access. Practical response. No duplicate forms.</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300">
+                  The main assessment form is intentionally kept in one place. This contact section gives decision-makers direct channels and confidence signals for faster next steps.
+                </p>
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {contactTrustBadges.map((badge) => (
+                    <div key={badge} className="flex items-center gap-3 rounded-2xl bg-white/[0.055] px-4 py-3 text-sm font-semibold text-slate-100">
+                      <Check className="h-4 w-4 shrink-0 text-orange-300" />
+                      {badge}
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-amber-300/20 bg-amber-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-amber-100">
+                  <Headphones className="h-4 w-4" />
+                  Limited free consultation slots available this week
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {contactTrustCards.map((card) => (
+                <motion.article
+                  key={card.title}
+                  whileHover={{ y: -6 }}
+                  className="rounded-[1.8rem] border border-white/10 bg-white/[0.045] p-5 transition hover:border-orange-300/35 hover:bg-white/[0.07]"
+                >
+                  <ShieldCheck className="h-6 w-6 text-orange-200" />
+                  <h4 className="mt-4 text-lg font-black text-white">{card.title}</h4>
+                  <p className="mt-2 text-sm leading-6 text-slate-400">{card.description}</p>
+                </motion.article>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -832,8 +852,8 @@ function Footer() {
     <footer className="border-t border-white/10 px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.15fr_0.85fr_0.85fr_0.95fr]">
         <div>
-          <div className="inline-flex rounded-2xl border border-white/10 bg-white px-4 py-3 shadow-[0_18px_48px_rgba(255,91,35,0.16)]">
-            <img src={company.logo} alt="ByteInfomedia" className="h-9 w-auto" />
+          <div className="inline-flex rounded-3xl border border-white/10 bg-white px-5 py-4 shadow-[0_18px_48px_rgba(255,91,35,0.16)]">
+            <img src={company.logo} alt="ByteInfomedia" className="h-12 w-auto" />
           </div>
           <p className="mt-5 max-w-md text-sm leading-7 text-slate-400">
             {company.tagline} Premium AWS cloud consulting, DevOps automation, cybersecurity, managed services, and digital transformation for modern teams.
@@ -864,7 +884,7 @@ function Footer() {
             {[
               ["About", "#home"],
               ["Case Studies", "#services"],
-              ["Insights", "#insights"],
+              ["Delivery Model", "#delivery"],
               ["Careers", "#contact"],
               ["Contact", "#contact"],
             ].map(([link, href]) => (
@@ -883,13 +903,14 @@ function Footer() {
             <a href={company.whatsappHref} target="_blank" rel="noreferrer" className="hover:text-orange-200">Chat on WhatsApp</a>
             <p>{company.address}</p>
           </div>
-          <div className="mt-5 flex gap-3">
-            {["LinkedIn", "X", "YouTube"].map((social) => (
-              <a key={social} href="#contact" className="rounded-full border border-white/10 px-3 py-1.5 text-xs font-bold text-slate-300 hover:border-orange-300/40 hover:text-white">
-                {social}
-              </a>
-            ))}
-          </div>
+          <a
+            href={company.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-5 inline-flex items-center justify-center rounded-full border border-[#0a66c2]/40 bg-[#0a66c2]/12 px-4 py-2 text-xs font-black uppercase tracking-[0.14em] text-blue-100 transition hover:-translate-y-0.5 hover:border-[#65a9ee]/70 hover:bg-[#0a66c2]/20"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
 
@@ -928,20 +949,10 @@ export function HomePage() {
       <CaseStudiesSection />
       <ArchitectureSection />
       <LeadGenerationSection />
-      <TestimonialsSection />
-      <InsightsSection />
+      <DeliveryModelSection />
+      <SupportCapabilitiesSection />
       <FAQSection />
       <ContactSection />
-      <section className="px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-6 overflow-hidden rounded-[2.5rem] border border-orange-300/20 bg-gradient-to-br from-orange-300/[0.12] via-white/[0.04] to-cyan-300/[0.08] p-6 sm:p-8 lg:grid-cols-[1fr_0.75fr] lg:items-center">
-          <div>
-            <p className="section-eyebrow">Free Cloud Audit</p>
-            <h2 className="mt-5 text-4xl font-black tracking-tight text-white">Get Free Cloud Audit</h2>
-            <p className="mt-3 text-slate-300">Find AWS cost, security, DevOps, monitoring, and backup gaps before they become business risk.</p>
-          </div>
-          <CRMLeadForm intent="assessment" compact title="Start Your Free Audit" />
-        </div>
-      </section>
       <Footer />
       <PopupCTA />
       <ChatWidget />
