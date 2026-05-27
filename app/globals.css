@@ -381,3 +381,45 @@ html.light [class*="hover:text-white"]:hover {
 html.light [class*="hover:text-slate-950"]:hover {
   color: #07111f !important;
 }
+
+
+/* Final light-mode polish: crisp enterprise contrast, brighter surfaces, and premium logo chips. */
+html.light .premium-shell {
+  background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(240,246,252,0.2));
+}
+
+html.light .tech-logo-chip {
+  border-color: rgba(15, 33, 59, 0.11) !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  color: #1f3147 !important;
+  box-shadow: 0 14px 34px rgba(14, 34, 58, 0.1) !important;
+}
+
+html.light .tech-logo-chip:hover {
+  border-color: rgba(255, 91, 35, 0.34) !important;
+  color: #b63d12 !important;
+  box-shadow: 0 20px 50px rgba(255, 91, 35, 0.13) !important;
+}
+
+html.light .section-eyebrow svg,
+html.light .tech-logo-chip svg {
+  filter: drop-shadow(0 4px 10px rgba(255, 91, 35, 0.08));
+}
+
+html.light .group:hover .group-hover\:text-orange-100 {
+  color: #b63d12 !important;
+}
+
+html.light .rounded-\[2\.5rem\],
+html.light .rounded-\[2\.2rem\],
+html.light .rounded-\[2rem\] {
+  border-color: rgba(15, 33, 59, 0.1);
+}
+
+html.light .bg-amber-300\/10 {
+  background: rgba(255, 243, 205, 0.82) !important;
+}
+
+html.light .text-amber-100 {
+  color: #9a5b00 !important;
+}
