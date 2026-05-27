@@ -7,10 +7,13 @@ import {
   Bot,
   Check,
   ChevronDown,
+  Clock3,
   Cloud,
   Cpu,
   Database,
   Globe2,
+  Headphones,
+  Mail,
   MapPin,
   Menu,
   MessageCircle,
@@ -156,7 +159,7 @@ function Navbar() {
               </a>
             ))}
             <a href="#contact" onClick={() => setOpen(false)} className="rounded-2xl bg-cyan-300 px-4 py-3 text-center text-sm font-bold text-slate-950">
-              Book Free Consultation
+              Get AWS Consultation
             </a>
           </div>
         </div>
@@ -231,7 +234,7 @@ function Hero() {
 
           <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-full bg-cyan-300 px-6 py-3 text-sm font-bold text-slate-950 shadow-[0_24px_70px_rgba(53,215,255,0.25)] transition hover:-translate-y-0.5 hover:bg-white">
-              Book Free Consultation <ArrowRight className="h-4 w-4" />
+              Get AWS Consultation <ArrowRight className="h-4 w-4" />
             </a>
             <a href="#lead" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/14 px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-white/10">
               Get Cloud Assessment
@@ -503,7 +506,7 @@ function LeadGenerationSection() {
           <span className="section-eyebrow">Lead Generation</span>
           <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-5xl">Start with a focused cloud, security, or cost review.</h2>
           <p className="mt-5 text-base leading-8 text-slate-300">
-            Choose a practical assessment offer and share your goals. The frontend form is CRM-ready for HubSpot, Zoho, or Salesforce without requiring a custom backend.
+            Choose a practical assessment offer and share your goals. Our cloud consultants will review your environment and recommend the next steps for secure, scalable infrastructure.
           </p>
           <div className="mt-8 grid gap-4">
             {leadOffers.map((offer) => (
@@ -612,47 +615,110 @@ function FAQSection() {
 }
 
 function ContactSection() {
+  const contactTrustBadges = ["AWS Cloud Experts", "24/7 Managed Support", "Security-First Architecture", "Fast Response Team"];
+
   return (
     <section id="contact" className="px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-        <div>
-          <span className="section-eyebrow">Contact</span>
-          <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-5xl">Ready to modernize your cloud infrastructure?</h2>
-          <p className="mt-5 text-base leading-8 text-slate-300">
-            Use the consultation form to share your requirements. ByteInfomedia's public contact page lists the address below and accepts inquiries through the official website.
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 max-w-4xl">
+          <span className="section-eyebrow">Contact Cloud Experts</span>
+          <h2 className="mt-5 text-4xl font-black tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
+            Get a Free <span className="gradient-text">Cloud Architecture Consultation</span>
+          </h2>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            Need immediate assistance with AWS infrastructure, DevOps automation, cloud migration, or cybersecurity? Speak directly with our cloud consultants and get a practical next-step roadmap.
           </p>
-
-          <div className="mt-8 grid gap-4">
-            <div className="glass-panel rounded-[1.8rem] p-5">
-              <MapPin className="h-6 w-6 text-cyan-200" />
-              <p className="mt-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">India office</p>
-              <p className="mt-2 text-lg font-semibold leading-7 text-white">{company.address}</p>
-            </div>
-            <div className="glass-panel rounded-[1.8rem] p-5">
-              <PhoneCall className="h-6 w-6 text-emerald-200" />
-              <p className="mt-4 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Official contact channel</p>
-              <a href={company.contactRoute} target="_blank" rel="noreferrer" className="mt-2 inline-flex items-center gap-2 text-lg font-semibold text-white hover:text-cyan-200">
-                Contact ByteInfomedia through the official website <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-6 overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/70">
-            <iframe
-              title="ByteInfomedia Dwarka office map"
-              src="https://www.google.com/maps?q=First%20Floor%2C%20PlotNo.27%2C%20Sector-19%2C%20Dwarka%2C%20New%20Delhi%20-%20110075&output=embed"
-              className="h-72 w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
         </div>
 
-        <CRMLeadForm
-          intent="consultation"
-          title="Book Free Consultation"
-          description="Request a conversation about AWS infrastructure, DevOps automation, managed cloud operations, cybersecurity, or cloud cost optimization."
-        />
+        <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+          <div className="grid gap-4">
+            <a
+              href={company.phoneHref}
+              className="group relative overflow-hidden rounded-[2.2rem] border border-cyan-300/25 bg-gradient-to-br from-cyan-300/18 via-white/[0.065] to-violet-400/10 p-6 shadow-[0_24px_80px_rgba(53,215,255,0.14)] backdrop-blur-2xl transition hover:-translate-y-1 hover:border-cyan-200/60 hover:shadow-[0_34px_100px_rgba(53,215,255,0.22)]"
+            >
+              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-cyan-300/20 blur-3xl transition group-hover:bg-cyan-200/30" />
+              <div className="relative flex items-center gap-4">
+                <span className="grid h-16 w-16 shrink-0 place-items-center rounded-3xl bg-cyan-300 text-slate-950 shadow-[0_18px_50px_rgba(53,215,255,0.28)]">
+                  <PhoneCall className="h-7 w-7" />
+                </span>
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-100">Call Us Now</p>
+                  <p className="mt-2 text-3xl font-black tracking-tight text-white sm:text-4xl">{company.phone}</p>
+                  <p className="mt-2 text-sm text-slate-300">Talk to an AWS, DevOps, or cybersecurity consultant.</p>
+                </div>
+              </div>
+            </a>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <a
+                href={company.whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                className="group rounded-[1.8rem] border border-emerald-300/25 bg-emerald-300/10 p-5 transition hover:-translate-y-1 hover:border-emerald-200/60 hover:bg-emerald-300/16"
+              >
+                <MessageCircle className="h-7 w-7 text-emerald-200" />
+                <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-emerald-100">WhatsApp CTA</p>
+                <p className="mt-2 text-xl font-bold text-white">Chat on WhatsApp</p>
+                <p className="mt-2 text-sm leading-6 text-slate-400">Fast response for urgent cloud and security questions.</p>
+              </a>
+
+              <a
+                href={`mailto:${company.email}`}
+                className="rounded-[1.8rem] border border-white/10 bg-white/[0.055] p-5 transition hover:-translate-y-1 hover:border-cyan-300/35 hover:bg-cyan-300/[0.07]"
+              >
+                <Mail className="h-7 w-7 text-cyan-200" />
+                <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-slate-500">Business Email</p>
+                <p className="mt-2 break-words text-xl font-bold text-white">{company.email}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-400">Send requirements, RFPs, or infrastructure notes.</p>
+              </a>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="glass-panel rounded-[1.8rem] p-5">
+                <MapPin className="h-7 w-7 text-cyan-200" />
+                <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-slate-500">Office Address</p>
+                <p className="mt-2 text-base font-semibold leading-7 text-white">{company.address}</p>
+              </div>
+              <div className="glass-panel rounded-[1.8rem] p-5">
+                <Clock3 className="h-7 w-7 text-violet-200" />
+                <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-slate-500">Support Availability</p>
+                <p className="mt-2 text-xl font-bold text-white">Mon-Sat | 9 AM - 7 PM</p>
+                <p className="mt-2 text-sm leading-6 text-slate-400">Priority response for consultation requests.</p>
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-white/10 bg-slate-950/55 p-5">
+              <div className="grid gap-3 sm:grid-cols-2">
+                {contactTrustBadges.map((badge) => (
+                  <div key={badge} className="flex items-center gap-3 rounded-2xl bg-white/[0.055] px-4 py-3 text-sm font-semibold text-slate-100">
+                    <Check className="h-4 w-4 shrink-0 text-emerald-300" />
+                    {badge}
+                  </div>
+                ))}
+              </div>
+              <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-amber-300/20 bg-amber-300/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-amber-100">
+                <Headphones className="h-4 w-4" />
+                Limited free consultation slots available this week
+              </p>
+            </div>
+
+            <div className="overflow-hidden rounded-[1.8rem] border border-white/10 bg-slate-950/70">
+              <iframe
+                title="ByteInfomedia Dwarka office map"
+                src="https://www.google.com/maps?q=First%20Floor%2C%20PlotNo.27%2C%20Sector-19%2C%20Dwarka%2C%20New%20Delhi%20-%20110075&output=embed"
+                className="h-44 w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+
+          <CRMLeadForm
+            intent="consultation"
+            title="Get Free AWS Consultation"
+            description="Share your cloud, DevOps, infrastructure, or cybersecurity requirement. Our team will review it and help you identify the fastest path to a secure, scalable solution."
+          />
+        </div>
       </div>
     </section>
   );
@@ -691,12 +757,14 @@ function PopupCTA() {
 function ChatWidget() {
   return (
     <a
-      href="#contact"
+      href={company.whatsappHref}
+      target="_blank"
+      rel="noreferrer"
       className="fixed bottom-5 right-5 z-40 inline-flex items-center gap-3 rounded-full border border-emerald-300/20 bg-emerald-300 px-5 py-3 text-sm font-bold text-slate-950 shadow-[0_18px_60px_rgba(72,242,184,0.22)] transition hover:-translate-y-1"
       aria-label="Open chat and WhatsApp contact request"
     >
       <MessageCircle className="h-5 w-5" />
-      Chat / WhatsApp
+      Chat on WhatsApp
     </a>
   );
 }

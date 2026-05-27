@@ -65,6 +65,8 @@ const organizationSchema = {
   name: company.legalName,
   alternateName: company.name,
   url: company.website,
+  telephone: company.phone,
+  email: company.email,
   address: {
     "@type": "PostalAddress",
     streetAddress: "First Floor, PlotNo.27, Sector-19, Dwarka",

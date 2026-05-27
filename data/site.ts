@@ -30,6 +30,10 @@ export const company = {
   legalName: "Byte InfoMedia LLP",
   address: "First Floor, PlotNo.27, Sector-19, Dwarka, New Delhi - 110075",
   country: "India",
+  phone: "+91 70427 27803",
+  phoneHref: "tel:+917042727803",
+  whatsappHref: "https://wa.me/917042727803",
+  email: "info@byteinfomedia.com",
   website: "https://www.byteinfomedia.com/",
   contactRoute: "https://www.byteinfomedia.com/about-2",
   tagline: "Technology Managed. Business Empowered.",
@@ -256,7 +260,7 @@ export const faqs = [
   {
     question: "How do the website forms connect to a CRM?",
     answer:
-      "Forms support frontend-only HubSpot, Zoho, and Salesforce Web-to-Lead integrations through public environment variables, making submissions CRM-ready without a custom backend.",
+      "Forms route high-intent consultation requests to the ByteInfomedia team so prospects can receive timely follow-up on cloud, DevOps, and security needs.",
   },
   {
     question: "Do you support cybersecurity and VAPT?",
