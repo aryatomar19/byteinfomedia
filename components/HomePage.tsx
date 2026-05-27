@@ -18,11 +18,13 @@ import {
   MapPin,
   Menu,
   MessageCircle,
+  Moon,
   PhoneCall,
   Radar,
   Shield,
   ShieldCheck,
   Sparkles,
+  Sun,
   X,
 } from "lucide-react";
 import { CRMLeadForm } from "@/components/CRMLeadForm";
@@ -63,6 +65,49 @@ const stagger = {
   },
 };
 
+
+type ThemeMode = "light" | "dark";
+
+const themeStorageKey = "byteinfomedia-theme";
+
+function getPreferredTheme(): ThemeMode {
+  if (typeof window === "undefined") return "dark";
+
+  const storedTheme = window.localStorage.getItem(themeStorageKey);
+  if (storedTheme === "light" || storedTheme === "dark") return storedTheme;
+
+  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+}
+
+function applyTheme(theme: ThemeMode) {
+  const root = document.documentElement;
+  root.classList.remove("light", "dark");
+  root.classList.add(theme);
+  root.style.colorScheme = theme;
+}
+
+function ThemeToggle({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: ThemeMode) => void }) {
+  const isDark = theme === "dark";
+
+  return (
+    <button
+      type="button"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.065] p-1 text-xs font-black uppercase tracking-[0.14em] text-slate-200 shadow-[0_12px_34px_rgba(0,0,0,0.14)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:border-orange-300/40 hover:bg-white/[0.1]"
+      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+      aria-pressed={!isDark}
+    >
+      <span className={`grid h-8 w-8 place-items-center rounded-full transition ${isDark ? "bg-[#ff5b23] text-white shadow-[0_10px_28px_rgba(255,91,35,0.28)]" : "bg-white text-slate-500"}`}>
+        <Moon className="h-4 w-4" />
+      </span>
+      <span className="hidden sm:inline">{isDark ? "Dark" : "Light"}</span>
+      <span className={`grid h-8 w-8 place-items-center rounded-full transition ${isDark ? "bg-white/[0.08] text-slate-400" : "bg-[#ff5b23] text-white shadow-[0_10px_28px_rgba(255,91,35,0.28)]"}`}>
+        <Sun className="h-4 w-4" />
+      </span>
+    </button>
+  );
+}
+
 function SectionHeading({
   eyebrow,
   title,
@@ -91,7 +136,7 @@ function SectionHeading({
   );
 }
 
-function Navbar() {
+function Navbar({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: ThemeMode) => void }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -132,6 +177,7 @@ function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <ThemeToggle theme={theme} setTheme={setTheme} />
           <a href="#lead" className="rounded-full border border-orange-300/30 px-4 py-2 text-sm font-semibold text-orange-100 transition hover:bg-orange-300/10">
             Free Assessment
           </a>
@@ -163,6 +209,7 @@ function Navbar() {
                 {item.label}
               </a>
             ))}
+            <ThemeToggle theme={theme} setTheme={setTheme} />
             <a href="#contact" onClick={() => setOpen(false)} className="rounded-2xl bg-[#ff5b23] px-4 py-3 text-center text-sm font-bold text-white">
               Get AWS Consultation
             </a>
@@ -926,6 +973,20 @@ function Footer() {
 }
 
 export function HomePage() {
+  const [theme, setThemeState] = useState<ThemeMode>("dark");
+
+  useEffect(() => {
+    const preferredTheme = getPreferredTheme();
+    setThemeState(preferredTheme);
+    applyTheme(preferredTheme);
+  }, []);
+
+  function setTheme(theme: ThemeMode) {
+    setThemeState(theme);
+    window.localStorage.setItem(themeStorageKey, theme);
+    applyTheme(theme);
+  }
+
   return (
     <main className="premium-shell">
       <div className="particle-field" aria-hidden="true">
@@ -940,7 +1001,7 @@ export function HomePage() {
           />
         ))}
       </div>
-      <Navbar />
+      <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <TrustSection />
       <ServicesSection />
