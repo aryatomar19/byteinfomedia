@@ -3,6 +3,20 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
+  siCloudflare,
+  siDocker,
+  siGithubactions,
+  siGrafana,
+  siJenkins,
+  siKubernetes,
+  siLinux,
+  siMysql,
+  siNginx,
+  siPostgresql,
+  siPrometheus,
+  siTerraform,
+} from "simple-icons";
+import {
   ArrowRight,
   BadgeCheck,
   Bot,
@@ -88,23 +102,87 @@ function applyTheme(theme: ThemeMode) {
 
 function ThemeToggle({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: ThemeMode) => void }) {
   const isDark = theme === "dark";
+  const Icon = isDark ? Sun : Moon;
 
   return (
     <button
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.065] p-1 text-xs font-black uppercase tracking-[0.14em] text-slate-200 shadow-[0_12px_34px_rgba(0,0,0,0.14)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:border-orange-300/40 hover:bg-white/[0.1]"
+      className="group relative grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.07] text-orange-100 shadow-[0_12px_34px_rgba(0,0,0,0.14)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:border-orange-300/45 hover:bg-orange-300/10"
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       aria-pressed={!isDark}
+      title={`Switch to ${isDark ? "light" : "dark"} mode`}
     >
-      <span className={`grid h-8 w-8 place-items-center rounded-full transition ${isDark ? "bg-[#ff5b23] text-white shadow-[0_10px_28px_rgba(255,91,35,0.28)]" : "bg-white text-slate-500"}`}>
-        <Moon className="h-4 w-4" />
-      </span>
-      <span className="hidden sm:inline">{isDark ? "Dark" : "Light"}</span>
-      <span className={`grid h-8 w-8 place-items-center rounded-full transition ${isDark ? "bg-white/[0.08] text-slate-400" : "bg-[#ff5b23] text-white shadow-[0_10px_28px_rgba(255,91,35,0.28)]"}`}>
-        <Sun className="h-4 w-4" />
-      </span>
+      <span className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-300/16 to-cyan-300/10 opacity-0 transition group-hover:opacity-100" />
+      <Icon className="relative h-4.5 w-4.5 transition duration-300 group-hover:rotate-12" />
     </button>
+  );
+}
+
+
+type BrandIconData = {
+  title: string;
+  path: string;
+  hex: string;
+};
+
+const primaryTechLogos: Array<BrandIconData | { title: "AWS"; hex: string; path?: never }> = [
+  { title: "AWS", hex: "FF9900" },
+  siDocker,
+  siKubernetes,
+  siTerraform,
+  siJenkins,
+  siGrafana,
+];
+
+const enterpriseTechLogos: Array<BrandIconData | { title: "AWS"; hex: string; path?: never }> = [
+  ...primaryTechLogos,
+  siLinux,
+  siGithubactions,
+  siNginx,
+  siCloudflare,
+  siPrometheus,
+  siMysql,
+  siPostgresql,
+];
+
+function BrandMark({ icon, className = "h-5 w-5" }: { icon: BrandIconData | { title: "AWS"; hex: string; path?: never }; className?: string }) {
+  if (icon.title === "AWS") {
+    return (
+      <span className={`${className} inline-grid place-items-center font-black tracking-[-0.08em] text-current`} aria-hidden="true">
+        AWS
+      </span>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" role="img" aria-label={icon.title} className={className} fill="currentColor">
+      <path d={icon.path} />
+    </svg>
+  );
+}
+
+function TechLogoStrip({ logos = primaryTechLogos, compact = false }: { logos?: typeof enterpriseTechLogos; compact?: boolean }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className={`flex flex-wrap items-center gap-3 ${compact ? "justify-start" : "justify-center"}`}
+    >
+      {logos.map((icon, index) => (
+        <motion.span
+          key={icon.title}
+          animate={{ y: [0, index % 2 ? 3 : -3, 0] }}
+          transition={{ duration: 4 + index * 0.15, repeat: Infinity, ease: "easeInOut" }}
+          className="tech-logo-chip group inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.055] px-3.5 py-2 text-sm font-black text-slate-200 shadow-[0_12px_36px_rgba(0,0,0,0.12)] backdrop-blur-xl transition hover:-translate-y-1 hover:border-orange-300/45 hover:text-orange-100 hover:shadow-[0_18px_50px_rgba(255,91,35,0.14)]"
+          title={icon.title}
+        >
+          <BrandMark icon={icon} className={icon.title === "AWS" ? "h-5 min-w-8 text-[0.72rem]" : "h-5 w-5"} />
+          <span>{icon.title}</span>
+        </motion.span>
+      ))}
+    </motion.div>
   );
 }
 
@@ -177,13 +255,13 @@ function Navbar({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: Theme
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <ThemeToggle theme={theme} setTheme={setTheme} />
           <a href="#lead" className="rounded-full border border-orange-300/30 px-4 py-2 text-sm font-semibold text-orange-100 transition hover:bg-orange-300/10">
             Free Assessment
           </a>
           <a href="#contact" className="rounded-full bg-[#ff5b23] px-4 py-2 text-sm font-bold text-white shadow-[0_16px_42px_rgba(255,91,35,0.26)] transition hover:-translate-y-0.5 hover:bg-white hover:text-slate-950">
             Book Consultation
           </a>
+          <ThemeToggle theme={theme} setTheme={setTheme} />
         </div>
 
         <button
@@ -323,6 +401,11 @@ function Hero() {
             <Sparkles className="h-4 w-4" />
             Limited free consultation slots available this week
           </motion.p>
+
+          <motion.div variants={fadeUp} className="mt-7">
+            <p className="mb-3 text-xs font-black uppercase tracking-[0.18em] text-slate-500">Trusted technology stack</p>
+            <TechLogoStrip compact />
+          </motion.div>
         </motion.div>
 
         <HeroArchitecture />
@@ -357,12 +440,8 @@ function TrustSection() {
 
           <div className="mt-8 border-t border-white/10 pt-6">
             <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Technology ecosystem</p>
-            <div className="mt-5 flex flex-wrap justify-center gap-3">
-              {technologyEcosystem.map((logo) => (
-                <span key={logo} className="rounded-2xl border border-white/10 bg-slate-950/50 px-4 py-3 text-sm font-black text-slate-200 transition hover:-translate-y-1 hover:border-cyan-300/30 hover:text-white">
-                  {logo}
-                </span>
-              ))}
+            <div className="mt-5">
+              <TechLogoStrip logos={enterpriseTechLogos} />
             </div>
           </div>
         </div>
@@ -593,6 +672,10 @@ function ArchitectureSection() {
                 {item}
               </div>
             ))}
+          </div>
+
+          <div className="relative mt-8 border-t border-white/10 pt-6">
+            <TechLogoStrip logos={primaryTechLogos} />
           </div>
         </div>
       </div>
@@ -961,7 +1044,12 @@ function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 pt-6">
+        <p className="mb-4 text-xs font-black uppercase tracking-[0.18em] text-slate-500">Technology stack</p>
+        <TechLogoStrip logos={enterpriseTechLogos} compact />
+      </div>
+
+      <div className="mx-auto mt-8 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
         <p>© 2026 by {company.legalName}</p>
         <div className="flex gap-4">
           <a href="/privacy-policy/" className="hover:text-orange-200">Privacy Policy</a>
