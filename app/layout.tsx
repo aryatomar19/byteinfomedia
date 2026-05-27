@@ -57,6 +57,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: company.favicon,
+    shortcut: company.favicon,
+    apple: company.logo,
+  },
 };
 
 const organizationSchema = {

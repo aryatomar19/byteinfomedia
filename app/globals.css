@@ -5,6 +5,7 @@
   --background: #030711;
   --foreground: #eef5ff;
   --muted: #9db0c9;
+  --orange: #ff5b23;
   --cyan: #35d7ff;
   --blue: #5786ff;
   --violet: #9b5cff;
@@ -24,7 +25,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 18% 12%, rgba(53, 215, 255, 0.18), transparent 32rem),
+    radial-gradient(circle at 18% 12%, rgba(255, 91, 35, 0.16), transparent 32rem),
     radial-gradient(circle at 86% 18%, rgba(155, 92, 255, 0.16), transparent 28rem),
     linear-gradient(180deg, #030711 0%, #07101f 44%, #030711 100%);
   color: var(--foreground);
@@ -91,7 +92,7 @@ a {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #ffffff 0%, #bfeeff 38%, #a98cff 78%, #48f2b8 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #ffd8c8 32%, #ff5b23 64%, #35d7ff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -108,7 +109,7 @@ a {
   z-index: -1;
   border-radius: inherit;
   content: "";
-  background: linear-gradient(120deg, rgba(53, 215, 255, 0.55), rgba(155, 92, 255, 0.35), rgba(72, 242, 184, 0.5));
+  background: linear-gradient(120deg, rgba(255, 91, 35, 0.55), rgba(53, 215, 255, 0.35), rgba(72, 242, 184, 0.4));
   opacity: 0;
   transition: opacity 220ms ease;
 }
@@ -146,4 +147,26 @@ a {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+.particle-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle-field span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 91, 35, 0.52);
+  box-shadow: 0 0 24px rgba(255, 91, 35, 0.42);
+  animation: particle-drift 12s ease-in-out infinite;
+}
+
+@keyframes particle-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.2; }
+  50% { transform: translate3d(24px, -32px, 0); opacity: 0.72; }
 }

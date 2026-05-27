@@ -134,7 +134,7 @@ export function CRMLeadForm({ intent, compact = false, title, description }: CRM
       className="glass-panel relative overflow-hidden rounded-[2.2rem] p-5 sm:p-7"
       data-lead-intent={intent}
     >
-      <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-cyan-300/15 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-orange-300/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 left-8 h-56 w-56 rounded-full bg-violet-400/10 blur-3xl" />
 
       {(title || description) && (
@@ -157,7 +157,7 @@ export function CRMLeadForm({ intent, compact = false, title, description }: CRM
             required
             placeholder="Your full name"
             autoComplete="name"
-            className="rounded-2xl border border-white/10 bg-white/[0.065] px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition placeholder:text-slate-500 hover:border-white/20 focus:border-cyan-300/80 focus:bg-white/[0.1] focus:shadow-[0_0_0_4px_rgba(53,215,255,0.08)]"
+            className="rounded-2xl border border-white/10 bg-white/[0.065] px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition placeholder:text-slate-500 hover:border-white/20 focus:border-orange-300/80 focus:bg-white/[0.1] focus:shadow-[0_0_0_4px_rgba(255,91,35,0.10)]"
           />
         </label>
 
@@ -170,7 +170,7 @@ export function CRMLeadForm({ intent, compact = false, title, description }: CRM
             required
             placeholder="name@company.com"
             autoComplete="email"
-            className="rounded-2xl border border-white/10 bg-white/[0.065] px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition placeholder:text-slate-500 hover:border-white/20 focus:border-cyan-300/80 focus:bg-white/[0.1] focus:shadow-[0_0_0_4px_rgba(53,215,255,0.08)]"
+            className="rounded-2xl border border-white/10 bg-white/[0.065] px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition placeholder:text-slate-500 hover:border-white/20 focus:border-orange-300/80 focus:bg-white/[0.1] focus:shadow-[0_0_0_4px_rgba(255,91,35,0.10)]"
           />
         </label>
 
@@ -183,7 +183,7 @@ export function CRMLeadForm({ intent, compact = false, title, description }: CRM
                 name="phone"
                 placeholder="+91 98765 43210"
                 autoComplete="tel"
-                className="rounded-2xl border border-white/10 bg-white/[0.065] px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition placeholder:text-slate-500 hover:border-white/20 focus:border-cyan-300/80 focus:bg-white/[0.1] focus:shadow-[0_0_0_4px_rgba(53,215,255,0.08)]"
+                className="rounded-2xl border border-white/10 bg-white/[0.065] px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition placeholder:text-slate-500 hover:border-white/20 focus:border-orange-300/80 focus:bg-white/[0.1] focus:shadow-[0_0_0_4px_rgba(255,91,35,0.10)]"
               />
             </label>
 
@@ -194,7 +194,7 @@ export function CRMLeadForm({ intent, compact = false, title, description }: CRM
                 name="company"
                 placeholder="Company or organization"
                 autoComplete="organization"
-                className="rounded-2xl border border-white/10 bg-white/[0.065] px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition placeholder:text-slate-500 hover:border-white/20 focus:border-cyan-300/80 focus:bg-white/[0.1] focus:shadow-[0_0_0_4px_rgba(53,215,255,0.08)]"
+                className="rounded-2xl border border-white/10 bg-white/[0.065] px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition placeholder:text-slate-500 hover:border-white/20 focus:border-orange-300/80 focus:bg-white/[0.1] focus:shadow-[0_0_0_4px_rgba(255,91,35,0.10)]"
               />
             </label>
 
@@ -203,7 +203,7 @@ export function CRMLeadForm({ intent, compact = false, title, description }: CRM
               <select
                 id={`${intent}-service`}
                 name="service"
-                className="rounded-2xl border border-white/10 bg-slate-950 px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition hover:border-white/20 focus:border-cyan-300/80 focus:shadow-[0_0_0_4px_rgba(53,215,255,0.08)]"
+                className="rounded-2xl border border-white/10 bg-slate-950 px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition hover:border-white/20 focus:border-orange-300/80 focus:shadow-[0_0_0_4px_rgba(255,91,35,0.10)]"
                 defaultValue=""
               >
                 <option value="" disabled>
@@ -220,7 +220,7 @@ export function CRMLeadForm({ intent, compact = false, title, description }: CRM
               <select
                 id={`${intent}-preferred-contact`}
                 name="preferredContactMethod"
-                className="rounded-2xl border border-white/10 bg-slate-950 px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition hover:border-white/20 focus:border-cyan-300/80 focus:shadow-[0_0_0_4px_rgba(53,215,255,0.08)]"
+                className="rounded-2xl border border-white/10 bg-slate-950 px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition hover:border-white/20 focus:border-orange-300/80 focus:shadow-[0_0_0_4px_rgba(255,91,35,0.10)]"
                 defaultValue=""
               >
                 <option value="" disabled>
@@ -239,7 +239,7 @@ export function CRMLeadForm({ intent, compact = false, title, description }: CRM
                 name="message"
                 rows={4}
                 placeholder="Tell us about your AWS, DevOps, cloud migration, cybersecurity, or managed services requirement."
-                className="rounded-2xl border border-white/10 bg-white/[0.065] px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition placeholder:text-slate-500 hover:border-white/20 focus:border-cyan-300/80 focus:bg-white/[0.1] focus:shadow-[0_0_0_4px_rgba(53,215,255,0.08)]"
+                className="rounded-2xl border border-white/10 bg-white/[0.065] px-4 py-3.5 text-sm font-medium normal-case tracking-normal text-white outline-none transition placeholder:text-slate-500 hover:border-white/20 focus:border-orange-300/80 focus:bg-white/[0.1] focus:shadow-[0_0_0_4px_rgba(255,91,35,0.10)]"
               />
             </label>
           </>
@@ -249,7 +249,7 @@ export function CRMLeadForm({ intent, compact = false, title, description }: CRM
       <button
         type="submit"
         disabled={state === "submitting"}
-        className="group relative mt-5 inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-200 via-white to-emerald-200 px-5 py-4 text-sm font-black uppercase tracking-[0.12em] text-slate-950 shadow-[0_24px_70px_rgba(53,215,255,0.28)] transition hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(72,242,184,0.32)] disabled:cursor-not-allowed disabled:opacity-70"
+        className="group relative mt-5 inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-orange-300 via-white to-cyan-200 px-5 py-4 text-sm font-black uppercase tracking-[0.12em] text-slate-950 shadow-[0_24px_70px_rgba(255,91,35,0.30)] transition hover:-translate-y-1 hover:shadow-[0_30px_90px_rgba(255,91,35,0.36)] disabled:cursor-not-allowed disabled:opacity-70"
       >
         <span className="absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-white/50 transition-all duration-700 group-hover:left-full" />
         {state === "submitting" ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
