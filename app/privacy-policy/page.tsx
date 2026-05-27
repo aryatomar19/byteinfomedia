@@ -2,7 +2,7 @@ import { company } from "@/data/site";
 
 export const metadata = {
   title: "Privacy Policy",
-  description: "Privacy policy for ByteInfomedia website inquiries and CRM-ready lead forms.",
+  description: "Privacy policy for ByteInfomedia website inquiries and lead forms.",
 };
 
 export default function PrivacyPolicyPage() {
