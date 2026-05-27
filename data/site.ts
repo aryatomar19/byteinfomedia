@@ -38,6 +38,7 @@ export const company = {
   email: "info@byteinfomedia.com",
   website: "https://www.byteinfomedia.com/",
   contactRoute: "https://www.byteinfomedia.com/about-2",
+  linkedin: "https://www.linkedin.com/company/byte-infomedia",
   tagline: "Technology Managed. Business Empowered.",
   description:
     "ByteInfomedia is a modern IT solutions company providing cloud services, cybersecurity, AWS solutions, and infrastructure management for businesses.",
@@ -47,7 +48,7 @@ export const navigation = [
   { label: "Services", href: "#services" },
   { label: "Industries", href: "#industries" },
   { label: "Architecture", href: "#architecture" },
-  { label: "Insights", href: "#insights" },
+  { label: "Delivery", href: "#delivery" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -141,24 +142,96 @@ export const industries = [
 
 export const caseStudies = [
   {
-    title: "Cloud Cost Governance",
-    context: "A growing cloud environment needed clearer ownership, budget visibility, and resource optimization discipline.",
-    solution: "Implemented tagging standards, rightsizing reviews, budget alerts, storage lifecycle policies, and FinOps reporting.",
-    outcomes: ["AWS spend governance", "Resource optimization", "Executive cost visibility"],
+    title: "AWS Cost Optimization for SaaS Platforms",
+    context: "A SaaS infrastructure footprint needed better cost ownership, tagging discipline, and visibility before scaling further.",
+    solution: "Structured a FinOps review model covering budget alerts, rightsizing checks, storage lifecycle policy, and environment-level accountability.",
+    outcomes: ["Cost visibility", "Governed scaling", "Optimization roadmap"],
   },
   {
-    title: "DevOps Release Modernization",
-    context: "A product team needed safer releases, consistent environments, and reduced manual deployment effort.",
-    solution: "Designed CI/CD pipelines, infrastructure-as-code workflow, approval gates, environment promotion, and release observability.",
-    outcomes: ["Faster release cycles", "Lower deployment risk", "Repeatable environments"],
+    title: "DevOps Pipeline Modernization",
+    context: "A product engineering team needed a safer release process and more consistent promotion across environments.",
+    solution: "Planned CI/CD workflow improvements with quality gates, infrastructure-as-code review, approval controls, and deployment visibility.",
+    outcomes: ["Safer releases", "Repeatable delivery", "Improved visibility"],
   },
   {
-    title: "Security & Resilience Review",
-    context: "A business-critical platform needed practical security hardening across cloud, network, backup, and access layers.",
-    solution: "Delivered VAPT-oriented assessment, IAM review, WAF controls, backup validation, network resilience testing, and remediation roadmap.",
-    outcomes: ["Reduced exposure", "Actionable remediation", "Stronger recovery posture"],
+    title: "Cloud Security Hardening Review",
+    context: "A business-critical cloud environment required a practical review of access, network exposure, logging, and recovery readiness.",
+    solution: "Reviewed IAM, WAF posture, network controls, backup validation, monitoring coverage, and remediation priorities.",
+    outcomes: ["Prioritized risks", "Security roadmap", "Recovery readiness"],
+  },
+  {
+    title: "Managed Infrastructure Transformation",
+    context: "An operations team needed more reliable monitoring, backup governance, and incident response practices for existing infrastructure.",
+    solution: "Defined managed operations workflows for alerts, maintenance windows, escalation, documentation, and continuous optimization.",
+    outcomes: ["Operational clarity", "Support readiness", "Knowledge transfer"],
   },
 ];
+
+export const deliveryModel = [
+  {
+    title: "Discovery & Architecture Consultation",
+    description: "Understand current infrastructure, business priorities, risk areas, and the right AWS, DevOps, or security roadmap.",
+  },
+  {
+    title: "Secure Implementation Planning",
+    description: "Plan environments, access controls, migration phases, rollback paths, monitoring, and backup readiness before execution.",
+  },
+  {
+    title: "Managed Deployment & Monitoring",
+    description: "Support deployments with observability, release coordination, incident response paths, and operational ownership.",
+  },
+  {
+    title: "Continuous Optimization",
+    description: "Improve performance, cost, reliability, and security posture with structured reviews and practical remediation cycles.",
+  },
+  {
+    title: "Incident Response Support",
+    description: "Help teams respond to infrastructure, availability, security, and performance incidents with clear escalation and action plans.",
+  },
+  {
+    title: "Documentation & Knowledge Transfer",
+    description: "Provide implementation notes, operational runbooks, architecture context, and handover support for internal teams.",
+  },
+];
+
+export const supportCapabilities = [
+  {
+    title: "AWS-Focused Cloud Expertise",
+    description: "Architecture-first consulting for AWS migration, cloud modernization, governance, and scalable infrastructure foundations.",
+  },
+  {
+    title: "DevOps Automation Specialists",
+    description: "Pipeline, IaC, container, release, and monitoring practices designed to reduce operational friction.",
+  },
+  {
+    title: "Security-First Delivery",
+    description: "Security reviews, access hardening, WAF, backup validation, and remediation planning embedded into delivery.",
+  },
+  {
+    title: "Managed Operations Support",
+    description: "Monitoring, maintenance, escalation, incident response, and continuous optimization support for production systems.",
+  },
+];
+
+export const contactTrustCards = [
+  {
+    title: "Fast Response Consultation",
+    description: "Direct phone and WhatsApp access for urgent AWS, DevOps, cloud migration, and cybersecurity discussions.",
+  },
+  {
+    title: "Priority Engagement Support",
+    description: "Structured discovery for decision-makers who need practical next steps before investing in implementation.",
+  },
+  {
+    title: "Security-First Consulting",
+    description: "Every engagement considers access, network exposure, backup readiness, observability, and risk reduction.",
+  },
+  {
+    title: "Managed Support Availability",
+    description: "Support hours and managed operations practices designed around reliable enterprise infrastructure response.",
+  },
+];
+
 
 export const architectureSteps = [
   "Users",
@@ -186,53 +259,6 @@ export const leadOffers = [
   {
     title: "Free Cloud Cost Optimization Review",
     description: "Spot waste, rightsizing opportunities, storage improvements, and FinOps governance gaps.",
-  },
-];
-
-export const testimonials = [
-  {
-    quote:
-      "ByteInfomedia translated our infrastructure goals into a clear AWS roadmap and helped our team prioritize security, reliability, and cost control.",
-    name: "Amit Sharma",
-    role: "Head of Technology",
-    company: "NorthStar HealthTech",
-  },
-  {
-    quote:
-      "The DevOps automation plan gave our engineering team a safer release model with better visibility across environments and deployments.",
-    name: "Priya Menon",
-    role: "VP Engineering",
-    company: "FinEdge Platforms",
-  },
-  {
-    quote:
-      "Their security review was practical, business-aware, and focused on fixes our team could actually implement without slowing delivery.",
-    name: "Rahul Kapoor",
-    role: "Operations Director",
-    company: "RetailGrid Commerce",
-  },
-];
-
-export const insights = [
-  {
-    title: "AWS Cost Optimization Checklist",
-    description: "A practical checklist for rightsizing, tagging, storage lifecycle, budget alerts, and FinOps controls.",
-  },
-  {
-    title: "Zero Downtime Migration Strategy",
-    description: "How to plan discovery, migration waves, rollback paths, DNS cutovers, and post-migration validation.",
-  },
-  {
-    title: "Kubernetes Production Readiness",
-    description: "Key controls for observability, resource limits, ingress, secrets, network policies, and backup strategy.",
-  },
-  {
-    title: "Cloud Security Audit Framework",
-    description: "A business-friendly framework for IAM, WAF, network exposure, encryption, logging, and recovery readiness.",
-  },
-  {
-    title: "DevOps Automation Best Practices",
-    description: "Pipeline design, quality gates, IaC reviews, deployment approvals, and release telemetry for reliable delivery.",
   },
 ];
 
