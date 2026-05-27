@@ -27,18 +27,22 @@ import {
   Cpu,
   Database,
   Globe2,
+  HardDrive,
   Headphones,
   Mail,
   MapPin,
   Menu,
   MessageCircle,
   Moon,
+  Network,
   PhoneCall,
   Radar,
   Shield,
+  Server,
   ShieldCheck,
   Sparkles,
   Sun,
+  Users,
   X,
 } from "lucide-react";
 import { CRMLeadForm } from "@/components/CRMLeadForm";
@@ -53,7 +57,6 @@ import {
   differentiators,
   faqs,
   featuredServices,
-  floatingTech,
   footerLinks,
   industries,
   leadOffers,
@@ -186,6 +189,58 @@ function TechLogoStrip({ logos = primaryTechLogos, compact = false }: { logos?: 
   );
 }
 
+function ArchitectureCardIcon({ step }: { step: string }) {
+  const iconClass = "h-5 w-5";
+
+  switch (step) {
+    case "Users":
+      return <Users className="h-5 w-5" />;
+    case "CloudFront":
+      return (
+        <span className="inline-flex items-center gap-1.5">
+          <span className="text-[0.64rem] font-black tracking-[-0.06em]">AWS</span>
+          <Cloud className="h-4 w-4" />
+        </span>
+      );
+    case "AWS WAF":
+      return (
+        <span className="inline-flex items-center gap-1.5">
+          <span className="text-[0.64rem] font-black tracking-[-0.06em]">AWS</span>
+          <Shield className="h-4 w-4" />
+        </span>
+      );
+    case "Load Balancer":
+      return <Network className="h-5 w-5" />;
+    case "App Layer":
+      return <Server className="h-5 w-5" />;
+    case "Containers / Kubernetes":
+      return (
+        <span className="inline-flex items-center gap-2">
+          <BrandMark icon={siDocker} className={iconClass} />
+          <BrandMark icon={siKubernetes} className={iconClass} />
+        </span>
+      );
+    case "Database":
+      return (
+        <span className="inline-flex items-center gap-2">
+          <BrandMark icon={siPostgresql} className={iconClass} />
+          <BrandMark icon={siMysql} className={iconClass} />
+        </span>
+      );
+    case "Monitoring":
+      return (
+        <span className="inline-flex items-center gap-2">
+          <BrandMark icon={siGrafana} className={iconClass} />
+          <BrandMark icon={siPrometheus} className={iconClass} />
+        </span>
+      );
+    case "Backup":
+      return <HardDrive className="h-5 w-5" />;
+    default:
+      return <Server className="h-5 w-5" />;
+  }
+}
+
 function SectionHeading({
   eyebrow,
   title,
@@ -309,21 +364,6 @@ function HeroArchitecture() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_12%,rgba(255,91,35,0.22),transparent_26%),radial-gradient(circle_at_80%_70%,rgba(53,215,255,0.18),transparent_32%)]" />
       <div className="absolute inset-6 rounded-[2.2rem] border border-white/10 bg-slate-950/35" />
 
-      {floatingTech.map((tech, index) => (
-        <motion.span
-          key={tech}
-          animate={{ y: [0, index % 2 ? 10 : -10, 0], opacity: [0.52, 0.9, 0.52] }}
-          transition={{ duration: 4.5 + index * 0.25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute rounded-full border border-white/10 bg-white/[0.07] px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-slate-100 backdrop-blur-xl"
-          style={{
-            left: `${index % 2 ? 64 : 8 + index * 3}%`,
-            top: `${10 + index * 12}%`,
-          }}
-        >
-          {tech}
-        </motion.span>
-      ))}
-
       <div className="relative mx-auto flex max-w-sm flex-col items-center pt-6">
         {architectureSteps.map((step, index) => (
           <div key={step} className="flex w-full flex-col items-center">
@@ -336,8 +376,8 @@ function HeroArchitecture() {
               className="group grid w-full grid-cols-[3.2rem_1fr] items-center gap-4 rounded-[1.4rem] border border-white/10 bg-[#050914]/82 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur-xl transition hover:border-orange-300/50 hover:bg-white/[0.08]"
               title={`ByteInfomedia architecture layer: ${step}`}
             >
-              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-orange-400/25 to-cyan-300/15 text-orange-100 transition group-hover:rotate-3">
-                {index < 2 ? <Globe2 className="h-6 w-6" /> : index < 4 ? <Shield className="h-6 w-6" /> : index < 6 ? <Cpu className="h-6 w-6" /> : index < 8 ? <Radar className="h-6 w-6" /> : <Database className="h-6 w-6" />}
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-orange-400/18 to-cyan-300/12 text-orange-100 transition group-hover:shadow-[0_0_32px_rgba(255,91,35,0.18)]">
+                <ArchitectureCardIcon step={step} />
               </span>
               <div>
                 <p className="text-sm font-black uppercase tracking-[0.16em] text-white">{step}</p>
@@ -652,13 +692,12 @@ function ArchitectureSection() {
                   whileHover={{ y: -6 }}
                   className="relative rounded-[1.6rem] border border-white/10 bg-slate-950/72 p-4 text-center transition hover:border-orange-300/45 hover:bg-white/[0.07]"
                 >
-                  <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-orange-400/20 to-cyan-300/10 text-orange-200">
-                    {index < 2 ? <Globe2 className="h-6 w-6" /> : index < 4 ? <Shield className="h-6 w-6" /> : index < 6 ? <Cpu className="h-6 w-6" /> : index < 8 ? <Radar className="h-6 w-6" /> : <Database className="h-6 w-6" />}
+                  <div className="mb-3 flex items-center justify-start text-orange-200">
+                    <span className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400/16 to-cyan-300/10 px-2 transition group-hover:shadow-[0_0_28px_rgba(255,91,35,0.16)]">
+                      <ArchitectureCardIcon step={step} />
+                    </span>
                   </div>
-                  <p className="text-sm font-bold text-white">{step}</p>
-                  <div className="pointer-events-none absolute left-1/2 top-full z-10 mt-3 w-56 -translate-x-1/2 rounded-2xl border border-white/10 bg-slate-950/95 p-3 text-left text-xs leading-5 text-slate-300 opacity-0 shadow-2xl backdrop-blur-xl transition group-hover:opacity-100">
-                    {step} is part of a governed architecture path with security, observability, and operational controls.
-                  </div>
+                  <p className="text-left text-sm font-bold text-white">{step}</p>
                 </motion.div>
                 {index < architectureSteps.length - 1 && <div className="architecture-line my-3 h-px lg:absolute lg:-right-2 lg:top-1/2 lg:my-0 lg:w-4" />}
               </div>
@@ -672,10 +711,6 @@ function ArchitectureSection() {
                 {item}
               </div>
             ))}
-          </div>
-
-          <div className="relative mt-8 border-t border-white/10 pt-6">
-            <TechLogoStrip logos={primaryTechLogos} />
           </div>
         </div>
       </div>
