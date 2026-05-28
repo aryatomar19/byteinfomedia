@@ -53,7 +53,6 @@ import {
   differentiators,
   faqs,
   featuredServices,
-  floatingTech,
   footerLinks,
   industries,
   leadOffers,
@@ -299,63 +298,55 @@ function Navbar({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: Theme
 }
 
 function HeroArchitecture() {
+  const heroArchIcons = [Globe2, Globe2, Shield, Shield, Cpu, Cpu, Radar, Radar, Database];
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="glass-panel relative min-h-[620px] overflow-hidden rounded-[2.8rem] p-5"
+      className="relative min-h-[620px] overflow-hidden rounded-[2.8rem] border border-white/[0.08] bg-[#0a0a0a] p-5"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_12%,rgba(255,91,35,0.22),transparent_26%),radial-gradient(circle_at_80%_70%,rgba(53,215,255,0.18),transparent_32%)]" />
-      <div className="absolute inset-6 rounded-[2.2rem] border border-white/10 bg-slate-950/35" />
-
-      {floatingTech.map((tech, index) => (
-        <motion.span
-          key={tech}
-          animate={{ y: [0, index % 2 ? 10 : -10, 0], opacity: [0.52, 0.9, 0.52] }}
-          transition={{ duration: 4.5 + index * 0.25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute rounded-full border border-white/10 bg-white/[0.07] px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-slate-100 backdrop-blur-xl"
-          style={{
-            left: `${index % 2 ? 64 : 8 + index * 3}%`,
-            top: `${10 + index * 12}%`,
-          }}
-        >
-          {tech}
-        </motion.span>
-      ))}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_12%,rgba(255,91,35,0.10),transparent_30%)]" />
+      <div className="absolute inset-6 rounded-[2.2rem] border border-white/[0.06] bg-[#0d0d0d]" />
 
       <div className="relative mx-auto flex max-w-sm flex-col items-center pt-6">
-        {architectureSteps.map((step, index) => (
-          <div key={step} className="flex w-full flex-col items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.06 }}
-              whileHover={{ scale: 1.03 }}
-              className="group grid w-full grid-cols-[3.2rem_1fr] items-center gap-4 rounded-[1.4rem] border border-white/10 bg-[#050914]/82 p-3 shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur-xl transition hover:border-orange-300/50 hover:bg-white/[0.08]"
-              title={`ByteInfomedia architecture layer: ${step}`}
-            >
-              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-orange-400/25 to-cyan-300/15 text-orange-100 transition group-hover:rotate-3">
-                {index < 2 ? <Globe2 className="h-6 w-6" /> : index < 4 ? <Shield className="h-6 w-6" /> : index < 6 ? <Cpu className="h-6 w-6" /> : index < 8 ? <Radar className="h-6 w-6" /> : <Database className="h-6 w-6" />}
-              </span>
-              <div>
-                <p className="text-sm font-black uppercase tracking-[0.16em] text-white">{step}</p>
-                <p className="mt-1 text-xs text-slate-400">Secure, monitored, production-ready layer</p>
-              </div>
-            </motion.div>
-            {index < architectureSteps.length - 1 && <div className="h-8 w-px architecture-line" />}
-          </div>
-        ))}
+        {architectureSteps.map((step, index) => {
+          const Icon = heroArchIcons[index];
+          return (
+            <div key={step} className="flex w-full flex-col items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.06 }}
+                whileHover={{ scale: 1.03 }}
+                className="group grid w-full grid-cols-[3rem_1fr] items-center gap-4 rounded-2xl border border-white/[0.07] bg-[#111111] p-3 transition hover:border-[#ff5b23]/30"
+                title={`ByteInfomedia architecture layer: ${step}`}
+              >
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#ff5b23]/10 text-[#ff5b23]">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-sm font-bold tracking-wide text-white">{step}</p>
+                  <p className="mt-0.5 text-xs text-neutral-500">Secure, production-ready layer</p>
+                </div>
+              </motion.div>
+              {index < architectureSteps.length - 1 && <div className="h-6 w-px architecture-line" />}
+            </div>
+          );
+        })}
       </div>
 
-      <div className="absolute bottom-5 left-5 right-5 rounded-[1.7rem] border border-orange-300/20 bg-[#060a13]/82 p-4 backdrop-blur-xl">
+      <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-[#ff5b23]/15 bg-[#111111] p-4">
         <div className="flex items-center justify-between gap-4">
           <div>
             <p className="text-sm font-bold text-white">Enterprise cloud operating model</p>
-            <p className="mt-1 text-xs text-slate-400">Security, automation, monitoring, cost control, and backup readiness</p>
+            <p className="mt-1 text-xs text-neutral-500">Security, automation, monitoring, cost control, and backup readiness</p>
           </div>
-          <Radar className="h-9 w-9 animate-pulse text-orange-300" />
+          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#ff5b23]/10">
+            <Radar className="h-5 w-5 text-[#ff5b23]" />
+          </div>
         </div>
       </div>
     </motion.div>
@@ -630,52 +621,80 @@ function CaseStudiesSection() {
 }
 
 function ArchitectureSection() {
+  const archIcons = [Globe2, Globe2, Shield, Shield, Cpu, Cpu, Radar, Radar, Database];
+  const archDescriptions = [
+    "End-user traffic entry point with global edge routing",
+    "Low-latency CDN distribution with edge caching",
+    "Layer-7 firewall with managed rule groups",
+    "Traffic distribution across healthy targets",
+    "Business logic tier with auto-scaling groups",
+    "Orchestrated container workloads at scale",
+    "Managed relational and NoSQL data stores",
+    "Real-time metrics, logs, traces, and alerting",
+    "Automated snapshots with cross-region replication",
+  ];
+
   return (
     <section id="architecture" className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Cloud Architecture"
-          title="Interactive AWS-style architecture flow for secure production workloads"
-          description="A technical showcase of the cloud layers ByteInfomedia can design, automate, secure, monitor, and continuously optimize."
+          title="Production-grade AWS architecture for secure workloads"
+          description="The cloud layers ByteInfomedia designs, automates, secures, monitors, and continuously optimizes for enterprise teams."
         />
 
-        <div className="glass-panel relative mt-12 overflow-hidden rounded-[2.5rem] p-5 sm:p-8">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(255,91,35,0.16),transparent_30%),radial-gradient(circle_at_85%_70%,rgba(53,215,255,0.12),transparent_32%)]" />
-          <div className="relative grid gap-4 md:grid-cols-3 lg:grid-cols-9">
-            {architectureSteps.map((step, index) => (
-              <div key={step} className="group relative">
+        <div className="relative mt-12 overflow-hidden rounded-[2.5rem] border border-white/[0.08] bg-[#0a0a0a] p-5 sm:p-8">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(255,91,35,0.08),transparent_40%)]" />
+
+          <div className="relative grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {architectureSteps.map((step, index) => {
+              const Icon = archIcons[index];
+              return (
                 <motion.div
+                  key={step}
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -6 }}
-                  className="relative rounded-[1.6rem] border border-white/10 bg-slate-950/72 p-4 text-center transition hover:border-orange-300/45 hover:bg-white/[0.07]"
+                  whileHover={{ y: -4, boxShadow: "0 8px 32px rgba(255,91,35,0.10)" }}
+                  className="group rounded-2xl border border-white/[0.07] bg-[#111111] p-5 transition-all duration-200 hover:border-[#ff5b23]/30"
                 >
-                  <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-orange-400/20 to-cyan-300/10 text-orange-200">
-                    {index < 2 ? <Globe2 className="h-6 w-6" /> : index < 4 ? <Shield className="h-6 w-6" /> : index < 6 ? <Cpu className="h-6 w-6" /> : index < 8 ? <Radar className="h-6 w-6" /> : <Database className="h-6 w-6" />}
+                  <div className="mb-4 flex items-center gap-4">
+                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#ff5b23]/10 text-[#ff5b23]">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold tracking-wide text-white">{step}</p>
+                      <p className="mt-0.5 text-xs text-neutral-500">{archDescriptions[index]}</p>
+                    </div>
                   </div>
-                  <p className="text-sm font-bold text-white">{step}</p>
-                  <div className="pointer-events-none absolute left-1/2 top-full z-10 mt-3 w-56 -translate-x-1/2 rounded-2xl border border-white/10 bg-slate-950/95 p-3 text-left text-xs leading-5 text-slate-300 opacity-0 shadow-2xl backdrop-blur-xl transition group-hover:opacity-100">
-                    {step} is part of a governed architecture path with security, observability, and operational controls.
-                  </div>
+                  {index < architectureSteps.length - 1 && (
+                    <div className="architecture-line mt-4 h-px lg:hidden" />
+                  )}
                 </motion.div>
-                {index < architectureSteps.length - 1 && <div className="architecture-line my-3 h-px lg:absolute lg:-right-2 lg:top-1/2 lg:my-0 lg:w-4" />}
-              </div>
-            ))}
+              );
+            })}
           </div>
 
-          <div className="relative mt-8 grid gap-4 md:grid-cols-4">
+          <div className="relative mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {["IAM guardrails", "Encrypted data", "Automated deployments", "FinOps dashboards"].map((item) => (
-              <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.045] p-4 text-sm font-semibold text-slate-200 transition hover:border-orange-300/30">
-                <Check className="mb-3 h-5 w-5 text-orange-300" />
+              <div key={item} className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-[#111111] px-4 py-3 text-sm font-medium text-neutral-300 transition hover:border-[#ff5b23]/25">
+                <Check className="h-4 w-4 shrink-0 text-[#ff5b23]" />
                 {item}
               </div>
             ))}
           </div>
 
-          <div className="relative mt-8 border-t border-white/10 pt-6">
-            <TechLogoStrip logos={primaryTechLogos} />
+          <div className="relative mt-8 rounded-2xl border border-[#ff5b23]/15 bg-[#111111] p-5">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-bold text-white">Enterprise cloud operating model</p>
+                <p className="mt-1 text-xs text-neutral-500">Security, automation, monitoring, cost control, and backup readiness</p>
+              </div>
+              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#ff5b23]/10">
+                <Radar className="h-5 w-5 text-[#ff5b23]" />
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -120,7 +120,7 @@ a {
 }
 
 .architecture-line {
-  background: linear-gradient(90deg, transparent, rgba(53, 215, 255, 0.72), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 91, 35, 0.50), transparent);
   background-size: 220% 100%;
   animation: pulse-line 3.2s ease-in-out infinite;
 }
