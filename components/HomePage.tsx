@@ -43,7 +43,6 @@ import {
 } from "lucide-react";
 import { CRMLeadForm } from "@/components/CRMLeadForm";
 import {
-  architectureSteps,
   caseStudies,
   certifications,
   company,
@@ -297,55 +296,139 @@ function Navbar({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: Theme
   );
 }
 
-function HeroArchitecture() {
-  const heroArchIcons = [Globe2, Globe2, Shield, Shield, Cpu, Cpu, Radar, Radar, Database];
+function HeroCloudVisual() {
+  const nodes = [
+    { icon: Cloud, angle: 0 },
+    { icon: Shield, angle: 72 },
+    { icon: Database, angle: 144 },
+    { icon: Cpu, angle: 216 },
+    { icon: Radar, angle: 288 },
+  ];
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96 }}
+      initial={{ opacity: 0, scale: 0.92 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="relative min-h-[620px] overflow-hidden rounded-[2.8rem] border border-white/[0.08] bg-[#0a0a0a] p-5"
+      className="relative flex min-h-[580px] items-center justify-center overflow-hidden rounded-[2.8rem] border border-white/[0.06] bg-[#080808]"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_12%,rgba(255,91,35,0.10),transparent_30%)]" />
-      <div className="absolute inset-6 rounded-[2.2rem] border border-white/[0.06] bg-[#0d0d0d]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,91,35,0.07),transparent_65%)]" />
 
-      <div className="relative mx-auto flex max-w-sm flex-col items-center pt-6">
-        {architectureSteps.map((step, index) => {
-          const Icon = heroArchIcons[index];
-          return (
-            <div key={step} className="flex w-full flex-col items-center">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.06 }}
-                whileHover={{ scale: 1.03 }}
-                className="group grid w-full grid-cols-[3rem_1fr] items-center gap-4 rounded-2xl border border-white/[0.07] bg-[#111111] p-3 transition hover:border-[#ff5b23]/30"
-                title={`ByteInfomedia architecture layer: ${step}`}
-              >
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#ff5b23]/10 text-[#ff5b23]">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <div>
-                  <p className="text-sm font-bold tracking-wide text-white">{step}</p>
-                  <p className="mt-0.5 text-xs text-neutral-500">Secure, production-ready layer</p>
-                </div>
-              </motion.div>
-              {index < architectureSteps.length - 1 && <div className="h-6 w-px architecture-line" />}
-            </div>
-          );
-        })}
+      {[24, 34, 44].map((r) => (
+        <div
+          key={r}
+          className="absolute rounded-full border border-white/[0.035]"
+          style={{
+            left: `${50 - r}%`,
+            top: `${50 - r}%`,
+            width: `${r * 2}%`,
+            height: `${r * 2}%`,
+          }}
+        />
+      ))}
+
+      <div className="absolute left-1/2 top-1/2 z-10 grid h-18 w-18 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[#0a0a0a] shadow-[0_0_50px_rgba(255,91,35,0.18),0_0_100px_rgba(255,91,35,0.06)]">
+        <div className="grid h-14 w-14 place-items-center rounded-full border border-[#ff5b23]/25 bg-[#ff5b23]/10">
+          <Cloud className="h-7 w-7 text-[#ff5b23]" />
+        </div>
       </div>
 
-      <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-[#ff5b23]/15 bg-[#111111] p-4">
-        <div className="flex items-center justify-between gap-4">
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+        className="absolute"
+        style={{ width: "68%", height: "68%", left: "16%", top: "16%" }}
+      >
+        {nodes.map((node, i) => {
+          const rad = (node.angle * Math.PI) / 180;
+          const x = 50 + 50 * Math.cos(rad);
+          const y = 50 + 50 * Math.sin(rad);
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 + i * 0.12 }}
+              className="absolute"
+              style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%,-50%)" }}
+            >
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="grid h-11 w-11 place-items-center rounded-xl border border-white/[0.07] bg-[#111] shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+                  <node.icon className="h-5 w-5 text-[#ff5b23]" />
+                </div>
+              </motion.div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+
+      <motion.div
+        animate={{ rotate: -360 }}
+        transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+        className="absolute"
+        style={{ width: "88%", height: "88%", left: "6%", top: "6%" }}
+      >
+        {[40, 130, 220, 310].map((angle, i) => {
+          const rad = (angle * Math.PI) / 180;
+          const x = 50 + 50 * Math.cos(rad);
+          const y = 50 + 50 * Math.sin(rad);
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 + i * 0.1 }}
+              className="absolute"
+              style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%,-50%)" }}
+            >
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="h-2 w-2 rounded-full bg-[#ff5b23]/30 shadow-[0_0_12px_rgba(255,91,35,0.25)]" />
+              </motion.div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+
+      {Array.from({ length: 16 }).map((_, i) => {
+        const angle = (i * 22.5) * (Math.PI / 180);
+        const r = 15 + (i * 5) % 28;
+        return (
+          <motion.span
+            key={`hp-${i}`}
+            animate={{ opacity: [0, 0.5, 0], scale: [0.5, 1, 0.5] }}
+            transition={{
+              duration: 3 + (i % 3),
+              repeat: Infinity,
+              delay: i * 0.35,
+              ease: "easeInOut",
+            }}
+            className="absolute h-0.5 w-0.5 rounded-full bg-[#ff5b23]/35"
+            style={{
+              left: `${50 + r * Math.cos(angle)}%`,
+              top: `${50 + r * Math.sin(angle)}%`,
+            }}
+          />
+        );
+      })}
+
+      <div className="absolute bottom-5 left-5 right-5 z-10 rounded-2xl border border-white/[0.06] bg-[#0a0a0a]/90 px-5 py-3 backdrop-blur-md">
+        <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm font-bold text-white">Enterprise cloud operating model</p>
-            <p className="mt-1 text-xs text-neutral-500">Security, automation, monitoring, cost control, and backup readiness</p>
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#ff5b23]">Cloud Ecosystem</p>
+            <p className="mt-0.5 text-[11px] text-neutral-500">Unified infrastructure platform</p>
           </div>
-          <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#ff5b23]/10">
-            <Radar className="h-5 w-5 text-[#ff5b23]" />
+          <div className="flex gap-1.5">
+            {[Cloud, Shield, Database, Cpu, Radar].map((Icon, i) => (
+              <div key={i} className="grid h-7 w-7 place-items-center rounded-md bg-white/[0.04]">
+                <Icon className="h-3 w-3 text-neutral-500" />
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -399,7 +482,7 @@ function Hero() {
           </motion.div>
         </motion.div>
 
-        <HeroArchitecture />
+        <HeroCloudVisual />
       </div>
     </section>
   );
@@ -620,83 +703,206 @@ function CaseStudiesSection() {
   );
 }
 
-function ArchitectureSection() {
-  const archIcons = [Globe2, Globe2, Shield, Shield, Cpu, Cpu, Radar, Radar, Database];
-  const archDescriptions = [
-    "End-user traffic entry point with global edge routing",
-    "Low-latency CDN distribution with edge caching",
-    "Layer-7 firewall with managed rule groups",
-    "Traffic distribution across healthy targets",
-    "Business logic tier with auto-scaling groups",
-    "Orchestrated container workloads at scale",
-    "Managed relational and NoSQL data stores",
-    "Real-time metrics, logs, traces, and alerting",
-    "Automated snapshots with cross-region replication",
+function CloudEcosystemVisual() {
+  const orbitNodes = [
+    { icon: Cloud, label: "AWS", angle: 0, radius: 38, duration: 28 },
+    { icon: Shield, label: "Security", angle: 60, radius: 38, duration: 32 },
+    { icon: Database, label: "Database", angle: 120, radius: 38, duration: 26 },
+    { icon: Cpu, label: "Containers", angle: 180, radius: 38, duration: 30 },
+    { icon: Radar, label: "Monitoring", angle: 240, radius: 38, duration: 34 },
+    { icon: Globe2, label: "CDN", angle: 300, radius: 38, duration: 29 },
+  ];
+
+  const outerNodes = [
+    { icon: ShieldCheck, angle: 30, radius: 46, duration: 44 },
+    { icon: Cpu, angle: 110, radius: 46, duration: 48 },
+    { icon: Cloud, angle: 200, radius: 46, duration: 42 },
+    { icon: Database, angle: 290, radius: 46, duration: 46 },
   ];
 
   return (
-    <section id="architecture" className="px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Cloud Architecture"
-          title="Production-grade AWS architecture for secure workloads"
-          description="The cloud layers ByteInfomedia designs, automates, secures, monitors, and continuously optimizes for enterprise teams."
+    <div className="relative mx-auto aspect-square w-full max-w-[560px]">
+      <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(255,91,35,0.06)_0%,transparent_70%)]" />
+
+      {[30, 38, 46].map((r) => (
+        <motion.div
+          key={r}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: (r - 30) * 0.05 }}
+          className="absolute rounded-full border border-white/[0.04]"
+          style={{
+            left: `${50 - r}%`,
+            top: `${50 - r}%`,
+            width: `${r * 2}%`,
+            height: `${r * 2}%`,
+          }}
         />
+      ))}
 
-        <div className="relative mt-12 overflow-hidden rounded-[2.5rem] border border-white/[0.08] bg-[#0a0a0a] p-5 sm:p-8">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(255,91,35,0.08),transparent_40%)]" />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="absolute left-1/2 top-1/2 z-10 grid h-20 w-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[#0d0d0d] shadow-[0_0_60px_rgba(255,91,35,0.20),0_0_120px_rgba(255,91,35,0.08)]"
+      >
+        <div className="grid h-16 w-16 place-items-center rounded-full border border-[#ff5b23]/30 bg-[#ff5b23]/10">
+          <Cloud className="h-8 w-8 text-[#ff5b23]" />
+        </div>
+      </motion.div>
 
-          <div className="relative grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {architectureSteps.map((step, index) => {
-              const Icon = archIcons[index];
-              return (
-                <motion.div
-                  key={step}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -4, boxShadow: "0 8px 32px rgba(255,91,35,0.10)" }}
-                  className="group rounded-2xl border border-white/[0.07] bg-[#111111] p-5 transition-all duration-200 hover:border-[#ff5b23]/30"
-                >
-                  <div className="mb-4 flex items-center gap-4">
-                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#ff5b23]/10 text-[#ff5b23]">
-                      <Icon className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-bold tracking-wide text-white">{step}</p>
-                      <p className="mt-0.5 text-xs text-neutral-500">{archDescriptions[index]}</p>
-                    </div>
-                  </div>
-                  {index < architectureSteps.length - 1 && (
-                    <div className="architecture-line mt-4 h-px lg:hidden" />
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+        className="absolute left-1/2 top-1/2 h-1 w-1 -translate-x-1/2 -translate-y-1/2"
+        style={{ width: "76%", height: "76%" }}
+      >
+        {orbitNodes.map((node, i) => {
+          const rad = (node.angle * Math.PI) / 180;
+          const x = 50 + 50 * Math.cos(rad);
+          const y = 50 + 50 * Math.sin(rad);
+          return (
+            <motion.div
+              key={node.label}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 + i * 0.1 }}
+              className="group absolute"
+              style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%,-50%)" }}
+            >
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                className="relative flex flex-col items-center"
+              >
+                <div className="grid h-12 w-12 place-items-center rounded-xl border border-white/[0.08] bg-[#111111] shadow-[0_4px_24px_rgba(0,0,0,0.4)] transition-all duration-300 group-hover:border-[#ff5b23]/40 group-hover:shadow-[0_4px_32px_rgba(255,91,35,0.15)]">
+                  <node.icon className="h-5 w-5 text-[#ff5b23]" />
+                </div>
+                <span className="mt-1.5 whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.14em] text-neutral-500 transition-colors group-hover:text-white">
+                  {node.label}
+                </span>
+              </motion.div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
 
-          <div className="relative mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {["IAM guardrails", "Encrypted data", "Automated deployments", "FinOps dashboards"].map((item) => (
-              <div key={item} className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-[#111111] px-4 py-3 text-sm font-medium text-neutral-300 transition hover:border-[#ff5b23]/25">
-                <Check className="h-4 w-4 shrink-0 text-[#ff5b23]" />
-                {item}
+      <motion.div
+        animate={{ rotate: -360 }}
+        transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        style={{ width: "92%", height: "92%" }}
+      >
+        {outerNodes.map((node, i) => {
+          const rad = (node.angle * Math.PI) / 180;
+          const x = 50 + 50 * Math.cos(rad);
+          const y = 50 + 50 * Math.sin(rad);
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 + i * 0.12 }}
+              className="absolute"
+              style={{ left: `${x}%`, top: `${y}%`, transform: "translate(-50%,-50%)" }}
+            >
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="grid h-8 w-8 place-items-center rounded-lg border border-white/[0.06] bg-[#0d0d0d]">
+                  <node.icon className="h-3.5 w-3.5 text-white/30" />
+                </div>
+              </motion.div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+
+      {Array.from({ length: 24 }).map((_, i) => {
+        const angle = (i * 15 + 7) * (Math.PI / 180);
+        const r = 20 + (i * 7) % 30;
+        return (
+          <motion.span
+            key={`p-${i}`}
+            animate={{
+              opacity: [0, 0.6, 0],
+              scale: [0.5, 1, 0.5],
+            }}
+            transition={{
+              duration: 3 + (i % 4),
+              repeat: Infinity,
+              delay: i * 0.3,
+              ease: "easeInOut",
+            }}
+            className="absolute h-1 w-1 rounded-full bg-[#ff5b23]/40"
+            style={{
+              left: `${50 + r * Math.cos(angle)}%`,
+              top: `${50 + r * Math.sin(angle)}%`,
+            }}
+          />
+        );
+      })}
+    </div>
+  );
+}
+
+function ArchitectureSection() {
+  return (
+    <section id="architecture" className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,91,35,0.05)_0%,transparent_60%)]" />
+
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={stagger}
+        >
+          <motion.span variants={fadeUp} className="section-eyebrow">
+            <Sparkles className="h-3.5 w-3.5" /> Cloud Ecosystem
+          </motion.span>
+          <motion.h2 variants={fadeUp} className="mt-6 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
+            Enterprise cloud infrastructure, <span className="text-[#ff5b23]">unified.</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} className="mt-6 max-w-lg text-base leading-8 text-neutral-400">
+            ByteInfomedia orchestrates your entire cloud ecosystem — from edge delivery and security to containers, databases, and real-time monitoring — into one governed, production-ready platform.
+          </motion.p>
+          <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#lead"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ff5b23] px-6 py-3 text-sm font-bold text-white shadow-[0_16px_48px_rgba(255,91,35,0.28)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_60px_rgba(255,91,35,0.36)]"
+            >
+              Explore our platform <ArrowRight className="h-4 w-4" />
+            </a>
+          </motion.div>
+
+          <motion.div variants={fadeUp} className="mt-10 grid grid-cols-3 gap-4">
+            {[
+              { value: "99.9%", label: "Uptime SLA" },
+              { value: "6+", label: "Security layers" },
+              { value: "24/7", label: "Monitoring" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="text-2xl font-black text-[#ff5b23] sm:text-3xl">{stat.value}</p>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-neutral-500">{stat.label}</p>
               </div>
             ))}
-          </div>
+          </motion.div>
+        </motion.div>
 
-          <div className="relative mt-8 rounded-2xl border border-[#ff5b23]/15 bg-[#111111] p-5">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm font-bold text-white">Enterprise cloud operating model</p>
-                <p className="mt-1 text-xs text-neutral-500">Security, automation, monitoring, cost control, and backup readiness</p>
-              </div>
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#ff5b23]/10">
-                <Radar className="h-5 w-5 text-[#ff5b23]" />
-              </div>
-            </div>
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <CloudEcosystemVisual />
+        </motion.div>
       </div>
     </section>
   );
