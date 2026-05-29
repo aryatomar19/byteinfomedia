@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { company } from "@/data/site";
 
@@ -12,6 +12,12 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -67,16 +73,12 @@ export const metadata: Metadata = {
 const themeInitScript = `
 (function () {
   try {
-    var storedTheme = window.localStorage.getItem("byteinfomedia-theme");
-    var theme = storedTheme === "light" || storedTheme === "dark"
-      ? storedTheme
-      : (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
     document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(theme);
-    document.documentElement.style.colorScheme = theme;
+    document.documentElement.classList.add("light");
+    document.documentElement.style.colorScheme = "light";
   } catch (error) {
-    document.documentElement.classList.add("dark");
-    document.documentElement.style.colorScheme = "dark";
+    document.documentElement.classList.add("light");
+    document.documentElement.style.colorScheme = "light";
   }
 })();
 `;
@@ -114,8 +116,8 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en" className="light" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}>
         <script
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: themeInitScript }}

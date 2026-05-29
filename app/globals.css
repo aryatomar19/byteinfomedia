@@ -2,10 +2,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  color-scheme: dark;
-  --background: #030711;
-  --foreground: #eef5ff;
-  --muted: #9db0c9;
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #07111f;
+  --muted: #5f6f86;
   --orange: #FF6B2C;
   --violet: #9b5cff;
   --emerald: #48f2b8;
@@ -24,9 +24,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 18% 12%, rgba(255, 107, 44, 0.16), transparent 32rem),
-    radial-gradient(circle at 86% 18%, rgba(155, 92, 255, 0.16), transparent 28rem),
-    linear-gradient(180deg, #030711 0%, #07101f 44%, #030711 100%);
+    radial-gradient(circle at 16% 10%, rgba(255, 107, 44, 0.1), transparent 29rem),
+    radial-gradient(circle at 82% 14%, rgba(255, 107, 44, 0.08), transparent 30rem),
+    linear-gradient(180deg, #ffffff 0%, #f6f8fc 46%, #eef4fb 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
@@ -400,4 +400,156 @@ html.light .bg-amber-300\/10 {
 
 html.light .text-amber-100 {
   color: #9a5b00 !important;
+}
+
+/* Hero — enterprise consulting layout */
+.hero-section {
+  background: #ffffff;
+}
+
+.hero-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+}
+
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 107, 44, 0.2);
+  background: rgba(255, 107, 44, 0.08);
+  padding: 0.5rem 1rem;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c84a17;
+}
+
+.hero-headline {
+  margin-top: 1.5rem;
+  font-family: var(--font-inter), Inter, sans-serif;
+  font-weight: 800;
+  font-size: 72px;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #07111f;
+}
+
+@media (max-width: 1024px) {
+  .hero-headline {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-headline {
+    font-size: 40px;
+  }
+}
+
+.hero-description {
+  margin-top: 1.5rem;
+  max-width: 620px;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: #52647a;
+}
+
+.hero-feature-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #07111f;
+}
+
+.hero-enterprise-card {
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+}
+
+.hero-card-title {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #07111f;
+  line-height: 1.05;
+}
+
+.hero-card-divider {
+  width: 48px;
+  height: 4px;
+  margin-top: 0.75rem;
+  background: #ff6b2c;
+  border-radius: 2px;
+}
+
+.hero-card-description {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #52647a;
+}
+
+.hero-service-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 20px 0;
+  border-bottom: 1px solid #efefef;
+}
+
+.hero-service-row:last-child {
+  border-bottom: none;
+}
+
+.hero-service-icon {
+  display: flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: rgba(255, 107, 44, 0.1);
+  color: #ff6b2c;
+}
+
+.hero-service-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #07111f;
+}
+
+.hero-service-subtitle {
+  margin-top: 0.125rem;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: #6b7c93;
 }
