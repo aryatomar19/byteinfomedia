@@ -1,27 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Activity,
   ArrowRight,
   BadgeCheck,
   Check,
   ChevronDown,
-  Clock3,
+  ChevronRight,
+  Cloud,
   CloudCog,
-  Gauge,
+  Code2,
   Headphones,
+  LineChart,
   Mail,
   MapPin,
   Menu,
   MessageCircle,
-  Moon,
   PhoneCall,
   ShieldCheck,
   Sparkles,
-  Zap,
-  Sun,
   Workflow,
   X,
 } from "lucide-react";
@@ -41,10 +39,6 @@ import {
   trustBadges,
 } from "@/data/site";
 
-type ThemeMode = "light" | "dark";
-
-const themeStorageKey = "byteinfomedia-theme";
-
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0 },
@@ -58,41 +52,6 @@ const stagger = {
     },
   },
 };
-
-function getPreferredTheme(): ThemeMode {
-  if (typeof window === "undefined") return "dark";
-
-  const storedTheme = window.localStorage.getItem(themeStorageKey);
-  if (storedTheme === "light" || storedTheme === "dark") return storedTheme;
-
-  return window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-}
-
-function applyTheme(theme: ThemeMode) {
-  const root = document.documentElement;
-  root.classList.remove("light", "dark");
-  root.classList.add(theme);
-  root.style.colorScheme = theme;
-}
-
-function ThemeToggle({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: ThemeMode) => void }) {
-  const isDark = theme === "dark";
-  const Icon = isDark ? Sun : Moon;
-
-  return (
-    <button
-      type="button"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="group relative grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/[0.07] text-orange-100 shadow-[0_12px_34px_rgba(0,0,0,0.14)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:border-orange-300/45 hover:bg-orange-300/10"
-      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
-      aria-pressed={!isDark}
-      title={`Switch to ${isDark ? "light" : "dark"} mode`}
-    >
-      <span className="absolute inset-0 rounded-full bg-orange-300/10 opacity-0 transition group-hover:opacity-100" />
-      <Icon className="relative h-4.5 w-4.5 transition duration-300 group-hover:rotate-12" />
-    </button>
-  );
-}
 
 function SectionHeading({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {
   return (
@@ -114,7 +73,7 @@ function SectionHeading({ eyebrow, title, description }: { eyebrow: string; titl
   );
 }
 
-function Navbar({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: ThemeMode) => void }) {
+function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
@@ -143,11 +102,9 @@ function Navbar({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: Theme
           <a href="#contact" className="rounded-full bg-[#FF6B2C] px-4 py-2 text-sm font-bold text-white shadow-[0_16px_42px_rgba(255,107,44,0.26)] transition hover:-translate-y-0.5 hover:bg-white hover:text-slate-950">
             Book Consultation
           </a>
-          <ThemeToggle theme={theme} setTheme={setTheme} />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <ThemeToggle theme={theme} setTheme={setTheme} />
           <button
             className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-white"
             onClick={() => setOpen((value) => !value)}
@@ -182,96 +139,63 @@ function Navbar({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: Theme
   );
 }
 
-function EnterpriseHeroVisual() {
+const enterpriseServices = [
+  {
+    icon: Cloud,
+    title: "Cloud Management",
+    description: "AWS governance and optimization",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security & Compliance",
+    description: "Risk-aware security operations",
+  },
+  {
+    icon: LineChart,
+    title: "Monitoring & Visibility",
+    description: "24/7 observability and alerting",
+  },
+  {
+    icon: Code2,
+    title: "DevOps Automation",
+    description: "Reliable deployment workflows",
+  },
+  {
+    icon: Headphones,
+    title: "Managed Operations",
+    description: "Ongoing infrastructure support",
+  },
+] as const;
+
+function EnterpriseServicesCard() {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.98, y: 12 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      className="relative min-h-[430px] overflow-hidden rounded-[2.6rem] border border-slate-200/80 bg-gradient-to-br from-white via-[#f8fafc] to-[#fff3ed] p-6 shadow-[0_32px_100px_rgba(15,23,42,0.12)]"
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.65, delay: 0.15 }}
+      className="hero-enterprise-card"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.035)_1px,transparent_1px)] bg-[size:36px_36px]" />
-      <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-[#FF6B2C]/10 blur-3xl" />
-      <div className="absolute -bottom-24 right-0 h-72 w-72 rounded-full bg-[#FF6B2C]/12 blur-3xl" />
+      <h2 className="hero-card-title">Enterprise Cloud Services</h2>
+      <div className="hero-card-divider" aria-hidden="true" />
+      <p className="hero-card-description">
+        Security, automation, governance and managed operations for modern businesses.
+      </p>
 
-      <div className="relative min-h-[380px]">
-        <motion.div
-          animate={{ y: [0, -8, 0] }}
-          transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-1/2 top-[44%] z-20 h-40 w-64 -translate-x-1/2 -translate-y-1/2"
-        >
-          <div className="absolute bottom-7 left-8 h-24 w-40 rounded-[2.5rem] bg-white shadow-[0_24px_70px_rgba(15,23,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)]" />
-          <div className="absolute bottom-12 left-3 h-24 w-24 rounded-full bg-white shadow-[0_20px_60px_rgba(15,23,42,0.12)]" />
-          <div className="absolute bottom-16 left-20 h-28 w-28 rounded-full bg-white shadow-[0_20px_60px_rgba(15,23,42,0.12)]" />
-          <div className="absolute bottom-12 right-4 h-20 w-20 rounded-full bg-white shadow-[0_20px_60px_rgba(15,23,42,0.1)]" />
-          <div className="absolute bottom-3 left-14 right-12 h-4 rounded-full bg-[#FF6B2C] shadow-[0_0_38px_rgba(255,107,44,0.38)]" />
-          <div className="absolute bottom-10 left-1/2 grid h-14 w-14 -translate-x-1/2 place-items-center rounded-2xl bg-[#FF6B2C] text-white shadow-[0_20px_60px_rgba(255,107,44,0.36)]">
-            <ShieldCheck className="h-7 w-7" />
+      <div className="mt-2">
+        {enterpriseServices.map((service) => (
+          <div key={service.title} className="hero-service-row">
+            <div className="flex min-w-0 flex-1 items-center gap-3.5">
+              <div className="hero-service-icon">
+                <service.icon className="h-5 w-5" strokeWidth={2} />
+              </div>
+              <div className="min-w-0">
+                <p className="hero-service-title">{service.title}</p>
+                <p className="hero-service-subtitle">{service.description}</p>
+              </div>
+            </div>
+            <ChevronRight className="h-5 w-5 shrink-0 text-[#FF6B2C]" aria-hidden="true" />
           </div>
-        </motion.div>
-
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-4 top-8 w-44 rounded-[1.4rem] border border-slate-200 bg-white/82 p-4 shadow-[0_20px_55px_rgba(15,23,42,0.10)] backdrop-blur-xl sm:left-8"
-        >
-          <div className="mb-4 flex items-center justify-between">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FF6B2C]" />
-            <Gauge className="h-4 w-4 text-slate-500" />
-          </div>
-          <div className="space-y-2">
-            <span className="block h-2 rounded-full bg-slate-200" />
-            <span className="block h-2 w-3/4 rounded-full bg-slate-100" />
-            <span className="block h-8 rounded-xl bg-gradient-to-r from-[#FF6B2C]/18 to-slate-100" />
-          </div>
-        </motion.div>
-
-        <motion.div
-          animate={{ y: [0, -5, 0] }}
-          transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute right-4 top-12 w-44 rounded-[1.4rem] border border-slate-200 bg-white/82 p-4 shadow-[0_20px_55px_rgba(15,23,42,0.10)] backdrop-blur-xl sm:right-8"
-        >
-          <div className="flex items-center justify-between">
-            <Activity className="h-4 w-4 text-[#FF6B2C]" />
-            <span className="rounded-full bg-[#FF6B2C]/10 px-2 py-1 text-[0.62rem] font-black uppercase tracking-[0.12em] text-[#b94414]">Live</span>
-          </div>
-          <div className="mt-4 flex items-end gap-2">
-            {[36, 52, 28, 64, 44].map((height, index) => (
-              <motion.span
-                key={height + index}
-                animate={{ height: [height, height + 10, height] }}
-                transition={{ duration: 2.6, delay: index * 0.12, repeat: Infinity }}
-                className="w-full rounded-t-lg bg-[#FF6B2C]/70"
-                style={{ height }}
-              />
-            ))}
-          </div>
-        </motion.div>
-
-        <div className="absolute bottom-12 left-8 flex items-end gap-2">
-          {[0, 1, 2].map((item) => (
-            <motion.span
-              key={item}
-              animate={{ y: [0, item % 2 ? -4 : 4, 0] }}
-              transition={{ duration: 4, delay: item * 0.18, repeat: Infinity }}
-              className="block h-16 w-14 rounded-xl border border-slate-200 bg-white/84 shadow-[0_18px_45px_rgba(15,23,42,0.09)]"
-            >
-              <span className="mx-auto mt-3 block h-1.5 w-7 rounded-full bg-slate-200" />
-              <span className="mx-auto mt-2 block h-1.5 w-5 rounded-full bg-[#FF6B2C]/45" />
-            </motion.span>
-          ))}
-        </div>
-
-        <motion.div
-          animate={{ y: [0, 5, 0] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-12 right-8 grid h-20 w-20 place-items-center rounded-2xl border border-slate-200 bg-white/84 text-[#FF6B2C] shadow-[0_18px_45px_rgba(15,23,42,0.10)]"
-        >
-          <Workflow className="h-8 w-8" />
-        </motion.div>
-
-        <div className="absolute bottom-5 left-1/2 h-12 w-[72%] -translate-x-1/2 rounded-[50%] bg-[#FF6B2C]/10 blur-xl" />
-        <div className="absolute inset-x-10 bottom-8 h-px bg-gradient-to-r from-transparent via-[#FF6B2C]/30 to-transparent" />
+        ))}
       </div>
     </motion.div>
   );
@@ -279,41 +203,54 @@ function EnterpriseHeroVisual() {
 
 function Hero() {
   return (
-    <section id="home" className="relative px-4 pb-12 pt-28 sm:px-6 lg:px-8 lg:pb-16 lg:pt-32">
-      <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
+    <section id="home" className="hero-section relative px-4 pb-12 pt-28 sm:px-6 lg:px-8 lg:pb-16 lg:pt-32">
+      <div className="hero-container">
         <motion.div initial="hidden" animate="visible" variants={stagger}>
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-3 rounded-full border border-orange-300/25 bg-orange-300/10 px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-orange-100">
-            <img src={company.logo} alt="ByteInfomedia" className="h-5 w-auto object-contain" />
+          <motion.div variants={fadeUp} className="hero-badge">
             Premium AWS, DevOps & Security Consulting
           </motion.div>
-          <motion.h1 variants={fadeUp} className="mt-6 max-w-5xl text-5xl font-black tracking-[-0.055em] text-white sm:text-7xl">
-            Secure AWS Cloud, DevOps & Cybersecurity Solutions for Modern Businesses
+          <motion.h1 variants={fadeUp} className="hero-headline">
+            Secure AWS
+            <br />
+            Cloud, DevOps &
+            <br />
+            Cybersecurity
+            <br />
+            Solutions for
+            <br />
+            Modern Businesses
           </motion.h1>
-          <motion.p variants={fadeUp} className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            ByteInfomedia helps businesses migrate, modernize, automate, secure, and manage cloud infrastructure with enterprise-grade consulting and support.
+          <motion.p variants={fadeUp} className="hero-description">
+            ByteInfomedia helps businesses migrate, modernize, automate, secure, and manage cloud infrastructure with
+            enterprise-grade consulting and support.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-7 grid gap-3 sm:grid-cols-2">
             {trustBadges.slice(0, 4).map((badge) => (
-              <span key={badge} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.055] px-4 py-3 text-sm font-semibold text-slate-100">
-                <Check className="h-4 w-4 shrink-0 text-orange-300" />
+              <span key={badge} className="hero-feature-pill">
+                <Check className="h-4 w-4 shrink-0 text-[#FF6B2C]" strokeWidth={2.5} />
                 {badge}
               </span>
             ))}
           </motion.div>
 
           <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#lead" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#FF6B2C] px-6 py-3 text-sm font-black text-white shadow-[0_24px_70px_rgba(255,107,44,0.28)] transition hover:-translate-y-1 hover:bg-white hover:text-slate-950">
+            <a
+              href="#lead"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#FF6B2C] px-6 py-3 text-sm font-black text-white shadow-[0_24px_70px_rgba(255,107,44,0.28)] transition hover:-translate-y-1 hover:bg-[#e85f24]"
+            >
               Get Free Cloud Assessment <ArrowRight className="h-4 w-4" />
             </a>
-            <a href={company.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-full border border-white/14 px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:border-orange-300/40 hover:bg-white/10">
+            <a
+              href={company.phoneHref}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-slate-900 transition hover:-translate-y-1 hover:border-slate-300 hover:bg-slate-50"
+            >
               Talk to an Expert
             </a>
           </motion.div>
         </motion.div>
 
-        <EnterpriseHeroVisual />
+        <EnterpriseServicesCard />
       </div>
     </section>
   );
@@ -638,35 +575,9 @@ function Footer() {
 }
 
 export function HomePage() {
-  const [theme, setThemeState] = useState<ThemeMode>("dark");
-
-  useEffect(() => {
-    const preferredTheme = getPreferredTheme();
-    setThemeState(preferredTheme);
-    applyTheme(preferredTheme);
-  }, []);
-
-  function setTheme(theme: ThemeMode) {
-    setThemeState(theme);
-    window.localStorage.setItem(themeStorageKey, theme);
-    applyTheme(theme);
-  }
-
   return (
     <main className="premium-shell">
-      <div className="particle-field" aria-hidden="true">
-        {Array.from({ length: 14 }).map((_, index) => (
-          <span
-            key={index}
-            style={{
-              left: `${(index * 37) % 100}%`,
-              top: `${12 + ((index * 19) % 78)}%`,
-              animationDelay: `${index * 0.45}s`,
-            }}
-          />
-        ))}
-      </div>
-      <Navbar theme={theme} setTheme={setTheme} />
+      <Navbar />
       <Hero />
       <TrustSection />
       <ServicesSection />
