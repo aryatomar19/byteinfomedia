@@ -34,7 +34,6 @@ import {
   industries,
   leadOffers,
   navigation,
-  secondaryServices,
   services,
   trustBadges,
 } from "@/data/site";
@@ -166,7 +165,7 @@ function Navbar({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: Theme
           <a href="#lead" className="rounded-full border border-orange-300/30 px-4 py-2 text-sm font-semibold text-orange-100 transition hover:bg-orange-300/10">
             Free Assessment
           </a>
-          <a href="#contact" className="rounded-full bg-[#ff5b23] px-4 py-2 text-sm font-bold text-white shadow-[0_16px_42px_rgba(255,91,35,0.26)] transition hover:-translate-y-0.5 hover:bg-white hover:text-slate-950">
+          <a href="#contact" className="rounded-full bg-[#FF6B2C] px-4 py-2 text-sm font-bold text-white shadow-[0_16px_42px_rgba(255,91,35,0.26)] transition hover:-translate-y-0.5 hover:bg-white hover:text-slate-950">
             Book Consultation
           </a>
           <ThemeToggle theme={theme} setTheme={setTheme} />
@@ -196,7 +195,7 @@ function Navbar({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: Theme
               </a>
             ))}
             <ThemeToggle theme={theme} setTheme={setTheme} />
-            <a href="#contact" onClick={() => setOpen(false)} className="rounded-2xl bg-[#ff5b23] px-4 py-3 text-center text-sm font-bold text-white">
+            <a href="#contact" onClick={() => setOpen(false)} className="rounded-2xl bg-[#FF6B2C] px-4 py-3 text-center text-sm font-bold text-white">
               Get AWS Consultation
             </a>
           </div>
@@ -239,8 +238,8 @@ function HeroVisual() {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="relative z-10 grid h-24 w-24 place-items-center rounded-full bg-[#0a0a0a] shadow-[0_0_80px_rgba(255,91,35,0.16),0_0_160px_rgba(255,91,35,0.06)]"
       >
-        <div className="grid h-20 w-20 place-items-center rounded-full border border-[#ff5b23]/20 bg-[#ff5b23]/8">
-          <Cloud className="h-10 w-10 text-[#ff5b23]" />
+        <div className="grid h-20 w-20 place-items-center rounded-full border border-[#FF6B2C]/20 bg-[#FF6B2C]/8">
+          <Cloud className="h-10 w-10 text-[#FF6B2C]" />
         </div>
       </motion.div>
 
@@ -252,14 +251,14 @@ function HeroVisual() {
             key={i}
             animate={{ opacity: [0, 0.4, 0] }}
             transition={{ duration: 4 + (i % 3), repeat: Infinity, delay: i * 0.4, ease: "easeInOut" }}
-            className="absolute h-1 w-1 rounded-full bg-[#ff5b23]/30"
+            className="absolute h-1 w-1 rounded-full bg-[#FF6B2C]/30"
             style={{ left: `${50 + r * Math.cos(angle)}%`, top: `${50 + r * Math.sin(angle)}%` }}
           />
         );
       })}
 
       <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between rounded-xl border border-white/[0.05] bg-[#0a0a0a]/80 px-4 py-2.5 backdrop-blur-md">
-        <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#ff5b23]">Cloud Ecosystem</p>
+        <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#FF6B2C]">Cloud Ecosystem</p>
         <p className="text-[11px] text-neutral-500">Unified infrastructure platform</p>
       </div>
     </motion.div>
@@ -293,7 +292,7 @@ function Hero() {
           </motion.div>
 
           <motion.div variants={fadeUp} className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <a href="#lead" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ff5b23] px-6 py-3 text-sm font-black text-white shadow-[0_24px_70px_rgba(255,91,35,0.32)] transition hover:-translate-y-1 hover:bg-white hover:text-slate-950">
+            <a href="#lead" className="inline-flex items-center justify-center gap-2 rounded-full bg-[#FF6B2C] px-6 py-3 text-sm font-black text-white shadow-[0_24px_70px_rgba(255,91,35,0.32)] transition hover:-translate-y-1 hover:bg-white hover:text-slate-950">
               Get Free Cloud Assessment <ArrowRight className="h-4 w-4" />
             </a>
             <a href={company.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-full border border-white/14 px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-1 hover:border-orange-300/40 hover:bg-white/10">
@@ -337,12 +336,6 @@ function TrustSection() {
   );
 }
 
-const coreServices = [
-  ...featuredServices,
-  secondaryServices.find((s) => s.title === "CI/CD Pipelines")!,
-  secondaryServices.find((s) => s.title === "Cloud Cost Optimization")!,
-];
-
 function ServicesSection() {
   return (
     <section id="services" className="px-4 py-14 sm:px-6 lg:px-8">
@@ -354,7 +347,7 @@ function ServicesSection() {
         />
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {coreServices.map((service, index) => (
+          {featuredServices.map((service, index) => (
             <motion.article
               key={service.title}
               initial={{ opacity: 0, y: 18 }}
@@ -455,55 +448,6 @@ function CaseStudiesSection() {
   );
 }
 
-function ArchitectureSection() {
-  return (
-    <section id="architecture" className="relative overflow-hidden px-4 py-14 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(255,91,35,0.06)_0%,transparent_55%)]" />
-
-      <div className="relative mx-auto max-w-4xl text-center">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={stagger}
-        >
-          <motion.span variants={fadeUp} className="section-eyebrow">
-            <Sparkles className="h-3.5 w-3.5" /> Cloud Ecosystem
-          </motion.span>
-          <motion.h2 variants={fadeUp} className="mt-4 text-3xl font-black tracking-[-0.04em] text-white sm:text-5xl">
-            Enterprise cloud infrastructure, <span className="text-[#ff5b23]">unified.</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="mx-auto mt-4 max-w-2xl text-base leading-8 text-neutral-400">
-            From edge delivery and security to containers, databases, and real-time monitoring — one governed, production-ready platform.
-          </motion.p>
-
-          <motion.div variants={fadeUp} className="mx-auto mt-10 grid max-w-md grid-cols-3 gap-6">
-            {[
-              { value: "99.9%", label: "Uptime SLA" },
-              { value: "6+", label: "Security layers" },
-              { value: "24/7", label: "Monitoring" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <p className="text-2xl font-black text-[#ff5b23] sm:text-3xl">{stat.value}</p>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-neutral-500">{stat.label}</p>
-              </div>
-            ))}
-          </motion.div>
-
-          <motion.div variants={fadeUp} className="mt-8">
-            <a
-              href="#lead"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#ff5b23] px-6 py-3 text-sm font-bold text-white shadow-[0_16px_48px_rgba(255,91,35,0.28)] transition hover:-translate-y-0.5 hover:shadow-[0_20px_60px_rgba(255,91,35,0.36)]"
-            >
-              Explore our platform <ArrowRight className="h-4 w-4" />
-            </a>
-          </motion.div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
 function LeadGenerationSection() {
   return (
     <section id="lead" className="px-4 py-14 sm:px-6 lg:px-8">
@@ -581,7 +525,7 @@ function ContactSection() {
             >
               <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-orange-300/16 blur-3xl" />
               <div className="relative flex items-center gap-4">
-                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#ff5b23] text-white shadow-[0_14px_40px_rgba(255,91,35,0.24)]">
+                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#FF6B2C] text-white shadow-[0_14px_40px_rgba(255,91,35,0.24)]">
                   <PhoneCall className="h-6 w-6" />
                 </span>
                 <div>
@@ -692,7 +636,7 @@ function PopupCTA() {
       </button>
       <p className="pr-6 text-sm font-bold text-white">Free AWS assessment available</p>
       <p className="mt-2 text-sm leading-6 text-slate-400">Architecture, security, DevOps maturity, and cost optimization review.</p>
-      <a href="#lead" className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#ff5b23] px-4 py-2 text-xs font-bold text-white">
+      <a href="#lead" className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#FF6B2C] px-4 py-2 text-xs font-bold text-white">
         Claim assessment <ArrowRight className="h-3.5 w-3.5" />
       </a>
     </motion.div>
@@ -817,7 +761,6 @@ export function HomePage() {
       <ServicesSection />
       <IndustriesSection />
       <CaseStudiesSection />
-      <ArchitectureSection />
       <LeadGenerationSection />
       <FAQSection />
       <ContactSection />
