@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 import {
   Activity,
   ArrowRight,
+  BadgeCheck,
   Check,
   ChevronDown,
   Clock3,
   CloudCog,
+  Gauge,
   Headphones,
   Mail,
   MapPin,
@@ -18,6 +20,7 @@ import {
   PhoneCall,
   ShieldCheck,
   Sparkles,
+  Zap,
   Sun,
   Workflow,
   X,
@@ -105,8 +108,8 @@ function SectionHeading({ eyebrow, title, description }: { eyebrow: string; titl
         <Sparkles className="h-3.5 w-3.5" />
         {eyebrow}
       </span>
-      <h2 className="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-6xl">{title}</h2>
-      <p className="mt-5 text-base leading-8 text-slate-300">{description}</p>
+      <h2 className="mt-4 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">{title}</h2>
+      <p className="mt-4 text-base leading-7 text-slate-300">{description}</p>
     </motion.div>
   );
 }
@@ -118,9 +121,7 @@ function Navbar({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: Theme
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#03060d]/72 backdrop-blur-2xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Main navigation">
         <a href="#home" className="flex items-center gap-3">
-          <span className="rounded-2xl border border-white/10 bg-white px-3 py-2 shadow-[0_18px_48px_rgba(255,107,44,0.18)]">
-            <img src={company.logo} alt="ByteInfomedia" className="h-8 w-auto" />
-          </span>
+          <img src={company.logo} alt="ByteInfomedia" className="h-9 w-auto object-contain" />
           <span className="hidden sm:block">
             <span className="block text-xs font-bold uppercase tracking-[0.22em] text-white">Cloud | DevOps | Security</span>
             <span className="block text-xs text-orange-200/80">Enterprise consulting</span>
@@ -182,61 +183,69 @@ function Navbar({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: Theme
 }
 
 function EnterpriseHeroVisual() {
-  const cards = [
-    { icon: CloudCog, title: "Cloud platform", detail: "Modern AWS foundations" },
-    { icon: ShieldCheck, title: "Security shield", detail: "Risk-aware delivery" },
-    { icon: Workflow, title: "DevOps automation", detail: "Reliable release systems" },
-    { icon: Activity, title: "Monitoring", detail: "Operational visibility" },
+  const nodes = [
+    { icon: CloudCog, className: "left-[16%] top-[22%]" },
+    { icon: ShieldCheck, className: "right-[16%] top-[24%]" },
+    { icon: Workflow, className: "left-[18%] bottom-[22%]" },
+    { icon: Gauge, className: "right-[18%] bottom-[20%]" },
+    { icon: Zap, className: "left-1/2 top-[12%] -translate-x-1/2" },
   ];
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96 }}
+      initial={{ opacity: 0, scale: 0.97 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="glass-panel relative min-h-[520px] overflow-hidden rounded-[2.8rem] p-6"
+      className="glass-panel relative min-h-[430px] overflow-hidden rounded-[2.6rem] p-6"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(255,107,44,0.24),transparent_30%),radial-gradient(circle_at_76%_72%,rgba(255,255,255,0.08),transparent_28%)]" />
-      <div className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-300/15 bg-orange-300/8 blur-sm" />
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-        className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-orange-200/14"
-      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_44%,rgba(255,107,44,0.24),transparent_34%),radial-gradient(circle_at_50%_92%,rgba(255,107,44,0.10),transparent_30%)]" />
+      <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-300/10" />
+      <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.045]" />
 
-      <div className="relative grid min-h-[470px] place-items-center">
+      <div className="relative grid min-h-[380px] place-items-center">
         <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-          className="relative z-10 max-w-xs rounded-[2.2rem] border border-orange-300/24 bg-slate-950/78 p-6 text-center shadow-[0_28px_90px_rgba(255,107,44,0.18)] backdrop-blur-2xl"
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="relative z-10 grid h-56 w-56 place-items-center rounded-full border border-orange-300/18 bg-slate-950/60 shadow-[0_32px_120px_rgba(255,107,44,0.18)] backdrop-blur-2xl"
         >
-          <div className="mx-auto grid h-16 w-16 place-items-center rounded-3xl bg-[#FF6B2C] text-white shadow-[0_18px_60px_rgba(255,107,44,0.35)]">
-            <ShieldCheck className="h-8 w-8" />
+          <div className="absolute inset-8 rounded-full bg-orange-300/8 blur-xl" />
+          <div className="relative flex flex-col items-center text-center">
+            <div className="relative h-24 w-36">
+              <span className="absolute bottom-2 left-3 h-16 w-24 rounded-[2rem] bg-white/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
+              <span className="absolute bottom-4 left-0 h-14 w-14 rounded-full bg-white/12" />
+              <span className="absolute bottom-8 left-9 h-16 w-16 rounded-full bg-white/14" />
+              <span className="absolute bottom-5 right-0 h-12 w-12 rounded-full bg-white/10" />
+              <span className="absolute inset-x-8 bottom-0 h-3 rounded-full bg-[#FF6B2C] shadow-[0_0_34px_rgba(255,107,44,0.45)]" />
+            </div>
+            <div className="mt-1 grid h-12 w-12 place-items-center rounded-2xl bg-[#FF6B2C] text-white shadow-[0_18px_50px_rgba(255,107,44,0.34)]">
+              <ShieldCheck className="h-6 w-6" />
+            </div>
+            <p className="mt-4 text-lg font-black text-white">Secure cloud operating model</p>
           </div>
-          <h3 className="mt-5 text-2xl font-black text-white">Secure cloud operating model</h3>
-          <p className="mt-3 text-sm leading-6 text-slate-300">Cloud, DevOps, security, monitoring, and managed support working together for enterprise teams.</p>
         </motion.div>
 
-        {cards.map((card, index) => (
-          <motion.div
-            key={card.title}
-            animate={{ y: [0, index % 2 ? 8 : -8, 0] }}
-            transition={{ duration: 4.6 + index * 0.2, repeat: Infinity, ease: "easeInOut" }}
-            className={`absolute w-[14rem] rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-4 backdrop-blur-xl transition hover:border-orange-300/35 ${
-              index === 0
-                ? "left-4 top-8"
-                : index === 1
-                  ? "right-4 top-14"
-                  : index === 2
-                    ? "bottom-16 left-4"
-                    : "bottom-10 right-4"
-            }`}
+        {nodes.map((node, index) => (
+          <motion.span
+            key={index}
+            animate={{ opacity: [0.58, 1, 0.58], scale: [1, 1.06, 1] }}
+            transition={{ duration: 4 + index * 0.28, repeat: Infinity, ease: "easeInOut" }}
+            className={`absolute ${node.className} grid h-11 w-11 place-items-center rounded-full border border-orange-300/18 bg-white/[0.055] text-orange-200 shadow-[0_16px_42px_rgba(255,107,44,0.12)] backdrop-blur-xl`}
+            aria-hidden="true"
           >
-            <card.icon className="h-6 w-6 text-orange-200" />
-            <p className="mt-3 font-bold text-white">{card.title}</p>
-            <p className="mt-1 text-xs leading-5 text-slate-400">{card.detail}</p>
-          </motion.div>
+            <node.icon className="h-5 w-5" />
+          </motion.span>
         ))}
+
+        <div className="absolute bottom-6 left-1/2 grid w-[76%] -translate-x-1/2 grid-cols-5 gap-2">
+          {Array.from({ length: 10 }).map((_, index) => (
+            <motion.span
+              key={index}
+              animate={{ opacity: [0.22, 0.75, 0.22] }}
+              transition={{ duration: 2.8, delay: index * 0.16, repeat: Infinity }}
+              className="h-1.5 rounded-full bg-orange-300/45"
+            />
+          ))}
+        </div>
       </div>
     </motion.div>
   );
@@ -244,12 +253,12 @@ function EnterpriseHeroVisual() {
 
 function Hero() {
   return (
-    <section id="home" className="relative px-4 pb-16 pt-32 sm:px-6 lg:px-8 lg:pb-24 lg:pt-40">
+    <section id="home" className="relative px-4 pb-12 pt-28 sm:px-6 lg:px-8 lg:pb-16 lg:pt-32">
       <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.02fr_0.98fr]">
         <motion.div initial="hidden" animate="visible" variants={stagger}>
           <motion.div variants={fadeUp} className="inline-flex items-center gap-3 rounded-full border border-orange-300/25 bg-orange-300/10 px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-orange-100">
-            <img src={company.logo} alt="ByteInfomedia" className="h-5 w-auto rounded bg-white px-1" />
+            <img src={company.logo} alt="ByteInfomedia" className="h-5 w-auto object-contain" />
             Premium AWS, DevOps & Security Consulting
           </motion.div>
           <motion.h1 variants={fadeUp} className="mt-6 max-w-5xl text-5xl font-black tracking-[-0.055em] text-white sm:text-7xl">
@@ -286,7 +295,7 @@ function Hero() {
 
 function TrustSection() {
   return (
-    <section className="px-4 py-14 sm:px-6 lg:px-8">
+    <section className="px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="glass-panel rounded-[2.5rem] p-6 sm:p-8">
           <div className="grid gap-5 md:grid-cols-3">
@@ -306,7 +315,7 @@ function TrustSection() {
 
 function ServicesSection() {
   return (
-    <section id="services" className="px-4 py-16 sm:px-6 lg:px-8">
+    <section id="services" className="px-4 py-11 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Services"
@@ -319,7 +328,7 @@ function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-120px" }}
-          className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3"
         >
           {services.map((service) => (
             <motion.article key={service.title} variants={fadeUp} whileHover={{ y: -8 }} className="aurora-border rounded-[2rem] p-px">
@@ -338,7 +347,7 @@ function ServicesSection() {
 
 function IndustriesSection() {
   return (
-    <section id="industries" className="px-4 py-16 sm:px-6 lg:px-8">
+    <section id="industries" className="px-4 py-11 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Industries"
@@ -346,7 +355,7 @@ function IndustriesSection() {
           description="Focused infrastructure and security consulting for organizations where reliability, governance, and clarity matter."
         />
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {industries.map((industry) => (
             <motion.div key={industry.title} whileHover={{ y: -6 }} className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 transition hover:border-orange-300/35 hover:bg-white/[0.07]">
               <industry.icon className="h-8 w-8 text-orange-200" />
@@ -362,7 +371,7 @@ function IndustriesSection() {
 
 function CaseStudiesSection() {
   return (
-    <section id="case-studies" className="px-4 py-16 sm:px-6 lg:px-8">
+    <section id="case-studies" className="px-4 py-11 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Case Studies"
@@ -370,7 +379,7 @@ function CaseStudiesSection() {
           description="Realistic business scenarios showing how ByteInfomedia approaches cost, delivery, and security modernization without inflated claims."
         />
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 lg:grid-cols-3">
           {caseStudies.map((study) => (
             <motion.article key={study.title} whileHover={{ y: -8 }} className="glass-panel rounded-[2.2rem] p-6">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-orange-200">Enterprise engagement</p>
@@ -397,12 +406,12 @@ function CaseStudiesSection() {
 
 function LeadGenerationSection() {
   return (
-    <section id="lead" className="px-4 py-16 sm:px-6 lg:px-8">
+    <section id="lead" className="px-4 py-11 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div>
           <span className="section-eyebrow">Consultation</span>
           <h2 className="mt-5 text-4xl font-black tracking-tight text-white sm:text-6xl">Get Free AWS Consultation</h2>
-          <p className="mt-5 text-base leading-8 text-slate-300">
+          <p className="mt-4 text-base leading-7 text-slate-300">
             Share your cloud, DevOps, security, migration, or cost challenge. ByteInfomedia will review your request and recommend practical next steps.
           </p>
           <div className="mt-8 grid gap-4">
@@ -427,14 +436,14 @@ function LeadGenerationSection() {
 
 function FAQSection() {
   return (
-    <section id="faq" className="px-4 py-16 sm:px-6 lg:px-8">
+    <section id="faq" className="px-4 py-11 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-4xl">
         <SectionHeading
           eyebrow="FAQ"
           title="Questions enterprise buyers ask first"
           description="Clear answers before you start a cloud, DevOps, security, or managed infrastructure conversation."
         />
-        <div className="mt-10 grid gap-4">
+        <div className="mt-7 grid gap-4">
           {faqs.map((faq) => (
             <details key={faq.question} className="group rounded-[1.6rem] border border-white/10 bg-white/[0.045] p-5">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-white">
@@ -451,66 +460,82 @@ function FAQSection() {
 }
 
 function ContactSection() {
+  const contactCards = [
+    { label: "Phone", value: company.phone, href: company.phoneHref, icon: PhoneCall, detail: "Direct consultation line" },
+    { label: "WhatsApp", value: "Chat on WhatsApp", href: company.whatsappHref, icon: MessageCircle, detail: "Fast response for urgent queries" },
+    { label: "Email", value: company.email, href: `mailto:${company.email}`, icon: Mail, detail: "Send requirements or RFPs" },
+    { label: "LinkedIn", value: "Company Page", href: company.linkedin, icon: Headphones, detail: "Professional company updates" },
+  ];
+
+  const supportRows = [
+    { title: "Fast response", description: "Consultation requests are reviewed with cloud, DevOps, and security context." },
+    { title: "Enterprise support", description: "Discovery, planning, documentation, and implementation guidance for decision-makers." },
+    { title: "Availability", description: "Mon-Sat | 9 AM - 7 PM for priority consulting conversations." },
+  ];
+
   return (
-    <section id="contact" className="px-4 py-16 sm:px-6 lg:px-8">
+    <section id="contact" className="px-4 py-11 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 max-w-4xl">
+        <div className="mb-7 max-w-4xl">
           <span className="section-eyebrow">Contact</span>
-          <h2 className="mt-5 text-4xl font-black tracking-[-0.045em] text-white sm:text-6xl">Talk to AWS & DevOps Experts Today</h2>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Need immediate assistance with AWS infrastructure, DevOps automation, cloud migration, cybersecurity, or managed cloud operations? Speak directly with ByteInfomedia.
+          <h2 className="mt-4 text-4xl font-black tracking-[-0.045em] text-white sm:text-5xl">Talk to AWS & DevOps Experts Today</h2>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-300">
+            Need immediate assistance with AWS infrastructure, DevOps automation, cloud migration, cybersecurity, or managed cloud operations? Reach ByteInfomedia directly.
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="grid gap-4">
-            <a href={company.phoneHref} className="group relative overflow-hidden rounded-[2.2rem] border border-orange-300/25 bg-gradient-to-br from-orange-300/18 via-white/[0.065] to-white/[0.03] p-6 shadow-[0_24px_80px_rgba(255,107,44,0.14)] backdrop-blur-2xl transition hover:-translate-y-1 hover:border-orange-200/60">
-              <PhoneCall className="h-8 w-8 text-orange-200" />
-              <p className="mt-4 text-xs font-black uppercase tracking-[0.22em] text-orange-100">Call Us Now</p>
-              <p className="mt-2 text-3xl font-black tracking-tight text-white">{company.phone}</p>
-            </a>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <a href={company.whatsappHref} target="_blank" rel="noreferrer" className="rounded-[1.8rem] border border-white/10 bg-white/[0.055] p-5 transition hover:-translate-y-1 hover:border-orange-300/35">
-                <MessageCircle className="h-7 w-7 text-orange-200" />
-                <p className="mt-4 text-xl font-bold text-white">Chat on WhatsApp</p>
-                <p className="mt-2 text-sm leading-6 text-slate-400">Fast response for cloud and security questions.</p>
-              </a>
-              <a href={`mailto:${company.email}`} className="rounded-[1.8rem] border border-white/10 bg-white/[0.055] p-5 transition hover:-translate-y-1 hover:border-orange-300/35">
-                <Mail className="h-7 w-7 text-orange-200" />
-                <p className="mt-4 text-xl font-bold text-white">{company.email}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-400">Send requirements, RFPs, or infrastructure notes.</p>
-              </a>
-            </div>
-          </div>
-
+        <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="glass-panel rounded-[1.8rem] p-5 sm:col-span-2">
-              <MapPin className="h-7 w-7 text-orange-200" />
+            {contactCards.map((card) => (
+              <a
+                key={card.label}
+                href={card.href}
+                target={card.href.startsWith("http") ? "_blank" : undefined}
+                rel={card.href.startsWith("http") ? "noreferrer" : undefined}
+                className="group flex min-h-36 flex-col justify-between rounded-[1.8rem] border border-white/10 bg-white/[0.055] p-5 transition hover:-translate-y-1 hover:border-orange-300/35 hover:bg-white/[0.08]"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <card.icon className="h-6 w-6 text-orange-200" />
+                  <span className="rounded-full border border-orange-300/20 px-2.5 py-1 text-[0.65rem] font-black uppercase tracking-[0.14em] text-orange-100">{card.label}</span>
+                </div>
+                <div>
+                  <p className="mt-5 break-words text-xl font-black text-white">{card.value}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-400">{card.detail}</p>
+                </div>
+              </a>
+            ))}
+
+            <div className="glass-panel min-h-36 rounded-[1.8rem] p-5 sm:col-span-2">
+              <MapPin className="h-6 w-6 text-orange-200" />
               <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-slate-500">Office Address</p>
-              <div className="mt-2 text-lg font-semibold leading-8 text-white">
+              <div className="mt-2 grid gap-1 text-base font-semibold leading-7 text-white sm:grid-cols-2">
                 {company.addressLines.map((line) => (
                   <p key={line}>{line}</p>
                 ))}
               </div>
             </div>
-            <div className="glass-panel rounded-[1.8rem] p-5">
-              <Clock3 className="h-7 w-7 text-orange-200" />
-              <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-slate-500">Support</p>
-              <p className="mt-2 text-xl font-bold text-white">Mon-Sat | 9 AM - 7 PM</p>
+          </div>
+
+          <div className="glass-panel flex h-full min-h-full flex-col justify-between rounded-[2rem] p-6">
+            <div>
+              <span className="section-eyebrow">Consulting Support</span>
+              <h3 className="mt-4 text-3xl font-black tracking-tight text-white">Professional response for enterprise cloud decisions.</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-300">
+                One clear contact area, direct channels, and a single consultation form keep the path to action simple for serious buyers.
+              </p>
             </div>
-            <a href={company.linkedin} target="_blank" rel="noreferrer" className="glass-panel rounded-[1.8rem] p-5 transition hover:-translate-y-1 hover:border-orange-300/35">
-              <Headphones className="h-7 w-7 text-orange-200" />
-              <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-slate-500">LinkedIn</p>
-              <p className="mt-2 text-xl font-bold text-white">Company Page</p>
-            </a>
-            {contactTrustCards.map((card) => (
-              <motion.article key={card.title} whileHover={{ y: -6 }} className="rounded-[1.8rem] border border-white/10 bg-white/[0.045] p-5 transition hover:border-orange-300/35 hover:bg-white/[0.07] sm:col-span-2">
-                <ShieldCheck className="h-6 w-6 text-orange-200" />
-                <h4 className="mt-4 text-lg font-black text-white">{card.title}</h4>
-                <p className="mt-2 text-sm leading-6 text-slate-400">{card.description}</p>
-              </motion.article>
-            ))}
+
+            <div className="mt-6 grid gap-3">
+              {supportRows.map((row) => (
+                <div key={row.title} className="rounded-2xl border border-white/10 bg-white/[0.045] p-4">
+                  <div className="flex items-center gap-3">
+                    <BadgeCheck className="h-5 w-5 text-orange-200" />
+                    <p className="font-bold text-white">{row.title}</p>
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-slate-400">{row.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -523,9 +548,7 @@ function Footer() {
     <footer className="border-t border-white/10 px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.15fr_0.85fr_0.85fr_0.95fr]">
         <div>
-          <div className="inline-flex rounded-3xl border border-white/10 bg-white px-5 py-4 shadow-[0_18px_48px_rgba(255,107,44,0.16)]">
-            <img src={company.logo} alt="ByteInfomedia" className="h-12 w-auto" />
-          </div>
+          <img src={company.logo} alt="ByteInfomedia" className="h-14 w-auto object-contain" />
           <p className="mt-5 max-w-md text-sm leading-7 text-slate-400">
             {company.tagline} Premium AWS cloud consulting, DevOps automation, cybersecurity, managed services, and digital transformation for modern teams.
           </p>
