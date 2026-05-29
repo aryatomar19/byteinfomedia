@@ -30,12 +30,12 @@ export const company = {
   legalName: "Byte InfoMedia LLP",
   logo: "/byteinfomedia-logo.png",
   favicon: "/favicon.png",
-  address: "First Floor, PlotNo.27, Sector-19, Dwarka, New Delhi - 110075",
+  address: "First Floor, Plot No. 27, Sector-19, Dwarka, New Delhi – 110075",
   country: "India",
   phone: "+91 70427 27803",
   phoneHref: "tel:+917042727803",
   whatsappHref: "https://wa.me/917042727803",
-  email: "info@byteinfomedia.com",
+  email: "byteinfomedia@gmail.com",
   website: "https://www.byteinfomedia.com/",
   contactRoute: "https://www.byteinfomedia.com/about-2",
   linkedin: "https://www.linkedin.com/company/byte-infomedia",
@@ -47,8 +47,6 @@ export const company = {
 export const navigation = [
   { label: "Services", href: "#services" },
   { label: "Industries", href: "#industries" },
-  { label: "Architecture", href: "#architecture" },
-  { label: "Delivery", href: "#delivery" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -83,9 +81,14 @@ export const technologyEcosystem = ["AWS", "Docker", "Kubernetes", "Terraform", 
 
 export const featuredServices = [
   {
+    icon: CloudCog,
+    title: "AWS Cloud Consulting",
+    description: "Architecture design, landing zones, governance, and scalable cloud foundations for production workloads.",
+  },
+  {
     icon: CloudUpload,
-    title: "AWS Cloud Migration",
-    description: "Assessment, landing zones, migration waves, and production cutover planning for AWS workloads.",
+    title: "Cloud Migration",
+    description: "Assessment, migration waves, production cutover planning, and zero-downtime transitions to AWS.",
   },
   {
     icon: Workflow,
@@ -94,13 +97,18 @@ export const featuredServices = [
   },
   {
     icon: ServerCog,
-    title: "Managed Cloud Operations",
+    title: "Managed Cloud Services",
     description: "Monitoring, patching, backup validation, incident response, and ongoing infrastructure optimization.",
   },
   {
     icon: ShieldCheck,
-    title: "Cybersecurity Consulting",
+    title: "Cybersecurity",
     description: "Security reviews, VAPT, WAF hardening, access governance, resilience testing, and remediation support.",
+  },
+  {
+    icon: ChartNoAxesCombined,
+    title: "Cloud Cost Optimization",
+    description: "FinOps visibility, rightsizing, budgets, storage lifecycle, and cost governance controls.",
   },
 ];
 
@@ -133,10 +141,6 @@ export const industries = [
   { icon: HeartPulse, title: "Healthcare", description: "Secure platforms with uptime, backup, and privacy-aware infrastructure controls." },
   { icon: Landmark, title: "FinTech", description: "Resilient cloud foundations, audit-minded security, and controlled release pipelines." },
   { icon: Rocket, title: "SaaS", description: "Containerized product infrastructure, monitoring, scaling, and CI/CD acceleration." },
-  { icon: ShoppingCart, title: "eCommerce", description: "CDN acceleration, WAF protection, high-traffic readiness, and reliable checkout stacks." },
-  { icon: GraduationCap, title: "Education", description: "Cost-aware digital learning infrastructure with secure access and content delivery." },
-  { icon: Factory, title: "Manufacturing", description: "Reliable networks, modernization roadmaps, backup strategy, and connected operations." },
-  { icon: Zap, title: "Startups", description: "Launch-ready AWS foundations, automation, and governance before scale becomes complex." },
   { icon: Building2, title: "Enterprise", description: "Governed modernization, managed operations, security reviews, and multi-team delivery." },
 ];
 
@@ -274,11 +278,6 @@ export const faqs = [
       "Yes. Services include migration readiness assessment, landing zone planning, workload grouping, phased migration, validation, and cutover support.",
   },
   {
-    question: "Do you manage existing infrastructure?",
-    answer:
-      "Yes. ByteInfomedia supports existing cloud, Linux, Windows, database, network, monitoring, backup, and application infrastructure environments.",
-  },
-  {
     question: "Do you support cybersecurity audits?",
     answer:
       "Yes. The team supports VAPT-oriented assessments, risk reviews, WAF hardening, IAM checks, network resilience testing, and remediation planning.",
@@ -287,11 +286,6 @@ export const faqs = [
     question: "Do you sign NDA?",
     answer:
       "Yes. NDA-based discovery can be supported before reviewing sensitive infrastructure, application, or security information.",
-  },
-  {
-    question: "What industries do you specialize in?",
-    answer:
-      "ByteInfomedia supports startups, SMEs, SaaS, healthcare, fintech, eCommerce, education, manufacturing, and enterprise technology teams.",
   },
 ];
 

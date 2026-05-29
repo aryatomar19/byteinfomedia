@@ -6,11 +6,7 @@
   --background: #030711;
   --foreground: #eef5ff;
   --muted: #9db0c9;
-  --orange: #ff5b23;
-  --cyan: #35d7ff;
-  --blue: #5786ff;
-  --violet: #9b5cff;
-  --emerald: #48f2b8;
+  --orange: #FF6B2C;
 }
 
 * {
@@ -26,8 +22,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 18% 12%, rgba(255, 91, 35, 0.16), transparent 32rem),
-    radial-gradient(circle at 86% 18%, rgba(155, 92, 255, 0.16), transparent 28rem),
+    radial-gradient(circle at 18% 12%, rgba(255, 107, 44, 0.12), transparent 32rem),
     linear-gradient(180deg, #030711 0%, #07101f 44%, #030711 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
@@ -39,7 +34,7 @@ a {
 }
 
 ::selection {
-  background: rgba(53, 215, 255, 0.35);
+  background: rgba(255, 107, 44, 0.30);
   color: white;
 }
 
@@ -66,7 +61,7 @@ a {
   z-index: -1;
   height: 70vh;
   content: "";
-  background: radial-gradient(circle, rgba(53, 215, 255, 0.12), transparent 62%);
+  background: radial-gradient(circle, rgba(255, 107, 44, 0.06), transparent 62%);
   filter: blur(20px);
 }
 
@@ -81,11 +76,11 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border: 1px solid rgba(53, 215, 255, 0.22);
+  border: 1px solid rgba(255, 107, 44, 0.25);
   border-radius: 999px;
-  background: rgba(53, 215, 255, 0.08);
+  background: rgba(255, 107, 44, 0.08);
   padding: 0.45rem 0.8rem;
-  color: #95ecff;
+  color: #ffb088;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -93,51 +88,12 @@ a {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #ffffff 0%, #ffd8c8 32%, #ff5b23 64%, #35d7ff 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #ffd8c8 32%, #FF6B2C 64%, #ffb088 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.aurora-border {
-  position: relative;
-  overflow: hidden;
-}
-
-.aurora-border::before {
-  position: absolute;
-  inset: -1px;
-  z-index: -1;
-  border-radius: inherit;
-  content: "";
-  background: linear-gradient(120deg, rgba(255, 91, 35, 0.55), rgba(53, 215, 255, 0.35), rgba(72, 242, 184, 0.4));
-  opacity: 0;
-  transition: opacity 220ms ease;
-}
-
-.aurora-border:hover::before {
-  opacity: 1;
-}
-
-.architecture-line {
-  background: linear-gradient(90deg, transparent, rgba(53, 215, 255, 0.72), transparent);
-  background-size: 220% 100%;
-  animation: pulse-line 3.2s ease-in-out infinite;
-}
-
-@keyframes pulse-line {
-  0% {
-    background-position: 220% 0;
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    background-position: -220% 0;
-    opacity: 0.35;
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -162,8 +118,8 @@ a {
   width: 4px;
   height: 4px;
   border-radius: 999px;
-  background: rgba(255, 91, 35, 0.52);
-  box-shadow: 0 0 24px rgba(255, 91, 35, 0.42);
+  background: rgba(255, 107, 44, 0.52);
+  box-shadow: 0 0 24px rgba(255, 107, 44, 0.42);
   animation: particle-drift 12s ease-in-out infinite;
 }
 
@@ -202,14 +158,13 @@ html.light {
 
 html.light body {
   background:
-    radial-gradient(circle at 16% 10%, rgba(255, 91, 35, 0.13), transparent 29rem),
-    radial-gradient(circle at 82% 14%, rgba(53, 215, 255, 0.16), transparent 30rem),
+    radial-gradient(circle at 16% 10%, rgba(255, 107, 44, 0.10), transparent 29rem),
     linear-gradient(180deg, #ffffff 0%, #f6f8fc 46%, #eef4fb 100%);
   color: var(--foreground);
 }
 
 html.light ::selection {
-  background: rgba(255, 91, 35, 0.22);
+  background: rgba(255, 107, 44, 0.22);
   color: #08111f;
 }
 
@@ -221,7 +176,7 @@ html.light .premium-shell::before {
 }
 
 html.light .premium-shell::after {
-  background: radial-gradient(circle, rgba(53, 215, 255, 0.14), transparent 64%);
+  background: radial-gradient(circle, rgba(255, 107, 44, 0.06), transparent 64%);
 }
 
 html.light .glass-panel {
@@ -231,25 +186,20 @@ html.light .glass-panel {
 }
 
 html.light .section-eyebrow {
-  border-color: rgba(255, 91, 35, 0.22);
-  background: rgba(255, 91, 35, 0.08);
+  border-color: rgba(255, 107, 44, 0.22);
+  background: rgba(255, 107, 44, 0.08);
   color: #b63d12;
 }
 
 html.light .gradient-text {
-  background: linear-gradient(90deg, #08111f 0%, #ff5b23 42%, #0d86a8 100%);
+  background: linear-gradient(90deg, #08111f 0%, #FF6B2C 50%, #c84a17 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
 
-html.light .architecture-line {
-  background: linear-gradient(90deg, transparent, rgba(255, 91, 35, 0.58), rgba(53, 215, 255, 0.55), transparent);
-  background-size: 220% 100%;
-}
-
 html.light .particle-field span {
-  background: rgba(255, 91, 35, 0.32);
-  box-shadow: 0 0 24px rgba(255, 91, 35, 0.28);
+  background: rgba(255, 107, 44, 0.32);
+  box-shadow: 0 0 24px rgba(255, 107, 44, 0.28);
 }
 
 html.light header {
@@ -282,13 +232,8 @@ html.light .text-orange-300 {
   color: #c84a17 !important;
 }
 
-html.light .text-cyan-100,
-html.light .text-cyan-200,
 html.light .text-emerald-100,
-html.light .text-emerald-200,
-html.light .text-violet-200,
-html.light .text-blue-100,
-html.light .text-blue-200 {
+html.light .text-emerald-200 {
   color: #0c7896 !important;
 }
 
@@ -311,16 +256,13 @@ html.light [class*="bg-white\\/"] {
 
 html.light [class*="bg-orange-300/"],
 html.light [class*="bg-orange-400/"],
-html.light [class*="bg-cyan-300/"],
-html.light [class*="bg-emerald-300/"],
-html.light [class*="bg-violet-400/"] {
+html.light [class*="bg-emerald-300/"] {
   background-color: rgba(255, 255, 255, 0.72) !important;
-  background-image: linear-gradient(135deg, rgba(255, 91, 35, 0.08), rgba(53, 215, 255, 0.07)) !important;
+  background-image: linear-gradient(135deg, rgba(255, 107, 44, 0.08), rgba(255, 107, 44, 0.04)) !important;
 }
 
-html.light [class*="bg-[#ff5b23"],
-html.light .bg-\[\#ff5b23\] {
-  background: #ff5b23 !important;
+html.light [class*="bg-[#FF6B2C"] {
+  background: #FF6B2C !important;
   color: #ffffff !important;
 }
 
@@ -371,7 +313,7 @@ html.light button:hover {
 }
 
 html.light [class*="hover:bg-white"]:hover {
-  background: rgba(255, 91, 35, 0.09) !important;
+  background: rgba(255, 107, 44, 0.09) !important;
 }
 
 html.light [class*="hover:text-white"]:hover {
@@ -388,22 +330,8 @@ html.light .premium-shell {
   background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(240,246,252,0.2));
 }
 
-html.light .tech-logo-chip {
-  border-color: rgba(15, 33, 59, 0.11) !important;
-  background: rgba(255, 255, 255, 0.82) !important;
-  color: #1f3147 !important;
-  box-shadow: 0 14px 34px rgba(14, 34, 58, 0.1) !important;
-}
-
-html.light .tech-logo-chip:hover {
-  border-color: rgba(255, 91, 35, 0.34) !important;
-  color: #b63d12 !important;
-  box-shadow: 0 20px 50px rgba(255, 91, 35, 0.13) !important;
-}
-
-html.light .section-eyebrow svg,
-html.light .tech-logo-chip svg {
-  filter: drop-shadow(0 4px 10px rgba(255, 91, 35, 0.08));
+html.light .section-eyebrow svg {
+  filter: drop-shadow(0 4px 10px rgba(255, 107, 44, 0.08));
 }
 
 html.light .group:hover .group-hover\:text-orange-100 {

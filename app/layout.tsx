@@ -91,7 +91,7 @@ const organizationSchema = {
   email: company.email,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "First Floor, PlotNo.27, Sector-19, Dwarka",
+    streetAddress: "First Floor, Plot No. 27, Sector-19, Dwarka",
     addressLocality: "New Delhi",
     postalCode: "110075",
     addressCountry: "IN",
