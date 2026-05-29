@@ -183,69 +183,95 @@ function Navbar({ theme, setTheme }: { theme: ThemeMode; setTheme: (theme: Theme
 }
 
 function EnterpriseHeroVisual() {
-  const nodes = [
-    { icon: CloudCog, className: "left-[16%] top-[22%]" },
-    { icon: ShieldCheck, className: "right-[16%] top-[24%]" },
-    { icon: Workflow, className: "left-[18%] bottom-[22%]" },
-    { icon: Gauge, className: "right-[18%] bottom-[20%]" },
-    { icon: Zap, className: "left-1/2 top-[12%] -translate-x-1/2" },
-  ];
-
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.97 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0.98, y: 12 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="glass-panel relative min-h-[430px] overflow-hidden rounded-[2.6rem] p-6"
+      className="relative min-h-[430px] overflow-hidden rounded-[2.6rem] border border-slate-200/80 bg-gradient-to-br from-white via-[#f8fafc] to-[#fff3ed] p-6 shadow-[0_32px_100px_rgba(15,23,42,0.12)]"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_44%,rgba(255,107,44,0.24),transparent_34%),radial-gradient(circle_at_50%_92%,rgba(255,107,44,0.10),transparent_30%)]" />
-      <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-300/10" />
-      <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.045]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.035)_1px,transparent_1px)] bg-[size:36px_36px]" />
+      <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-[#FF6B2C]/10 blur-3xl" />
+      <div className="absolute -bottom-24 right-0 h-72 w-72 rounded-full bg-[#FF6B2C]/12 blur-3xl" />
 
-      <div className="relative grid min-h-[380px] place-items-center">
+      <div className="relative min-h-[380px]">
         <motion.div
           animate={{ y: [0, -8, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="relative z-10 grid h-56 w-56 place-items-center rounded-full border border-orange-300/18 bg-slate-950/60 shadow-[0_32px_120px_rgba(255,107,44,0.18)] backdrop-blur-2xl"
+          transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute left-1/2 top-[44%] z-20 h-40 w-64 -translate-x-1/2 -translate-y-1/2"
         >
-          <div className="absolute inset-8 rounded-full bg-orange-300/8 blur-xl" />
-          <div className="relative flex flex-col items-center text-center">
-            <div className="relative h-24 w-36">
-              <span className="absolute bottom-2 left-3 h-16 w-24 rounded-[2rem] bg-white/12 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]" />
-              <span className="absolute bottom-4 left-0 h-14 w-14 rounded-full bg-white/12" />
-              <span className="absolute bottom-8 left-9 h-16 w-16 rounded-full bg-white/14" />
-              <span className="absolute bottom-5 right-0 h-12 w-12 rounded-full bg-white/10" />
-              <span className="absolute inset-x-8 bottom-0 h-3 rounded-full bg-[#FF6B2C] shadow-[0_0_34px_rgba(255,107,44,0.45)]" />
-            </div>
-            <div className="mt-1 grid h-12 w-12 place-items-center rounded-2xl bg-[#FF6B2C] text-white shadow-[0_18px_50px_rgba(255,107,44,0.34)]">
-              <ShieldCheck className="h-6 w-6" />
-            </div>
-            <p className="mt-4 text-lg font-black text-white">Secure cloud operating model</p>
+          <div className="absolute bottom-7 left-8 h-24 w-40 rounded-[2.5rem] bg-white shadow-[0_24px_70px_rgba(15,23,42,0.14),inset_0_1px_0_rgba(255,255,255,0.9)]" />
+          <div className="absolute bottom-12 left-3 h-24 w-24 rounded-full bg-white shadow-[0_20px_60px_rgba(15,23,42,0.12)]" />
+          <div className="absolute bottom-16 left-20 h-28 w-28 rounded-full bg-white shadow-[0_20px_60px_rgba(15,23,42,0.12)]" />
+          <div className="absolute bottom-12 right-4 h-20 w-20 rounded-full bg-white shadow-[0_20px_60px_rgba(15,23,42,0.1)]" />
+          <div className="absolute bottom-3 left-14 right-12 h-4 rounded-full bg-[#FF6B2C] shadow-[0_0_38px_rgba(255,107,44,0.38)]" />
+          <div className="absolute bottom-10 left-1/2 grid h-14 w-14 -translate-x-1/2 place-items-center rounded-2xl bg-[#FF6B2C] text-white shadow-[0_20px_60px_rgba(255,107,44,0.36)]">
+            <ShieldCheck className="h-7 w-7" />
           </div>
         </motion.div>
 
-        {nodes.map((node, index) => (
-          <motion.span
-            key={index}
-            animate={{ opacity: [0.58, 1, 0.58], scale: [1, 1.06, 1] }}
-            transition={{ duration: 4 + index * 0.28, repeat: Infinity, ease: "easeInOut" }}
-            className={`absolute ${node.className} grid h-11 w-11 place-items-center rounded-full border border-orange-300/18 bg-white/[0.055] text-orange-200 shadow-[0_16px_42px_rgba(255,107,44,0.12)] backdrop-blur-xl`}
-            aria-hidden="true"
-          >
-            <node.icon className="h-5 w-5" />
-          </motion.span>
-        ))}
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute left-4 top-8 w-44 rounded-[1.4rem] border border-slate-200 bg-white/82 p-4 shadow-[0_20px_55px_rgba(15,23,42,0.10)] backdrop-blur-xl sm:left-8"
+        >
+          <div className="mb-4 flex items-center justify-between">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#FF6B2C]" />
+            <Gauge className="h-4 w-4 text-slate-500" />
+          </div>
+          <div className="space-y-2">
+            <span className="block h-2 rounded-full bg-slate-200" />
+            <span className="block h-2 w-3/4 rounded-full bg-slate-100" />
+            <span className="block h-8 rounded-xl bg-gradient-to-r from-[#FF6B2C]/18 to-slate-100" />
+          </div>
+        </motion.div>
 
-        <div className="absolute bottom-6 left-1/2 grid w-[76%] -translate-x-1/2 grid-cols-5 gap-2">
-          {Array.from({ length: 10 }).map((_, index) => (
+        <motion.div
+          animate={{ y: [0, -5, 0] }}
+          transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute right-4 top-12 w-44 rounded-[1.4rem] border border-slate-200 bg-white/82 p-4 shadow-[0_20px_55px_rgba(15,23,42,0.10)] backdrop-blur-xl sm:right-8"
+        >
+          <div className="flex items-center justify-between">
+            <Activity className="h-4 w-4 text-[#FF6B2C]" />
+            <span className="rounded-full bg-[#FF6B2C]/10 px-2 py-1 text-[0.62rem] font-black uppercase tracking-[0.12em] text-[#b94414]">Live</span>
+          </div>
+          <div className="mt-4 flex items-end gap-2">
+            {[36, 52, 28, 64, 44].map((height, index) => (
+              <motion.span
+                key={height + index}
+                animate={{ height: [height, height + 10, height] }}
+                transition={{ duration: 2.6, delay: index * 0.12, repeat: Infinity }}
+                className="w-full rounded-t-lg bg-[#FF6B2C]/70"
+                style={{ height }}
+              />
+            ))}
+          </div>
+        </motion.div>
+
+        <div className="absolute bottom-12 left-8 flex items-end gap-2">
+          {[0, 1, 2].map((item) => (
             <motion.span
-              key={index}
-              animate={{ opacity: [0.22, 0.75, 0.22] }}
-              transition={{ duration: 2.8, delay: index * 0.16, repeat: Infinity }}
-              className="h-1.5 rounded-full bg-orange-300/45"
-            />
+              key={item}
+              animate={{ y: [0, item % 2 ? -4 : 4, 0] }}
+              transition={{ duration: 4, delay: item * 0.18, repeat: Infinity }}
+              className="block h-16 w-14 rounded-xl border border-slate-200 bg-white/84 shadow-[0_18px_45px_rgba(15,23,42,0.09)]"
+            >
+              <span className="mx-auto mt-3 block h-1.5 w-7 rounded-full bg-slate-200" />
+              <span className="mx-auto mt-2 block h-1.5 w-5 rounded-full bg-[#FF6B2C]/45" />
+            </motion.span>
           ))}
         </div>
+
+        <motion.div
+          animate={{ y: [0, 5, 0] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-12 right-8 grid h-20 w-20 place-items-center rounded-2xl border border-slate-200 bg-white/84 text-[#FF6B2C] shadow-[0_18px_45px_rgba(15,23,42,0.10)]"
+        >
+          <Workflow className="h-8 w-8" />
+        </motion.div>
+
+        <div className="absolute bottom-5 left-1/2 h-12 w-[72%] -translate-x-1/2 rounded-[50%] bg-[#FF6B2C]/10 blur-xl" />
+        <div className="absolute inset-x-10 bottom-8 h-px bg-gradient-to-r from-transparent via-[#FF6B2C]/30 to-transparent" />
       </div>
     </motion.div>
   );
