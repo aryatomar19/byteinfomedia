@@ -1,28 +1,18 @@
 import {
   Activity,
   BadgeCheck,
-  Boxes,
-  BrainCircuit,
   Building2,
   ChartNoAxesCombined,
   CloudCog,
   CloudUpload,
-  Code2,
-  DatabaseBackup,
-  Factory,
-  GraduationCap,
   HeartPulse,
   Landmark,
-  Layers3,
   LifeBuoy,
   LockKeyhole,
-  Network,
   Rocket,
   ServerCog,
   ShieldCheck,
-  ShoppingCart,
   Workflow,
-  Zap,
 } from "lucide-react";
 
 export const company = {
@@ -30,235 +20,142 @@ export const company = {
   legalName: "Byte InfoMedia LLP",
   logo: "/byteinfomedia-logo.png",
   favicon: "/favicon.png",
-  address: "First Floor, PlotNo.27, Sector-19, Dwarka, New Delhi - 110075",
+  address: "First Floor, Plot No. 27, Sector-19, Dwarka, New Delhi - 110075",
+  addressLines: ["First Floor, Plot No. 27", "Sector-19", "Dwarka", "New Delhi - 110075"],
   country: "India",
   phone: "+91 70427 27803",
   phoneHref: "tel:+917042727803",
   whatsappHref: "https://wa.me/917042727803",
-  email: "info@byteinfomedia.com",
+  email: "byteinfomedia@gmail.com",
   website: "https://www.byteinfomedia.com/",
   contactRoute: "https://www.byteinfomedia.com/about-2",
   linkedin: "https://www.linkedin.com/company/byte-infomedia",
   tagline: "Technology Managed. Business Empowered.",
   description:
-    "ByteInfomedia is a modern IT solutions company providing cloud services, cybersecurity, AWS solutions, and infrastructure management for businesses.",
+    "ByteInfomedia provides AWS cloud consulting, DevOps automation, cybersecurity, managed cloud services, cloud migration, and cloud cost optimization for modern businesses.",
 };
 
 export const navigation = [
   { label: "Services", href: "#services" },
   { label: "Industries", href: "#industries" },
-  { label: "Architecture", href: "#architecture" },
-  { label: "Delivery", href: "#delivery" },
+  { label: "Case Studies", href: "#case-studies" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const trustBadges = [
-  "AWS Cloud Experts",
-  "DevOps Automation Specialists",
-  "Security-First Infrastructure",
-  "24/7 Managed Support",
-  "Fast Response Team",
+  "AWS-focused cloud expertise",
+  "DevOps automation specialists",
+  "Security-first delivery",
+  "Managed operations support",
+  "Fast response consultation",
+  "Architecture-first engagement",
 ];
 
 export const credibilitySignals = [
   {
-    label: "AWS & Cloud Architecture",
-    detail: "Landing zones, migration planning, cloud-native application foundations, and governance-first infrastructure.",
+    label: "Architecture-first consulting",
+    detail: "Every engagement starts with business goals, workload context, risk areas, and a practical cloud roadmap.",
   },
   {
-    label: "DevOps Delivery Model",
-    detail: "CI/CD, infrastructure automation, container platforms, release controls, and operational visibility.",
+    label: "Security-first implementation",
+    detail: "Cloud, DevOps, network, IAM, backup, and monitoring decisions are planned with risk reduction in mind.",
   },
   {
-    label: "Security-First Execution",
-    detail: "VAPT, network resilience, IAM hardening, backup validation, WAF, and SecOps-aligned remediation.",
-  },
-  {
-    label: "Real Contact Accessibility",
-    detail: "Direct phone, WhatsApp, office address, and structured consultation intake for faster enterprise response.",
+    label: "Real access to consultants",
+    detail: "Phone, WhatsApp, email, and LinkedIn are visible so enterprise buyers can reach the team quickly.",
   },
 ];
 
-export const technologyEcosystem = ["AWS", "Docker", "Kubernetes", "Terraform", "Jenkins", "Grafana", "CloudFront", "WAF", "Linux", "Nginx"];
-
-export const featuredServices = [
+export const services = [
+  {
+    icon: CloudCog,
+    title: "AWS Cloud Consulting",
+    description: "Cloud architecture, landing zones, governance, workload planning, and AWS modernization guidance.",
+  },
   {
     icon: CloudUpload,
-    title: "AWS Cloud Migration",
-    description: "Assessment, landing zones, migration waves, and production cutover planning for AWS workloads.",
+    title: "Cloud Migration",
+    description: "Migration readiness, phased workload movement, validation, rollback planning, and cutover support.",
   },
   {
     icon: Workflow,
     title: "DevOps Automation",
-    description: "CI/CD, IaC, release controls, and automation that help teams ship reliably with less manual effort.",
+    description: "CI/CD strategy, infrastructure automation, release controls, deployment visibility, and delivery governance.",
   },
   {
     icon: ServerCog,
-    title: "Managed Cloud Operations",
-    description: "Monitoring, patching, backup validation, incident response, and ongoing infrastructure optimization.",
+    title: "Managed Cloud Services",
+    description: "Monitoring, maintenance, backup checks, response workflows, optimization, and ongoing cloud operations.",
   },
   {
     icon: ShieldCheck,
-    title: "Cybersecurity Consulting",
-    description: "Security reviews, VAPT, WAF hardening, access governance, resilience testing, and remediation support.",
+    title: "Cybersecurity",
+    description: "Security reviews, IAM hardening, WAF strategy, VAPT support, resilience planning, and remediation guidance.",
+  },
+  {
+    icon: ChartNoAxesCombined,
+    title: "Cloud Cost Optimization",
+    description: "FinOps reviews, cost visibility, rightsizing recommendations, budget controls, and spend governance.",
   },
 ];
 
-export const secondaryServices = [
-  { icon: Zap, title: "CI/CD Pipelines", description: "Automated build, test, deploy, and approval workflows." },
-  { icon: Boxes, title: "Kubernetes", description: "Container orchestration for resilient application platforms." },
-  { icon: Layers3, title: "Docker", description: "Application containerization and runtime best practices." },
-  { icon: Activity, title: "Monitoring", description: "Metrics, logs, traces, uptime checks, and alerting." },
-  { icon: DatabaseBackup, title: "Backup", description: "Backup policy design, validation, and recovery readiness." },
-  { icon: Network, title: "Network", description: "VPC, VPN, firewall, load balancing, and secure connectivity." },
-  { icon: Code2, title: "Web Development", description: "Cloud-ready websites, portals, and digital platforms." },
-  { icon: Rocket, title: "SaaS Infrastructure", description: "Scalable foundations for modern SaaS product teams." },
-  { icon: ChartNoAxesCombined, title: "Cloud Cost Optimization", description: "FinOps visibility, rightsizing, budgets, and cost controls." },
-];
-
-export const services = [...featuredServices, ...secondaryServices];
-
-export const differentiators = [
-  "AWS-focused expertise for production cloud environments",
-  "Security-first delivery across architecture, network, and application layers",
-  "Zero downtime migration planning with phased rollout strategy",
-  "DevOps automation for faster and safer delivery pipelines",
-  "Fast implementation using proven cloud and infrastructure patterns",
-  "Cost optimization through FinOps visibility and governance controls",
-  "Managed support for reliability, monitoring, and incident response",
-  "Scalable infrastructure designed for startups, SMEs, SaaS, and enterprise teams",
-];
-
 export const industries = [
-  { icon: HeartPulse, title: "Healthcare", description: "Secure platforms with uptime, backup, and privacy-aware infrastructure controls." },
-  { icon: Landmark, title: "FinTech", description: "Resilient cloud foundations, audit-minded security, and controlled release pipelines." },
-  { icon: Rocket, title: "SaaS", description: "Containerized product infrastructure, monitoring, scaling, and CI/CD acceleration." },
-  { icon: ShoppingCart, title: "eCommerce", description: "CDN acceleration, WAF protection, high-traffic readiness, and reliable checkout stacks." },
-  { icon: GraduationCap, title: "Education", description: "Cost-aware digital learning infrastructure with secure access and content delivery." },
-  { icon: Factory, title: "Manufacturing", description: "Reliable networks, modernization roadmaps, backup strategy, and connected operations." },
-  { icon: Zap, title: "Startups", description: "Launch-ready AWS foundations, automation, and governance before scale becomes complex." },
-  { icon: Building2, title: "Enterprise", description: "Governed modernization, managed operations, security reviews, and multi-team delivery." },
+  {
+    icon: HeartPulse,
+    title: "Healthcare",
+    description: "Secure infrastructure for patient platforms, backups, uptime-sensitive systems, and privacy-aware operations.",
+  },
+  {
+    icon: Landmark,
+    title: "FinTech",
+    description: "Resilient cloud foundations, security controls, controlled releases, and audit-minded infrastructure planning.",
+  },
+  {
+    icon: Rocket,
+    title: "SaaS",
+    description: "Scalable environments, deployment automation, monitoring, cost visibility, and production readiness.",
+  },
+  {
+    icon: Building2,
+    title: "Enterprise",
+    description: "Governed modernization, managed operations, migration planning, and security-first delivery support.",
+  },
 ];
 
 export const caseStudies = [
   {
     title: "AWS Cost Optimization for SaaS Platforms",
-    context: "A SaaS infrastructure footprint needed better cost ownership, tagging discipline, and visibility before scaling further.",
-    solution: "Structured a FinOps review model covering budget alerts, rightsizing checks, storage lifecycle policy, and environment-level accountability.",
+    context: "A SaaS platform needed better visibility into AWS spend and clearer ownership before scaling infrastructure further.",
+    solution: "ByteInfomedia structured a FinOps review model covering tagging, budget alerts, rightsizing checks, and storage lifecycle policy.",
     outcomes: ["Cost visibility", "Governed scaling", "Optimization roadmap"],
   },
   {
     title: "DevOps Pipeline Modernization",
-    context: "A product engineering team needed a safer release process and more consistent promotion across environments.",
-    solution: "Planned CI/CD workflow improvements with quality gates, infrastructure-as-code review, approval controls, and deployment visibility.",
+    context: "A product engineering team needed a safer release process and more consistent deployment promotion across environments.",
+    solution: "The engagement focused on CI/CD planning, quality gates, infrastructure-as-code review, approval controls, and release visibility.",
     outcomes: ["Safer releases", "Repeatable delivery", "Improved visibility"],
   },
   {
     title: "Cloud Security Hardening Review",
     context: "A business-critical cloud environment required a practical review of access, network exposure, logging, and recovery readiness.",
-    solution: "Reviewed IAM, WAF posture, network controls, backup validation, monitoring coverage, and remediation priorities.",
+    solution: "ByteInfomedia reviewed IAM, WAF posture, network controls, backup validation, monitoring coverage, and remediation priorities.",
     outcomes: ["Prioritized risks", "Security roadmap", "Recovery readiness"],
   },
-  {
-    title: "Managed Infrastructure Transformation",
-    context: "An operations team needed more reliable monitoring, backup governance, and incident response practices for existing infrastructure.",
-    solution: "Defined managed operations workflows for alerts, maintenance windows, escalation, documentation, and continuous optimization.",
-    outcomes: ["Operational clarity", "Support readiness", "Knowledge transfer"],
-  },
 ];
-
-export const deliveryModel = [
-  {
-    title: "Discovery & Architecture Consultation",
-    description: "Understand current infrastructure, business priorities, risk areas, and the right AWS, DevOps, or security roadmap.",
-  },
-  {
-    title: "Secure Implementation Planning",
-    description: "Plan environments, access controls, migration phases, rollback paths, monitoring, and backup readiness before execution.",
-  },
-  {
-    title: "Managed Deployment & Monitoring",
-    description: "Support deployments with observability, release coordination, incident response paths, and operational ownership.",
-  },
-  {
-    title: "Continuous Optimization",
-    description: "Improve performance, cost, reliability, and security posture with structured reviews and practical remediation cycles.",
-  },
-  {
-    title: "Incident Response Support",
-    description: "Help teams respond to infrastructure, availability, security, and performance incidents with clear escalation and action plans.",
-  },
-  {
-    title: "Documentation & Knowledge Transfer",
-    description: "Provide implementation notes, operational runbooks, architecture context, and handover support for internal teams.",
-  },
-];
-
-export const supportCapabilities = [
-  {
-    title: "AWS-Focused Cloud Expertise",
-    description: "Architecture-first consulting for AWS migration, cloud modernization, governance, and scalable infrastructure foundations.",
-  },
-  {
-    title: "DevOps Automation Specialists",
-    description: "Pipeline, IaC, container, release, and monitoring practices designed to reduce operational friction.",
-  },
-  {
-    title: "Security-First Delivery",
-    description: "Security reviews, access hardening, WAF, backup validation, and remediation planning embedded into delivery.",
-  },
-  {
-    title: "Managed Operations Support",
-    description: "Monitoring, maintenance, escalation, incident response, and continuous optimization support for production systems.",
-  },
-];
-
-export const contactTrustCards = [
-  {
-    title: "Fast Response Consultation",
-    description: "Direct phone and WhatsApp access for urgent AWS, DevOps, cloud migration, and cybersecurity discussions.",
-  },
-  {
-    title: "Priority Engagement Support",
-    description: "Structured discovery for decision-makers who need practical next steps before investing in implementation.",
-  },
-  {
-    title: "Security-First Consulting",
-    description: "Every engagement considers access, network exposure, backup readiness, observability, and risk reduction.",
-  },
-  {
-    title: "Managed Support Availability",
-    description: "Support hours and managed operations practices designed around reliable enterprise infrastructure response.",
-  },
-];
-
-
-export const architectureSteps = [
-  "Users",
-  "CloudFront",
-  "AWS WAF",
-  "Load Balancer",
-  "App Layer",
-  "Containers / Kubernetes",
-  "Database",
-  "Monitoring",
-  "Backup",
-];
-
-export const floatingTech = ["AWS", "Docker", "Kubernetes", "Terraform", "Jenkins", "Grafana"];
 
 export const leadOffers = [
   {
     title: "Free AWS Assessment",
-    description: "Review architecture, migration readiness, cloud security, reliability, and scaling opportunities.",
+    description: "Review cloud architecture, migration readiness, security posture, reliability, and scaling opportunities.",
   },
   {
-    title: "Free Security Review",
-    description: "Identify cloud, network, IAM, backup, and application exposure with a prioritized action plan.",
+    title: "Security Review",
+    description: "Identify practical risk areas across cloud, access, network, monitoring, and backup readiness.",
   },
   {
-    title: "Free Cloud Cost Optimization Review",
-    description: "Spot waste, rightsizing opportunities, storage improvements, and FinOps governance gaps.",
+    title: "Cost Optimization Review",
+    description: "Find rightsizing, governance, budget, storage, and operational improvements for cloud spend.",
   },
 ];
 
@@ -266,12 +163,12 @@ export const faqs = [
   {
     question: "How quickly can you start?",
     answer:
-      "ByteInfomedia can begin with a focused discovery call, review your current environment, and define the highest-priority AWS, DevOps, or security actions.",
+      "ByteInfomedia can begin with a focused discovery call, review your current environment, and define practical next steps for AWS, DevOps, security, or managed cloud needs.",
   },
   {
     question: "Do you provide AWS migration support?",
     answer:
-      "Yes. Services include migration readiness assessment, landing zone planning, workload grouping, phased migration, validation, and cutover support.",
+      "Yes. Support includes migration readiness assessment, landing zone planning, workload grouping, phased migration, validation, and cutover guidance.",
   },
   {
     question: "Do you manage existing infrastructure?",
@@ -281,27 +178,32 @@ export const faqs = [
   {
     question: "Do you support cybersecurity audits?",
     answer:
-      "Yes. The team supports VAPT-oriented assessments, risk reviews, WAF hardening, IAM checks, network resilience testing, and remediation planning.",
+      "Yes. The team supports security reviews, VAPT-oriented assessments, IAM checks, WAF hardening, network resilience testing, and remediation planning.",
+  },
+];
+
+export const contactTrustCards = [
+  {
+    title: "Fast response team",
+    description: "Reach consultants directly by phone, WhatsApp, email, or LinkedIn for urgent cloud and security discussions.",
   },
   {
-    question: "Do you sign NDA?",
-    answer:
-      "Yes. NDA-based discovery can be supported before reviewing sensitive infrastructure, application, or security information.",
+    title: "Enterprise engagement support",
+    description: "Structured discovery, clear next steps, and professional documentation for decision-makers and technical teams.",
   },
   {
-    question: "What industries do you specialize in?",
-    answer:
-      "ByteInfomedia supports startups, SMEs, SaaS, healthcare, fintech, eCommerce, education, manufacturing, and enterprise technology teams.",
+    title: "Managed support availability",
+    description: "Mon-Sat support hours and managed operations practices for reliability-focused cloud environments.",
   },
 ];
 
 export const footerLinks = [
   "AWS Cloud Consulting",
-  "DevOps Automation",
-  "Cybersecurity",
-  "Managed Services",
   "Cloud Migration",
-  "Digital Transformation",
+  "DevOps Automation",
+  "Managed Cloud Services",
+  "Cybersecurity",
+  "Cloud Cost Optimization",
 ];
 
-export const certifications = [BadgeCheck, LifeBuoy, ShieldCheck, CloudCog];
+export const certifications = [BadgeCheck, LifeBuoy, ShieldCheck, LockKeyhole, Activity];
