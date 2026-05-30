@@ -7,8 +7,8 @@ import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 
 export function AboutPreview() {
   return (
-    <section className="section-surface py-20 sm:py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+    <section className="section-surface py-14 sm:py-16">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-10 lg:px-8">
         <Reveal className="order-2 lg:order-1">
           <div className="overflow-hidden rounded-[1.75rem] border border-[#0A0F1C]/8 shadow-[0_24px_64px_rgba(10,15,28,0.1)]">
             <img

@@ -8,7 +8,7 @@ import { Reveal } from "@/components/motion/Reveal";
 
 export function ServicesOverview() {
   return (
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-white py-14 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
@@ -17,7 +17,7 @@ export function ServicesOverview() {
           <p className="mt-4 text-lg text-[#5f6f86]">{servicesSection.subtitle}</p>
         </Reveal>
 
-        <div className="mt-14 grid gap-8 sm:grid-cols-2">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {serviceOverview.map((service, index) => (
             <motion.article
               key={service.title}

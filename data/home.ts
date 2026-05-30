@@ -38,7 +38,7 @@ export const serviceOverview = [
   {
     title: "Cloud Services",
     image: homeImages.cloudServices,
-    imageAlt: "Cloud transformation and global digital infrastructure",
+    imageAlt: "Enterprise cloud infrastructure and computing",
     description:
       "AWS consulting, migration, modernization, cloud security and cost optimization.",
     href: "/cloud-services/",

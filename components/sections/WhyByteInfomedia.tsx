@@ -5,7 +5,7 @@ import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 
 export function WhyByteInfomedia() {
   return (
-    <section className="section-surface py-20 sm:py-24">
+    <section className="section-surface py-14 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
@@ -13,7 +13,7 @@ export function WhyByteInfomedia() {
           </h2>
         </Reveal>
 
-        <RevealStagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <RevealStagger className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {capabilityCards.map((item) => (
             <RevealItem key={item.title}>
               <div className="enterprise-card group h-full rounded-2xl p-6 transition hover:-translate-y-1">

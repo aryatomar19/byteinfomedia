@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 export function HomeHero() {
   return (
     <section className="relative overflow-hidden bg-white">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8 lg:py-20 xl:py-24">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:gap-10 lg:px-8 lg:py-14">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ export function HomeHero() {
             </Button>
           </div>
 
-          <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-3">
+          <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2">
             {homeHero.trustPoints.map((point) => (
               <li key={point} className="flex items-center gap-2 text-sm font-semibold text-[#0A0F1C]">
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FF6B2C]/12">
