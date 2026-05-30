@@ -20,6 +20,7 @@ import { managedServicesPage } from "@/data/managed-services";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { ServiceImageCard } from "@/components/sections/ServiceImageCard";
+import { SectionHeading } from "@/components/sections/SectionHeading";
 
 const whyIcons: Record<string, LucideIcon> = {
   "Proactive Monitoring": Activity,
@@ -59,7 +60,7 @@ export function ManagedServicesPage() {
         />
         <div className="absolute inset-0 grid-pattern opacity-35" aria-hidden />
 
-        <div className="relative mx-auto flex min-h-[70vh] max-h-[75vh] max-w-7xl items-center px-4 py-10 sm:px-6 lg:px-8">
+        <div className="relative mx-auto flex min-h-[70vh] max-h-[75vh] max-w-7xl items-center px-4 hero-service sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
               <Sparkles className="h-3.5 w-3.5" />
@@ -86,15 +87,10 @@ export function ManagedServicesPage() {
         </div>
       </section>
 
-      <section className="mesh-light section-enterprise">
+      <section className="mesh-light section-enterprise section-after-hero">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Core Services</p>
-            <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-              Managed Operations Portfolio
-            </h2>
-          </Reveal>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <SectionHeading eyebrow="Core Services" title="Managed Operations Portfolio" />
+          <div className="section-cards grid gap-4 sm:grid-cols-2">
             {coreServices.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}
@@ -104,13 +100,8 @@ export function ManagedServicesPage() {
 
       <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Why Choose Us</p>
-            <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-              Why Managed Services
-            </h2>
-          </Reveal>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHeading eyebrow="Why Choose Us" title="Why Managed Services" />
+          <div className="section-cards grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {whyManaged.map((item, index) => {
               const Icon = whyIcons[item.title] ?? Activity;
               return (
@@ -120,7 +111,7 @@ export function ManagedServicesPage() {
                       <Icon className="h-6 w-6" />
                     </span>
                     <h3 className="mt-4 font-extrabold text-[#0A0F1C]">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-[#0A0F1C] line-clamp-2">{item.description}</p>
+                    <p className="mt-2 text-sm leading-6 text-[#334155] line-clamp-2">{item.description}</p>
                   </div>
                 </Reveal>
               );
@@ -129,15 +120,10 @@ export function ManagedServicesPage() {
         </div>
       </section>
 
-      <section className="mesh-light section-enterprise">
+      <section className="mesh-light section-enterprise section-enterprise-tight-bottom">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mb-5 text-center">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">How We Work</p>
-            <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-              Operations Process
-            </h2>
-          </Reveal>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHeading eyebrow="How We Work" title="Operations Process" />
+          <div className="section-cards grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((step, index) => {
               const Icon = processIcons[step.title] ?? Activity;
               return (
@@ -152,7 +138,7 @@ export function ManagedServicesPage() {
                       </span>
                     </div>
                     <h3 className="mt-5 font-extrabold text-[#0A0F1C]">{step.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-[#0A0F1C] line-clamp-3">{step.description}</p>
+                    <p className="mt-2 text-sm leading-6 text-[#334155] line-clamp-3">{step.description}</p>
                   </div>
                 </Reveal>
               );

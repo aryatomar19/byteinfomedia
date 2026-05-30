@@ -6,6 +6,7 @@ import { cloudServicesPage } from "@/data/cloud-services";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { ServiceImageCard } from "@/components/sections/ServiceImageCard";
+import { SectionHeading } from "@/components/sections/SectionHeading";
 
 export function CloudServicesPage() {
   const { hero, capabilities, additionalServices, badge } = cloudServicesPage;
@@ -27,7 +28,7 @@ export function CloudServicesPage() {
         />
         <div className="absolute inset-0 grid-pattern opacity-35" aria-hidden />
 
-        <div className="relative mx-auto flex min-h-[70vh] max-h-[75vh] max-w-7xl items-center px-4 py-10 sm:px-6 lg:px-8">
+        <div className="relative mx-auto flex min-h-[70vh] max-h-[75vh] max-w-7xl items-center px-4 hero-service sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
               <Sparkles className="h-3.5 w-3.5" />
@@ -54,15 +55,10 @@ export function CloudServicesPage() {
         </div>
       </section>
 
-      <section className="mesh-light section-enterprise">
+      <section className="mesh-light section-enterprise section-after-hero">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Capabilities</p>
-            <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-              Cloud Foundations That Scale
-            </h2>
-          </Reveal>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <SectionHeading eyebrow="Capabilities" title="Cloud Foundations That Scale" />
+          <div className="section-cards grid gap-4 sm:grid-cols-2">
             {capabilities.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}
@@ -70,15 +66,10 @@ export function CloudServicesPage() {
         </div>
       </section>
 
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise section-enterprise-tight-bottom bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Extended Services</p>
-            <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-              Additional Cloud Services
-            </h2>
-          </Reveal>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <SectionHeading eyebrow="Extended Services" title="Additional Cloud Services" />
+          <div className="section-cards grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {additionalServices.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}

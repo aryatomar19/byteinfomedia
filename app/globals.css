@@ -67,7 +67,30 @@ a {
 
 /* Consistent enterprise section rhythm */
 .section-enterprise {
-  padding-block: 5rem; /* 80px */
+  padding-top: 5rem; /* 80px */
+  padding-bottom: 5rem;
+}
+
+/* First section after hero: tighter top gap (60px) */
+.section-after-hero {
+  padding-top: 3.75rem;
+}
+
+/* Hero blocks: 60px gap before next section */
+.section-enterprise-tight-bottom {
+  padding-top: 5rem;
+  padding-bottom: 3.75rem;
+}
+
+/* Section heading to card grid: 30px */
+.section-cards {
+  margin-top: 1.875rem;
+}
+
+/* Cinematic heroes: compact vertical padding */
+.hero-service {
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
 }
 
 .text-enterprise {

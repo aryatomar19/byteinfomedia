@@ -6,6 +6,7 @@ import { cyberSecurityPageData } from "@/data/cyber-security-page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { ServiceImageCard } from "@/components/sections/ServiceImageCard";
+import { SectionHeading } from "@/components/sections/SectionHeading";
 
 export function CyberSecurityPage() {
   const { hero, services, badge } = cyberSecurityPageData;
@@ -27,7 +28,7 @@ export function CyberSecurityPage() {
         />
         <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden />
 
-        <div className="relative mx-auto flex min-h-[70vh] max-h-[75vh] max-w-7xl items-center px-4 py-10 sm:px-6 lg:px-8">
+        <div className="relative mx-auto flex min-h-[70vh] max-h-[75vh] max-w-7xl items-center px-4 hero-service sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
               <Sparkles className="h-3.5 w-3.5" />
@@ -54,15 +55,10 @@ export function CyberSecurityPage() {
         </div>
       </section>
 
-      <section className="mesh-light section-enterprise">
+      <section className="mesh-light section-enterprise section-after-hero">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Security Services</p>
-            <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-              End-to-End Cybersecurity
-            </h2>
-          </Reveal>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <SectionHeading eyebrow="Security Services" title="End-to-End Cybersecurity" />
+          <div className="section-cards grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}

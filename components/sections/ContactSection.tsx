@@ -8,7 +8,7 @@ export function ContactSection() {
   return (
     <section id="assessment" className="section-surface section-enterprise">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal className="mb-5">
+        <Reveal className="mb-4">
           <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Get in touch</p>
           <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
             Let&apos;s Discuss Your Cloud Journey
