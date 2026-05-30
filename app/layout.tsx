@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { company } from "@/data/site";
+import { PageShell } from "@/components/layout/PageShell";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,63 +26,36 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.byteinfomedia.com"),
   title: {
-    default: "ByteInfomedia | AWS Cloud, DevOps, Cybersecurity & Managed Services",
-    template: "%s | ByteInfomedia",
+    default: "BYTEINFOMEDIA | AWS Cloud, DevOps, Cybersecurity & Managed Services",
+    template: "%s | BYTEINFOMEDIA",
   },
-  description:
-    "ByteInfomedia provides premium AWS cloud consulting, DevOps automation, cybersecurity, managed cloud services, infrastructure modernization, and digital transformation solutions.",
+  description: company.description,
   keywords: [
-    "ByteInfomedia",
+    "BYTEINFOMEDIA",
     "AWS cloud consulting",
     "DevOps automation",
     "cybersecurity consulting",
     "managed cloud services",
+    "generative AI consulting",
     "cloud migration",
-    "Kubernetes deployment",
-    "VAPT",
-    "cloud cost optimization",
   ],
   authors: [{ name: company.legalName }],
   openGraph: {
-    title: "ByteInfomedia | Secure AWS Cloud & DevOps Solutions",
-    description:
-      "Modernize infrastructure, automate deployments, secure cloud environments, and scale globally with enterprise-grade AWS and DevOps solutions.",
-    url: "https://www.byteinfomedia.com/",
-    siteName: "ByteInfomedia",
+    title: "BYTEINFOMEDIA | Secure AWS Cloud & DevOps Solutions",
+    description: company.description,
+    url: company.website,
+    siteName: company.name,
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "ByteInfomedia | AWS Cloud, DevOps & Cybersecurity",
-    description: "Enterprise-grade cloud, DevOps, cybersecurity, and managed IT services.",
-  },
-  alternates: {
-    canonical: "/",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
   icons: {
     icon: company.favicon,
     shortcut: company.favicon,
     apple: company.logo,
   },
+  alternates: { canonical: "/" },
 };
-
-const themeInitScript = `
-(function () {
-  try {
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add("light");
-    document.documentElement.style.colorScheme = "light";
-  } catch (error) {
-    document.documentElement.classList.add("light");
-    document.documentElement.style.colorScheme = "light";
-  }
-})();
-`;
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -93,41 +67,24 @@ const organizationSchema = {
   email: company.email,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "First Floor, PlotNo.27, Sector-19, Dwarka",
+    streetAddress: "First Floor, Plot No. 27, Sector-19, Dwarka",
     addressLocality: "New Delhi",
     postalCode: "110075",
     addressCountry: "IN",
   },
   description: company.description,
-  areaServed: "Global",
-  serviceType: [
-    "AWS Cloud Consulting",
-    "DevOps Automation",
-    "Cybersecurity Consulting",
-    "Managed Cloud Services",
-    "Cloud Migration",
-    "Infrastructure Modernization",
-  ],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" className="light" suppressHydrationWarning>
+    <html lang="en" className="light">
       <body className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}>
-        <script
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: themeInitScript }}
-        />
         <script
           type="application/ld+json"
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        {children}
+        <PageShell>{children}</PageShell>
       </body>
     </html>
   );

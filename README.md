@@ -1,14 +1,24 @@
-# ByteInfomedia Premium Frontend
+# BYTEINFOMEDIA Premium Website
 
-A frontend-only, enterprise-grade Next.js website for ByteInfomedia focused on AWS cloud consulting, DevOps automation, cybersecurity, managed cloud services, and lead generation.
+A production-ready, light-theme enterprise consulting website for BYTEINFOMEDIA — AWS cloud, DevOps, cybersecurity, managed services, and generative AI.
+
+## Pages
+
+- Home
+- About Us
+- Cloud Services
+- Managed Services
+- Cyber Security
+- Generative AI
 
 ## Tech stack
 
-- Next.js App Router with static export
-- React + TypeScript
-- Tailwind CSS
+- Next.js (App Router, static export)
+- TypeScript
+- Tailwind CSS v4
 - Framer Motion
-- Frontend-only CRM-ready forms for HubSpot, Zoho, or Salesforce
+- Lucide React
+- ShadCN-style UI primitives (`components/ui`)
 
 ## Local development
 
@@ -17,20 +27,31 @@ npm install
 npm run dev
 ```
 
-## Production build
+Open [http://localhost:3000](http://localhost:3000).
+
+## Build
 
 ```bash
+npm run typecheck
 npm run build
 ```
 
-The app uses `output: "export"`, so the static site is generated in `out/` and can be uploaded directly to AWS S3 behind CloudFront.
+Static output is written to `out/` for S3 + CloudFront deployment.
 
-## CRM configuration
+## Project structure
 
-Copy `.env.example` to `.env` and configure one provider:
+```
+app/                  # Routes (static pages)
+components/
+  layout/             # Header, footer, page shell
+  sections/           # Homepage & service page sections
+  pages/              # Page compositions
+  forms/              # Assessment lead form
+  ui/                 # Button, card primitives
+data/                 # Content for all pages
+public/               # Logo and SVG illustrations
+```
 
-- HubSpot: `NEXT_PUBLIC_HUBSPOT_PORTAL_ID`, `NEXT_PUBLIC_HUBSPOT_FORM_ID`
-- Zoho: `NEXT_PUBLIC_ZOHO_WEBFORM_URL`
-- Salesforce: `NEXT_PUBLIC_SALESFORCE_WEB_TO_LEAD_URL`, `NEXT_PUBLIC_SALESFORCE_ORG_ID`
+## Assessment form
 
-No custom backend is required.
+Submissions are stored in `localStorage` when no CRM env vars are configured. Extend `AssessmentForm` to connect HubSpot, Zoho, or Salesforce as needed.
