@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" role="img">
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0F1C"/>
+      <stop offset="45%" stop-color="#151032"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF6B2C"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.1"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+  <ellipse cx="400" cy="300" rx="280" ry="180" fill="url(#glow)"/>
+<rect x="100" y="100" width="600" height="400" rx="14" fill="#0f172a" stroke="#6366f1" stroke-opacity="0.45" stroke-width="1.5"/><text x="116" y="128" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#c4b5fd">AI Agent Orchestration</text><circle cx="200" cy="220" r="8" fill="#FF6B2C" opacity="0.9"/><circle cx="200" cy="220" r="12" fill="#a855f7" opacity="0.25"/><circle cx="400" cy="180" r="8" fill="#FF6B2C" opacity="0.9"/><circle cx="400" cy="180" r="12" fill="#a855f7" opacity="0.25"/><circle cx="600" cy="220" r="8" fill="#FF6B2C" opacity="0.9"/><circle cx="600" cy="220" r="12" fill="#a855f7" opacity="0.25"/><circle cx="400" cy="340" r="8" fill="#FF6B2C" opacity="0.9"/><circle cx="400" cy="340" r="12" fill="#a855f7" opacity="0.25"/><line x1="200" y1="220" x2="400" y2="180" stroke="#FF6B2C" stroke-width="2" opacity="0.7"/><line x1="400" y1="180" x2="600" y2="220" stroke="#FF6B2C" stroke-width="2" opacity="0.7"/><line x1="400" y1="180" x2="400" y2="340" stroke="#a855f7" stroke-width="2" opacity="0.7"/><text x="400" y="260" text-anchor="middle" font-size="11" fill="#e2e8f0">Autonomous Agents</text>
+  <text x="780" y="575" text-anchor="end" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#a78bfa" letter-spacing="0.14em">AI AGENTS</text>
+</svg>
