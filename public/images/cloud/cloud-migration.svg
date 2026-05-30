@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none" role="img">
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2332"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="sidebar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="aws" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF9900"/>
+      <stop offset="100%" stop-color="#FF6B2C"/>
+    </linearGradient>
+    <linearGradient id="azure" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0078D4"/>
+      <stop offset="100%" stop-color="#50e6ff"/>
+    </linearGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#ffffff" stroke-opacity="0.03"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <rect x="0" y="0" width="160" height="600" fill="url(#sidebar)"/>
+  <rect x="160" y="0" width="640" height="48" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="180" y="30" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#f0f6fc">AWS Migration Hub</text>
+  <circle cx="760" cy="24" r="6" fill="#FF9900"/>
+  <rect x="12" y="72" width="136" height="28" rx="6" fill="#21262d" stroke="#FF9900" opacity="0.9"/><text x="24" y="90" font-family="system-ui,sans-serif" font-size="10" fill="#f0f6fc">Migration Hub</text><rect x="12" y="108" width="136" height="28" rx="6" fill="none" opacity="0.9"/><text x="24" y="126" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">Servers</text><rect x="12" y="144" width="136" height="28" rx="6" fill="none" opacity="0.9"/><text x="24" y="162" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">Databases</text><rect x="12" y="180" width="136" height="28" rx="6" fill="none" opacity="0.9"/><text x="24" y="198" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">Tracking</text><rect x="12" y="216" width="136" height="28" rx="6" fill="none" opacity="0.9"/><text x="24" y="234" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">Cutover</text><rect x="12" y="252" width="136" height="28" rx="6" fill="none" opacity="0.9"/><text x="24" y="270" font-family="system-ui,sans-serif" font-size="10" fill="#8b949e">Validation</text>
+  <rect x="176" y="64" width="608" height="520" rx="8" fill="#0d1117" stroke="#30363d"/>
+  
+  <rect x="200" y="110" width="160" height="120" rx="8" fill="#334155" stroke="#64748b"/>
+  <text x="230" y="150" font-size="11" fill="#e2e8f0">Source</text>
+  <text x="230" y="170" font-size="9" fill="#94a3b8">On-premises</text>
+  <path d="M370 170 L450 170" stroke="url(#aws)" stroke-width="3"/>
+  <polygon points="450,170 438,164 438,176" fill="#FF9900"/>
+  <text x="385" y="155" font-size="9" fill="#FF9900">Migrate</text>
+  <rect x="460" y="110" width="260" height="120" rx="8" fill="#21262d" stroke="#FF9900" stroke-width="2"/>
+  <text x="490" y="150" font-size="11" fill="#FF9900">AWS Target</text>
+  <text x="490" y="170" font-size="9" fill="#8b949e">EC2 · RDS · S3</text>
+  <rect x="200" y="270" width="520" height="130" rx="8" fill="#161b22"/>
+  <text x="220" y="300" font-size="10" fill="#f0f6fc">Migration Progress</text>
+  <rect x="220" y="320" width="400" height="12" rx="6" fill="#21262d"/><rect x="220" y="320" width="320" height="12" rx="6" fill="url(#aws)"/>
+  <text x="220" y="355" font-size="10" fill="#22c55e">80% complete · 24 workloads migrated</text>
+
+
+  <text x="770" y="582" text-anchor="end" font-family="ui-monospace,monospace" font-size="10" fill="#6b7280">migration</text>
+</svg>
