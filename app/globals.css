@@ -84,6 +84,19 @@ a {
   color: #334155;
 }
 
+.hero-ken-burns {
+  animation: hero-ken-burns 22s ease-in-out infinite alternate;
+}
+
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
 /* Service pages (dark sections) — preserved for inner pages */
 .mesh-hero {
   background: linear-gradient(165deg, #0a0f1c 0%, #121a2e 100%);
