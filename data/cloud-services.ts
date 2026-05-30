@@ -26,7 +26,7 @@ export const cloudServicesPage = {
     description:
       "Architecture-led AWS consulting for private and public cloud, modernization, FinOps, and secure operations.",
     image: cloudImages.hero,
-    imageAlt: "Enterprise multi-cloud infrastructure and global cloud network",
+    imageAlt: "Enterprise datacenter and cloud infrastructure operations",
   },
   capabilities: [
     {
@@ -41,21 +41,21 @@ export const cloudServicesPage = {
       description:
         "Flexible and cost-effective cloud solutions designed for growth and innovation.",
       image: cloudImages.publicCloud,
-      imageAlt: "Enterprise public cloud platform and multi-cloud services",
+      imageAlt: "Public cloud platform and AWS-style cloud infrastructure",
     },
     {
       title: "Application Modernization",
       description:
         "Transform legacy applications into modern, cloud-native platforms.",
       image: cloudImages.applicationModernization,
-      imageAlt: "Application modernization and transformation",
+      imageAlt: "Software engineering team modernizing cloud applications",
     },
     {
       title: "FinOps",
       description:
         "Optimize cloud spending and maximize business value with FinOps practices.",
       image: cloudImages.finops,
-      imageAlt: "Cloud cost optimization and FinOps",
+      imageAlt: "Cloud cost analytics and FinOps financial dashboard",
     },
   ] satisfies CloudServiceCard[],
   additionalServices: [
@@ -63,19 +63,19 @@ export const cloudServicesPage = {
       title: "Cloud Migration",
       description: "Structured migration programs with validation and minimal business disruption.",
       image: cloudImages.cloudMigration,
-      imageAlt: "Cloud migration and hybrid to cloud transformation",
+      imageAlt: "Cloud migration and hybrid infrastructure transformation",
     },
     {
       title: "Cloud Security",
       description: "Hardened architectures, compliance alignment, and continuous threat visibility.",
       image: cloudImages.cloudSecurity,
-      imageAlt: "Cloud security operations and secure infrastructure",
+      imageAlt: "Cybersecurity operations center and threat monitoring",
     },
     {
       title: "Kubernetes",
       description: "Production-grade container platforms on AWS EKS and managed Kubernetes.",
       image: cloudImages.kubernetes,
-      imageAlt: "Kubernetes orchestration",
+      imageAlt: "Container orchestration and Kubernetes platform engineering",
     },
     {
       title: "Containerization",
@@ -87,13 +87,13 @@ export const cloudServicesPage = {
       title: "Disaster Recovery",
       description: "RTO and RPO-aligned backup, failover, and business continuity planning.",
       image: cloudImages.disasterRecovery,
-      imageAlt: "Backup infrastructure and disaster recovery environment",
+      imageAlt: "Disaster recovery datacenter and backup infrastructure",
     },
     {
       title: "DevOps Automation",
       description: "CI/CD, infrastructure as code, and release governance at scale.",
       image: cloudImages.devopsAutomation,
-      imageAlt: "DevOps automation and pipelines",
+      imageAlt: "DevOps automation and CI/CD engineering workflow",
     },
   ] satisfies CloudServiceCard[],
 };
