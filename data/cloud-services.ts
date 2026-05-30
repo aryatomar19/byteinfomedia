@@ -6,17 +6,17 @@ export type CloudServiceCard = {
 };
 
 export const cloudImages = {
-  hero: "/images/cloud/hero-cloud.svg",
-  privateCloud: "/images/cloud/private-cloud.svg",
-  publicCloud: "/images/cloud/public-cloud.svg",
-  applicationModernization: "/images/cloud/application-modernization.svg",
-  finops: "/images/cloud/finops.svg",
-  cloudMigration: "/images/cloud/cloud-migration.svg",
-  cloudSecurity: "/images/cloud/cloud-security.svg",
-  kubernetes: "/images/cloud/kubernetes.svg",
-  containerization: "/images/cloud/containerization.svg",
-  disasterRecovery: "/images/cloud/disaster-recovery.svg",
-  devopsAutomation: "/images/cloud/devops-automation.svg",
+  hero: "/images/cloud/hero-cloud.jpg",
+  privateCloud: "/images/cloud/private-cloud.jpg",
+  publicCloud: "/images/cloud/public-cloud.jpg",
+  applicationModernization: "/images/cloud/application-modernization.jpg",
+  finops: "/images/cloud/finops.jpg",
+  cloudMigration: "/images/cloud/cloud-migration.jpg",
+  cloudSecurity: "/images/cloud/cloud-security.jpg",
+  kubernetes: "/images/cloud/kubernetes.jpg",
+  containerization: "/images/cloud/containerization.jpg",
+  disasterRecovery: "/images/cloud/disaster-recovery.jpg",
+  devopsAutomation: "/images/cloud/devops-automation.jpg",
 } as const;
 
 export const cloudServicesPage = {
