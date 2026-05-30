@@ -2,11 +2,12 @@
 
 :root {
   color-scheme: light;
-  --background: #ffffff;
-  --foreground: #0a0f1c;
-  --muted: #52647a;
+  --navy: #0a0f1c;
+  --navy-mid: #121a2e;
   --orange: #ff6b2c;
-  --surface: #f4f6fa;
+  --orange-glow: rgba(255, 107, 44, 0.35);
+  --surface: #f0f4fa;
+  --muted: #6b7c93;
 }
 
 * {
@@ -21,8 +22,8 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--navy);
+  color: #e8eef7;
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
@@ -32,8 +33,64 @@ a {
 }
 
 ::selection {
-  background: rgba(255, 107, 44, 0.22);
-  color: #0a0f1c;
+  background: rgba(255, 107, 44, 0.35);
+  color: white;
+}
+
+/* Premium surfaces */
+.mesh-hero {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(255, 107, 44, 0.18), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 90% 10%, rgba(56, 132, 255, 0.2), transparent 45%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(139, 92, 246, 0.12), transparent 50%),
+    linear-gradient(165deg, #0a0f1c 0%, #121a2e 40%, #0d1528 100%);
+}
+
+.mesh-section {
+  background:
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(255, 107, 44, 0.08), transparent 50%),
+    radial-gradient(ellipse 40% 30% at 0% 100%, rgba(56, 132, 255, 0.1), transparent 50%),
+    linear-gradient(180deg, #0f1628 0%, #0a0f1c 100%);
+}
+
+.mesh-light {
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 0%, rgba(255, 107, 44, 0.06), transparent 50%),
+    linear-gradient(180deg, #f4f7fc 0%, #e8eef8 100%);
+}
+
+.glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+}
+
+.glass-card-light {
+  border: 1px solid rgba(10, 15, 28, 0.08);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+  box-shadow: 0 24px 60px rgba(10, 15, 28, 0.1);
+  backdrop-filter: blur(16px);
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #ffffff 0%, #ffd4c0 45%, #ff6b2c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.orange-glow {
+  box-shadow: 0 0 60px var(--orange-glow);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -42,7 +99,6 @@ a {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ServicePageTemplate } from "@/components/sections/ServicePageTemplate";
+import { PremiumServicePage } from "@/components/sections/PremiumServicePage";
 import { cyberSecurityPage } from "@/data/cyber-security";
 
 export const metadata: Metadata = {
@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ServicePageTemplate data={cyberSecurityPage} />;
+  return <PremiumServicePage data={cyberSecurityPage} />;
 }

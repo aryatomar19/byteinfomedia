@@ -7,20 +7,26 @@ import { cn } from "@/lib/utils";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
-const inputClass =
-  "w-full rounded-2xl border border-[#0A0F1C]/12 bg-[#FAFBFD] px-4 py-3.5 text-sm font-medium text-[#0A0F1C] outline-none transition placeholder:text-[#94a3b8] hover:border-[#0A0F1C]/20 focus:border-[#FF6B2C]/60 focus:bg-white focus:shadow-[0_0_0_4px_rgba(255,107,44,0.1)]";
-
-const labelClass = "text-xs font-bold uppercase tracking-[0.14em] text-[#52647a]";
-
 export function AssessmentForm({
   className,
   idPrefix = "assessment",
+  variant = "light",
 }: {
   className?: string;
   idPrefix?: string;
+  variant?: "light" | "dark";
 }) {
+  const dark = variant === "dark";
   const [state, setState] = useState<SubmitState>("idle");
   const [message, setMessage] = useState("");
+
+  const inputClass = dark
+    ? "w-full rounded-2xl border border-white/12 bg-white/[0.06] px-4 py-3.5 text-sm font-medium text-white outline-none transition placeholder:text-white/35 hover:border-white/25 focus:border-[#FF6B2C]/60 focus:bg-white/[0.08] focus:shadow-[0_0_0_4px_rgba(255,107,44,0.12)]"
+    : "w-full rounded-2xl border border-[#0A0F1C]/12 bg-[#FAFBFD] px-4 py-3.5 text-sm font-medium text-[#0A0F1C] outline-none transition placeholder:text-[#94a3b8] hover:border-[#0A0F1C]/20 focus:border-[#FF6B2C]/60 focus:bg-white focus:shadow-[0_0_0_4px_rgba(255,107,44,0.1)]";
+
+  const labelClass = dark
+    ? "text-xs font-bold uppercase tracking-[0.14em] text-white/50"
+    : "text-xs font-bold uppercase tracking-[0.14em] text-[#52647a]";
 
   async function submitLead(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -56,22 +62,30 @@ export function AssessmentForm({
   return (
     <form
       onSubmit={submitLead}
-      id="assessment"
       className={cn(
-        "relative overflow-hidden rounded-[2rem] border border-[#0A0F1C]/8 bg-white p-6 shadow-[0_24px_80px_rgba(10,15,28,0.08)] sm:p-8",
+        "relative overflow-hidden rounded-[2rem] p-6 sm:p-8",
+        dark
+          ? "glass-card border-white/10"
+          : "border border-[#0A0F1C]/8 bg-white shadow-[0_24px_80px_rgba(10,15,28,0.1)]",
         className,
       )}
     >
-      <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-[#FF6B2C]/8 blur-3xl" />
+      <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#FF6B2C]/15 blur-3xl" />
       <div className="relative mb-6">
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-emerald-700">
+        <div
+          className={cn(
+            "mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.14em]",
+            dark ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400" : "border-emerald-200 bg-emerald-50 text-emerald-700",
+          )}
+        >
           <ShieldCheck className="h-3.5 w-3.5" />
           Priority response
         </div>
-        <h3 className="text-2xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-3xl">Request Free Cloud Assessment</h3>
-        <p className="mt-3 text-sm leading-6 text-[#52647a]">
-          Tell us about your environment and business goals. Our consultants will respond with a practical cloud,
-          DevOps, security, or cost optimization direction.
+        <h3 className={cn("text-2xl font-extrabold tracking-tight sm:text-3xl", dark ? "text-white" : "text-[#0A0F1C]")}>
+          Request Free Cloud Assessment
+        </h3>
+        <p className={cn("mt-3 text-sm leading-6", dark ? "text-white/60" : "text-[#52647a]")}>
+          Tell us about your environment and business goals. Our consultants will respond with a practical roadmap.
         </p>
       </div>
 
@@ -82,14 +96,7 @@ export function AssessmentForm({
         </label>
         <label className="grid gap-2" htmlFor={`${idPrefix}-email`}>
           <span className={labelClass}>Work Email</span>
-          <input
-            id={`${idPrefix}-email`}
-            name="email"
-            type="email"
-            required
-            placeholder="name@company.com"
-            className={inputClass}
-          />
+          <input id={`${idPrefix}-email`} name="email" type="email" required placeholder="name@company.com" className={inputClass} />
         </label>
         <label className="grid gap-2" htmlFor={`${idPrefix}-phone`}>
           <span className={labelClass}>Phone Number</span>
@@ -106,7 +113,7 @@ export function AssessmentForm({
               Select service
             </option>
             {serviceFormOptions.map((service) => (
-              <option key={service} value={service}>
+              <option key={service} value={service} className={dark ? "bg-[#0a0f1c] text-white" : ""}>
                 {service}
               </option>
             ))}
@@ -118,7 +125,7 @@ export function AssessmentForm({
             id={`${idPrefix}-message`}
             name="message"
             rows={4}
-            placeholder="Tell us about your AWS, DevOps, cloud migration, cybersecurity, or managed services requirement."
+            placeholder="Tell us about your AWS, DevOps, security, or AI requirements."
             className={inputClass}
           />
         </label>
@@ -127,7 +134,7 @@ export function AssessmentForm({
       <button
         type="submit"
         disabled={state === "submitting"}
-        className="group relative mt-6 inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-[#FF6B2C] via-[#ff8f5c] to-[#FF6B2C] px-5 py-4 text-sm font-black uppercase tracking-[0.1em] text-[#0A0F1C] shadow-[0_20px_50px_rgba(255,107,44,0.28)] transition hover:-translate-y-0.5 disabled:opacity-70"
+        className="group relative mt-6 inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-[#FF6B2C] via-[#ff8f5c] to-[#FF6B2C] px-5 py-4 text-sm font-black uppercase tracking-[0.1em] text-[#0A0F1C] shadow-[0_20px_50px_rgba(255,107,44,0.35)] transition hover:-translate-y-0.5 disabled:opacity-70"
       >
         {state === "submitting" ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
         Request Free Cloud Assessment
@@ -137,7 +144,13 @@ export function AssessmentForm({
         <p
           className={cn(
             "mt-4 rounded-2xl border px-4 py-3 text-sm",
-            state === "success" ? "border-emerald-200 bg-emerald-50 text-emerald-800" : "border-rose-200 bg-rose-50 text-rose-800",
+            state === "success"
+              ? dark
+                ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-300"
+                : "border-emerald-200 bg-emerald-50 text-emerald-800"
+              : dark
+                ? "border-rose-500/30 bg-rose-500/10 text-rose-300"
+                : "border-rose-200 bg-rose-50 text-rose-800",
           )}
           role="status"
         >

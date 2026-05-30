@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ServicePageTemplate } from "@/components/sections/ServicePageTemplate";
+import { PremiumServicePage } from "@/components/sections/PremiumServicePage";
 import { generativeAiPage } from "@/data/generative-ai";
 
 export const metadata: Metadata = {
@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ServicePageTemplate data={generativeAiPage} />;
+  return <PremiumServicePage data={generativeAiPage} />;
 }

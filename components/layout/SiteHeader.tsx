@@ -18,15 +18,15 @@ export function SiteHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#0A0F1C]/8 bg-white/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0a0f1c]/85 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center gap-3">
-          <img src={company.logo} alt={company.name} className="h-9 w-auto object-contain" />
+          <img src={company.logo} alt={company.name} className="h-9 w-auto object-contain brightness-0 invert" />
           <span className="hidden lg:block">
-            <span className="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#0A0F1C]">
+            <span className="block text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/90">
               {company.taglineLine1}
             </span>
-            <span className="block text-[0.65rem] font-semibold text-[#c84a17]">{company.taglineLine2}</span>
+            <span className="block text-[0.65rem] font-semibold text-[#ffb088]">{company.taglineLine2}</span>
           </span>
         </Link>
 
@@ -37,24 +37,22 @@ export function SiteHeader() {
               href={item.href}
               className={cn(
                 "rounded-full px-4 py-2 text-sm font-semibold transition",
-                isActive(item.href) ? "text-[#FF6B2C]" : "text-[#52647a] hover:text-[#0A0F1C]",
+                isActive(item.href) ? "text-[#FF6B2C]" : "text-white/65 hover:text-white",
               )}
             >
               {item.label}
             </Link>
           ))}
 
-          <div className="ml-2 flex items-center rounded-full border border-[#0A0F1C]/8 bg-[#F4F6FA] p-1 shadow-[0_8px_24px_rgba(10,15,28,0.06)]">
+          <div className="ml-2 flex items-center rounded-full border border-white/12 bg-white/[0.06] p-1 backdrop-blur-md">
             {pillNav.map((item, index) => (
               <span key={item.href} className="flex items-center">
-                {index > 0 && <span className="mx-0.5 h-4 w-px bg-[#0A0F1C]/12" aria-hidden="true" />}
+                {index > 0 && <span className="mx-0.5 h-4 w-px bg-white/15" aria-hidden />}
                 <Link
                   href={item.href}
                   className={cn(
                     "rounded-full px-3 py-2 text-xs font-semibold transition sm:px-4 sm:text-sm",
-                    isActive(item.href)
-                      ? "bg-white text-[#0A0F1C] shadow-sm"
-                      : "text-[#52647a] hover:bg-white/70 hover:text-[#0A0F1C]",
+                    isActive(item.href) ? "bg-[#FF6B2C] text-white shadow-lg" : "text-white/70 hover:bg-white/10 hover:text-white",
                   )}
                 >
                   {item.label}
@@ -65,7 +63,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" size="sm" className="border-white/25 text-white hover:bg-white/10" asChild>
             <Link href="/#assessment">Free Assessment</Link>
           </Button>
           <Button size="sm" asChild>
@@ -75,7 +73,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-[#0A0F1C]/10 text-[#0A0F1C] lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 text-white lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}
@@ -85,23 +83,19 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="border-t border-[#0A0F1C]/8 bg-white px-4 py-4 lg:hidden">
+        <div className="border-t border-white/10 bg-[#0a0f1c]/98 px-4 py-4 lg:hidden">
           <div className="mx-auto grid max-w-7xl gap-2">
             {[...mainNav, ...pillNav].map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-2xl px-4 py-3 text-sm font-semibold text-[#0A0F1C] hover:bg-[#F4F6FA]"
+                className="rounded-2xl px-4 py-3 text-sm font-semibold text-white hover:bg-white/10"
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/#assessment"
-              onClick={() => setOpen(false)}
-              className="rounded-2xl bg-[#FF6B2C] px-4 py-3 text-center text-sm font-bold text-white"
-            >
+            <Link href="/#assessment" onClick={() => setOpen(false)} className="rounded-2xl bg-[#FF6B2C] px-4 py-3 text-center text-sm font-bold text-white">
               Book Consultation
             </Link>
           </div>

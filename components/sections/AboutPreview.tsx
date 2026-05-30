@@ -7,42 +7,48 @@ import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 
 export function AboutPreview() {
   return (
-    <section className="bg-[#F4F6FA] py-20 sm:py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
-        <Reveal className="relative">
-          <div className="overflow-hidden rounded-[2.5rem] rounded-bl-[5rem] border border-[#0A0F1C]/8 shadow-[0_24px_70px_rgba(10,15,28,0.08)]">
-            <img src="/images/about-global.svg" alt="Global technology connectivity" className="w-full object-cover" />
+    <section className="mesh-hero relative py-20 sm:py-28">
+      <div className="absolute inset-0 grid-pattern opacity-35" />
+      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <Reveal className="relative order-2 lg:order-1">
+          <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-[#FF6B2C]/20 to-[#3884FF]/20 blur-2xl" />
+          <div className="relative overflow-hidden rounded-[2rem] rounded-bl-[4rem] border border-white/15 shadow-[0_40px_100px_rgba(0,0,0,0.45)]">
+            <img src="/images/about-global.svg" alt="Global enterprise connectivity" className="w-full" />
+            <div className="absolute bottom-4 left-4 right-4 glass-card rounded-xl p-4">
+              <p className="text-xs font-bold uppercase text-[#FF6B2C]">Global Delivery</p>
+              <p className="mt-1 text-sm text-white/80">Cloud · DevOps · Security · AI</p>
+            </div>
           </div>
         </Reveal>
 
-        <RevealStagger className="space-y-6">
+        <RevealStagger className="order-1 space-y-6 lg:order-2">
           <RevealItem>
-            <span className="text-xs font-bold uppercase tracking-[0.16em] text-[#FF6B2C]">{aboutPreview.eyebrow}</span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">{aboutPreview.title}</h2>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">{aboutPreview.eyebrow}</span>
+            <h2 className="mt-4 text-3xl font-extrabold text-white sm:text-4xl">{aboutPreview.title}</h2>
           </RevealItem>
           {aboutPreview.paragraphs.map((p) => (
             <RevealItem key={p.slice(0, 24)}>
-              <p className="text-base leading-7 text-[#52647a]">{p}</p>
+              <p className="text-base leading-8 text-white/70">{p}</p>
             </RevealItem>
           ))}
           <RevealItem className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-[#0A0F1C]/8 bg-white p-5">
+            <div className="glass-card rounded-2xl p-5">
               <Target className="h-6 w-6 text-[#FF6B2C]" />
-              <p className="mt-3 text-sm font-bold text-[#0A0F1C]">Mission</p>
-              <p className="mt-2 text-sm leading-6 text-[#52647a]">{aboutPreview.mission}</p>
+              <p className="mt-3 text-sm font-bold text-white">Mission</p>
+              <p className="mt-2 text-sm leading-6 text-white/60">{aboutPreview.mission}</p>
             </div>
-            <div className="rounded-2xl border border-[#0A0F1C]/8 bg-white p-5">
+            <div className="glass-card rounded-2xl p-5">
               <Eye className="h-6 w-6 text-[#FF6B2C]" />
-              <p className="mt-3 text-sm font-bold text-[#0A0F1C]">Vision</p>
-              <p className="mt-2 text-sm leading-6 text-[#52647a]">{aboutPreview.vision}</p>
+              <p className="mt-3 text-sm font-bold text-white">Vision</p>
+              <p className="mt-2 text-sm leading-6 text-white/60">{aboutPreview.vision}</p>
             </div>
           </RevealItem>
           <RevealItem>
             <Link
               href={aboutPreview.cta.href}
-              className="group inline-flex items-center gap-3 text-sm font-bold text-[#0A0F1C] transition hover:text-[#FF6B2C]"
+              className="group inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/5 px-2 py-2 pr-5 text-sm font-bold text-white backdrop-blur-sm transition hover:border-[#FF6B2C]/50"
             >
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-[#0A0F1C] text-white transition group-hover:bg-[#FF6B2C]">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-[#FF6B2C] text-white">
                 <ArrowRight className="h-4 w-4" />
               </span>
               {aboutPreview.cta.label}

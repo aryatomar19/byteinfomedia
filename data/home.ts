@@ -6,19 +6,26 @@ export const homeHero = {
     "BYTEINFOMEDIA helps organizations migrate, modernize, automate, secure and manage cloud infrastructure through enterprise-grade consulting and managed services.",
   primaryCta: { label: "Book Consultation", href: "#assessment" },
   secondaryCta: { label: "Request Free Assessment", href: "#assessment" },
+  trustBadges: [
+    "AWS-focused expertise",
+    "Enterprise SLAs",
+    "24×7 managed ops",
+    "Security-first delivery",
+    "FinOps certified",
+  ],
 };
 
 export const aboutPreview = {
   eyebrow: "Who We Are",
-  title: "Technology partners for ambitious enterprises",
+  title: "Your strategic cloud & security partner",
   paragraphs: [
-    "At BYTEINFOMEDIA, we focus on delivering reliable and modern technology solutions that help businesses grow in a digital world. Our team specializes in cloud services, cybersecurity, AWS solutions, and IT communication systems designed to improve efficiency and security.",
-    "We believe in building long-term partnerships with our clients by providing solutions that are scalable, secure, and tailored to their business needs.",
+    "At BYTEINFOMEDIA, we deliver reliable, modern technology solutions that help enterprises grow in a digital world. Our consultants specialize in AWS cloud, DevOps automation, cybersecurity, and generative AI.",
+    "We build long-term partnerships through scalable, secure, and tailored solutions — backed by architecture-first consulting and accountable delivery.",
   ],
   mission:
-    "Empower organizations with secure, scalable cloud and DevOps capabilities that accelerate innovation without compromising governance.",
+    "Empower enterprises with secure, scalable cloud platforms that accelerate innovation without compromising governance.",
   vision:
-    "Become the most trusted AWS, DevOps, security, and AI consulting partner for enterprises across India and global markets.",
+    "Be the most trusted AWS, DevOps, security, and AI consulting partner for enterprises across India and global markets.",
   cta: { label: "Learn More", href: "/about-us/" },
 };
 
@@ -26,48 +33,52 @@ export const serviceOverview = [
   {
     title: "Cloud Services",
     description:
-      "AWS consulting, migration, modernization, FinOps, and cloud-native architecture for enterprise workloads.",
+      "AWS consulting, migration, landing zones, FinOps, Kubernetes, and cloud-native modernization for enterprise workloads.",
     href: "/cloud-services/",
     icon: Cloud,
     image: "/images/service-cloud.svg",
-    accent: "from-[#E8F4FF] to-[#F8FBFF]",
+    gradient: "from-[#1a3a6e] via-[#0f2440] to-[#0a0f1c]",
+    benefits: ["AWS Well-Architected", "Migration at scale", "FinOps governance"],
   },
   {
     title: "Managed Services",
     description:
-      "24×7 monitoring, cloud operations, incident management, and ongoing infrastructure support.",
+      "24×7 NOC monitoring, incident management, patching, backup validation, and ongoing cloud operations.",
     href: "/managed-services/",
     icon: Server,
     image: "/images/service-managed.svg",
-    accent: "from-[#FFF4EC] to-[#FFFBF7]",
+    gradient: "from-[#1e3a2f] via-[#0f2820] to-[#0a0f1c]",
+    benefits: ["24×7 coverage", "<15m P1 response", "99.95% SLA"],
   },
   {
     title: "Cyber Security",
     description:
-      "Security assessments, cloud hardening, compliance, threat detection, and risk-aware operations.",
+      "SOC-aligned security operations, assessments, compliance, threat detection, and cloud hardening.",
     href: "/cyber-security/",
     icon: Shield,
     image: "/images/service-security.svg",
-    accent: "from-[#F3EEFF] to-[#FBF9FF]",
+    gradient: "from-[#2d1f4e] via-[#1a1230] to-[#0a0f1c]",
+    benefits: ["VAPT & pen testing", "SIEM monitoring", "Compliance ready"],
   },
   {
     title: "Generative AI",
     description:
-      "AI consulting, LLM integration, automation, and enterprise adoption strategies for modern teams.",
+      "AI strategy, LLM integration, RAG knowledge bases, chatbots, and enterprise automation with governance.",
     href: "/generative-ai/",
     icon: Bot,
     image: "/images/service-ai.svg",
-    accent: "from-[#EEFAF3] to-[#F8FFFB]",
+    gradient: "from-[#1a3d4a] via-[#0f2830] to-[#0a0f1c]",
+    benefits: ["LLM integration", "RAG at scale", "AI governance"],
   },
 ];
 
 export const whyChooseUs = [
-  { title: "AWS Expertise", description: "Certified cloud architects and engineers focused on AWS best practices." },
-  { title: "Cloud Migration", description: "Structured migration planning with validation, rollback, and cutover support." },
-  { title: "DevOps Automation", description: "CI/CD pipelines, IaC, and release governance for reliable delivery." },
-  { title: "Security First", description: "Risk-aware design across IAM, network, monitoring, and compliance." },
-  { title: "24×7 Monitoring", description: "Proactive observability, alerting, and incident response workflows." },
-  { title: "Cost Optimization", description: "FinOps reviews, rightsizing, and spend governance for cloud efficiency." },
-  { title: "Enterprise Support", description: "Dedicated consulting for decision-makers and technical teams." },
-  { title: "Professional Consulting", description: "Clear documentation, practical roadmaps, and accountable delivery." },
+  { title: "AWS Expertise", description: "Certified architects for Well-Architected, migration, and modernization.", icon: "aws" },
+  { title: "Cloud Migration", description: "Phased waves with validation, rollback, and executive reporting.", icon: "migrate" },
+  { title: "DevOps Automation", description: "CI/CD, IaC, GitOps, and platform engineering at scale.", icon: "devops" },
+  { title: "Security First", description: "Zero-trust patterns, IAM, WAF, and continuous monitoring.", icon: "security" },
+  { title: "24×7 Monitoring", description: "NOC operations with proactive alerting and incident response.", icon: "noc" },
+  { title: "Cost Optimization", description: "FinOps dashboards, rightsizing, and spend governance.", icon: "finops" },
+  { title: "Enterprise Support", description: "Dedicated leads, SLAs, and monthly service reviews.", icon: "support" },
+  { title: "Professional Consulting", description: "Clear roadmaps, documentation, and measurable outcomes.", icon: "consult" },
 ];
