@@ -5,11 +5,6 @@ export type GenerativeAiCard = {
   imageAlt: string;
 };
 
-export type GenerativeAiBenefit = {
-  title: string;
-  description: string;
-};
-
 export const generativeAiImages = {
   hero: "/images/ai/hero-ai.jpg",
   customAiAgents: "/images/ai/custom-ai-agents.jpg",
@@ -80,24 +75,6 @@ export const generativeAiPageData = {
       imageAlt: "AI analytics dashboard with enterprise data intelligence",
     },
   ] satisfies GenerativeAiCard[],
-  whyGenerativeAi: [
-    {
-      title: "Increase Productivity",
-      description: "Automate knowledge work and accelerate teams with AI-assisted workflows.",
-    },
-    {
-      title: "Reduce Operational Costs",
-      description: "Lower support load and manual processing through intelligent automation.",
-    },
-    {
-      title: "Faster Decision Making",
-      description: "Surface insights from data and documents in seconds, not days.",
-    },
-    {
-      title: "Enhanced Customer Experience",
-      description: "Deliver instant, accurate responses with governed enterprise chatbots.",
-    },
-  ] satisfies GenerativeAiBenefit[],
   useCases: [
     {
       title: "Customer Support AI",

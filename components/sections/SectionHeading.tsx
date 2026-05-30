@@ -11,7 +11,7 @@ type SectionHeadingProps = {
 
 export function SectionHeading({ eyebrow, title, description, centered = true }: SectionHeadingProps) {
   return (
-    <Reveal className={centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
+    <Reveal className={`section-heading ${centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}>
       <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">{eyebrow}</p>
       <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
         {title}

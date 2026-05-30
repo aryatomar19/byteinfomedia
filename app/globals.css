@@ -65,26 +65,19 @@ a {
   color: #c84a17;
 }
 
-/* Consistent enterprise section rhythm */
+/* Compact enterprise section rhythm */
 .section-enterprise {
-  padding-top: 5rem; /* 80px */
-  padding-bottom: 5rem;
-}
-
-/* First section after hero: tighter top gap (60px) */
-.section-after-hero {
-  padding-top: 3.75rem;
-}
-
-/* Hero blocks: 60px gap before next section */
-.section-enterprise-tight-bottom {
-  padding-top: 5rem;
+  padding-top: 3.75rem; /* 60px */
   padding-bottom: 3.75rem;
 }
 
-/* Section heading to card grid: 30px */
+/* Section title block to card grid */
+.section-heading {
+  margin-bottom: 1.5rem; /* 24px */
+}
+
 .section-cards {
-  margin-top: 1.875rem;
+  margin-bottom: 3.125rem; /* 50px */
 }
 
 /* Cinematic heroes: compact vertical padding */

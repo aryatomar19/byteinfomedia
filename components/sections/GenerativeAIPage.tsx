@@ -1,30 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { Check, Sparkles, Brain, DollarSign, Gauge, HeartHandshake } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 import { generativeAiPageData } from "@/data/generative-ai-page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { ServiceImageCard } from "@/components/sections/ServiceImageCard";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 import { ServiceCtaBand } from "@/components/sections/ServiceCtaBand";
-import type { LucideIcon } from "lucide-react";
-
-const benefitIcons: Record<string, LucideIcon> = {
-  "Increase Productivity": Gauge,
-  "Reduce Operational Costs": DollarSign,
-  "Faster Decision Making": Brain,
-  "Enhanced Customer Experience": HeartHandshake,
-};
 
 export function GenerativeAIPage() {
-  const { hero, capabilities, whyGenerativeAi, useCases, cta, badge } = generativeAiPageData;
+  const { hero, capabilities, useCases, cta, badge } = generativeAiPageData;
 
   return (
     <>
-      <section className="mesh-hero relative overflow-hidden pt-10 pb-12 sm:pt-12 sm:pb-14">
+      <section className="mesh-hero relative overflow-hidden pt-8 pb-10 sm:pt-10 sm:pb-12">
         <div className="absolute inset-0 grid-pattern opacity-40" aria-hidden />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-10 lg:px-8">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
               <Sparkles className="h-3.5 w-3.5" />
@@ -47,7 +39,7 @@ export function GenerativeAIPage() {
                 <Link href="/book-consultation/">Request AI Assessment</Link>
               </Button>
             </div>
-            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/15 pt-5">
+            <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/15 pt-4">
               {hero.featureTags.map((tag) => (
                 <li key={tag} className="flex items-center gap-2 text-sm font-semibold text-white/90">
                   <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FF6B2C] text-white">
@@ -67,7 +59,7 @@ export function GenerativeAIPage() {
         </div>
       </section>
 
-      <section className="mesh-light section-enterprise section-after-hero">
+      <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="AI Capabilities" title="Enterprise Generative AI Services" />
           <div className="section-cards grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -80,30 +72,8 @@ export function GenerativeAIPage() {
 
       <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Business Impact" title="Why Generative AI" />
-          <div className="section-cards grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {whyGenerativeAi.map((item, index) => {
-              const Icon = benefitIcons[item.title] ?? Brain;
-              return (
-                <Reveal key={item.title} delay={index * 0.05}>
-                  <div className="enterprise-card h-full rounded-2xl p-6 transition hover:-translate-y-1">
-                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FF6B2C]/12 text-[#FF6B2C] ring-1 ring-[#FF6B2C]/20">
-                      <Icon className="h-6 w-6" />
-                    </span>
-                    <h3 className="mt-4 font-extrabold text-[#0A0F1C]">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-[#334155]">{item.description}</p>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="mesh-light section-enterprise section-enterprise-tight-bottom">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Use Cases" title="AI Solutions Across Your Business" />
-          <div className="section-cards grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="section-cards mb-0 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {useCases.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}

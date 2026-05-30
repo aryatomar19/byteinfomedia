@@ -55,7 +55,7 @@ export function CloudServicesPage() {
         </div>
       </section>
 
-      <section className="mesh-light section-enterprise section-after-hero">
+      <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Capabilities" title="Cloud Foundations That Scale" />
           <div className="section-cards grid gap-4 sm:grid-cols-2">
@@ -66,10 +66,10 @@ export function CloudServicesPage() {
         </div>
       </section>
 
-      <section className="section-enterprise section-enterprise-tight-bottom bg-white">
+      <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Extended Services" title="Additional Cloud Services" />
-          <div className="section-cards grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="section-cards mb-0 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {additionalServices.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}
