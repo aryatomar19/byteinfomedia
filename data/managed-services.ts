@@ -11,11 +11,6 @@ export type ManagedProcessStep = {
   description: string;
 };
 
-export type ManagedBenefit = {
-  title: string;
-  description: string;
-};
-
 export const managedImages = {
   hero: "/images/managed/hero-managed.jpg",
   monitoring: "/images/managed/monitoring.jpg",
@@ -89,17 +84,4 @@ export const managedServicesPage = {
     { step: "03", title: "Operate", description: "24×7 monitoring, patching, incidents, and platform care." },
     { step: "04", title: "Optimize", description: "Monthly reviews, cost tuning, and continuous improvement." },
   ] satisfies ManagedProcessStep[],
-  benefits: [
-    { title: "Reduced Downtime", description: "Proactive operations that keep production environments stable." },
-    { title: "Improved Security", description: "Patching, monitoring, and compliance woven into daily operations." },
-    { title: "Faster Incident Resolution", description: "Tiered support with certified engineers on escalation." },
-    { title: "Predictable Operations", description: "Documented runbooks, change control, and service reviews." },
-    { title: "Lower Operational Overhead", description: "Extend your team without expanding internal headcount." },
-    { title: "Scalable Cloud Management", description: "Operations that grow with your workloads and regions." },
-  ] satisfies ManagedBenefit[],
-  cta: {
-    title: "Need a Reliable Cloud Operations Team?",
-    description:
-      "Talk with our managed services experts and get a customized operational support plan.",
-  },
 };

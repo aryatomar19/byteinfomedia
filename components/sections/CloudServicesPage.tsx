@@ -3,14 +3,12 @@
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
 import { cloudServicesPage } from "@/data/cloud-services";
-import { AssessmentForm } from "@/components/forms/AssessmentForm";
 import { Reveal } from "@/components/motion/Reveal";
-import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { ServiceImageCard } from "@/components/sections/ServiceImageCard";
 
 export function CloudServicesPage() {
-  const { hero, capabilities, additionalServices, faqs, cta, badge } = cloudServicesPage;
+  const { hero, capabilities, additionalServices, badge } = cloudServicesPage;
 
   return (
     <>
@@ -28,7 +26,7 @@ export function CloudServicesPage() {
             <p className="mt-5 max-w-xl text-lg leading-8 text-white/75">{hero.description}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button size="lg" asChild>
-                <Link href="#assessment">Request Free Assessment</Link>
+                <Link href="/book-consultation/">Request Free Assessment</Link>
               </Button>
               <Button variant="secondary" size="lg" className="border-white/20 bg-white/10 text-white hover:bg-white/20" asChild>
                 <Link href="/book-consultation/">Book Consultation</Link>
@@ -76,34 +74,6 @@ export function CloudServicesPage() {
             {additionalServices.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mesh-light py-14 sm:py-16">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mb-10 text-center">
-            <h2 className="font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-              Frequently Asked Questions
-            </h2>
-          </Reveal>
-          <Reveal delay={0.06}>
-            <FAQAccordion items={faqs} variant="premium" />
-          </Reveal>
-        </div>
-      </section>
-
-      <section id="assessment" className="mesh-section relative py-14 sm:py-20">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FF6B2C]/10 to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-            <Reveal>
-              <h2 className="text-3xl font-extrabold text-white sm:text-4xl">{cta.title}</h2>
-              <p className="mt-4 text-lg text-white/70">{cta.description}</p>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <AssessmentForm idPrefix="cloud-services" variant="dark" />
-            </Reveal>
           </div>
         </div>
       </section>
