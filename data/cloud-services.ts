@@ -26,7 +26,7 @@ export const cloudServicesPage = {
     description:
       "Architecture-led AWS consulting for private and public cloud, modernization, FinOps, and secure operations.",
     image: cloudImages.hero,
-    imageAlt: "Enterprise multi-cloud architecture diagram with AWS, Azure, and hybrid connectivity",
+    imageAlt: "Enterprise cloud consulting team collaborating on cloud strategy and adoption",
   },
   capabilities: [
     {
