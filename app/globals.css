@@ -65,6 +65,25 @@ a {
   color: #c84a17;
 }
 
+/* Consistent enterprise section rhythm */
+.section-enterprise {
+  padding-block: 5rem;
+}
+
+@media (min-width: 640px) {
+  .section-enterprise {
+    padding-block: 6.25rem;
+  }
+}
+
+.text-enterprise {
+  color: #0a0f1c;
+}
+
+.text-enterprise-muted {
+  color: #334155;
+}
+
 /* Service pages (dark sections) — preserved for inner pages */
 .mesh-hero {
   background: linear-gradient(165deg, #0a0f1c 0%, #121a2e 100%);

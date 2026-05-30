@@ -1,11 +1,11 @@
 import { homeImages } from "@/data/site";
 
 export const homeHero = {
-  badge: "PREMIUM AWS, DEVOPS & SECURITY CONSULTING",
+  badge: "PREMIUM AWS • DEVOPS • SECURITY CONSULTING",
   headline: "Secure AWS Cloud, DevOps & Cybersecurity Solutions for Modern Businesses",
   description:
     "BYTEINFOMEDIA helps organizations migrate, modernize, automate, secure and manage cloud infrastructure through enterprise-grade consulting services.",
-  primaryCta: { label: "Book Consultation", href: "#assessment" },
+  primaryCta: { label: "Book Consultation", href: "/book-consultation/" },
   secondaryCta: { label: "Request Free Assessment", href: "#assessment" },
   image: homeImages.hero,
   trustPoints: [
@@ -13,7 +13,7 @@ export const homeHero = {
     "Cloud Migration",
     "Cyber Security",
     "DevOps Automation",
-    "24×7 Support",
+    "24x7 Support",
   ],
 };
 

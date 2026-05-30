@@ -20,7 +20,7 @@ export function BookConsultationButton({
         "hover:-translate-y-0.5 hover:bg-right hover:shadow-[0_12px_36px_rgba(255,107,44,0.42)]",
         "active:translate-y-0 active:shadow-[0_4px_16px_rgba(255,107,44,0.28)]",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B2C]/50 focus-visible:ring-offset-2",
-        size === "sm" ? "h-10 px-5 text-sm" : "h-12 px-7 text-base",
+        size === "sm" ? "h-11 px-6 text-sm shadow-[0_8px_28px_rgba(255,107,44,0.35)]" : "h-12 px-8 text-base",
         className,
       )}
     >
