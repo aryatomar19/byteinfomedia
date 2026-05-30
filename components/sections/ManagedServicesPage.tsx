@@ -4,15 +4,12 @@ import Link from "next/link";
 import {
   Activity,
   Bell,
-  ClipboardCheck,
   Cloud,
   HardDrive,
   Headphones,
   LineChart,
-  Rocket,
   Shield,
   Sparkles,
-  TrendingUp,
   Wrench,
   type LucideIcon,
 } from "lucide-react";
@@ -33,15 +30,8 @@ const whyIcons: Record<string, LucideIcon> = {
   "Security Monitoring": Shield,
 };
 
-const processIcons: Record<string, LucideIcon> = {
-  Assess: ClipboardCheck,
-  Onboard: Rocket,
-  Operate: Headphones,
-  Optimize: TrendingUp,
-};
-
 export function ManagedServicesPage() {
-  const { hero, coreServices, whyManaged, process, badge } = managedServicesPage;
+  const { hero, coreServices, whyManaged, badge } = managedServicesPage;
 
   return (
     <>
@@ -87,7 +77,7 @@ export function ManagedServicesPage() {
         </div>
       </section>
 
-      <section className="mesh-light section-enterprise section-after-hero">
+      <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Core Services" title="Managed Operations Portfolio" />
           <div className="section-cards grid gap-4 sm:grid-cols-2">
@@ -101,7 +91,7 @@ export function ManagedServicesPage() {
       <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Why Choose Us" title="Why Managed Services" />
-          <div className="section-cards grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="section-cards mb-0 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {whyManaged.map((item, index) => {
               const Icon = whyIcons[item.title] ?? Activity;
               return (
@@ -112,33 +102,6 @@ export function ManagedServicesPage() {
                     </span>
                     <h3 className="mt-4 font-extrabold text-[#0A0F1C]">{item.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-[#334155] line-clamp-2">{item.description}</p>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="mesh-light section-enterprise section-enterprise-tight-bottom">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="How We Work" title="Operations Process" />
-          <div className="section-cards grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {process.map((step, index) => {
-              const Icon = processIcons[step.title] ?? Activity;
-              return (
-                <Reveal key={step.step} delay={index * 0.06}>
-                  <div className="enterprise-card h-full rounded-2xl p-6">
-                    <div className="flex items-start justify-between gap-3">
-                      <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#FF6B2C] text-lg font-black text-white">
-                        {step.step}
-                      </span>
-                      <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#F8F9FC] text-[#FF6B2C] ring-1 ring-[#0A0F1C]/8">
-                        <Icon className="h-5 w-5" />
-                      </span>
-                    </div>
-                    <h3 className="mt-5 font-extrabold text-[#0A0F1C]">{step.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-[#334155] line-clamp-3">{step.description}</p>
                   </div>
                 </Reveal>
               );

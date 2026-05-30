@@ -5,12 +5,6 @@ export type ManagedFeature = {
   description: string;
 };
 
-export type ManagedProcessStep = {
-  step: string;
-  title: string;
-  description: string;
-};
-
 export const managedImages = {
   hero: "/images/managed/hero-managed.jpg",
   monitoring: "/images/managed/monitoring.jpg",
@@ -78,10 +72,4 @@ export const managedServicesPage = {
     { title: "Cost Governance", description: "Spend visibility and optimization built into operations." },
     { title: "Security Monitoring", description: "Integrated threat visibility across cloud workloads." },
   ] satisfies ManagedFeature[],
-  process: [
-    { step: "01", title: "Assess", description: "Environment discovery, SLA alignment, and operational maturity review." },
-    { step: "02", title: "Onboard", description: "Access, monitoring baselines, runbooks, and escalation paths." },
-    { step: "03", title: "Operate", description: "24×7 monitoring, patching, incidents, and platform care." },
-    { step: "04", title: "Optimize", description: "Monthly reviews, cost tuning, and continuous improvement." },
-  ] satisfies ManagedProcessStep[],
 };
