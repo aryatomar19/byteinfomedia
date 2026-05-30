@@ -56,7 +56,7 @@ export const contactMethodOptions = [
 ];
 
 export const homeImages = {
-  hero: "/images/home/hero-enterprise.jpg",
+  hero: "/images/home/hero-cinematic.jpg",
   about: "/images/home/about-partner.jpg",
   cloudServices: "/images/home/cloud-services.jpg",
   managedServices: "/images/home/managed-services.jpg",

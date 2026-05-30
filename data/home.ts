@@ -1,19 +1,20 @@
 import { homeImages } from "@/data/site";
 
 export const homeHero = {
-  badge: "PREMIUM AWS • DEVOPS • SECURITY CONSULTING",
-  headline: "Secure AWS Cloud, DevOps & Cybersecurity Solutions for Modern Businesses",
+  badge: "AWS • DEVOPS • CYBER SECURITY • GENERATIVE AI",
+  headline: "Transforming Cloud Infrastructure for Modern Enterprises",
   description:
-    "BYTEINFOMEDIA helps organizations migrate, modernize, automate, secure and manage cloud infrastructure through enterprise-grade consulting services.",
+    "AWS consulting, cloud migration, DevOps automation, managed services, cybersecurity, and AI solutions that help businesses scale securely.",
   primaryCta: { label: "Book Consultation", href: "/book-consultation/" },
   secondaryCta: { label: "Request Free Assessment", href: "#assessment" },
   image: homeImages.hero,
+  imageAlt: "Enterprise cloud operations, datacenter infrastructure and technology consulting",
   trustPoints: [
     "AWS Consulting",
     "Cloud Migration",
-    "Cyber Security",
     "DevOps Automation",
-    "24x7 Support",
+    "Cyber Security",
+    "24x7 Managed Services",
   ],
 };
 
