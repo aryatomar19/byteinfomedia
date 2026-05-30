@@ -14,9 +14,9 @@ export function GenerativeAIPage() {
 
   return (
     <>
-      <section className="mesh-hero relative overflow-hidden pt-8 pb-10 sm:pt-10 sm:pb-12">
+      <section className="mesh-hero relative overflow-hidden pt-6 pb-8 sm:pt-8 sm:pb-10">
         <div className="absolute inset-0 grid-pattern opacity-40" aria-hidden />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-5 px-4 sm:px-6 lg:grid-cols-2 lg:gap-7 lg:px-8">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
               <Sparkles className="h-3.5 w-3.5" />
