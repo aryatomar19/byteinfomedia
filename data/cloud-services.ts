@@ -6,6 +6,7 @@ export type CloudServiceCard = {
 };
 
 export const cloudImages = {
+  hero: "/images/cloud/hero-cloud.jpg",
   privateCloud: "/images/cloud/private-cloud.jpg",
   publicCloud: "/images/cloud/public-cloud.jpg",
   applicationModernization: "/images/cloud/application-modernization.jpg",
@@ -24,6 +25,8 @@ export const cloudServicesPage = {
     title: "Enterprise Cloud Services",
     description:
       "Architecture-led AWS consulting for private and public cloud, modernization, FinOps, and secure operations.",
+    image: cloudImages.hero,
+    imageAlt: "Enterprise multi-cloud infrastructure and global cloud network",
   },
   capabilities: [
     {

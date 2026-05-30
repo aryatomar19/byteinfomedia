@@ -7,7 +7,6 @@ import { AssessmentForm } from "@/components/forms/AssessmentForm";
 import { Reveal } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { HeroCloudScene } from "@/components/visuals/HeroCloudScene";
 import { ServiceImageCard } from "@/components/sections/ServiceImageCard";
 
 export function CloudServicesPage() {
@@ -37,7 +36,14 @@ export function CloudServicesPage() {
             </div>
           </Reveal>
           <Reveal delay={0.12}>
-            <HeroCloudScene />
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/15 shadow-[0_32px_80px_rgba(0,0,0,0.4)]">
+              <img
+                src={hero.image}
+                alt={hero.imageAlt}
+                className="aspect-[4/3] w-full object-cover"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/50 via-transparent to-[#0A0F1C]/10" />
+            </div>
           </Reveal>
         </div>
       </section>
