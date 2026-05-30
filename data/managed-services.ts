@@ -28,44 +28,44 @@ export const managedServicesPage = {
     description:
       "Proactive cloud operations, monitoring, incident response, patch management, and infrastructure support for AWS, Azure, and hybrid environments.",
     image: managedImages.hero,
-    imageAlt: "Cloud operations center and infrastructure monitoring",
+    imageAlt: "Network operations center with live infrastructure monitoring",
   },
   coreServices: [
     {
       title: "24×7 Monitoring",
       description: "Real-time observability, alerting, and proactive triage across your cloud estate.",
       image: managedImages.monitoring,
-      imageAlt: "Cloud monitoring and operations dashboard",
+      imageAlt: "NOC monitoring wall with real-time cloud dashboards",
     },
     {
       title: "Patch Management",
       description: "Scheduled, tested patching cycles with change control and compliance reporting.",
       image: managedImages.patchManagement,
-      imageAlt: "Enterprise infrastructure patch management",
+      imageAlt: "Server infrastructure and security patch management",
     },
     {
       title: "Infrastructure Management",
       description: "Capacity planning, configuration management, and ongoing platform health.",
       image: managedImages.infrastructure,
-      imageAlt: "Managed cloud infrastructure and server operations",
+      imageAlt: "Enterprise cloud infrastructure operations center",
     },
     {
       title: "Backup Management",
       description: "Validated backups, retention policies, and recovery readiness for critical workloads.",
       image: managedImages.backupManagement,
-      imageAlt: "Backup infrastructure and disaster readiness",
+      imageAlt: "Secure backup storage and data replication systems",
     },
     {
       title: "Cloud Operations",
       description: "Day-to-day AWS and Azure operations aligned to your SLAs and runbooks.",
       image: managedImages.cloudOperations,
-      imageAlt: "Enterprise cloud operations and platform management",
+      imageAlt: "Cloud engineers monitoring enterprise infrastructure",
     },
     {
       title: "Incident Response",
       description: "Structured escalation, root-cause analysis, and rapid restoration of services.",
       image: managedImages.incidentResponse,
-      imageAlt: "Incident response and operations team collaboration",
+      imageAlt: "Security operations team responding to live incidents",
     },
   ] satisfies ServiceImageCardData[],
   whyManaged: [
