@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
-import { cloudServicesPage } from "@/data/cloud-services";
+import { cyberSecurityPageData } from "@/data/cyber-security-page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { ServiceImageCard } from "@/components/sections/ServiceImageCard";
 
-export function CloudServicesPage() {
-  const { hero, capabilities, additionalServices, badge } = cloudServicesPage;
+export function CyberSecurityPage() {
+  const { hero, services, badge } = cyberSecurityPageData;
 
   return (
     <>
@@ -20,12 +20,12 @@ export function CloudServicesPage() {
             className="h-full min-h-full w-full min-w-full object-cover object-center"
           />
         </div>
-        <div className="absolute inset-0 bg-[#0A0F1C]/60" aria-hidden />
+        <div className="absolute inset-0 bg-[#0A0F1C]/65" aria-hidden />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#0A0F1C]/80 via-[#0A0F1C]/50 to-[#0A0F1C]/30"
+          className="absolute inset-0 bg-gradient-to-r from-[#0A0F1C]/85 via-[#0A0F1C]/55 to-[#0A0F1C]/35"
           aria-hidden
         />
-        <div className="absolute inset-0 grid-pattern opacity-35" aria-hidden />
+        <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden />
 
         <div className="relative mx-auto flex min-h-[70vh] max-h-[75vh] max-w-7xl items-center px-4 py-10 sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl">
@@ -39,7 +39,7 @@ export function CloudServicesPage() {
             <p className="mt-4 max-w-xl text-lg leading-7 text-white/80">{hero.description}</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Button size="lg" asChild>
-                <Link href="/book-consultation/">Request Free Assessment</Link>
+                <Link href="/book-consultation/">Request Security Assessment</Link>
               </Button>
               <Button
                 variant="secondary"
@@ -57,29 +57,13 @@ export function CloudServicesPage() {
       <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Capabilities</p>
+            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Security Services</p>
             <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-              Cloud Foundations That Scale
-            </h2>
-          </Reveal>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {capabilities.map((card, index) => (
-              <ServiceImageCard key={card.title} {...card} index={index} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-enterprise bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Extended Services</p>
-            <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-              Additional Cloud Services
+              End-to-End Cybersecurity
             </h2>
           </Reveal>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {additionalServices.map((card, index) => (
+            {services.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}
           </div>

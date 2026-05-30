@@ -28,20 +28,20 @@ export const managedServicesPage = {
     description:
       "Proactive cloud operations, monitoring, incident response, patch management, and infrastructure support for AWS, Azure, and hybrid environments.",
     image: managedImages.hero,
-    imageAlt: "Network operations center with live infrastructure monitoring",
+    imageAlt: "Managed cloud operations team coordinating enterprise infrastructure",
   },
   coreServices: [
     {
       title: "24×7 Monitoring",
       description: "Real-time observability, alerting, and proactive triage across your cloud estate.",
       image: managedImages.monitoring,
-      imageAlt: "NOC monitoring wall with real-time cloud dashboards",
+      imageAlt: "24×7 monitoring dashboard with real-time cloud observability",
     },
     {
       title: "Patch Management",
       description: "Scheduled, tested patching cycles with change control and compliance reporting.",
       image: managedImages.patchManagement,
-      imageAlt: "Server infrastructure and security patch management",
+      imageAlt: "Security patching systems and governed patch management workflow",
     },
     {
       title: "Infrastructure Management",

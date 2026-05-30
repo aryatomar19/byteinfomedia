@@ -26,7 +26,7 @@ export const cloudServicesPage = {
     description:
       "Architecture-led AWS consulting for private and public cloud, modernization, FinOps, and secure operations.",
     image: cloudImages.hero,
-    imageAlt: "Enterprise datacenter and cloud infrastructure operations",
+    imageAlt: "Enterprise multi-cloud architecture and cloud network visualization",
   },
   capabilities: [
     {
@@ -34,14 +34,14 @@ export const cloudServicesPage = {
       description:
         "Secure and scalable private cloud environments built for performance, control and compliance.",
       image: cloudImages.privateCloud,
-      imageAlt: "Enterprise private datacenter and secure cloud infrastructure",
+      imageAlt: "Enterprise private cloud architecture and secure virtual infrastructure",
     },
     {
       title: "Public Cloud",
       description:
         "Flexible and cost-effective cloud solutions designed for growth and innovation.",
       image: cloudImages.publicCloud,
-      imageAlt: "Public cloud platform and AWS-style cloud infrastructure",
+      imageAlt: "AWS and Azure multi-cloud public cloud network architecture",
     },
     {
       title: "Application Modernization",
@@ -87,7 +87,7 @@ export const cloudServicesPage = {
       title: "Disaster Recovery",
       description: "RTO and RPO-aligned backup, failover, and business continuity planning.",
       image: cloudImages.disasterRecovery,
-      imageAlt: "Disaster recovery datacenter and backup infrastructure",
+      imageAlt: "Cloud disaster recovery dashboard and backup failover operations",
     },
     {
       title: "DevOps Automation",

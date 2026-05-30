@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { PremiumServicePage } from "@/components/sections/PremiumServicePage";
-import { cyberSecurityPage } from "@/data/cyber-security";
+import { CyberSecurityPage } from "@/components/sections/CyberSecurityPage";
+import { cyberSecurityPageData } from "@/data/cyber-security-page";
 
 export const metadata: Metadata = {
   title: "Cyber Security",
-  description: cyberSecurityPage.hero.description,
+  description: cyberSecurityPageData.hero.description,
   alternates: { canonical: "/cyber-security/" },
 };
 
 export default function Page() {
-  return <PremiumServicePage data={cyberSecurityPage} />;
+  return <CyberSecurityPage />;
 }
