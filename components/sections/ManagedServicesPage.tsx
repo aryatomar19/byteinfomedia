@@ -44,10 +44,23 @@ export function ManagedServicesPage() {
 
   return (
     <>
-      <section className="mesh-hero relative overflow-hidden pt-6 pb-8 sm:pb-10">
-        <div className="absolute inset-0 grid-pattern opacity-40" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-4">
-          <Reveal>
+      <section className="relative min-h-[70vh] max-h-[75vh] overflow-hidden">
+        <div className="absolute inset-0 hero-ken-burns" aria-hidden>
+          <img
+            src={hero.image}
+            alt=""
+            className="h-full min-h-full w-full min-w-full object-cover object-center"
+          />
+        </div>
+        <div className="absolute inset-0 bg-[#0A0F1C]/60" aria-hidden />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[#0A0F1C]/80 via-[#0A0F1C]/50 to-[#0A0F1C]/30"
+          aria-hidden
+        />
+        <div className="absolute inset-0 grid-pattern opacity-35" aria-hidden />
+
+        <div className="relative mx-auto flex min-h-[70vh] max-h-[75vh] max-w-7xl items-center px-4 py-10 sm:px-6 lg:px-8">
+          <Reveal className="max-w-2xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
               <Sparkles className="h-3.5 w-3.5" />
               {badge}
@@ -55,20 +68,19 @@ export function ManagedServicesPage() {
             <h1 className="mt-4 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.25rem]">
               {hero.title}
             </h1>
-            <p className="mt-4 max-w-xl text-lg leading-7 text-white/75">{hero.description}</p>
+            <p className="mt-4 max-w-xl text-lg leading-7 text-white/80">{hero.description}</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Button size="lg" asChild>
                 <Link href="/book-consultation/">Request Free Assessment</Link>
               </Button>
-              <Button variant="secondary" size="lg" className="border-white/20 bg-white/10 text-white hover:bg-white/20" asChild>
+              <Button
+                variant="secondary"
+                size="lg"
+                className="border-white/20 bg-white/10 text-white hover:bg-white/20"
+                asChild
+              >
                 <Link href="/book-consultation/">Book Consultation</Link>
               </Button>
-            </div>
-          </Reveal>
-          <Reveal delay={0.12}>
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/15 shadow-[0_32px_80px_rgba(0,0,0,0.4)]">
-              <img src={hero.image} alt={hero.imageAlt} className="aspect-[4/3] w-full object-cover" />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/50 via-transparent to-[#0A0F1C]/10" />
             </div>
           </Reveal>
         </div>
