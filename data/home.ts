@@ -38,7 +38,7 @@ export const serviceOverview = [
   {
     title: "Cloud Services",
     image: homeImages.cloudServices,
-    imageAlt: "Cloud infrastructure and enterprise technology",
+    imageAlt: "Cloud transformation and global digital infrastructure",
     description:
       "AWS consulting, migration, modernization, cloud security and cost optimization.",
     href: "/cloud-services/",
@@ -46,21 +46,21 @@ export const serviceOverview = [
   {
     title: "Managed Services",
     image: homeImages.managedServices,
-    imageAlt: "Monitoring operations center and cloud infrastructure",
+    imageAlt: "Enterprise operations and IT management",
     description: "24×7 monitoring, incident response and cloud operations.",
     href: "/managed-services/",
   },
   {
     title: "Cyber Security",
     image: homeImages.cyberSecurity,
-    imageAlt: "Cybersecurity operations and digital protection",
+    imageAlt: "Cybersecurity and threat protection",
     description: "Security assessments, compliance, threat detection and cloud hardening.",
     href: "/cyber-security/",
   },
   {
     title: "Generative AI",
     image: homeImages.generativeAi,
-    imageAlt: "Artificial intelligence and enterprise innovation",
+    imageAlt: "Generative AI and enterprise automation",
     description: "AI consulting, automation, chatbot development and enterprise adoption.",
     href: "/generative-ai/",
   },
@@ -68,20 +68,15 @@ export const serviceOverview = [
 
 export const whySection = {
   title: "Trusted By Businesses That Demand Excellence",
-  metrics: [
-    { value: "120+", label: "Projects" },
-    { value: "45+", label: "Migrations" },
-    { value: "98%", label: "Client Satisfaction" },
-  ],
 };
 
-export const whyChooseUs = [
-  { title: "AWS Expertise", description: "Certified cloud architects and AWS best-practice delivery." },
-  { title: "Cloud Migration", description: "Structured migration programs with validation and governance." },
-  { title: "DevOps Automation", description: "CI/CD, infrastructure automation, and release excellence." },
-  { title: "Security First", description: "Risk-aware security embedded across cloud and DevOps." },
-  { title: "24×7 Monitoring", description: "Proactive operations and incident response for critical workloads." },
-  { title: "Cost Optimization", description: "FinOps practices to control spend without sacrificing performance." },
-  { title: "Enterprise Support", description: "Dedicated consulting for executives and technical teams." },
-  { title: "Professional Consulting", description: "Clear roadmaps, documentation, and accountable outcomes." },
+export const capabilityCards = [
+  { title: "AWS Consulting", description: "Architecture, governance, and AWS modernization for enterprise workloads." },
+  { title: "Cloud Migration", description: "Structured migration programs with validation and minimal business risk." },
+  { title: "Cyber Security", description: "Assessments, hardening, compliance, and continuous threat visibility." },
+  { title: "DevOps Automation", description: "CI/CD pipelines, infrastructure as code, and release governance." },
+  { title: "Managed Operations", description: "24×7 monitoring, incident response, and ongoing cloud support." },
+  { title: "Generative AI", description: "AI strategy, LLM integration, and enterprise automation." },
+  { title: "Enterprise Support", description: "Dedicated consulting for leadership and technical teams." },
+  { title: "Cloud Optimization", description: "FinOps, rightsizing, and cost governance across your cloud estate." },
 ];

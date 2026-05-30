@@ -18,13 +18,18 @@ export const company = {
     "BYTEINFOMEDIA provides AWS cloud consulting, DevOps automation, cybersecurity, managed cloud services, and generative AI solutions for modern enterprises.",
 };
 
-export const headerNav = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about-us/" },
+/** Header: service links only (homepage minimal nav) */
+export const serviceNav = [
   { label: "Cloud Services", href: "/cloud-services/" },
   { label: "Managed Services", href: "/managed-services/" },
   { label: "Cyber Security", href: "/cyber-security/" },
   { label: "Generative AI", href: "/generative-ai/" },
+] as const;
+
+export const headerNav = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about-us/" },
+  ...serviceNav,
 ] as const;
 
 export const footerLinks = headerNav;
