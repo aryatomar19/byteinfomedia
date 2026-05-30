@@ -11,19 +11,18 @@ export const company = {
     "First Floor, Plot No. 27, Sector 19,",
     "Nanda Enclave, Dwarka, Delhi - 110075",
   ],
-  instagram: "https://www.instagram.com/byte_infomedia_/",
-  instagramHandle: "@byte_infomedia_",
   phone: "+91 70427 27803",
   phoneHref: "tel:+917042727803",
   whatsappHref: "https://wa.me/917042727803",
   email: "byteinfomedia@gmail.com",
   website: "https://www.byteinfomedia.com/",
   linkedin: "https://www.linkedin.com/company/byte-infomedia",
+  instagram: "https://www.instagram.com/byte_infomedia_/",
+  instagramHandle: "@byte_infomedia_",
   description:
     "BYTEINFOMEDIA provides AWS cloud consulting, DevOps automation, cybersecurity, managed cloud services, and generative AI solutions for modern enterprises.",
 };
 
-/** Header: service links only (homepage minimal nav) */
 export const serviceNav = [
   { label: "Cloud Services", href: "/cloud-services/" },
   { label: "Managed Services", href: "/managed-services/" },
@@ -47,6 +46,13 @@ export const serviceFormOptions = [
   "AWS Migration",
   "DevOps Automation",
   "Other",
+];
+
+export const contactMethodOptions = [
+  "Phone Call",
+  "WhatsApp",
+  "Email",
+  "Video Consultation",
 ];
 
 export const homeImages = {

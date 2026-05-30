@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { company, serviceNav } from "@/data/site";
-import { Button } from "@/components/ui/button";
+import { BookConsultationButton } from "@/components/ui/BookConsultationButton";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -38,9 +38,7 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden lg:block">
-            <Button size="sm" asChild>
-              <Link href="/#assessment">Book Consultation</Link>
-            </Button>
+            <BookConsultationButton />
           </div>
 
           <button
@@ -68,13 +66,9 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/#assessment"
-              onClick={() => setOpen(false)}
-              className="mt-2 rounded-xl bg-[#FF6B2C] px-4 py-3 text-center text-sm font-bold text-white"
-            >
-              Book Consultation
-            </Link>
+            <div className="mt-3 pt-3 border-t border-[#0A0F1C]/8">
+              <BookConsultationButton className="w-full justify-center" size="md" />
+            </div>
           </div>
         </div>
       )}
