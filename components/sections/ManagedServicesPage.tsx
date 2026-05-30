@@ -44,19 +44,19 @@ export function ManagedServicesPage() {
 
   return (
     <>
-      <section className="mesh-hero relative overflow-hidden pt-8 pb-14 sm:pb-20">
+      <section className="mesh-hero relative overflow-hidden pt-6 pb-8 sm:pb-10">
         <div className="absolute inset-0 grid-pattern opacity-40" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8 lg:py-6">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-4">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
               <Sparkles className="h-3.5 w-3.5" />
               {badge}
             </span>
-            <h1 className="mt-6 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.25rem]">
+            <h1 className="mt-4 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.25rem]">
               {hero.title}
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-white/75">{hero.description}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <p className="mt-4 max-w-xl text-lg leading-7 text-white/75">{hero.description}</p>
+            <div className="mt-5 flex flex-wrap gap-3">
               <Button size="lg" asChild>
                 <Link href="/book-consultation/">Request Free Assessment</Link>
               </Button>
@@ -82,7 +82,7 @@ export function ManagedServicesPage() {
               Managed Operations Portfolio
             </h2>
           </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {coreServices.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}
@@ -98,7 +98,7 @@ export function ManagedServicesPage() {
               Why Managed Services
             </h2>
           </Reveal>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {whyManaged.map((item, index) => {
               const Icon = whyIcons[item.title] ?? Activity;
               return (
@@ -119,13 +119,13 @@ export function ManagedServicesPage() {
 
       <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mb-10 text-center">
+          <Reveal className="mb-5 text-center">
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">How We Work</p>
             <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
               Operations Process
             </h2>
           </Reveal>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((step, index) => {
               const Icon = processIcons[step.title] ?? Activity;
               return (

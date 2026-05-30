@@ -12,19 +12,19 @@ export function CloudServicesPage() {
 
   return (
     <>
-      <section className="mesh-hero relative overflow-hidden pt-8 pb-14 sm:pb-20">
+      <section className="mesh-hero relative overflow-hidden pt-6 pb-8 sm:pb-10">
         <div className="absolute inset-0 grid-pattern opacity-40" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8 lg:py-6">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-4">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
               <Sparkles className="h-3.5 w-3.5" />
               {badge}
             </span>
-            <h1 className="mt-6 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.25rem]">
+            <h1 className="mt-4 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.25rem]">
               {hero.title}
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-white/75">{hero.description}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <p className="mt-4 max-w-xl text-lg leading-7 text-white/75">{hero.description}</p>
+            <div className="mt-5 flex flex-wrap gap-3">
               <Button size="lg" asChild>
                 <Link href="/book-consultation/">Request Free Assessment</Link>
               </Button>
@@ -54,7 +54,7 @@ export function CloudServicesPage() {
               Cloud Foundations That Scale
             </h2>
           </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {capabilities.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}
@@ -70,7 +70,7 @@ export function CloudServicesPage() {
               Additional Cloud Services
             </h2>
           </Reveal>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {additionalServices.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}

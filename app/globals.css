@@ -65,14 +65,14 @@ a {
   color: #c84a17;
 }
 
-/* Consistent enterprise section rhythm */
+/* Consistent enterprise section rhythm (compact) */
 .section-enterprise {
-  padding-block: 5rem;
+  padding-block: 3rem;
 }
 
 @media (min-width: 640px) {
   .section-enterprise {
-    padding-block: 6.25rem;
+    padding-block: 3.25rem;
   }
 }
 

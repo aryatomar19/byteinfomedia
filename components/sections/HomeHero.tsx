@@ -26,7 +26,7 @@ export function HomeHero() {
       />
 
       {/* Content */}
-      <div className="relative mx-auto flex min-h-[95vh] max-w-7xl items-center px-4 py-20 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex min-h-[95vh] max-w-7xl items-center px-4 py-12 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ export function HomeHero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl xl:text-[3.75rem]"
+            className="mt-5 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl xl:text-[3.75rem]"
           >
             {homeHero.headline}
           </motion.h1>
@@ -50,7 +50,7 @@ export function HomeHero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.32 }}
-            className="mt-6 max-w-2xl text-lg leading-8 text-white/90 sm:text-xl sm:leading-9"
+            className="mt-4 max-w-2xl text-lg leading-7 text-white/90 sm:text-xl sm:leading-8"
           >
             {homeHero.description}
           </motion.p>
@@ -59,7 +59,7 @@ export function HomeHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.44 }}
-            className="mt-10 flex flex-col gap-4 sm:flex-row"
+            className="mt-6 flex flex-col gap-3 sm:flex-row"
           >
             <Button
               size="lg"
@@ -85,7 +85,7 @@ export function HomeHero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.56 }}
-            className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/15 pt-8"
+            className="mt-7 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/15 pt-5"
           >
             {homeHero.trustPoints.map((point) => (
               <li key={point} className="flex items-center gap-2.5 text-sm font-semibold text-white">
