@@ -5,20 +5,19 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { serviceOverview, servicesSection } from "@/data/home";
 import { Reveal } from "@/components/motion/Reveal";
+import { SectionHeading } from "@/components/sections/SectionHeading";
 
 export function ServicesOverview() {
   return (
     <section className="section-enterprise bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Consulting Portfolio</p>
-          <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-            {servicesSection.title}
-          </h2>
-          <p className="mt-4 text-lg text-[#334155]">{servicesSection.subtitle}</p>
-        </Reveal>
+        <SectionHeading
+          eyebrow="Consulting Portfolio"
+          title={servicesSection.title}
+          description={servicesSection.subtitle}
+        />
 
-        <div className="mt-6 grid gap-5 sm:grid-cols-2">
+        <div className="section-cards grid gap-4 sm:grid-cols-2">
           {serviceOverview.map((service, index) => (
             <motion.article
               key={service.title}
