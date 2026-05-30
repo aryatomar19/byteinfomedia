@@ -37,7 +37,7 @@ export function BookConsultationPage() {
             </Reveal>
             <Reveal delay={0.08}>
               <div className="lg:sticky lg:top-24">
-                <h2 className="mb-5 text-lg font-extrabold text-[#0A0F1C]">Contact Information</h2>
+                <h2 className="mb-5 text-lg font-bold text-[#0A0F1C]">Contact Information</h2>
                 <ContactInfoCards />
               </div>
             </Reveal>

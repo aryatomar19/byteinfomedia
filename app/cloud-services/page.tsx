@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PremiumServicePage } from "@/components/sections/PremiumServicePage";
+import { CloudServicesPage } from "@/components/sections/CloudServicesPage";
 import { cloudServicesPage } from "@/data/cloud-services";
 
 export const metadata: Metadata = {
@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <PremiumServicePage data={cloudServicesPage} />;
+  return <CloudServicesPage />;
 }

@@ -6,7 +6,6 @@ import { InstagramIcon } from "@/components/icons/Instagram";
 import { cn } from "@/lib/utils";
 
 const labelClass = "text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#0A0F1C]";
-const valueClass = "mt-1 font-bold text-[#0A0F1C]";
 
 const baseCard =
   "group relative flex items-start gap-5 rounded-2xl border bg-white p-5 transition duration-300 hover:-translate-y-1";
@@ -30,10 +29,10 @@ export function ContactInfoCards({ className }: { className?: string }) {
         </span>
         <div className="min-w-0 flex-1 pt-0.5">
           <p className={labelClass}>Phone</p>
-          <p className={cn(valueClass, "text-xl")}>{company.phone}</p>
-          <p className="mt-1 text-sm font-semibold text-[#0A0F1C]">Direct consultation line</p>
+          <p className="mt-1 text-xl font-semibold text-[#0A0F1C]">{company.phone}</p>
+          <p className="mt-1 text-sm font-medium text-[#0A0F1C]">Direct consultation line</p>
         </div>
-        <ArrowUpRight className="mt-2 h-5 w-5 shrink-0 text-[#0A0F1C]/30 transition group-hover:text-[#FF6B2C]" />
+        <ArrowUpRight className="mt-2 h-5 w-5 shrink-0 text-[#0A0F1C] transition group-hover:text-[#FF6B2C]" />
       </a>
 
       <a
@@ -49,9 +48,9 @@ export function ContactInfoCards({ className }: { className?: string }) {
         </span>
         <div className="min-w-0 flex-1 pt-0.5">
           <p className={labelClass}>Email</p>
-          <p className={cn(valueClass, "break-all text-lg")}>{company.email}</p>
+          <p className="mt-1 break-all text-lg font-semibold text-[#0A0F1C]">{company.email}</p>
         </div>
-        <ArrowUpRight className="mt-2 h-5 w-5 shrink-0 text-[#0A0F1C]/30 transition group-hover:text-[#FF6B2C]" />
+        <ArrowUpRight className="mt-2 h-5 w-5 shrink-0 text-[#0A0F1C] transition group-hover:text-[#FF6B2C]" />
       </a>
 
       <a
@@ -69,9 +68,9 @@ export function ContactInfoCards({ className }: { className?: string }) {
         </span>
         <div className="min-w-0 flex-1 pt-0.5">
           <p className={labelClass}>LinkedIn</p>
-          <p className={cn(valueClass, "text-lg")}>Company Page</p>
+          <p className="mt-1 text-lg font-semibold text-[#0A0F1C]">Company Page</p>
         </div>
-        <ArrowUpRight className="mt-2 h-5 w-5 shrink-0 text-[#0A0F1C]/30 transition group-hover:text-[#FF6B2C]" />
+        <ArrowUpRight className="mt-2 h-5 w-5 shrink-0 text-[#0A0F1C] transition group-hover:text-[#FF6B2C]" />
       </a>
 
       <a
@@ -94,9 +93,9 @@ export function ContactInfoCards({ className }: { className?: string }) {
         </span>
         <div className="min-w-0 flex-1 pt-0.5">
           <p className={labelClass}>Instagram</p>
-          <p className={cn(valueClass, "text-lg")}>{company.instagramHandle}</p>
+          <p className="mt-1 text-lg font-semibold text-[#0A0F1C]">{company.instagramHandle}</p>
         </div>
-        <ArrowUpRight className="mt-2 h-5 w-5 shrink-0 text-[#0A0F1C]/30 transition group-hover:text-[#FF6B2C]" />
+        <ArrowUpRight className="mt-2 h-5 w-5 shrink-0 text-[#0A0F1C] transition group-hover:text-[#FF6B2C]" />
       </a>
 
       <div
@@ -112,8 +111,8 @@ export function ContactInfoCards({ className }: { className?: string }) {
         </span>
         <div className="pt-0.5 pl-1">
           <p className={labelClass}>Address</p>
-          <p className={cn(valueClass, "text-base leading-relaxed")}>{company.addressLines[0]}</p>
-          <p className={cn(valueClass, "text-base leading-relaxed")}>{company.addressLines[1]}</p>
+          <p className="mt-1 text-base font-medium leading-relaxed text-[#0A0F1C]">{company.addressLines[0]}</p>
+          <p className="text-base font-medium leading-relaxed text-[#0A0F1C]">{company.addressLines[1]}</p>
         </div>
       </div>
     </div>

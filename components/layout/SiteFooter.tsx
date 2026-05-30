@@ -26,28 +26,26 @@ export function SiteFooter() {
 
         <div>
           <p className="text-sm font-bold text-[#0A0F1C]">Contact Information</p>
-          <div className="mt-3 grid gap-2 text-sm text-[#5f6f86]">
-            <a href={company.phoneHref} className="transition hover:text-[#FF6B2C]">
+          <div className="mt-3 grid gap-2.5 text-sm text-[#0A0F1C]">
+            <a href={company.phoneHref} className="font-semibold transition hover:text-[#FF6B2C]">
               {company.phone}
             </a>
-            <a href={`mailto:${company.email}`} className="transition hover:text-[#FF6B2C]">
+            <a href={`mailto:${company.email}`} className="font-semibold transition hover:text-[#FF6B2C]">
               {company.email}
             </a>
-            <a href={company.linkedin} target="_blank" rel="noreferrer" className="transition hover:text-[#FF6B2C]">
+            <a href={company.linkedin} target="_blank" rel="noreferrer" className="font-semibold transition hover:text-[#FF6B2C]">
               LinkedIn
             </a>
             <a
               href={company.instagram}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 transition hover:text-[#FF6B2C]"
+              className="inline-flex items-center gap-2 font-semibold transition hover:text-[#FF6B2C]"
             >
               <InstagramIcon className="h-4 w-4" />
-              <span>
-                Instagram · {company.instagramHandle}
-              </span>
+              <span>Instagram · {company.instagramHandle}</span>
             </a>
-            <p className="pt-1 leading-snug text-[#0A0F1C]">
+            <p className="pt-1 font-medium leading-snug text-[#0A0F1C]">
               {company.addressLines[0]}
               <br />
               {company.addressLines[1]}

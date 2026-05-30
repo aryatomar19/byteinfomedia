@@ -92,7 +92,7 @@ export function AssessmentForm({
         <h3 className={cn("text-2xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-3xl", dark && "text-white")}>
           {title}
         </h3>
-        <p className={cn("mt-3 text-sm leading-6 text-[#0A0F1C]", dark && "text-white/60")}>{description}</p>
+        <p className={cn("mt-3 text-sm leading-6", dark ? "text-white/70" : "text-[#0A0F1C]")}>{description}</p>
       </div>
 
       <div className="relative grid gap-4 sm:grid-cols-2">
