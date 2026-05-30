@@ -1,55 +1,70 @@
 "use client";
 
-import { Link2, Mail, MapPin, MessageCircle, PhoneCall } from "lucide-react";
+import { Link2, Mail, MapPin, PhoneCall } from "lucide-react";
 import { company } from "@/data/site";
 import { AssessmentForm } from "@/components/forms/AssessmentForm";
 import { Reveal } from "@/components/motion/Reveal";
 
-const contactCards = [
-  { label: "Phone", value: company.phone, href: company.phoneHref, icon: PhoneCall, detail: "Direct consultation line" },
-  { label: "WhatsApp", value: "Chat on WhatsApp", href: company.whatsappHref, icon: MessageCircle, detail: "Fast response" },
-  { label: "Email", value: company.email, href: `mailto:${company.email}`, icon: Mail, detail: "RFPs & requirements" },
-  { label: "LinkedIn", value: "Company Page", href: company.linkedin, icon: Link2, detail: "Professional updates", highlight: true },
+const contactItems = [
+  {
+    label: "Phone",
+    value: company.phone,
+    href: company.phoneHref,
+    icon: PhoneCall,
+  },
+  {
+    label: "Email",
+    value: company.email,
+    href: `mailto:${company.email}`,
+    icon: Mail,
+  },
+  {
+    label: "LinkedIn",
+    value: "Company Page",
+    href: company.linkedin,
+    icon: Link2,
+    external: true,
+  },
 ];
 
 export function ContactSection() {
   return (
-    <section id="assessment" className="mesh-section relative py-20 sm:py-28">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FF6B2C]/5 to-transparent" />
-      <div className="absolute inset-0 grid-pattern opacity-25" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal className="mb-12 text-center">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Get Started</span>
-          <h2 className="mt-4 text-3xl font-extrabold text-white sm:text-4xl">Contact & Free Assessment</h2>
+    <section id="assessment" className="bg-white py-20 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <Reveal className="mb-12">
+          <h2 className="font-[family-name:var(--font-inter)] text-3xl font-extrabold text-[#0A0F1C] sm:text-4xl">
+            Contact & Free Assessment
+          </h2>
+          <p className="mt-3 max-w-2xl text-lg text-[#5f6f86]">
+            Speak with our consultants about AWS, DevOps, security, managed services, or generative AI.
+          </p>
         </Reveal>
 
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-start">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {contactCards.map((card) => (
-              <a key={card.label} href={card.href} target={card.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">
-                <Reveal>
-                  <div
-                    className={`glass-card h-full rounded-2xl p-5 transition hover:-translate-y-1 hover:border-[#FF6B2C]/40 ${
-                      card.highlight ? "ring-1 ring-[#FF6B2C]/30" : ""
-                    }`}
-                  >
-                    <div className="flex items-start justify-between">
-                      <card.icon className="h-6 w-6 text-[#FF6B2C]" />
-                      <span className="rounded-full bg-[#FF6B2C]/15 px-2 py-0.5 text-[0.6rem] font-bold uppercase text-[#ffb088]">
-                        {card.label}
-                      </span>
-                    </div>
-                    <p className="mt-4 text-lg font-extrabold text-white">{card.value}</p>
-                    <p className="mt-1 text-sm text-white/55">{card.detail}</p>
-                  </div>
-                </Reveal>
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <div className="space-y-4">
+            {contactItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noreferrer" : undefined}
+                className="enterprise-card flex items-start gap-4 rounded-2xl p-5 transition hover:-translate-y-0.5"
+              >
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FF6B2C]/10 text-[#FF6B2C]">
+                  <item.icon className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#5f6f86]">{item.label}</p>
+                  <p className="mt-1 text-lg font-bold text-[#0A0F1C]">{item.value}</p>
+                </div>
               </a>
             ))}
-            <Reveal className="sm:col-span-2">
-              <div className="glass-card rounded-2xl p-6">
+
+            <Reveal>
+              <div className="enterprise-card rounded-2xl p-6">
                 <MapPin className="h-6 w-6 text-[#FF6B2C]" />
-                <p className="mt-3 text-xs font-bold uppercase tracking-wider text-white/50">Office Address</p>
-                <div className="mt-3 grid gap-1 text-sm font-semibold text-white sm:grid-cols-2">
+                <p className="mt-3 text-xs font-bold uppercase tracking-wider text-[#5f6f86]">Address</p>
+                <div className="mt-3 space-y-1 text-sm font-semibold leading-6 text-[#0A0F1C]">
                   {company.addressLines.map((line) => (
                     <p key={line}>{line}</p>
                   ))}
@@ -58,8 +73,8 @@ export function ContactSection() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.1}>
-            <AssessmentForm variant="dark" />
+          <Reveal delay={0.08}>
+            <AssessmentForm variant="light" />
           </Reveal>
         </div>
       </div>

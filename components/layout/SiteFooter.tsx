@@ -3,21 +3,20 @@ import { company, footerLinks } from "@/data/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-[#060a14]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
+    <footer className="border-t border-[#0A0F1C]/8 bg-[#F8F9FC]">
+      <div className="mx-auto grid max-w-7xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1.25fr_1fr_1fr] lg:px-8">
         <div>
-          <img src={company.logo} alt={company.name} className="h-12 w-auto object-contain brightness-0 invert" />
-          <p className="mt-4 max-w-sm text-sm leading-7 text-white/55">
-            {company.taglineLine1} · {company.taglineLine2}
-          </p>
-          <p className="mt-3 text-sm text-white/45">{company.description}</p>
+          <img src={company.logo} alt={company.name} className="h-12 w-auto object-contain" />
+          <p className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-[#0A0F1C]">{company.taglineLine1}</p>
+          <p className="text-xs font-semibold text-[#c84a17]">{company.taglineLine2}</p>
+          <p className="mt-4 max-w-sm text-sm leading-7 text-[#5f6f86]">{company.description}</p>
         </div>
 
         <div>
-          <p className="text-sm font-bold text-white">Quick Links</p>
-          <div className="mt-4 grid gap-2">
+          <p className="text-sm font-bold text-[#0A0F1C]">Quick Links</p>
+          <div className="mt-4 grid gap-2.5">
             {footerLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-sm text-white/55 transition hover:text-[#FF6B2C]">
+              <Link key={link.href} href={link.href} className="text-sm text-[#5f6f86] transition hover:text-[#FF6B2C]">
                 {link.label}
               </Link>
             ))}
@@ -25,8 +24,8 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-sm font-bold text-white">Contact</p>
-          <div className="mt-4 grid gap-2 text-sm text-white/55">
+          <p className="text-sm font-bold text-[#0A0F1C]">Contact Information</p>
+          <div className="mt-4 grid gap-2.5 text-sm text-[#5f6f86]">
             <a href={company.phoneHref} className="hover:text-[#FF6B2C]">
               {company.phone}
             </a>
@@ -45,8 +44,8 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="border-t border-white/10 py-5">
-        <p className="text-center text-sm text-white/40">
+      <div className="border-t border-[#0A0F1C]/8 bg-white py-5">
+        <p className="text-center text-sm text-[#5f6f86]">
           © {new Date().getFullYear()} {company.legalName}. All rights reserved.
         </p>
       </div>

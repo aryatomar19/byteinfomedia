@@ -4,7 +4,7 @@ export const company = {
   legalName: "Byte InfoMedia LLP",
   logo: "/byteinfomedia-logo.png",
   favicon: "/favicon.png",
-  taglineLine1: "Cloud | DevOps | Security",
+  taglineLine1: "CLOUD | DEVOPS | SECURITY",
   taglineLine2: "Enterprise Consulting",
   address: "First Floor, Plot No. 27, Sector-19, Dwarka, New Delhi - 110075",
   addressLines: ["First Floor, Plot No. 27", "Sector-19", "Dwarka", "New Delhi - 110075"],
@@ -18,19 +18,7 @@ export const company = {
     "BYTEINFOMEDIA provides AWS cloud consulting, DevOps automation, cybersecurity, managed cloud services, and generative AI solutions for modern enterprises.",
 };
 
-export const mainNav = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about-us/" },
-] as const;
-
-export const pillNav = [
-  { label: "Cloud Services", href: "/cloud-services/" },
-  { label: "Managed Services", href: "/managed-services/" },
-  { label: "Cyber Security", href: "/cyber-security/" },
-  { label: "Generative AI", href: "/generative-ai/" },
-] as const;
-
-export const footerLinks = [
+export const headerNav = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us/" },
   { label: "Cloud Services", href: "/cloud-services/" },
@@ -38,6 +26,8 @@ export const footerLinks = [
   { label: "Cyber Security", href: "/cyber-security/" },
   { label: "Generative AI", href: "/generative-ai/" },
 ] as const;
+
+export const footerLinks = headerNav;
 
 export const serviceFormOptions = [
   "Cloud Services",
@@ -48,3 +38,12 @@ export const serviceFormOptions = [
   "DevOps Automation",
   "Other",
 ];
+
+export const homeImages = {
+  hero: "/images/home/hero-enterprise.jpg",
+  about: "/images/home/about-partner.jpg",
+  cloudServices: "/images/home/cloud-services.jpg",
+  managedServices: "/images/home/managed-services.jpg",
+  cyberSecurity: "/images/home/cyber-security.jpg",
+  generativeAi: "/images/home/generative-ai.jpg",
+} as const;
