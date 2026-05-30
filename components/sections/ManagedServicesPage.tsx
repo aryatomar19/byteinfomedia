@@ -74,7 +74,7 @@ export function ManagedServicesPage() {
         </div>
       </section>
 
-      <section className="mesh-light py-14 sm:py-16">
+      <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Core Services</p>
@@ -90,7 +90,7 @@ export function ManagedServicesPage() {
         </div>
       </section>
 
-      <section className="bg-white py-14 sm:py-16">
+      <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Why Choose Us</p>
@@ -117,7 +117,7 @@ export function ManagedServicesPage() {
         </div>
       </section>
 
-      <section className="mesh-light py-14 sm:py-16">
+      <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-10 text-center">
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">How We Work</p>

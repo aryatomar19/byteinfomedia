@@ -46,7 +46,7 @@ export function CloudServicesPage() {
         </div>
       </section>
 
-      <section className="mesh-light py-14 sm:py-16">
+      <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Capabilities</p>
@@ -62,7 +62,7 @@ export function CloudServicesPage() {
         </div>
       </section>
 
-      <section className="bg-white py-14 sm:py-16">
+      <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Extended Services</p>
