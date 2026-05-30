@@ -18,7 +18,7 @@ export function ServicesOverview() {
           <p className="mt-4 text-lg text-[#334155]">{servicesSection.subtitle}</p>
         </Reveal>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2">
+        <div className="mt-6 grid gap-5 sm:grid-cols-2">
           {serviceOverview.map((service, index) => (
             <motion.article
               key={service.title}
@@ -38,7 +38,7 @@ export function ServicesOverview() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/55 via-[#0A0F1C]/10 to-transparent" />
                 <h3 className="absolute bottom-5 left-5 text-2xl font-extrabold text-white">{service.title}</h3>
               </div>
-              <div className="p-7 sm:p-8">
+              <div className="p-5 sm:p-6">
                 <p className="text-base leading-7 text-[#334155] line-clamp-2">{service.description}</p>
                 <Link
                   href={service.href}

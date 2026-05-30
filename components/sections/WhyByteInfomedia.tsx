@@ -14,7 +14,7 @@ export function WhyByteInfomedia() {
           </h2>
         </Reveal>
 
-        <RevealStagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <RevealStagger className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {capabilityCards.map((item) => (
             <RevealItem key={item.title}>
               <div className="enterprise-card group h-full rounded-2xl p-6 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_64px_rgba(10,15,28,0.1)]">

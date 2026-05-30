@@ -41,11 +41,11 @@ export function ServiceImageCard({
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/55 via-[#0A0F1C]/15 to-transparent" />
         <h3 className="absolute bottom-5 left-5 right-5 text-xl font-extrabold text-white sm:text-2xl">{title}</h3>
       </div>
-      <div className="p-6 sm:p-7">
-        <p className="line-clamp-3 text-base leading-7 text-[#0A0F1C]">{description}</p>
+      <div className="p-5 sm:p-6">
+        <p className="line-clamp-3 text-base leading-6 text-[#0A0F1C]">{description}</p>
         <Link
           href={learnMoreHref}
-          className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#FF6B2C] transition group-hover:gap-3"
+          className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#FF6B2C] transition group-hover:gap-3"
         >
           Learn More <ArrowRight className="h-4 w-4" />
         </Link>
