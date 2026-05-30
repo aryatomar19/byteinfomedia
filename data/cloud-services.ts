@@ -96,22 +96,4 @@ export const cloudServicesPage = {
       imageAlt: "DevOps automation and pipelines",
     },
   ] satisfies CloudServiceCard[],
-  faqs: [
-    {
-      question: "Do you support multi-account AWS Organizations?",
-      answer: "Yes. We design landing zones with centralized logging, IAM, and guardrails across accounts.",
-    },
-    {
-      question: "Can you help with legacy datacenter migration?",
-      answer: "We assess workloads, plan migration waves, and execute with validation at every stage.",
-    },
-    {
-      question: "What FinOps capabilities do you provide?",
-      answer: "Cost allocation, budget alerts, rightsizing, reserved capacity planning, and executive reporting.",
-    },
-  ],
-  cta: {
-    title: "Start your cloud transformation",
-    description: "Request a free assessment and receive a practical roadmap from certified consultants.",
-  },
 };

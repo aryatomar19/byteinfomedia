@@ -21,7 +21,7 @@ export function ServiceImageCard({
   image,
   imageAlt,
   index = 0,
-  learnMoreHref = "#assessment",
+  learnMoreHref = "/book-consultation/",
 }: ServiceImageCardProps) {
   return (
     <motion.article

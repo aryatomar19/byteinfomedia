@@ -17,11 +17,9 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { managedServicesPage } from "@/data/managed-services";
-import { AssessmentForm } from "@/components/forms/AssessmentForm";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { ServiceImageCard } from "@/components/sections/ServiceImageCard";
-import { cn } from "@/lib/utils";
 
 const whyIcons: Record<string, LucideIcon> = {
   "Proactive Monitoring": Activity,
@@ -42,7 +40,7 @@ const processIcons: Record<string, LucideIcon> = {
 };
 
 export function ManagedServicesPage() {
-  const { hero, coreServices, whyManaged, process, benefits, cta, badge } = managedServicesPage;
+  const { hero, coreServices, whyManaged, process, badge } = managedServicesPage;
 
   return (
     <>
@@ -60,7 +58,7 @@ export function ManagedServicesPage() {
             <p className="mt-5 max-w-xl text-lg leading-8 text-white/75">{hero.description}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button size="lg" asChild>
-                <Link href="#assessment">Request Free Assessment</Link>
+                <Link href="/book-consultation/">Request Free Assessment</Link>
               </Button>
               <Button variant="secondary" size="lg" className="border-white/20 bg-white/10 text-white hover:bg-white/20" asChild>
                 <Link href="/book-consultation/">Book Consultation</Link>
@@ -147,60 +145,6 @@ export function ManagedServicesPage() {
                 </Reveal>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-14 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mb-8 text-center">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Outcomes</p>
-            <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-              Benefits
-            </h2>
-          </Reveal>
-          <div className="flex flex-col gap-3">
-            {benefits.map((benefit, index) => (
-              <Reveal key={benefit.title} delay={index * 0.04}>
-                <div
-                  className={cn(
-                    "enterprise-card flex flex-col gap-3 rounded-2xl border border-[#0A0F1C]/8 bg-white p-5 sm:flex-row sm:items-center sm:gap-6 sm:p-6",
-                    "transition hover:-translate-y-0.5 hover:shadow-[0_20px_56px_rgba(10,15,28,0.1)]",
-                  )}
-                >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FF6B2C]/12 text-sm font-black text-[#FF6B2C]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="font-extrabold text-[#0A0F1C]">{benefit.title}</h3>
-                    <p className="mt-1 text-sm leading-6 text-[#0A0F1C] line-clamp-2">{benefit.description}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="assessment" className="mesh-section relative py-14 sm:py-20">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FF6B2C]/10 to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-            <Reveal>
-              <h2 className="text-3xl font-extrabold text-white sm:text-4xl">{cta.title}</h2>
-              <p className="mt-4 text-lg text-white/70">{cta.description}</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button size="lg" asChild>
-                  <Link href="#assessment">Request Free Assessment</Link>
-                </Button>
-                <Button variant="secondary" size="lg" className="border-white/20 bg-white/10 text-white hover:bg-white/20" asChild>
-                  <Link href="/book-consultation/">Book Consultation</Link>
-                </Button>
-              </div>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <AssessmentForm idPrefix="managed-services" variant="dark" />
-            </Reveal>
           </div>
         </div>
       </section>
