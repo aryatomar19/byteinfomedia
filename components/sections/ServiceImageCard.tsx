@@ -3,9 +3,14 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import type { CloudServiceCard } from "@/data/cloud-services";
+export type ServiceImageCardData = {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+};
 
-type ServiceImageCardProps = CloudServiceCard & {
+type ServiceImageCardProps = ServiceImageCardData & {
   index?: number;
   learnMoreHref?: string;
 };
