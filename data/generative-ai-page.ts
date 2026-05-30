@@ -6,19 +6,19 @@ export type GenerativeAiCard = {
 };
 
 export const generativeAiImages = {
-  hero: "/images/ai/hero-ai.jpg",
-  customAiAgents: "/images/ai/custom-ai-agents.jpg",
-  enterpriseChatbots: "/images/ai/enterprise-chatbots.jpg",
-  gptIntegration: "/images/ai/gpt-integration.jpg",
-  aiWorkflowAutomation: "/images/ai/ai-workflow-automation.jpg",
-  knowledgeManagement: "/images/ai/knowledge-management.jpg",
-  aiAnalytics: "/images/ai/ai-analytics.jpg",
-  customerSupport: "/images/ai/customer-support.jpg",
-  documentIntelligence: "/images/ai/document-intelligence.jpg",
-  internalKnowledge: "/images/ai/internal-knowledge.jpg",
-  salesAutomation: "/images/ai/sales-automation.jpg",
-  aiContentGeneration: "/images/ai/ai-content-generation.jpg",
-  businessAnalytics: "/images/ai/business-analytics.jpg",
+  hero: "/images/ai/hero-ai.svg",
+  customAiAgents: "/images/ai/custom-ai-agents.svg",
+  enterpriseChatbots: "/images/ai/enterprise-chatbots.svg",
+  gptIntegration: "/images/ai/gpt-integration.svg",
+  aiWorkflowAutomation: "/images/ai/ai-workflow-automation.svg",
+  knowledgeManagement: "/images/ai/knowledge-management.svg",
+  aiAnalytics: "/images/ai/ai-analytics.svg",
+  customerSupport: "/images/ai/customer-support.svg",
+  documentIntelligence: "/images/ai/document-intelligence.svg",
+  internalKnowledge: "/images/ai/internal-knowledge.svg",
+  salesAutomation: "/images/ai/sales-automation.svg",
+  aiContentGeneration: "/images/ai/ai-content-generation.svg",
+  businessAnalytics: "/images/ai/business-analytics.svg",
 } as const;
 
 export const generativeAiPageData = {
@@ -28,7 +28,7 @@ export const generativeAiPageData = {
     description:
       "Build intelligent AI systems, automate workflows, deploy custom chatbots, and unlock business value with enterprise-grade AI consulting.",
     image: generativeAiImages.hero,
-    imageAlt: "Generative AI neural network and enterprise AI technology visualization",
+    imageAlt: "Enterprise generative AI platform with neural network and LLM capabilities",
     featureTags: [
       "Custom AI Agents",
       "GPT Integration",
