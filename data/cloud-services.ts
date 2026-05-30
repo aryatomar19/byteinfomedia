@@ -31,14 +31,14 @@ export const cloudServicesPage = {
       description:
         "Secure and scalable private cloud environments built for performance, control and compliance.",
       image: cloudImages.privateCloud,
-      imageAlt: "Modern private cloud infrastructure",
+      imageAlt: "Enterprise private datacenter and secure cloud infrastructure",
     },
     {
       title: "Public Cloud",
       description:
         "Flexible and cost-effective cloud solutions designed for growth and innovation.",
       image: cloudImages.publicCloud,
-      imageAlt: "AWS, Azure and GCP public cloud",
+      imageAlt: "Enterprise public cloud platform and multi-cloud services",
     },
     {
       title: "Application Modernization",
@@ -60,13 +60,13 @@ export const cloudServicesPage = {
       title: "Cloud Migration",
       description: "Structured migration programs with validation and minimal business disruption.",
       image: cloudImages.cloudMigration,
-      imageAlt: "Enterprise cloud migration",
+      imageAlt: "Cloud migration and hybrid to cloud transformation",
     },
     {
       title: "Cloud Security",
       description: "Hardened architectures, compliance alignment, and continuous threat visibility.",
       image: cloudImages.cloudSecurity,
-      imageAlt: "Cloud security and compliance",
+      imageAlt: "Cloud security operations and secure infrastructure",
     },
     {
       title: "Kubernetes",
@@ -78,13 +78,13 @@ export const cloudServicesPage = {
       title: "Containerization",
       description: "Docker-based delivery pipelines and portable workload packaging.",
       image: cloudImages.containerization,
-      imageAlt: "Containerization and microservices",
+      imageAlt: "Docker containers and DevOps container workflow",
     },
     {
       title: "Disaster Recovery",
       description: "RTO and RPO-aligned backup, failover, and business continuity planning.",
       image: cloudImages.disasterRecovery,
-      imageAlt: "Disaster recovery and resilience",
+      imageAlt: "Backup infrastructure and disaster recovery environment",
     },
     {
       title: "DevOps Automation",
