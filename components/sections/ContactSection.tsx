@@ -1,7 +1,6 @@
 "use client";
 
 import { AssessmentForm } from "@/components/forms/AssessmentForm";
-import { ContactInfoCards } from "@/components/contact/ContactInfoCards";
 import { Reveal } from "@/components/motion/Reveal";
 
 export function ContactSection() {
@@ -18,17 +17,10 @@ export function ContactSection() {
           </p>
         </Reveal>
 
-        <div className="overflow-hidden rounded-[1.75rem] border border-[#0A0F1C]/8 bg-white shadow-[0_32px_80px_rgba(10,15,28,0.1)]">
-          <div className="grid lg:grid-cols-[1fr_1.05fr]">
-            <div className="border-b border-[#0A0F1C]/6 bg-[#F8F9FC] p-6 sm:p-7 lg:border-b-0 lg:border-r lg:pl-6 lg:pr-6">
-              <ContactInfoCards className="max-w-sm" />
-            </div>
-            <div className="p-6 sm:p-8">
-              <Reveal delay={0.06}>
-                <AssessmentForm variant="light" className="border-0 bg-transparent p-0 shadow-none" showPriorityBadge />
-              </Reveal>
-            </div>
-          </div>
+        <div className="overflow-hidden rounded-[1.75rem] border border-[#0A0F1C]/8 bg-white p-6 shadow-[0_32px_80px_rgba(10,15,28,0.1)] sm:p-8">
+          <Reveal delay={0.06}>
+            <AssessmentForm variant="light" className="border-0 bg-transparent p-0 shadow-none" showPriorityBadge />
+          </Reveal>
         </div>
       </div>
     </section>
