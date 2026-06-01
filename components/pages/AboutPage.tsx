@@ -1,63 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
 import { aboutPage } from "@/data/about";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { HeroCloudScene } from "@/components/visuals/HeroCloudScene";
 import { cn } from "@/lib/utils";
 
-const expertiseTechVisuals = [
-  { src: "/images/service-cloud.svg", label: "Cloud" },
-  { src: "/images/service-managed.svg", label: "Managed Ops" },
-  { src: "/images/service-security.svg", label: "Security" },
-  { src: "/images/hero-cloud.svg", label: "DevOps" },
-  { src: "/images/service-ai.svg", label: "AI" },
-] as const;
-
-function AboutStat({ numeric, suffix, label }: { numeric: number; suffix: string; label: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-  const spring = useSpring(0, { stiffness: 60, damping: 18 });
-
-  useEffect(() => {
-    if (inView) spring.set(numeric);
-  }, [inView, numeric, spring]);
-
-  const display = useTransform(spring, (v) => `${Math.round(v)}${suffix}`);
-
-  return (
-    <div ref={ref} className="text-center">
-      <motion.p className="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">{display}</motion.p>
-      <p className="mt-2 text-sm font-semibold uppercase tracking-[0.12em] text-white/70 sm:text-base">{label}</p>
-    </div>
-  );
-}
-
-function ExpertiseTechBanner() {
+function ExpertiseEnterpriseVisual() {
   return (
     <Reveal className="mb-8 sm:mb-10">
-      <div className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-[#0f1a30] via-[#0a0f1c] to-[#121a2e] p-6 shadow-[0_24px_60px_rgba(0,0,0,0.35)] sm:p-8">
-        <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr]">
-          <img
-            src="/images/about-global.svg"
-            alt=""
-            className="mx-auto w-full max-w-md rounded-2xl border border-white/8"
-          />
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-            {expertiseTechVisuals.map((item) => (
-              <div
-                key={item.label}
-                className="flex flex-col items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-4 text-center"
-              >
-                <img src={item.src} alt="" className="h-12 w-12 object-contain sm:h-14 sm:w-14" />
-                <span className="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-white/55">{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="overflow-hidden rounded-[1.5rem] border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.4)]">
+        <img
+          src={aboutPage.expertiseBanner.src}
+          alt={aboutPage.expertiseBanner.alt}
+          className="aspect-[21/9] w-full object-cover object-center sm:aspect-[2.4/1]"
+        />
       </div>
     </Reveal>
   );
@@ -154,8 +112,8 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* Expertise */}
-      <section className="mesh-section py-14 sm:py-16">
+      {/* Expertise — last section before footer */}
+      <section className="mesh-section pb-14 pt-14 sm:pb-16 sm:pt-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-8 text-center">
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Capabilities</p>
@@ -165,7 +123,7 @@ export function AboutPage() {
             </p>
           </Reveal>
 
-          <ExpertiseTechBanner />
+          <ExpertiseEnterpriseVisual />
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {aboutPage.expertise.map((item, index) => (
@@ -194,23 +152,6 @@ export function AboutPage() {
                   </span>
                 </Link>
               </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="relative overflow-hidden bg-[#060a14] py-14 sm:py-16">
-        <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="absolute left-1/2 top-0 h-px w-3/4 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#FF6B2C]/40 to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="mb-10 text-center">
-            <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Track record</p>
-            <h2 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">Results That Matter</h2>
-          </Reveal>
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-6">
-            {aboutPage.stats.map((stat) => (
-              <AboutStat key={stat.label} numeric={stat.numeric} suffix={stat.suffix} label={stat.label} />
             ))}
           </div>
         </div>
