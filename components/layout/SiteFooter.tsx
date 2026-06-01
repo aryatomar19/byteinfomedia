@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { company, footerLinks } from "@/data/site";
+import { FooterContactInfo } from "@/components/layout/FooterContactInfo";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-[#0A0F1C]/8 bg-[#F8F9FC]">
-      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1.25fr_1fr] lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1.25fr_1fr_1fr] lg:px-8">
         <div>
           <img
             src={company.logo}
             alt={company.name}
-            className="h-12 w-auto object-contain object-left ml-3.5 sm:ml-4"
+            className="h-12 w-auto object-contain object-left"
           />
           <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#1E293B]">{company.taglineLine1}</p>
           <p className="text-xs font-semibold text-[#c84a17]">{company.taglineLine2}</p>
@@ -24,6 +25,13 @@ export function SiteFooter() {
                 {link.label}
               </Link>
             ))}
+          </div>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold text-[#1E293B]">Contact Information</p>
+          <div className="mt-3">
+            <FooterContactInfo />
           </div>
         </div>
       </div>
