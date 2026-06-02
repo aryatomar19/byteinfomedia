@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --white: #ffffff;
+  --surface: #f8f9fc;
+  --text: #0a0f1c;
+  --muted: #5f6f86;
+  --orange: #ff6b2c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--white);
+  color: var(--text);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(255, 107, 44, 0.22);
+  color: var(--text);
+}
+
+/* Homepage & light enterprise utilities */
+.section-surface {
+  background: var(--surface);
+}
+
+.enterprise-card {
+  border: 1px solid rgba(10, 15, 28, 0.08);
+  background: var(--white);
+  box-shadow: 0 16px 48px rgba(10, 15, 28, 0.06);
+}
+
+.enterprise-card:hover {
+  box-shadow: 0 24px 64px rgba(10, 15, 28, 0.1);
+}
+
+.badge-orange {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 107, 44, 0.25);
+  background: rgba(255, 107, 44, 0.08);
+  padding: 0.5rem 1rem;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c84a17;
+}
+
+/* Compact enterprise section rhythm (~35% tighter than 60px baseline) */
+.section-enterprise {
+  padding-top: 2.5rem; /* 40px */
+  padding-bottom: 2.5rem;
+}
+
+/* Section title block to card grid */
+.section-heading {
+  margin-bottom: 1rem; /* 16px */
+}
+
+.section-cards {
+  margin-bottom: 2rem; /* 32px */
+}
+
+/* Cinematic heroes: compact vertical padding */
+.hero-service {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.text-enterprise {
+  color: #0a0f1c;
+}
+
+.text-enterprise-muted {
+  color: #334155;
+}
+
+.hero-ken-burns {
+  animation: hero-ken-burns 22s ease-in-out infinite alternate;
+}
+
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* Service pages (dark sections) — preserved for inner pages */
+.mesh-hero {
+  background: linear-gradient(165deg, #0a0f1c 0%, #121a2e 100%);
+}
+
+.mesh-section {
+  background: linear-gradient(180deg, #0f1628 0%, #0a0f1c 100%);
+}
+
+.mesh-light {
+  background: linear-gradient(180deg, #f8f9fc 0%, #ffffff 100%);
+}
+
+.glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+}
+
+.glass-card-light,
+.enterprise-card {
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(10, 15, 28, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 15, 28, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #0a0f1c 0%, #ff6b2c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
