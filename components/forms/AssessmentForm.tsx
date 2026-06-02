@@ -46,18 +46,35 @@ export function AssessmentForm({
     setMessage("");
 
     const form = event.currentTarget;
-    const formData = new FormData(form);
+    const fields = new FormData(form);
 
-    formData.set("_subject", "New Cloud Assessment Lead — BYTEINFOMEDIA");
-    formData.set("source", "BYTEINFOMEDIA Website");
-    formData.set("submittedAt", new Date().toISOString());
-    formData.set("pageUri", typeof window !== "undefined" ? window.location.href : "");
+    const email = String(fields.get("email") || "").trim();
+
+    const formData = {
+      name: String(fields.get("name") || "").trim(),
+      email,
+      phone: String(fields.get("phone") || "").trim(),
+      company: String(fields.get("company") || "").trim(),
+      service: String(fields.get("service") || "").trim(),
+      message: String(fields.get("message") || "").trim(),
+      preferredContactMethod: String(fields.get("preferredContactMethod") || "").trim(),
+      _subject: "New Cloud Assessment Lead — BYTEINFOMEDIA",
+      _replyto: email,
+      source: "BYTEINFOMEDIA Website",
+      submittedAt: new Date().toISOString(),
+      pageUri: typeof window !== "undefined" ? window.location.href : "",
+    };
+
+    console.log("[Formspree] Submitting payload:", formData);
 
     try {
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
       });
 
       let result: { ok?: boolean; error?: string; errors?: { message: string }[] } = {};
@@ -67,8 +84,9 @@ export function AssessmentForm({
         result = {};
       }
 
-      if (response.ok) {
-        console.log("[Formspree] Submission successful", result);
+      console.log("[Formspree] Response:", response.status, result);
+
+      if (response.ok && result.ok) {
         setState("success");
         setMessage("Thanks. Our consulting team will review your request and contact you shortly.");
         form.reset();
