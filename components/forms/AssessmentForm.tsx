@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/maqkrjkw";
+
 export type AssessmentFormProps = {
   className?: string;
   idPrefix?: string;
@@ -45,26 +47,43 @@ export function AssessmentForm({
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const lead = {
-      source: "BYTEINFOMEDIA Website",
-      submittedAt: new Date().toISOString(),
-      pageUri: typeof window !== "undefined" ? window.location.href : "",
-      name: String(formData.get("name") || ""),
-      email: String(formData.get("email") || ""),
-      phone: String(formData.get("phone") || ""),
-      company: String(formData.get("company") || ""),
-      service: String(formData.get("service") || ""),
-      preferredContactMethod: String(formData.get("preferredContactMethod") || ""),
-      message: String(formData.get("message") || ""),
-    };
+
+    formData.set("_subject", "New Cloud Assessment Lead — BYTEINFOMEDIA");
+    formData.set("source", "BYTEINFOMEDIA Website");
+    formData.set("submittedAt", new Date().toISOString());
+    formData.set("pageUri", typeof window !== "undefined" ? window.location.href : "");
 
     try {
-      const savedLeads = JSON.parse(window.localStorage.getItem("byteinfomedia_leads") || "[]");
-      window.localStorage.setItem("byteinfomedia_leads", JSON.stringify([...savedLeads, lead]));
-      setState("success");
-      setMessage("Thanks. Our consulting team will review your request and contact you shortly.");
-      form.reset();
-    } catch {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+
+      let result: { ok?: boolean; error?: string; errors?: { message: string }[] } = {};
+      try {
+        result = await response.json();
+      } catch {
+        result = {};
+      }
+
+      if (response.ok) {
+        console.log("[Formspree] Submission successful", result);
+        setState("success");
+        setMessage("Thanks. Our consulting team will review your request and contact you shortly.");
+        form.reset();
+        return;
+      }
+
+      console.error("[Formspree] Submission failed", response.status, result);
+      setState("error");
+      setMessage(
+        result.error ||
+          result.errors?.map((entry) => entry.message).join(" ") ||
+          "Something went wrong. Please try again or contact us directly.",
+      );
+    } catch (error) {
+      console.error("[Formspree] Submission error", error);
       setState("error");
       setMessage("Something went wrong. Please try again or contact us directly.");
     }
@@ -106,7 +125,7 @@ export function AssessmentForm({
         </label>
         <label className="grid gap-2" htmlFor={`${idPrefix}-phone`}>
           <span className={labelClass}>Phone Number</span>
-          <input id={`${idPrefix}-phone`} name="phone" placeholder="+91 98765 43210" className={inputClass} />
+          <input id={`${idPrefix}-phone`} name="phone" required placeholder="+91 98765 43210" className={inputClass} />
         </label>
         <label className="grid gap-2" htmlFor={`${idPrefix}-company`}>
           <span className={labelClass}>Company Name</span>
@@ -114,7 +133,7 @@ export function AssessmentForm({
         </label>
         <label className="grid gap-2 sm:col-span-2" htmlFor={`${idPrefix}-service`}>
           <span className={labelClass}>Service Required</span>
-          <select id={`${idPrefix}-service`} name="service" className={inputClass} defaultValue="">
+          <select id={`${idPrefix}-service`} name="service" required className={inputClass} defaultValue="">
             <option value="" disabled>
               Select service
             </option>
