@@ -26,7 +26,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.byteinfomedia.com"),
   title: {
-    default: "BYTEINFOMEDIA | AWS Cloud, DevOps, Cybersecurity & Managed Services",
+    default: "BYTEINFOMEDIA | Cloud, DevOps & Security Consulting",
     template: "%s | BYTEINFOMEDIA",
   },
   description: company.description,
@@ -50,9 +50,13 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: {
-    icon: company.favicon,
-    shortcut: company.favicon,
-    apple: company.logo,
+    icon: [
+      { url: company.favicon, sizes: "any" },
+      { url: company.faviconPng16, sizes: "16x16", type: "image/png" },
+      { url: company.faviconPng32, sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: company.faviconPng32,
+    apple: company.appleTouchIcon,
   },
   alternates: { canonical: "/" },
 };

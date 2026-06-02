@@ -12,9 +12,11 @@ export function SiteFooter() {
             alt={company.name}
             className="h-12 w-auto object-contain object-left"
           />
-          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#1E293B]">{company.taglineLine1}</p>
-          <p className="text-xs font-semibold text-[#c84a17]">{company.taglineLine2}</p>
-          <p className="mt-3 max-w-sm text-sm leading-6 text-[#334155]">{company.description}</p>
+          <div className="mt-4 max-w-sm pl-4 sm:pl-[18px]">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1E293B]">{company.taglineLine1}</p>
+            <p className="text-xs font-semibold text-[#c84a17]">{company.taglineLine2}</p>
+            <p className="mt-3 text-sm leading-6 text-[#334155]">{company.description}</p>
+          </div>
         </div>
 
         <div>
