@@ -90,12 +90,10 @@ export const aboutPage = {
       href: "/generative-ai/",
     },
   ] satisfies { title: string; description: string; icon: LucideIcon; href: string }[],
-  stats: [
-    { value: "120+", numeric: 120, suffix: "+", label: "Projects Delivered" },
-    { value: "45+", numeric: 45, suffix: "+", label: "Cloud Migrations" },
-    { value: "80+", numeric: 80, suffix: "+", label: "Security Audits" },
-    { value: "98%", numeric: 98, suffix: "%", label: "Customer Satisfaction" },
-  ],
+  expertiseBanner: {
+    src: "/images/about/expertise-enterprise.jpg",
+    alt: "Enterprise cloud data center infrastructure for AWS, DevOps, and security operations",
+  },
   missionIcon: Target,
   visionIcon: Eye,
 };
