@@ -18,6 +18,10 @@ export const aboutPage = {
     description:
       "BYTEINFOMEDIA helps organizations modernize infrastructure, accelerate cloud adoption, strengthen cybersecurity, and implement scalable AI solutions.",
   },
+  heroImage: {
+    src: "/images/about/hero-enterprise.jpg",
+    alt: "Enterprise data center with server racks and blue lighting for cloud infrastructure operations",
+  },
   mission: {
     title: "Mission",
     body: "Enable organizations to build secure, scalable, and cost-efficient cloud platforms that support long-term business growth.",

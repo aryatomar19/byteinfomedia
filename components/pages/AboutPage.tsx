@@ -4,7 +4,7 @@ import Link from "next/link";
 import { aboutPage } from "@/data/about";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
-import { HeroCloudScene } from "@/components/visuals/HeroCloudScene";
+import { AboutHeroVisual } from "@/components/visuals/AboutHeroVisual";
 import { cn } from "@/lib/utils";
 
 function ExpertiseEnterpriseVisual() {
@@ -50,7 +50,7 @@ export function AboutPage() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <HeroCloudScene />
+            <AboutHeroVisual />
           </Reveal>
         </div>
       </section>
