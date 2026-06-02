@@ -34,7 +34,7 @@ export function ContactInfoCards({ className }: { className?: string }) {
 
       <div className="flex items-start gap-3.5 text-sm font-medium leading-6 text-[#0A0F1C]">
         <MapPin className={iconClass} aria-hidden />
-        <address className="not-italic">
+        <address className="not-italic text-inherit font-inherit opacity-100">
           {company.addressLines[0]}
           <br />
           {company.addressLines[1]}

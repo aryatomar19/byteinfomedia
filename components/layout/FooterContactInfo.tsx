@@ -33,7 +33,7 @@ export function FooterContactInfo() {
 
       <div className="flex items-start gap-3 text-sm leading-6 text-[#334155]">
         <MapPin className={iconClass} aria-hidden />
-        <address className="not-italic">
+        <address className="not-italic text-inherit font-inherit opacity-100">
           {company.addressLines[0]}
           <br />
           {company.addressLines[1]}
