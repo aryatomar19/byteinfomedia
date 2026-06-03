@@ -67,6 +67,37 @@ export const serviceOverview = [
   },
 ];
 
+export const marketingServiceOverview = [
+  {
+    title: "Website Development",
+    image: "/images/home/marketing/website-development.jpg",
+    imageAlt: "Professional team collaborating on website development",
+    description: "Custom business websites, landing pages, and enterprise web applications.",
+    href: "/book-consultation/",
+  },
+  {
+    title: "Search Engine Optimization (SEO)",
+    image: "/images/home/marketing/seo.jpg",
+    imageAlt: "Marketing team planning search engine optimization strategy",
+    description: "Improve search rankings, organic traffic, and online visibility.",
+    href: "/book-consultation/",
+  },
+  {
+    title: "Content Writing",
+    image: "/images/home/marketing/content-writing.jpg",
+    imageAlt: "Professionals creating website and marketing content",
+    description: "Professional website, blog, marketing, and technical content creation.",
+    href: "/book-consultation/",
+  },
+  {
+    title: "Social Media Marketing",
+    image: "/images/home/marketing/social-media-marketing.jpg",
+    imageAlt: "Creative team developing social media marketing campaigns",
+    description: "Brand awareness, audience engagement, and social media growth strategies.",
+    href: "/book-consultation/",
+  },
+];
+
 export const partnersSection = {
   title: "Trusted Technology Partners",
   subtitle:
