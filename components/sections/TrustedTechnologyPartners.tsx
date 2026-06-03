@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/sections/SectionHeading";
 
 export function TrustedTechnologyPartners() {
   return (
-    <section className="section-surface section-enterprise">
+    <section className="bg-[#F7F8FA] py-20 md:py-24 lg:py-[7.5rem]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Technology Ecosystem"

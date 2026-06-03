@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/sections/SectionHeading";
 
 export function WhyByteInfomedia() {
   return (
-    <section className="section-surface section-enterprise">
+    <section className="bg-white py-20 md:py-24 lg:py-[7.5rem]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading eyebrow="Enterprise Expertise" title={whySection.title} />
 

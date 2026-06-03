@@ -9,7 +9,7 @@ import { SectionHeading } from "@/components/sections/SectionHeading";
 
 export function ServicesOverview() {
   return (
-    <section className="section-enterprise bg-white">
+    <section className="bg-white py-20 md:py-24 lg:py-[7.5rem]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Consulting Portfolio"
