@@ -5,7 +5,7 @@ import { Reveal } from "@/components/motion/Reveal";
 
 export function ContactSection() {
   return (
-    <section id="assessment" className="bg-[#F7F8FA] py-20 md:py-24 lg:py-[7.5rem]">
+    <section id="assessment" className="bg-[#F7F8FA] py-10 md:py-11 lg:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mb-4">
           <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Get in touch</p>
