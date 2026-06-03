@@ -1,5 +1,5 @@
 import type { BrandingServicePageData } from "@/data/branding-service-types";
-import { defaultBenefits, defaultWhyChoose } from "@/data/branding-shared";
+import { defaultBenefits } from "@/data/branding-shared";
 
 const img = "/images/branding/content-writing";
 
@@ -51,7 +51,6 @@ export const contentWritingPage: BrandingServicePageData = {
     { title: "SEO Content", description: "Keyword-targeted pages designed to rank and convert.", image: `${img}/seo-content.jpg`, imageAlt: "SEO content strategy and article planning" },
     { title: "Marketing Copywriting", description: "Campaign assets that align creative with measurable goals.", image: `${img}/marketing.jpg`, imageAlt: "Marketing team reviewing campaign copy and creative" },
   ],
-  whyChoose: defaultWhyChoose,
   benefits: defaultBenefits,
   showcase: {
     image: `${img}/showcase.jpg`,

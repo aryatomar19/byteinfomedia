@@ -1,5 +1,5 @@
 import type { BrandingServicePageData } from "@/data/branding-service-types";
-import { defaultBenefits, defaultWhyChoose } from "@/data/branding-shared";
+import { defaultBenefits } from "@/data/branding-shared";
 
 const img = "/images/branding/seo";
 
@@ -51,7 +51,6 @@ export const searchEngineOptimizationPage: BrandingServicePageData = {
     { title: "Local SEO", description: "Dominate map pack and local queries in your service areas.", image: `${img}/local.jpg`, imageAlt: "Local SEO and location-based search marketing" },
     { title: "SEO Audits", description: "Baseline assessments with clear quick wins and long-term plays.", image: `${img}/audit.jpg`, imageAlt: "SEO performance dashboard with traffic trends" },
   ],
-  whyChoose: defaultWhyChoose,
   benefits: defaultBenefits,
   showcase: {
     image: `${img}/showcase.jpg`,

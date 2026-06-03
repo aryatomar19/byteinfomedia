@@ -59,7 +59,6 @@ export type BrandingServicePageData = {
   };
   features: BrandingFeature[];
   offerings: BrandingServiceOffering[];
-  whyChoose: BrandingValueItem[];
   benefits: BrandingValueItem[];
   showcase: {
     image: string;

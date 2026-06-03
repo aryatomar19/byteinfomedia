@@ -1,5 +1,5 @@
 import type { BrandingServicePageData } from "@/data/branding-service-types";
-import { defaultBenefits, defaultWhyChoose } from "@/data/branding-shared";
+import { defaultBenefits } from "@/data/branding-shared";
 
 const img = "/images/branding/website-development";
 
@@ -51,7 +51,6 @@ export const websiteDevelopmentPage: BrandingServicePageData = {
     { title: "Responsive Design", description: "Adaptive layouts tested across breakpoints and real devices.", image: `${img}/responsive.jpg`, imageAlt: "Responsive website displayed on multiple devices" },
     { title: "Performance Optimization", description: "Audits, image optimization, and code improvements for speed and SEO.", image: `${img}/performance.jpg`, imageAlt: "Website performance analytics dashboard" },
   ],
-  whyChoose: defaultWhyChoose,
   benefits: defaultBenefits,
   showcase: {
     image: `${img}/showcase.jpg`,

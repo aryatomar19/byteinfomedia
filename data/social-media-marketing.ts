@@ -1,5 +1,5 @@
 import type { BrandingServicePageData } from "@/data/branding-service-types";
-import { defaultBenefits, defaultWhyChoose } from "@/data/branding-shared";
+import { defaultBenefits } from "@/data/branding-shared";
 
 const img = "/images/branding/social-media";
 
@@ -51,7 +51,6 @@ export const socialMediaMarketingPage: BrandingServicePageData = {
     { title: "Audience Engagement", description: "Two-way communication that builds loyalty and trust.", image: `${img}/engagement.jpg`, imageAlt: "Social media engagement and community management" },
     { title: "Paid Campaigns", description: "Full-funnel ad sets with ongoing optimization and reporting.", image: `${img}/paid.jpg`, imageAlt: "Paid social media advertising performance review" },
   ],
-  whyChoose: defaultWhyChoose,
   benefits: defaultBenefits,
   showcase: {
     image: `${img}/showcase.jpg`,
