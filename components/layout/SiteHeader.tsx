@@ -4,11 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { company, serviceNav } from "@/data/site";
+import { brandingServiceNav, company, serviceNav } from "@/data/site";
 import { BookConsultationButton } from "@/components/ui/BookConsultationButton";
 import { cn } from "@/lib/utils";
 
-const brandingSolutionsHref = "/branding-solutions/";
 const blogsHref = "/blogs/";
 
 const navLinkClass = (active: boolean) =>
@@ -17,16 +16,89 @@ const navLinkClass = (active: boolean) =>
     active ? "text-[#FF6B2C]" : "text-[#0A0F1C]/80 hover:text-[#0A0F1C]",
   );
 
+function NavDropdown({
+  label,
+  items,
+  isActiveGroup,
+  menuRef,
+  open,
+  onOpenChange,
+}: {
+  label: string;
+  items: readonly { label: string; href: string }[];
+  isActiveGroup: boolean;
+  menuRef: React.RefObject<HTMLDivElement | null>;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
+  const pathname = usePathname();
+  const isActive = (href: string) => pathname.startsWith(href.replace(/\/$/, ""));
+
+  return (
+    <div
+      ref={menuRef}
+      className="relative"
+      onMouseEnter={() => onOpenChange(true)}
+      onMouseLeave={() => onOpenChange(false)}
+    >
+      <button
+        type="button"
+        className={cn(
+          "inline-flex items-center gap-1 rounded-lg px-4 py-2.5 text-base font-semibold transition",
+          isActiveGroup || open ? "text-[#FF6B2C]" : "text-[#0A0F1C]/80 hover:text-[#0A0F1C]",
+        )}
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => onOpenChange(!open)}
+      >
+        {label}
+        <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", open && "rotate-180")} aria-hidden />
+      </button>
+
+      <div
+        className={cn(
+          "absolute left-0 top-full z-50 pt-2 transition-all duration-200",
+          open ? "pointer-events-auto visible translate-y-0 opacity-100" : "pointer-events-none invisible -translate-y-1 opacity-0",
+        )}
+      >
+        <div
+          className="min-w-[260px] rounded-xl border border-[#0A0F1C]/10 bg-white py-2 shadow-[0_12px_40px_rgba(10,15,28,0.12)]"
+          role="menu"
+        >
+          {items.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              role="menuitem"
+              className={cn(
+                "block px-4 py-2.5 text-base font-semibold transition",
+                isActive(item.href) ? "text-[#FF6B2C]" : "text-[#0A0F1C]/80 hover:bg-[#F8F9FC] hover:text-[#0A0F1C]",
+              )}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [techOpen, setTechOpen] = useState(false);
+  const [brandingOpen, setBrandingOpen] = useState(false);
   const [mobileTechOpen, setMobileTechOpen] = useState(false);
+  const [mobileBrandingOpen, setMobileBrandingOpen] = useState(false);
   const techMenuRef = useRef<HTMLDivElement>(null);
+  const brandingMenuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  const isActive = (href: string) => pathname.startsWith(href.replace(/\/$/, ""));
-  const techActive = serviceNav.some((item) => isActive(item.href));
+  const techActive = serviceNav.some((item) => pathname.startsWith(item.href.replace(/\/$/, "")));
+  const brandingActive = brandingServiceNav.some((item) =>
+    pathname.startsWith(item.href.replace(/\/$/, "")),
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -37,7 +109,9 @@ export function SiteHeader() {
 
   useEffect(() => {
     setTechOpen(false);
+    setBrandingOpen(false);
     setMobileTechOpen(false);
+    setMobileBrandingOpen(false);
     setOpen(false);
   }, [pathname]);
 
@@ -51,6 +125,17 @@ export function SiteHeader() {
     document.addEventListener("pointerdown", onPointerDown);
     return () => document.removeEventListener("pointerdown", onPointerDown);
   }, [techOpen]);
+
+  useEffect(() => {
+    if (!brandingOpen) return;
+    const onPointerDown = (event: MouseEvent) => {
+      if (!brandingMenuRef.current?.contains(event.target as Node)) {
+        setBrandingOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [brandingOpen]);
 
   return (
     <header
@@ -68,61 +153,23 @@ export function SiteHeader() {
 
         <div className="ml-auto flex items-center gap-6 lg:gap-8 xl:gap-10">
           <nav className="hidden items-center gap-1 lg:flex xl:gap-2" aria-label="Main">
-            <Link href={brandingSolutionsHref} className={navLinkClass(isActive(brandingSolutionsHref))}>
-              Branding Solutions
-            </Link>
-
-            <div
-              ref={techMenuRef}
-              className="relative"
-              onMouseEnter={() => setTechOpen(true)}
-              onMouseLeave={() => setTechOpen(false)}
-            >
-              <button
-                type="button"
-                className={cn(
-                  "inline-flex items-center gap-1 rounded-lg px-4 py-2.5 text-base font-semibold transition",
-                  techActive || techOpen ? "text-[#FF6B2C]" : "text-[#0A0F1C]/80 hover:text-[#0A0F1C]",
-                )}
-                aria-expanded={techOpen}
-                aria-haspopup="true"
-                onClick={() => setTechOpen((value) => !value)}
-              >
-                Tech Solutions
-                <ChevronDown
-                  className={cn("h-4 w-4 transition-transform duration-200", techOpen && "rotate-180")}
-                  aria-hidden
-                />
-              </button>
-
-              <div
-                className={cn(
-                  "absolute left-0 top-full z-50 pt-2 transition-all duration-200",
-                  techOpen ? "pointer-events-auto visible translate-y-0 opacity-100" : "pointer-events-none invisible -translate-y-1 opacity-0",
-                )}
-              >
-                <div
-                  className="min-w-[220px] rounded-xl border border-[#0A0F1C]/10 bg-white py-2 shadow-[0_12px_40px_rgba(10,15,28,0.12)]"
-                  role="menu"
-                >
-                  {serviceNav.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      role="menuitem"
-                      className={cn(
-                        "block px-4 py-2.5 text-base font-semibold transition",
-                        isActive(item.href) ? "text-[#FF6B2C]" : "text-[#0A0F1C]/80 hover:bg-[#F8F9FC] hover:text-[#0A0F1C]",
-                      )}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <Link href={blogsHref} className={navLinkClass(isActive(blogsHref))}>
+            <NavDropdown
+              label="Branding Solutions"
+              items={brandingServiceNav}
+              isActiveGroup={brandingActive}
+              menuRef={brandingMenuRef}
+              open={brandingOpen}
+              onOpenChange={setBrandingOpen}
+            />
+            <NavDropdown
+              label="Tech Solutions"
+              items={serviceNav}
+              isActiveGroup={techActive}
+              menuRef={techMenuRef}
+              open={techOpen}
+              onOpenChange={setTechOpen}
+            />
+            <Link href={blogsHref} className={navLinkClass(pathname.startsWith("/blogs"))}>
               Blogs
             </Link>
           </nav>
@@ -146,16 +193,40 @@ export function SiteHeader() {
       {open && (
         <div className="border-t border-[#0A0F1C]/8 bg-white/95 px-4 py-4 backdrop-blur-xl lg:hidden">
           <div className="mx-auto grid max-w-7xl gap-1">
-            <Link
-              href={brandingSolutionsHref}
-              onClick={() => setOpen(false)}
-              className={cn(
-                "rounded-xl px-4 py-3 text-base font-semibold hover:bg-[#F8F9FC]",
-                isActive(brandingSolutionsHref) ? "text-[#FF6B2C]" : "text-[#0A0F1C]",
+            <div className="rounded-xl">
+              <button
+                type="button"
+                className={cn(
+                  "flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-semibold hover:bg-[#F8F9FC]",
+                  brandingActive || mobileBrandingOpen ? "text-[#FF6B2C]" : "text-[#0A0F1C]",
+                )}
+                aria-expanded={mobileBrandingOpen}
+                onClick={() => setMobileBrandingOpen((value) => !value)}
+              >
+                Branding Solutions
+                <ChevronDown
+                  className={cn("h-5 w-5 transition-transform duration-200", mobileBrandingOpen && "rotate-180")}
+                  aria-hidden
+                />
+              </button>
+              {mobileBrandingOpen && (
+                <div className="grid gap-0.5 pb-1 pl-2">
+                  {brandingServiceNav.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        "rounded-lg px-4 py-2.5 text-base font-semibold hover:bg-[#F8F9FC]",
+                        pathname.startsWith(item.href.replace(/\/$/, "")) ? "text-[#FF6B2C]" : "text-[#0A0F1C]/80",
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
               )}
-            >
-              Branding Solutions
-            </Link>
+            </div>
 
             <div className="rounded-xl">
               <button
@@ -182,7 +253,7 @@ export function SiteHeader() {
                       onClick={() => setOpen(false)}
                       className={cn(
                         "rounded-lg px-4 py-2.5 text-base font-semibold hover:bg-[#F8F9FC]",
-                        isActive(item.href) ? "text-[#FF6B2C]" : "text-[#0A0F1C]/80",
+                        pathname.startsWith(item.href.replace(/\/$/, "")) ? "text-[#FF6B2C]" : "text-[#0A0F1C]/80",
                       )}
                     >
                       {item.label}
@@ -197,7 +268,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className={cn(
                 "rounded-xl px-4 py-3 text-base font-semibold hover:bg-[#F8F9FC]",
-                isActive(blogsHref) ? "text-[#FF6B2C]" : "text-[#0A0F1C]",
+                pathname.startsWith("/blogs") ? "text-[#FF6B2C]" : "text-[#0A0F1C]",
               )}
             >
               Blogs
