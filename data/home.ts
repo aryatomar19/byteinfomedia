@@ -67,12 +67,44 @@ export const serviceOverview = [
   },
 ];
 
+export const partnersSection = {
+  title: "Trusted Technology Partners",
+  subtitle:
+    "Delivering enterprise solutions across leading cloud platforms and enterprise technologies.",
+};
+
+export const technologyPartners = [
+  {
+    name: "Amazon Web Services",
+    logo: "/images/partners/aws.svg",
+    logoAlt: "Amazon Web Services (AWS) logo",
+  },
+  {
+    name: "Microsoft Azure",
+    logo: "/images/partners/azure.svg",
+    logoAlt: "Microsoft Azure logo",
+  },
+  {
+    name: "Google Cloud Platform",
+    logo: "/images/partners/gcp.svg",
+    logoAlt: "Google Cloud Platform (GCP) logo",
+  },
+  {
+    name: "Oracle Cloud",
+    logo: "/images/partners/oracle.svg",
+    logoAlt: "Oracle Cloud logo",
+  },
+] as const;
+
 export const whySection = {
   title: "Trusted By Businesses That Demand Excellence",
 };
 
 export const capabilityCards = [
-  { title: "AWS Consulting", description: "Architecture, governance, and AWS modernization for enterprise workloads." },
+  {
+    title: "Cloud Consulting",
+    description: "Architecture, governance, and cloud modernization for enterprise workloads.",
+  },
   { title: "Cloud Migration", description: "Structured migration programs with validation and minimal business risk." },
   { title: "Cyber Security", description: "Assessments, hardening, compliance, and continuous threat visibility." },
   { title: "DevOps Automation", description: "CI/CD pipelines, infrastructure as code, and release governance." },
