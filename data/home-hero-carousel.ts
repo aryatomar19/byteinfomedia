@@ -17,40 +17,45 @@ export const heroBannerSlides: HeroBannerSlide[] = [
     eyebrow: "CLOUD SERVICES",
     title: "Transforming Cloud Infrastructure for Modern Enterprises",
     description:
-      "AWS consulting, cloud migration, managed services, DevOps automation, cybersecurity and AI-powered solutions.",
-    image: `${slideImages}/cloud-services.jpg`,
-    imageAlt: "Enterprise datacenter with cloud infrastructure and engineering professionals",
+      "Accelerate your cloud journey with AWS consulting, cloud migration, managed services, DevOps automation, cybersecurity, and AI-driven solutions.",
+    image: `${slideImages}/cloud-image-1.jpg`,
+    imageAlt:
+      "Glowing blue cloud network with digital circuit patterns representing enterprise cloud infrastructure",
     learnMoreHref: "/cloud-services/",
     showCloudPartners: true,
-  },
-  {
-    id: "digital-marketing",
-    eyebrow: "GROWTH MARKETING",
-    title: "Digital Marketing That Drives Real Business Growth",
-    description: "SEO, Social Media Marketing, Content Writing and Lead Generation services.",
-    image: `${slideImages}/digital-marketing.jpg`,
-    imageAlt: "Marketing professionals reviewing SEO analytics and campaign performance dashboards",
-    learnMoreHref: "/search-engine-optimization/",
   },
   {
     id: "cloud-security",
     eyebrow: "CLOUD & SECURITY",
     title: "Secure, Scale and Optimize Your Business",
     description:
-      "Cloud security, monitoring, compliance, disaster recovery and infrastructure modernization.",
-    image: `${slideImages}/cloud-security.jpg`,
-    imageAlt: "Cybersecurity operations center with analysts monitoring cloud infrastructure",
+      "End-to-end cloud security, infrastructure modernization, monitoring, compliance, disaster recovery, and managed cloud operations.",
+    image: `${slideImages}/cloud-image-2.jpg`,
+    imageAlt:
+      "Isometric cloud server architecture with connected workstations representing secure cloud operations",
     learnMoreHref: "/cyber-security/",
     showCloudPartners: true,
   },
   {
+    id: "growth-marketing",
+    eyebrow: "GROWTH MARKETING",
+    title: "Digital Marketing That Drives Real Growth",
+    description:
+      "Increase visibility, generate qualified leads, and grow your brand through SEO, content marketing, social media marketing, and performance campaigns.",
+    image: `${slideImages}/growth-marketing-seo.jpg`,
+    imageAlt:
+      "SEO marketing hub illustration with connected search, keywords, rankings, and traffic nodes",
+    learnMoreHref: "/search-engine-optimization/",
+  },
+  {
     id: "web-branding",
     eyebrow: "BRANDING & WEB",
-    title: "Build Powerful Brands and High-Converting Websites",
+    title: "Build Strong Brands and High-Converting Websites",
     description:
-      "Website Development, Branding Solutions, User Experience Design and Digital Growth.",
-    image: `${slideImages}/web-branding.jpg`,
-    imageAlt: "Web developers and UX designers collaborating on a digital product",
+      "Professional website development, branding, content strategy, user experience, and digital growth solutions for modern businesses.",
+    image: `${slideImages}/branding-social-media.jpg`,
+    imageAlt:
+      "Social media marketing illustration with connected devices and engagement analytics",
     learnMoreHref: "/website-development/",
   },
 ];
