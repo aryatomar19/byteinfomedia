@@ -34,7 +34,7 @@ export function OurVision() {
             </div>
           </Reveal>
 
-          <RevealStagger className="order-1 flex flex-col justify-center lg:order-2 lg:max-w-[36rem]">
+          <RevealStagger className="order-1 flex w-full min-w-0 flex-col justify-center lg:order-2">
             <RevealItem>
               <p className="text-base font-bold uppercase tracking-[0.28em] text-[#FF6B1A] sm:text-[1.125rem]">
                 {visionSection.eyebrow}
@@ -49,7 +49,10 @@ export function OurVision() {
               </h2>
             </RevealItem>
             <RevealItem>
-              <p className="mt-5 w-full max-w-full text-justify text-[1.125rem] leading-[1.8] text-[#334155] sm:mt-6 sm:text-[1.25rem]">
+              <p
+                lang="en"
+                className="mt-5 w-full max-w-none text-justify text-[1.125rem] leading-[1.8] hyphens-auto [text-justify:inter-word] text-[#334155] sm:mt-6 sm:text-[1.25rem]"
+              >
                 {visionSection.description}
               </p>
             </RevealItem>
