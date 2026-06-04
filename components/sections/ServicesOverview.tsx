@@ -60,6 +60,7 @@ export function ServicesOverview() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Consulting Portfolio"
+          eyebrowVariant="about"
           title={servicesSection.title}
           description={servicesSection.subtitle}
         />
