@@ -15,7 +15,7 @@ export function SiteFooter() {
           <div className="mt-4 max-w-sm pl-4 sm:pl-[18px]">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1E293B]">{company.taglineLine1}</p>
             <p className="text-xs font-semibold text-[#c84a17]">{company.taglineLine2}</p>
-            <p className="mt-3 ml-4 text-sm leading-6 text-[#334155]">{company.description}</p>
+            <p className="mt-3 text-sm leading-6 text-[#334155]">{company.description}</p>
           </div>
         </div>
 
