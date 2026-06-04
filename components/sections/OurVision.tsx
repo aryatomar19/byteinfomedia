@@ -34,20 +34,21 @@ export function OurVision() {
             </div>
           </Reveal>
 
-          <RevealStagger className="order-1 flex w-full min-w-0 flex-col justify-center lg:order-2">
+          <RevealStagger className="order-1 flex w-full min-w-0 flex-col justify-center lg:order-2 lg:max-w-[44rem]">
             <RevealItem>
+              <div
+                className="mb-5 h-1 w-[60px] rounded-full bg-[#FF6B1A]"
+                aria-hidden
+              />
               <h2
                 id="our-vision-heading"
-                className="font-[family-name:var(--font-inter)] text-[2rem] font-extrabold tracking-tight text-[#0B1220] sm:text-[2.5rem] lg:text-[2.625rem]"
+                className="font-[family-name:var(--font-inter)] text-[3.25rem] font-extrabold leading-tight tracking-tight text-[#0B1220] sm:text-[3.5rem] lg:text-[3.75rem]"
               >
                 {visionSection.title}
               </h2>
             </RevealItem>
             <RevealItem>
-              <p
-                lang="en"
-                className="mt-5 w-full max-w-none text-justify text-[1.125rem] leading-[1.8] hyphens-auto [text-justify:inter-word] text-[#334155] sm:mt-6 sm:text-[1.25rem]"
-              >
+              <p className="mt-5 w-full max-w-[44rem] text-left text-[1.125rem] font-normal leading-[1.8] text-[#334155] sm:mt-6 sm:text-[1.25rem]">
                 {visionSection.description}
               </p>
             </RevealItem>
