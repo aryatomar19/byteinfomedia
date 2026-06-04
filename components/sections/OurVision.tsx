@@ -49,7 +49,7 @@ export function OurVision() {
               </h2>
             </RevealItem>
             <RevealItem>
-              <p className="mt-4 text-base leading-7 text-[#334155] sm:text-lg sm:leading-8">
+              <p className="mt-4 text-[1.075rem] leading-7 text-[#334155] sm:text-[1.2rem] sm:leading-8">
                 {visionSection.description}
               </p>
             </RevealItem>
