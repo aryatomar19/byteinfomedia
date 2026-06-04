@@ -34,22 +34,22 @@ export function OurVision() {
             </div>
           </Reveal>
 
-          <RevealStagger className="order-1 lg:order-2">
+          <RevealStagger className="order-1 flex flex-col justify-center lg:order-2 lg:max-w-[36rem]">
             <RevealItem>
-              <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B1A]">
+              <p className="text-[0.8125rem] font-bold uppercase tracking-[0.2em] text-[#FF6B1A]">
                 {visionSection.eyebrow}
               </p>
             </RevealItem>
             <RevealItem>
               <h2
                 id="our-vision-heading"
-                className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0B1220] sm:text-4xl"
+                className="mt-5 font-[family-name:var(--font-inter)] text-[2rem] font-extrabold tracking-tight text-[#0B1220] sm:mt-6 sm:text-[2.5rem] lg:text-[2.625rem]"
               >
                 {visionSection.title}
               </h2>
             </RevealItem>
             <RevealItem>
-              <p className="mt-4 text-[1.075rem] leading-7 text-[#334155] sm:text-[1.2rem] sm:leading-8">
+              <p className="mt-5 max-w-[34rem] text-[1.125rem] leading-8 text-[#334155] sm:mt-6 sm:text-[1.25rem] sm:leading-9 lg:max-w-[36rem]">
                 {visionSection.description}
               </p>
             </RevealItem>
