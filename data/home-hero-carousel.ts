@@ -49,7 +49,7 @@ export const heroBannerSlides: HeroBannerSlide[] = [
   },
   {
     id: "branding-social-media",
-    eyebrow: "BRANDING & SOCIAL MEDIA",
+    eyebrow: "BRANDING & SOCIAL MEDIA MARKETING",
     title: "Build Strong Brands and High-Converting Websites",
     description:
       "Professional website development, branding, content strategy, user experience, and digital growth solutions for modern businesses.",

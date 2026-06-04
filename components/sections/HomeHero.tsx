@@ -46,7 +46,6 @@ export function HomeHero() {
       onFocusCapture={() => setIsPaused(true)}
       onBlurCapture={() => setIsPaused(false)}
     >
-      {/* Background slides — image focus on the right */}
       <div className="absolute inset-0 w-full" aria-hidden>
         {heroBannerSlides.map((item, index) => (
           <div
@@ -65,19 +64,18 @@ export function HomeHero() {
               <img
                 src={item.image}
                 alt=""
-                className="h-full min-h-full w-full min-w-full object-cover object-[70%_center] sm:object-[75%_center] lg:object-right"
+                className="h-full min-h-full w-full min-w-full object-cover object-[72%_center] sm:object-[78%_center] lg:object-[right_center]"
               />
             </div>
-            {/* Smooth left-to-right navy gradient — integrated banner, clear right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220]/92 from-0% via-[#0B1220]/72 via-[38%] to-transparent to-[58%]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220]/40 via-transparent to-[#0B1220]/15" />
+            {/* Lighter gradient: readable left ~42%, clear image right ~58% */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220]/88 from-0% via-[#0B1220]/58 via-[36%] via-[#0B1220]/22 via-[48%] to-transparent to-[62%]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220]/28 via-transparent to-transparent" />
           </div>
         ))}
       </div>
 
-      {/* Left content zone — no floating card */}
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-center justify-start px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-xl lg:w-[42%] lg:max-w-[520px]">
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-center px-4 sm:px-6 lg:px-8">
+        <div className="w-full lg:w-[43%] lg:max-w-[32rem] lg:pr-4">
           <AnimatePresence mode="wait">
             <motion.div
               key={slide.id}
@@ -85,7 +83,6 @@ export function HomeHero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.45, ease: "easeOut" }}
-              className="py-1"
             >
               <span className="inline-flex items-center rounded-full border border-[#FF6B1A]/80 bg-[#FF6B1A]/10 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#FF6B1A] sm:px-5 sm:text-xs sm:tracking-[0.2em]">
                 {slide.eyebrow}
@@ -95,11 +92,11 @@ export function HomeHero() {
                 {slide.title}
               </h1>
 
-              <p className="mt-3 text-base leading-7 text-white/88 sm:leading-8">
+              <p className="mt-3 max-w-[36rem] text-base leading-7 text-white/90 sm:leading-8">
                 {slide.description}
               </p>
 
-              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 <Button
                   size="lg"
                   className="min-h-[48px] bg-[#FF6B1A] shadow-[0_12px_40px_rgba(255,107,26,0.35)] hover:bg-[#ff7a2e]"
@@ -110,7 +107,7 @@ export function HomeHero() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  className="min-h-[48px] border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-white/18"
+                  className="min-h-[48px] border-white/30 bg-white/10 text-white hover:bg-white/18"
                   asChild
                 >
                   <Link href={slide.learnMoreHref}>
