@@ -18,16 +18,19 @@ export const homeHero = {
   ],
 };
 
-export const aboutPreview = {
-  title: "Your Strategic Cloud & Security Partner",
+export const visionSection = {
+  eyebrow: "OUR VISION",
+  title: "OUR VISION",
   description:
-    "At Byte Infomedia, we help organizations accelerate cloud adoption, improve security posture, streamline DevOps processes, and modernize infrastructure.",
-  // mission:
-  //  "Our mission is to empower businesses with reliable, secure, and scalable technology solutions. We aim to simplify IT operations, optimize infrastructure, and provide innovative cloud and cybersecurity services that allow organizations to focus on growth and innovation.",
-  // vision:
-  //   "Our vision is to become a trusted technology partner for businesses worldwide by delivering cutting-edge IT solutions that drive digital transformation and create long-term value for our clients.",
-  image: homeImages.about,
-  cta: { label: "Learn More", href: "/about-us/" },
+    "At Byte Infomedia, our vision is to help businesses grow through innovative cloud solutions, cybersecurity, AI services, website development, SEO, content marketing, and social media marketing. We combine technology and creativity to deliver scalable, secure, and growth-driven digital solutions.",
+  image: "/images/home/our-vision.jpg",
+  imageAlt:
+    "Technology team collaborating on cloud computing, digital marketing, and enterprise solutions",
+  highlights: [
+    { icon: "☁️", label: "Cloud & Infrastructure Solutions" },
+    { icon: "🚀", label: "Digital Marketing & Brand Growth" },
+    { icon: "🔒", label: "Secure, Scalable & Future-Ready Technology" },
+  ],
 };
 
 export const servicesSection = {
