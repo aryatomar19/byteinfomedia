@@ -18,6 +18,7 @@ export type AssessmentFormProps = {
   submitLabel?: string;
   showPreferredContact?: boolean;
   showPriorityBadge?: boolean;
+  showServiceField?: boolean;
 };
 
 export function AssessmentForm({
@@ -29,6 +30,7 @@ export function AssessmentForm({
   submitLabel = "Request Free Cloud Assessment",
   showPreferredContact = false,
   showPriorityBadge = true,
+  showServiceField = true,
 }: AssessmentFormProps) {
   const dark = variant === "dark";
   const [state, setState] = useState<SubmitState>("idle");
@@ -55,7 +57,9 @@ export function AssessmentForm({
       email,
       phone: String(fields.get("phone") || "").trim(),
       company: String(fields.get("company") || "").trim(),
-      service: String(fields.get("service") || "").trim(),
+      ...(showServiceField
+        ? { service: String(fields.get("service") || "").trim() }
+        : {}),
       message: String(fields.get("message") || "").trim(),
       preferredContactMethod: String(fields.get("preferredContactMethod") || "").trim(),
       _subject: "New Cloud Assessment Lead — BYTEINFOMEDIA",
@@ -149,19 +153,21 @@ export function AssessmentForm({
           <span className={labelClass}>Company Name</span>
           <input id={`${idPrefix}-company`} name="company" placeholder="Company or organization" className={inputClass} />
         </label>
-        <label className="grid gap-2 sm:col-span-2" htmlFor={`${idPrefix}-service`}>
-          <span className={labelClass}>Service Required</span>
-          <select id={`${idPrefix}-service`} name="service" required className={inputClass} defaultValue="">
-            <option value="" disabled>
-              Select service
-            </option>
-            {serviceFormOptions.map((service) => (
-              <option key={service} value={service}>
-                {service}
+        {showServiceField && (
+          <label className="grid gap-2 sm:col-span-2" htmlFor={`${idPrefix}-service`}>
+            <span className={labelClass}>Service Required</span>
+            <select id={`${idPrefix}-service`} name="service" required className={inputClass} defaultValue="">
+              <option value="" disabled>
+                Select service
               </option>
-            ))}
-          </select>
-        </label>
+              {serviceFormOptions.map((service) => (
+                <option key={service} value={service}>
+                  {service}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
         {showPreferredContact && (
           <label className="grid gap-2 sm:col-span-2" htmlFor={`${idPrefix}-contact-method`}>
             <span className={labelClass}>Preferred Contact Method</span>

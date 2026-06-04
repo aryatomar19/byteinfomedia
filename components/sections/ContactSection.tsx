@@ -19,7 +19,12 @@ export function ContactSection() {
 
         <div className="overflow-hidden rounded-[1.75rem] border border-[#0A0F1C]/8 bg-white p-6 shadow-[0_32px_80px_rgba(10,15,28,0.1)] sm:p-8">
           <Reveal delay={0.06}>
-            <AssessmentForm variant="light" className="border-0 bg-transparent p-0 shadow-none" showPriorityBadge />
+            <AssessmentForm
+              variant="light"
+              className="border-0 bg-transparent p-0 shadow-none"
+              showPriorityBadge
+              showServiceField={false}
+            />
           </Reveal>
         </div>
       </div>

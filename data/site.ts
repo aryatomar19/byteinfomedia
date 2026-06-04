@@ -8,8 +8,8 @@ export const company = {
   faviconPng32: "/favicon-32x32.png",
   faviconPng48: "/favicon-48x48.png",
   appleTouchIcon: "/apple-touch-icon.png",
-  taglineLine1: "CLOUD | DEVOPS | SECURITY | DIGITAL MARKETING",
-  taglineLine2: "Technology & Growth Solutions",
+  taglineLine1: "CLOUD | DEVOPS | DIGITAL MARKETING",
+  taglineLine2: "Cloud & Digital Growth Solutions",
   address: "First Floor, Plot No. 27, Sector 19, Nanda Enclave, Dwarka, Delhi - 110075",
   addressLines: [
     "First Floor, Plot No. 27, Sector 19,",
@@ -24,7 +24,7 @@ export const company = {
   instagram: "https://www.instagram.com/byte_infomedia_/",
   instagramHandle: "byte_infomedia_",
   description:
-    "BYTEINFOMEDIA helps businesses grow through cloud solutions, cybersecurity, DevOps, AI services, website development, SEO, content marketing, and social media marketing. We combine technology and creativity to deliver secure, scalable, and growth-focused solutions.",
+    "BYTEINFOMEDIA delivers cloud, DevOps, AI, website development, SEO and digital marketing solutions for modern businesses.",
 };
 
 export const serviceNav = [
@@ -50,11 +50,8 @@ export const headerNav = [
 export const footerLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us/" },
-  { label: "Cloud Services", href: "/cloud-services/" },
-  { label: "Website Development", href: "/website-development/" },
-  { label: "SEO Services", href: "/search-engine-optimization/" },
-  { label: "Content Writing", href: "/content-writing/" },
-  { label: "Social Media Marketing", href: "/social-media-marketing/" },
+  { label: "Branding Solutions", href: "/website-development/" },
+  { label: "Tech Solutions", href: "/cloud-services/" },
   { label: "Contact Us", href: "/#assessment" },
 ] as const;
 
