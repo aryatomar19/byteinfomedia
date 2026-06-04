@@ -56,7 +56,7 @@ export const cyberSecurityPageData = {
     {
       title: "Cloud Security",
       description:
-        "AWS and Azure hardening, IAM governance, GuardDuty, and workload protection at scale.",
+        "AWS and Microsoft Azure hardening, IAM governance, GuardDuty, and workload protection at scale.",
       image: cyberImages.cloudSecurity,
       imageAlt: "Cloud security architecture and multi-cloud protection controls",
     },

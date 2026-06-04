@@ -20,7 +20,7 @@ export const managedServicesPage = {
   hero: {
     title: "Managed Cloud Services",
     description:
-      "Proactive cloud operations, monitoring, incident response, patch management, and infrastructure support for AWS, Azure, and hybrid environments.",
+      "Proactive cloud operations, monitoring, incident response, patch management, and infrastructure support for AWS, Microsoft Azure, and hybrid environments.",
     image: managedImages.hero,
     imageAlt: "Managed cloud operations team coordinating enterprise infrastructure",
   },
@@ -51,7 +51,7 @@ export const managedServicesPage = {
     },
     {
       title: "Cloud Operations",
-      description: "Day-to-day AWS and Azure operations aligned to your SLAs and runbooks.",
+      description: "Day-to-day AWS and Microsoft Azure operations aligned to your SLAs and runbooks.",
       image: managedImages.cloudOperations,
       imageAlt: "Cloud engineers monitoring enterprise infrastructure",
     },

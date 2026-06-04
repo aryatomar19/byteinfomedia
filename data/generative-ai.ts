@@ -21,7 +21,7 @@ export const generativeAiPage: ServicePageData = {
   services: [
     { name: "AI Consulting", benefit: "Use-case prioritization and ROI modeling" },
     { name: "Custom AI Solutions", benefit: "Tailored models and application layers" },
-    { name: "LLM Integration", benefit: "OpenAI, Bedrock, Azure OpenAI connectivity" },
+    { name: "LLM Integration", benefit: "OpenAI, Bedrock, Microsoft Azure OpenAI connectivity" },
     { name: "Chatbot Development", benefit: "Customer and internal support bots" },
     { name: "RAG & Knowledge Base", benefit: "Enterprise document intelligence" },
     { name: "AI Automation", benefit: "Workflow automation with AI agents" },
@@ -60,7 +60,7 @@ export const generativeAiPage: ServicePageData = {
   },
   faqs: [
     { question: "How do you handle data privacy with LLMs?", answer: "We implement data isolation, PII redaction, private endpoints, and policy guardrails for enterprise compliance." },
-    { question: "Which LLM platforms do you support?", answer: "AWS Bedrock, OpenAI, Azure OpenAI, and open-source models depending on your requirements." },
+    { question: "Which LLM platforms do you support?", answer: "AWS Bedrock, OpenAI, Microsoft Azure OpenAI, and open-source models depending on your requirements." },
   ],
   cta: {
     title: "Explore enterprise AI",

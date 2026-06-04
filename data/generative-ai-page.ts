@@ -52,7 +52,7 @@ export const generativeAiPageData = {
     },
     {
       title: "GPT Integration",
-      description: "OpenAI, Azure OpenAI, and AWS Bedrock integrations with enterprise guardrails.",
+      description: "OpenAI, Microsoft Azure OpenAI, and AWS Bedrock integrations with enterprise guardrails.",
       image: generativeAiImages.gptIntegration,
       imageAlt: "GPT and large language model integration architecture",
     },
