@@ -1,9 +1,9 @@
+import { AboutByteInfomedia } from "@/components/sections/AboutByteInfomedia";
 import { OurVision } from "@/components/sections/OurVision";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { ServicesOverview } from "@/components/sections/ServicesOverview";
 import { TrustedTechnologyPartners } from "@/components/sections/TrustedTechnologyPartners";
-import { WhoWeAre } from "@/components/sections/WhoWeAre";
 
 export function HomePage() {
   return (
@@ -11,7 +11,7 @@ export function HomePage() {
       <HomeHero />
       <OurVision />
       <ServicesOverview />
-      <WhoWeAre />
+      <AboutByteInfomedia />
       <TrustedTechnologyPartners />
       <ContactSection />
     </>

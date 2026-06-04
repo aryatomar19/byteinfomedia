@@ -45,15 +45,33 @@ export const visionSection = {
   ],
 };
 
-export const whoWeAreSection = {
+export const aboutByteInfomediaSection = {
   eyebrow: "ABOUT BYTE INFOMEDIA",
-  title: "Who We Are",
-  paragraphs: [
-    "Byte Infomedia is a technology and digital growth company helping businesses scale through cloud solutions, cybersecurity, DevOps, AI services, website development, SEO, content marketing, and social media marketing.",
-    "We combine technical expertise with creative strategies to deliver secure, scalable, and growth-focused solutions that help businesses succeed in the digital world.",
+  title: "Why Businesses Choose Byte Infomedia",
+  description:
+    "Byte Infomedia delivers cloud, cybersecurity, DevOps, AI, website development, SEO, content marketing, and social media marketing solutions under one roof. We help businesses modernize technology, improve security, increase online visibility, and accelerate growth through scalable digital solutions.",
+  highlights: [
+    {
+      icon: "☁️",
+      title: "Cloud & DevOps",
+      description: "Secure cloud infrastructure, migration and automation.",
+    },
+    {
+      icon: "🔒",
+      title: "Cyber Security",
+      description: "Enterprise-grade protection and compliance solutions.",
+    },
+    {
+      icon: "🚀",
+      title: "Digital Marketing",
+      description: "SEO, social media marketing and brand growth.",
+    },
+    {
+      icon: "🤖",
+      title: "AI & Innovation",
+      description: "AI-powered automation and intelligent business solutions.",
+    },
   ],
-  image: "/images/home/who-we-are.jpg",
-  imageAlt: "Professional technology team collaborating in a modern corporate office",
 };
 
 export const servicesSection = {
