@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { whoWeAreSection } from "@/data/home";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 
@@ -56,25 +55,6 @@ export function WhoWeAre() {
             ))}
           </RevealStagger>
         </div>
-
-        <RevealStagger className="mt-10 grid gap-4 sm:grid-cols-3 sm:gap-5">
-          {whoWeAreSection.highlights.map((item, index) => (
-            <RevealItem key={item.title}>
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: index * 0.07, duration: 0.45 }}
-                whileHover={{ y: -4 }}
-                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm transition duration-300 hover:border-[#FF6B1A]/30 hover:bg-white/[0.06] sm:p-6"
-              >
-                <div className="h-1 w-8 rounded-full bg-[#FF6B1A] transition-all duration-300 group-hover:w-12" />
-                <h3 className="mt-4 text-base font-bold text-white">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-white/65">{item.description}</p>
-              </motion.div>
-            </RevealItem>
-          ))}
-        </RevealStagger>
       </div>
     </section>
   );

@@ -63,22 +63,27 @@ export function OurVision() {
           </RevealStagger>
         </div>
 
-        <RevealStagger className="mt-10 grid gap-4 sm:grid-cols-3 sm:gap-5">
+        <RevealStagger className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
           {visionSection.featureCards.map((card, index) => (
-            <RevealItem key={card.title}>
+            <RevealItem key={card.title} className="h-full">
               <motion.article
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ delay: index * 0.08, duration: 0.45 }}
                 whileHover={{ y: -6 }}
-                className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#0B1220] p-5 shadow-[0_16px_48px_rgba(11,18,32,0.35)] transition-shadow duration-300 hover:border-[#FF6B1A]/35 hover:shadow-[0_24px_56px_rgba(255,107,26,0.18)] sm:p-6"
+                className="group flex h-full min-h-[15.5rem] flex-col rounded-2xl border border-white/10 bg-[#0B1220] p-5 shadow-[0_16px_48px_rgba(11,18,32,0.35)] transition-shadow duration-300 hover:border-[#FF6B1A]/35 hover:shadow-[0_24px_56px_rgba(255,107,26,0.18)] sm:min-h-[16.25rem] sm:p-6"
               >
-                <div className="h-1 w-10 rounded-full bg-[#FF6B1A] transition-all duration-300 group-hover:w-14" />
-                <span className="mt-5 text-2xl leading-none" aria-hidden>
+                <div className="h-1 w-10 shrink-0 rounded-full bg-[#FF6B1A] transition-all duration-300 group-hover:w-14" />
+                <span
+                  className="mt-5 flex h-8 shrink-0 items-center text-2xl leading-none"
+                  aria-hidden
+                >
                   {card.icon}
                 </span>
-                <h3 className="mt-3 text-lg font-extrabold text-white">{card.title}</h3>
+                <h3 className="mt-3 min-h-[1.75rem] shrink-0 text-lg font-extrabold leading-tight text-white">
+                  {card.title}
+                </h3>
                 <p className="mt-2 flex-1 text-sm leading-6 text-white/70">{card.description}</p>
               </motion.article>
             </RevealItem>
