@@ -36,14 +36,9 @@ export function OurVision() {
 
           <RevealStagger className="order-1 flex w-full min-w-0 flex-col justify-center lg:order-2">
             <RevealItem>
-              <p className="text-base font-bold uppercase tracking-[0.28em] text-[#FF6B1A] sm:text-[1.125rem]">
-                {visionSection.eyebrow}
-              </p>
-            </RevealItem>
-            <RevealItem>
               <h2
                 id="our-vision-heading"
-                className="mt-7 font-[family-name:var(--font-inter)] text-[2rem] font-extrabold tracking-tight text-[#0B1220] sm:mt-8 sm:text-[2.5rem] lg:text-[2.625rem]"
+                className="font-[family-name:var(--font-inter)] text-[2rem] font-extrabold tracking-tight text-[#0B1220] sm:text-[2.5rem] lg:text-[2.625rem]"
               >
                 {visionSection.title}
               </h2>

@@ -19,10 +19,9 @@ export const homeHero = {
 };
 
 export const visionSection = {
-  eyebrow: "WHO WE ARE",
   title: "Our Vision",
   description:
-    "At Byte Infomedia, we empower businesses through cloud transformation, cybersecurity, DevOps automation, AI-driven solutions, and digital marketing services. Our mission is to combine technology, innovation, and strategic thinking to help organizations scale faster, operate securely, and achieve sustainable growth. Helping businesses innovate, scale, and succeed in a rapidly evolving digital landscape.",
+    "At Byte Infomedia, we empower businesses through cloud transformation, cybersecurity, DevOps automation, AI-driven solutions, and digital marketing services. Our mission is to combine technology, innovation, and strategic thinking to help organizations scale faster, operate securely, and achieve sustainable growth. We focus on delivering reliable, scalable, and future-ready solutions that help businesses adapt to changing market demands and achieve long-term digital success.",
   image: "/images/home/our-vision.jpg",
   imageAlt:
     "Business team collaborating with cloud technology dashboards, analytics screens, and enterprise collaboration",
