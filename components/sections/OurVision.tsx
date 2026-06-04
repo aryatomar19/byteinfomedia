@@ -1,13 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { visionSection } from "@/data/home";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 
 export function OurVision() {
   return (
     <section
-      className="relative overflow-hidden py-10 md:py-12 lg:py-14"
+      className="relative overflow-hidden py-8 md:py-10 lg:py-11"
       aria-labelledby="our-vision-heading"
     >
       <div
@@ -15,26 +14,18 @@ export function OurVision() {
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -right-32 top-0 h-72 w-72 rounded-full bg-[#FF6B1A]/10 blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -left-24 bottom-0 h-64 w-64 rounded-full bg-[#0B1220]/5 blur-3xl"
+        className="pointer-events-none absolute -right-32 top-0 h-56 w-56 rounded-full bg-[#FF6B1A]/8 blur-3xl"
         aria-hidden
       />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
           <Reveal className="order-2 lg:order-1">
-            <div className="group relative overflow-hidden rounded-[1.75rem] border border-[#0B1220]/10 shadow-[0_28px_72px_rgba(11,18,32,0.14)]">
+            <div className="group relative overflow-hidden rounded-[1.75rem] border border-[#0B1220]/10 shadow-[0_24px_64px_rgba(11,18,32,0.12)]">
               <img
                 src={visionSection.image}
                 alt={visionSection.imageAlt}
-                className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-[1.03]"
-              />
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B1220]/35 via-transparent to-transparent"
-                aria-hidden
+                className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-[1.02]"
               />
               <div
                 className="pointer-events-none absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#FF6B1A] to-[#FF6B2C]"
@@ -45,50 +36,25 @@ export function OurVision() {
 
           <RevealStagger className="order-1 lg:order-2">
             <RevealItem>
-              <div className="rounded-[1.75rem] border border-white/60 bg-white/70 p-6 shadow-[0_24px_64px_rgba(11,18,32,0.08)] backdrop-blur-xl sm:p-8">
-                <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B1A]">
-                  {visionSection.eyebrow}
-                </p>
-                <h2
-                  id="our-vision-heading"
-                  className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0B1220] sm:text-4xl"
-                >
-                  {visionSection.title}
-                </h2>
-                <p className="mt-4 text-base leading-7 text-[#334155] sm:text-lg sm:leading-8">
-                  {visionSection.description}
-                </p>
-              </div>
+              <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B1A]">
+                {visionSection.eyebrow}
+              </p>
+            </RevealItem>
+            <RevealItem>
+              <h2
+                id="our-vision-heading"
+                className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0B1220] sm:text-4xl"
+              >
+                {visionSection.title}
+              </h2>
+            </RevealItem>
+            <RevealItem>
+              <p className="mt-4 text-base leading-7 text-[#334155] sm:text-lg sm:leading-8">
+                {visionSection.description}
+              </p>
             </RevealItem>
           </RevealStagger>
         </div>
-
-        <RevealStagger className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
-          {visionSection.featureCards.map((card, index) => (
-            <RevealItem key={card.title} className="h-full">
-              <motion.article
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: index * 0.08, duration: 0.45 }}
-                whileHover={{ y: -6 }}
-                className="group flex h-full min-h-[15.5rem] flex-col rounded-2xl border border-white/10 bg-[#0B1220] p-5 shadow-[0_16px_48px_rgba(11,18,32,0.35)] transition-shadow duration-300 hover:border-[#FF6B1A]/35 hover:shadow-[0_24px_56px_rgba(255,107,26,0.18)] sm:min-h-[16.25rem] sm:p-6"
-              >
-                <div className="h-1 w-10 shrink-0 rounded-full bg-[#FF6B1A] transition-all duration-300 group-hover:w-14" />
-                <span
-                  className="mt-5 flex h-8 shrink-0 items-center text-2xl leading-none"
-                  aria-hidden
-                >
-                  {card.icon}
-                </span>
-                <h3 className="mt-3 min-h-[1.75rem] shrink-0 text-lg font-extrabold leading-tight text-white">
-                  {card.title}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-6 text-white/70">{card.description}</p>
-              </motion.article>
-            </RevealItem>
-          ))}
-        </RevealStagger>
       </div>
     </section>
   );
