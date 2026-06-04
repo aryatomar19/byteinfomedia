@@ -1,157 +1,64 @@
-import { homeImages } from "@/data/site";
-
-export type HeroCarouselCard = {
+export type HeroBannerSlide = {
+  id: string;
+  eyebrow: string;
   title: string;
-  href: string;
+  description: string;
   image: string;
   imageAlt: string;
-  accent: "orange" | "navy";
+  learnMoreHref: string;
+  showCloudPartners?: boolean;
 };
 
-export type HeroCarouselSlide = {
-  id: string;
-  label: string;
-  cards: HeroCarouselCard[];
-};
+const slideImages = "/images/home/hero-slides";
 
-const m = "/images/home/marketing";
-const b = "/images/branding";
-
-export const heroCarouselSlides: HeroCarouselSlide[] = [
-  {
-    id: "cloud-overview",
-    label: "Cloud Overview",
-    cards: [
-      {
-        title: "Cloud Consulting",
-        href: "/cloud-services/",
-        image: homeImages.cloudServices,
-        imageAlt: "Cloud consulting and enterprise architecture",
-        accent: "orange",
-      },
-      {
-        title: "Cloud Security",
-        href: "/cyber-security/",
-        image: homeImages.cyberSecurity,
-        imageAlt: "Cloud security and cyber protection",
-        accent: "navy",
-      },
-      {
-        title: "Cloud Migration",
-        href: "/cloud-services/",
-        image: homeImages.hero,
-        imageAlt: "Cloud migration and infrastructure modernization",
-        accent: "navy",
-      },
-      {
-        title: "DevOps Automation",
-        href: "/cloud-services/",
-        image: homeImages.managedServices,
-        imageAlt: "DevOps automation and CI/CD pipelines",
-        accent: "orange",
-      },
-    ],
-  },
+export const heroBannerSlides: HeroBannerSlide[] = [
   {
     id: "cloud-services",
-    label: "Cloud Services",
-    cards: [
-      {
-        title: "Cloud Services",
-        href: "/cloud-services/",
-        image: homeImages.cloudServices,
-        imageAlt: "Enterprise cloud services",
-        accent: "orange",
-      },
-      {
-        title: "Managed Services",
-        href: "/managed-services/",
-        image: homeImages.managedServices,
-        imageAlt: "Managed cloud operations",
-        accent: "navy",
-      },
-      {
-        title: "Cyber Security",
-        href: "/cyber-security/",
-        image: homeImages.cyberSecurity,
-        imageAlt: "Cybersecurity services",
-        accent: "navy",
-      },
-      {
-        title: "Generative AI",
-        href: "/generative-ai/",
-        image: homeImages.generativeAi,
-        imageAlt: "Generative AI solutions",
-        accent: "orange",
-      },
-    ],
+    eyebrow: "Enterprise Cloud",
+    title: "Transforming Cloud Infrastructure for Modern Enterprises",
+    description:
+      "Accelerate your cloud journey with AWS consulting, cloud migration, managed services, DevOps automation, cybersecurity, and AI-driven solutions.",
+    image: `${slideImages}/cloud-infrastructure.jpg`,
+    imageAlt: "Enterprise cloud datacenter and global digital infrastructure",
+    learnMoreHref: "/cloud-services/",
+    showCloudPartners: true,
   },
   {
-    id: "marketing-services",
-    label: "Marketing Services",
-    cards: [
-      {
-        title: "Website Development",
-        href: "/website-development/",
-        image: `${m}/website-development.jpg`,
-        imageAlt: "Website development services",
-        accent: "orange",
-      },
-      {
-        title: "Search Engine Optimization (SEO)",
-        href: "/search-engine-optimization/",
-        image: `${m}/seo.jpg`,
-        imageAlt: "SEO and organic search marketing",
-        accent: "navy",
-      },
-      {
-        title: "Content Writing",
-        href: "/content-writing/",
-        image: `${m}/content-writing.jpg`,
-        imageAlt: "Professional content writing",
-        accent: "navy",
-      },
-      {
-        title: "Social Media Marketing",
-        href: "/social-media-marketing/",
-        image: `${m}/social-media-marketing.jpg`,
-        imageAlt: "Social media marketing campaigns",
-        accent: "orange",
-      },
-    ],
+    id: "cloud-security",
+    eyebrow: "Cloud & Security",
+    title: "Secure, Scale and Optimize Your Business",
+    description:
+      "End-to-end cloud security, infrastructure modernization, monitoring, compliance, disaster recovery, and managed cloud operations.",
+    image: `${slideImages}/security-operations.jpg`,
+    imageAlt: "Cybersecurity operations center and cloud engineering professionals",
+    learnMoreHref: "/cyber-security/",
+    showCloudPartners: true,
   },
   {
-    id: "advanced-marketing",
-    label: "Advanced Marketing Services",
-    cards: [
-      {
-        title: "Branding Solutions",
-        href: "/website-development/",
-        image: `${b}/website-development/hero.jpg`,
-        imageAlt: "Branding and digital presence solutions",
-        accent: "orange",
-      },
-      {
-        title: "Performance Marketing",
-        href: "/book-consultation/",
-        image: `${b}/social-media/paid.jpg`,
-        imageAlt: "Performance marketing and paid campaigns",
-        accent: "navy",
-      },
-      {
-        title: "Email Marketing",
-        href: "/book-consultation/",
-        image: `${b}/content-writing/marketing.jpg`,
-        imageAlt: "Email marketing and nurture campaigns",
-        accent: "navy",
-      },
-      {
-        title: "Lead Generation",
-        href: "/book-consultation/",
-        image: `${b}/seo/keywords.jpg`,
-        imageAlt: "Lead generation and conversion strategy",
-        accent: "orange",
-      },
-    ],
+    id: "digital-marketing",
+    eyebrow: "Growth Marketing",
+    title: "Digital Marketing That Drives Real Growth",
+    description:
+      "Increase visibility, generate qualified leads, and grow your brand through SEO, content marketing, social media marketing, and performance campaigns.",
+    image: `${slideImages}/digital-marketing.jpg`,
+    imageAlt: "Marketing team analyzing digital campaign performance on dashboards",
+    learnMoreHref: "/search-engine-optimization/",
+  },
+  {
+    id: "branding-web",
+    eyebrow: "Branding & Web",
+    title: "Build Strong Brands and High-Converting Websites",
+    description:
+      "Professional website development, content strategy, branding, user experience, and digital growth solutions for modern businesses.",
+    image: `${slideImages}/branding-web.jpg`,
+    imageAlt: "Creative agency team collaborating on website and brand design",
+    learnMoreHref: "/website-development/",
   },
 ];
+
+export const heroCloudPartners = [
+  { name: "Amazon Web Services", logo: "/images/partners/aws.svg", logoAlt: "AWS logo" },
+  { name: "Microsoft Azure", logo: "/images/partners/azure.svg", logoAlt: "Microsoft Azure logo" },
+  { name: "Google Cloud", logo: "/images/partners/gcp.svg", logoAlt: "Google Cloud Platform logo" },
+  { name: "Oracle Cloud", logo: "/images/partners/oracle.svg", logoAlt: "Oracle Cloud logo" },
+] as const;
