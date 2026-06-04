@@ -12,12 +12,12 @@ export function AboutByteInfomedia() {
     >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-[0.65rem] font-bold uppercase tracking-[0.22em] text-[#FF6B1A]">
+          <p className="text-[0.76rem] font-bold uppercase tracking-[0.28em] text-[#FF6B1A]">
             {aboutByteInfomediaSection.eyebrow}
           </p>
           <h2
             id="about-byte-infomedia-heading"
-            className="mt-3 font-[family-name:var(--font-inter)] text-2xl font-extrabold tracking-tight text-[#0B1220] sm:text-3xl lg:text-[2rem]"
+            className="mt-3 font-[family-name:var(--font-inter)] text-[1.65rem] font-extrabold tracking-tight text-[#0B1220] sm:text-[2.0625rem] lg:text-[2.25rem]"
           >
             {aboutByteInfomediaSection.title}
           </h2>
@@ -38,11 +38,16 @@ export function AboutByteInfomedia() {
                 className="enterprise-card group flex h-full min-h-[8.75rem] flex-col rounded-2xl px-4 py-4 transition duration-300 hover:-translate-y-1 sm:min-h-[9.25rem] sm:px-5 sm:py-5"
               >
                 <div className="flex items-center gap-3">
-                  <span
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#FF6B1A]/10 text-lg"
-                    aria-hidden
-                  >
-                    {item.icon}
+                  <span className="flex h-10 w-10 shrink-0 overflow-hidden rounded-lg bg-[#FF6B1A]/10">
+                    <img
+                      src={item.image}
+                      alt={item.imageAlt}
+                      width={40}
+                      height={40}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
                   </span>
                   <h3 className="text-sm font-bold leading-snug text-[#0B1220] sm:text-base">{item.title}</h3>
                 </div>
