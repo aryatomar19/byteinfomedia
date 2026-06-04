@@ -35,22 +35,26 @@ export const aboutByteInfomediaSection = {
     "Byte Infomedia delivers cloud, cybersecurity, DevOps, AI, website development, SEO, content marketing, and social media marketing solutions under one roof. We help businesses modernize technology, improve security, increase online visibility, and accelerate growth through scalable digital solutions.",
   highlights: [
     {
-      icon: "☁️",
+      image: "/images/home/about-highlights/cloud-devops.jpg",
+      imageAlt: "Enterprise cloud infrastructure and DevOps automation",
       title: "Cloud & DevOps",
       description: "Secure cloud infrastructure, migration and automation.",
     },
     {
-      icon: "🔒",
+      image: "/images/home/about-highlights/cyber-security.jpg",
+      imageAlt: "Cybersecurity operations and enterprise threat protection",
       title: "Cyber Security",
       description: "Enterprise-grade protection and compliance solutions.",
     },
     {
-      icon: "🚀",
+      image: "/images/home/about-highlights/digital-marketing.jpg",
+      imageAlt: "SEO analytics and digital marketing performance dashboards",
       title: "Digital Marketing",
       description: "SEO, social media marketing and brand growth.",
     },
     {
-      icon: "🤖",
+      image: "/images/home/about-highlights/ai-innovation.jpg",
+      imageAlt: "Artificial intelligence and machine learning innovation",
       title: "AI & Innovation",
       description: "AI-powered automation and intelligent business solutions.",
     },
