@@ -11,11 +11,11 @@ const contactTextClass =
   "text-sm font-normal leading-6 tracking-normal text-[#334155] transition-colors duration-200 group-hover:text-[#FF6B2C]";
 
 const linkRowClass =
-  "group flex items-center gap-3.5 rounded-sm py-1.5 text-sm leading-6 text-[#334155] transition-colors duration-200";
+  "group flex items-center gap-3 rounded-sm py-1 text-sm leading-6 text-[#334155] transition-colors duration-200";
 
 export function FooterContactInfo() {
   return (
-    <div className="grid gap-2.5">
+    <div className="grid gap-2">
       <a href={company.phoneHref} className={linkRowClass}>
         <Phone className={iconClassInteractive} aria-hidden />
         <span className={contactTextClass}>{company.phone}</span>
@@ -48,7 +48,7 @@ export function FooterContactInfo() {
         <span className={contactTextClass}>{company.instagramHandle}</span>
       </a>
 
-      <div className="flex items-start gap-3.5 py-1.5" role="group" aria-label="Address">
+      <div className="flex items-start gap-3 py-1" role="group" aria-label="Address">
         <MapPin className={iconClass} aria-hidden />
         <span className="text-sm font-normal leading-6 tracking-normal text-[#334155]">
           {company.addressLines[0]}
