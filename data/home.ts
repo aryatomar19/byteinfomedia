@@ -19,17 +19,29 @@ export const homeHero = {
 };
 
 export const visionSection = {
-  eyebrow: "OUR VISION",
-  title: "OUR VISION",
+  eyebrow: "WHO WE ARE",
+  title: "Our Vision",
   description:
     "At Byte Infomedia, our vision is to help businesses grow through innovative cloud solutions, cybersecurity, AI services, website development, SEO, content marketing, and social media marketing. We combine technology and creativity to deliver scalable, secure, and growth-driven digital solutions.",
   image: "/images/home/our-vision.jpg",
   imageAlt:
-    "Technology team collaborating on cloud computing, digital marketing, and enterprise solutions",
-  highlights: [
-    { icon: "☁️", label: "Cloud & Infrastructure Solutions" },
-    { icon: "🚀", label: "Digital Marketing & Brand Growth" },
-    { icon: "🔒", label: "Secure, Scalable & Future-Ready Technology" },
+    "Business professionals collaborating in a modern office with analytics and growth planning",
+  featureCards: [
+    {
+      icon: "☁️",
+      title: "Cloud Solutions",
+      description: "AWS, Cloud Migration, DevOps, Managed Services",
+    },
+    {
+      icon: "🚀",
+      title: "Digital Marketing",
+      description: "SEO, Social Media Marketing, Content Marketing, Branding",
+    },
+    {
+      icon: "🔒",
+      title: "Cyber Security",
+      description: "Security Audits, Compliance, Infrastructure Protection",
+    },
   ],
 };
 
@@ -116,7 +128,7 @@ export const technologyPartners = [
   {
     name: "Microsoft Azure",
     logo: "/images/partners/azure.svg",
-    logoAlt: "Microsoft Azure logo",
+    logoAlt: "Microsoft Azure official logo",
   },
   {
     name: "Google Cloud Platform",

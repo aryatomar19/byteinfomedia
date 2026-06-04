@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/sections/SectionHeading";
 
 export function TrustedTechnologyPartners() {
   return (
-    <section className="bg-[#F7F8FA] py-10 md:py-11 lg:py-12">
+    <section className="border-t border-[#0A0F1C]/6 bg-[#F7F8FA] py-10 md:py-11 lg:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Technology Ecosystem"
@@ -14,14 +14,18 @@ export function TrustedTechnologyPartners() {
           description={partnersSection.subtitle}
         />
 
-        <RevealStagger className="section-cards grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <RevealStagger className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
           {technologyPartners.map((partner) => (
             <RevealItem key={partner.name}>
-              <div className="enterprise-card group flex h-[7.5rem] items-center justify-center rounded-2xl px-6 py-5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_64px_rgba(10,15,28,0.1)]">
+              <div className="enterprise-card group flex h-[7.75rem] items-center justify-center rounded-2xl px-5 py-6 transition duration-300 hover:-translate-y-1 hover:border-[#FF6B2C]/20 hover:shadow-[0_20px_56px_rgba(255,107,44,0.12)] sm:h-[8.25rem]">
                 <img
                   src={partner.logo}
                   alt={partner.logoAlt}
-                  className="max-h-11 w-full max-w-[9.5rem] object-contain object-center"
+                  className={
+                    partner.name === "Microsoft Azure"
+                      ? "max-h-9 w-full max-w-[11rem] object-contain object-center transition duration-300 group-hover:scale-105"
+                      : "max-h-11 w-full max-w-[9.5rem] object-contain object-center transition duration-300 group-hover:scale-105"
+                  }
                   loading="lazy"
                   decoding="async"
                 />
