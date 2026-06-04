@@ -15,7 +15,7 @@ const linkRowClass =
 
 export function FooterContactInfo() {
   return (
-    <div className="grid gap-3">
+    <div className="grid gap-2.5">
       <a href={company.phoneHref} className={linkRowClass}>
         <Phone className={iconClassInteractive} aria-hidden />
         <span className={contactTextClass}>{company.phone}</span>
