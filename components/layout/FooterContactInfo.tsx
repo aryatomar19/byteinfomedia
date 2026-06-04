@@ -15,7 +15,7 @@ const linkRowClass =
 
 export function FooterContactInfo() {
   return (
-    <div className="grid gap-4">
+    <div className="grid gap-3">
       <a href={company.phoneHref} className={linkRowClass}>
         <Phone className={iconClassInteractive} aria-hidden />
         <span className={contactTextClass}>{company.phone}</span>
@@ -34,7 +34,7 @@ export function FooterContactInfo() {
         aria-label="Byte Infomedia LinkedIn (opens in new tab)"
       >
         <LinkedinIcon className={iconClassInteractive} aria-hidden />
-        <span className={contactTextClass}>Byte Infomedia LinkedIn</span>
+        <span className={contactTextClass}>Byte Infomedia</span>
       </a>
 
       <a
