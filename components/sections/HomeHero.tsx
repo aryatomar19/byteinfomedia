@@ -46,7 +46,7 @@ export function HomeHero() {
       onFocusCapture={() => setIsPaused(true)}
       onBlurCapture={() => setIsPaused(false)}
     >
-      {/* Full-width background slides */}
+      {/* Full-width background slides — focal point on the right */}
       <div className="absolute inset-0 w-full" aria-hidden>
         {heroBannerSlides.map((item, index) => (
           <div
@@ -65,21 +65,25 @@ export function HomeHero() {
               <img
                 src={item.image}
                 alt=""
-                className="h-full min-h-full w-full min-w-full object-cover object-center"
+                className="h-full min-h-full w-full min-w-full object-cover object-[68%_center] sm:object-[72%_center] lg:object-right"
               />
             </div>
-            <div className="absolute inset-0 bg-[#0A0F1C]/55" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1C]/92 via-[#0A0F1C]/65 to-[#0A0F1C]/35" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/50 via-transparent to-[#0A0F1C]/20" />
+            {/* Light overlays — readable left, clear right */}
+            <div className="absolute inset-0 bg-[#0A0F1C]/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A0F1C]/80 via-[#0A0F1C]/45 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/35 via-transparent to-transparent" />
           </div>
         ))}
       </div>
 
-      <div className="absolute inset-0 grid-pattern opacity-[0.12]" aria-hidden />
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[48%] max-w-2xl grid-pattern opacity-[0.08]"
+        aria-hidden
+      />
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-center px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-3xl">
+      {/* Left-aligned content — ~42% width on desktop */}
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-center justify-start px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-xl lg:w-[42%] lg:max-w-[520px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={slide.id}
@@ -87,17 +91,17 @@ export function HomeHero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.45, ease: "easeOut" }}
-              className="rounded-[1.75rem] border border-white/12 bg-white/[0.07] p-5 shadow-[0_32px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-6 lg:p-7"
+              className="rounded-[24px] border border-white/15 bg-[#0B1220]/55 p-5 shadow-[0_24px_64px_rgba(11,18,32,0.45)] backdrop-blur-xl sm:p-6"
             >
-              <span className="inline-flex items-center rounded-full border border-[#FF6B2C] bg-[#0A0F1C]/55 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#FF6B2C] backdrop-blur-sm sm:px-5 sm:text-xs sm:tracking-[0.2em]">
+              <span className="inline-flex items-center rounded-full border border-[#FF6B2C] bg-[#0B1220]/60 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#FF6B2C] backdrop-blur-sm sm:px-5 sm:text-xs sm:tracking-[0.2em]">
                 {slide.eyebrow}
               </span>
 
-              <h1 className="mt-4 font-[family-name:var(--font-inter)] text-3xl font-extrabold leading-[1.08] tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.5rem]">
+              <h1 className="mt-4 font-[family-name:var(--font-inter)] text-3xl font-extrabold leading-[1.08] tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.25rem]">
                 {slide.title}
               </h1>
 
-              <p className="mt-3 max-w-2xl text-base leading-7 text-white/85 sm:leading-8">
+              <p className="mt-3 text-base leading-7 text-white/85 sm:leading-8">
                 {slide.description}
               </p>
 
