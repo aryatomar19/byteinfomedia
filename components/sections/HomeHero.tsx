@@ -39,7 +39,7 @@ export function HomeHero() {
   return (
     <section
       className="relative w-full overflow-hidden"
-      style={{ height: "min(700px, 88vh)", minHeight: "580px", maxHeight: "720px" }}
+      style={{ height: "min(572px, 72vh)", minHeight: "475px", maxHeight: "590px" }}
       aria-label="Homepage hero"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -87,24 +87,24 @@ export function HomeHero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.45, ease: "easeOut" }}
-              className="rounded-[1.75rem] border border-white/12 bg-white/[0.07] p-6 shadow-[0_32px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-8 lg:p-10"
+              className="rounded-[1.75rem] border border-white/12 bg-white/[0.07] p-5 shadow-[0_32px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-6 lg:p-7"
             >
               <span className="inline-flex items-center rounded-full border border-[#FF6B2C]/45 bg-[#FF6B2C]/15 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#ffb088] sm:text-xs">
                 {slide.eyebrow}
               </span>
 
-              <h1 className="mt-5 font-[family-name:var(--font-inter)] text-3xl font-extrabold leading-[1.08] tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.75rem]">
+              <h1 className="mt-4 font-[family-name:var(--font-inter)] text-3xl font-extrabold leading-[1.08] tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.5rem]">
                 {slide.title}
               </h1>
 
-              <p className="mt-4 max-w-2xl text-base leading-7 text-white/85 sm:text-lg sm:leading-8">
+              <p className="mt-3 max-w-2xl text-base leading-7 text-white/85 sm:leading-8">
                 {slide.description}
               </p>
 
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button
                   size="lg"
-                  className="min-h-[52px] shadow-[0_12px_40px_rgba(255,107,44,0.4)]"
+                  className="min-h-[48px] shadow-[0_12px_40px_rgba(255,107,44,0.4)]"
                   asChild
                 >
                   <Link href="/book-consultation/">Book Consultation</Link>
@@ -112,7 +112,7 @@ export function HomeHero() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  className="min-h-[52px] border-white/25 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
+                  className="min-h-[48px] border-white/25 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
                   asChild
                 >
                   <Link href={slide.learnMoreHref}>
@@ -123,11 +123,11 @@ export function HomeHero() {
               </div>
 
               {slide.showCloudPartners && (
-                <div className="mt-8 border-t border-white/10 pt-6">
+                <div className="mt-6 border-t border-white/10 pt-5">
                   <p className="text-[0.65rem] font-bold uppercase tracking-[0.18em] text-white/50">
                     Trusted cloud platforms
                   </p>
-                  <div className="mt-4 flex flex-wrap items-center gap-4 sm:gap-6">
+                  <div className="mt-3 flex flex-wrap items-center gap-4 sm:gap-5">
                     {heroCloudPartners.map((partner) => (
                       <img
                         key={partner.name}
@@ -163,7 +163,7 @@ export function HomeHero() {
       </button>
 
       <div
-        className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 sm:bottom-8"
+        className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 sm:bottom-5"
         role="tablist"
         aria-label="Hero slides"
       >
