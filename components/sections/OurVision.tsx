@@ -42,13 +42,13 @@ export function OurVision() {
               />
               <h2
                 id="our-vision-heading"
-                className="font-[family-name:var(--font-inter)] text-[3.25rem] font-extrabold leading-tight tracking-tight text-[#0B1220] sm:text-[3.5rem] lg:text-[3.75rem]"
+                className="font-[family-name:var(--font-inter)] text-[2.75rem] font-extrabold leading-tight tracking-tight text-[#0B1220] sm:text-[2.875rem] lg:text-[3rem]"
               >
                 {visionSection.title}
               </h2>
             </RevealItem>
             <RevealItem>
-              <p className="mt-5 w-full max-w-[44rem] text-left text-[1.125rem] font-normal leading-[1.8] text-[#334155] sm:mt-6 sm:text-[1.25rem]">
+              <p className="mt-5 w-full max-w-[44rem] text-left text-base font-normal leading-[1.7] text-[#334155] sm:mt-6 sm:text-[1.0625rem]">
                 {visionSection.description}
               </p>
             </RevealItem>
