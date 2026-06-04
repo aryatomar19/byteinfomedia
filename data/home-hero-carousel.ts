@@ -18,44 +18,44 @@ export const heroBannerSlides: HeroBannerSlide[] = [
     title: "Transforming Cloud Infrastructure for Modern Enterprises",
     description:
       "Accelerate your cloud journey with AWS consulting, cloud migration, managed services, DevOps automation, cybersecurity, and AI-driven solutions.",
-    image: `${slideImages}/cloud-image-1.jpg`,
+    image: `${slideImages}/cloud-services.jpg`,
     imageAlt:
-      "Glowing blue cloud network with digital circuit patterns representing enterprise cloud infrastructure",
+      "Enterprise cloud computing infrastructure with modern cloud network and AWS cloud architecture",
     learnMoreHref: "/cloud-services/",
     showCloudPartners: true,
   },
   {
-    id: "cloud-security",
-    eyebrow: "CLOUD & SECURITY",
-    title: "Secure, Scale and Optimize Your Business",
-    description:
-      "End-to-end cloud security, infrastructure modernization, monitoring, compliance, disaster recovery, and managed cloud operations.",
-    image: `${slideImages}/cloud-image-2.jpg`,
-    imageAlt:
-      "Isometric cloud server architecture with connected workstations representing secure cloud operations",
-    learnMoreHref: "/cyber-security/",
-    showCloudPartners: true,
-  },
-  {
-    id: "growth-marketing",
-    eyebrow: "GROWTH MARKETING",
+    id: "digital-marketing-seo",
+    eyebrow: "DIGITAL MARKETING & SEO",
     title: "Digital Marketing That Drives Real Growth",
     description:
       "Increase visibility, generate qualified leads, and grow your brand through SEO, content marketing, social media marketing, and performance campaigns.",
-    image: `${slideImages}/growth-marketing-seo.jpg`,
+    image: `${slideImages}/digital-marketing-seo.jpg`,
     imageAlt:
-      "SEO marketing hub illustration with connected search, keywords, rankings, and traffic nodes",
+      "SEO analytics dashboards and digital marketing performance charts showing growth metrics",
     learnMoreHref: "/search-engine-optimization/",
   },
   {
-    id: "web-branding",
-    eyebrow: "BRANDING & WEB",
+    id: "cloud-migration-devops",
+    eyebrow: "CLOUD MIGRATION & DEVOPS",
+    title: "Accelerate Cloud Migration & DevOps Automation",
+    description:
+      "Streamline cloud migration, CI/CD pipelines, Kubernetes orchestration, and infrastructure automation with proven DevOps practices and enterprise-grade tooling.",
+    image: `${slideImages}/cloud-migration-devops.jpg`,
+    imageAlt:
+      "Cloud migration architecture with DevOps pipelines, CI/CD workflows, and Kubernetes automation",
+    learnMoreHref: "/cloud-services/",
+    showCloudPartners: true,
+  },
+  {
+    id: "branding-social-media",
+    eyebrow: "BRANDING & SOCIAL MEDIA",
     title: "Build Strong Brands and High-Converting Websites",
     description:
       "Professional website development, branding, content strategy, user experience, and digital growth solutions for modern businesses.",
     image: `${slideImages}/branding-social-media.jpg`,
     imageAlt:
-      "Social media marketing illustration with connected devices and engagement analytics",
+      "Social media marketing, branding strategy, content creation, and audience engagement visuals",
     learnMoreHref: "/website-development/",
   },
 ];
