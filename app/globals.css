@@ -107,21 +107,6 @@ a {
   }
 }
 
-/* Homepage hero: gentler zoom so banner art is not cropped at edges */
-.hero-ken-burns-banner {
-  animation: hero-ken-burns-banner 22s ease-in-out infinite alternate;
-  transform-origin: center right;
-}
-
-@keyframes hero-ken-burns-banner {
-  from {
-    transform: scale(0.96);
-  }
-  to {
-    transform: scale(1.02);
-  }
-}
-
 /* Service pages (dark sections) — preserved for inner pages */
 .mesh-hero {
   background: linear-gradient(165deg, #0a0f1c 0%, #121a2e 100%);

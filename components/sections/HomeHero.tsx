@@ -57,14 +57,14 @@ export function HomeHero() {
           >
             <div
               className={cn(
-                "absolute inset-0 flex items-center justify-end overflow-hidden",
-                index === activeIndex && "hero-ken-burns-banner",
+                "absolute inset-0 h-full w-full",
+                index === activeIndex && "hero-ken-burns",
               )}
             >
               <img
                 src={item.image}
                 alt=""
-                className="h-[94%] w-[94%] max-w-none object-cover object-[center_right] sm:h-[93%] sm:w-[93%] lg:h-[92%] lg:w-[92%]"
+                className="h-full min-h-full w-full min-w-full object-cover object-[72%_center] sm:object-[78%_center] lg:object-[right_center]"
               />
             </div>
             {/* Lighter gradient: readable left ~42%, clear image right ~58% */}
