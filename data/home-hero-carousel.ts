@@ -14,7 +14,7 @@ const slideImages = "/images/home/hero-slides";
 export const heroBannerSlides: HeroBannerSlide[] = [
   {
     id: "cloud-services",
-    eyebrow: "Cloud Services",
+    eyebrow: "CLOUD SERVICES",
     title: "Transforming Cloud Infrastructure for Modern Enterprises",
     description:
       "AWS consulting, cloud migration, managed services, DevOps automation, cybersecurity and AI-powered solutions.",
@@ -25,7 +25,7 @@ export const heroBannerSlides: HeroBannerSlide[] = [
   },
   {
     id: "digital-marketing",
-    eyebrow: "Digital Marketing",
+    eyebrow: "GROWTH MARKETING",
     title: "Digital Marketing That Drives Real Business Growth",
     description: "SEO, Social Media Marketing, Content Writing and Lead Generation services.",
     image: `${slideImages}/digital-marketing.jpg`,
@@ -34,7 +34,7 @@ export const heroBannerSlides: HeroBannerSlide[] = [
   },
   {
     id: "cloud-security",
-    eyebrow: "Cloud Security",
+    eyebrow: "CLOUD & SECURITY",
     title: "Secure, Scale and Optimize Your Business",
     description:
       "Cloud security, monitoring, compliance, disaster recovery and infrastructure modernization.",
@@ -45,7 +45,7 @@ export const heroBannerSlides: HeroBannerSlide[] = [
   },
   {
     id: "web-branding",
-    eyebrow: "Website & Branding",
+    eyebrow: "BRANDING & WEB",
     title: "Build Powerful Brands and High-Converting Websites",
     description:
       "Website Development, Branding Solutions, User Experience Design and Digital Growth.",

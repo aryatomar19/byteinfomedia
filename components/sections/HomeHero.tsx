@@ -89,7 +89,7 @@ export function HomeHero() {
               transition={{ duration: 0.45, ease: "easeOut" }}
               className="rounded-[1.75rem] border border-white/12 bg-white/[0.07] p-5 shadow-[0_32px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-6 lg:p-7"
             >
-              <span className="inline-flex items-center rounded-full border border-[#FF6B2C]/45 bg-[#FF6B2C]/15 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#ffb088] sm:text-xs">
+              <span className="inline-flex items-center rounded-full border border-[#FF6B2C] bg-[#0A0F1C]/55 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#FF6B2C] backdrop-blur-sm sm:px-5 sm:text-xs sm:tracking-[0.2em]">
                 {slide.eyebrow}
               </span>
 
