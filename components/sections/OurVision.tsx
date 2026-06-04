@@ -48,7 +48,7 @@ export function OurVision() {
               </h2>
             </RevealItem>
             <RevealItem>
-              <p className="mt-5 w-full max-w-[44rem] text-left text-base font-normal leading-[1.7] text-[#334155] sm:mt-6 sm:text-[1.0625rem]">
+              <p className="mt-5 w-full max-w-[44rem] text-left text-[17px] font-normal leading-[1.7] text-[#334155] sm:mt-6 sm:text-[1.125rem]">
                 {visionSection.description}
               </p>
             </RevealItem>
