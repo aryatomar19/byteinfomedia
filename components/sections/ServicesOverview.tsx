@@ -56,9 +56,9 @@ export function ServicesOverview() {
   const allServices = [...serviceOverview, ...marketingServiceOverview];
 
   return (
-    <section className="bg-white py-10 md:py-11 lg:py-12">
+    <section className="bg-white pb-10 pt-8 md:pb-11 md:pt-9 lg:pb-12 lg:pt-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading title={servicesSection.title} />
+        <SectionHeading title={servicesSection.title} compact />
 
         <div className="section-cards grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {allServices.map((service, index) => (
