@@ -56,13 +56,13 @@ export function ServicesOverview() {
   const allServices = [...serviceOverview, ...marketingServiceOverview];
 
   return (
-    <section className="-mt-10 bg-white pb-8 pt-8 md:-mt-11 md:pb-9 md:pt-9 lg:-mt-12 lg:pb-9 lg:pt-10">
+    <section className="-mt-10 bg-white pb-10 pt-8 md:-mt-11 md:pb-10 md:pt-9 lg:-mt-12 lg:pb-10 lg:pt-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative top-3 md:top-3.5">
           <SectionHeading title={servicesSection.title} compact />
         </div>
 
-        <div className="section-cards !mb-6 mt-10 grid gap-3 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="section-cards !mb-5 mt-10 grid gap-3 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
           {allServices.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
