@@ -58,12 +58,7 @@ export function ServicesOverview() {
   return (
     <section className="bg-white py-10 md:py-11 lg:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Consulting Portfolio"
-          eyebrowVariant="about"
-          title={servicesSection.title}
-          description={servicesSection.subtitle}
-        />
+        <SectionHeading title={servicesSection.title} />
 
         <div className="section-cards grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {allServices.map((service, index) => (

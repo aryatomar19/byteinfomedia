@@ -62,7 +62,6 @@ export const aboutByteInfomediaSection = {
 
 export const servicesSection = {
   title: "Our Services",
-  subtitle: "Deep expertise across cloud, operations, security and AI.",
 };
 
 export const serviceOverview = [
@@ -128,6 +127,38 @@ export const marketingServiceOverview = [
   },
 ];
 
+export const growYourBusinessSection = {
+  title: "We Can Help You Grow Your Business",
+  description:
+    "From cloud and DevOps to cybersecurity, AI, and digital marketing, we help you build secure, visible, and scalable operations—without the noise.",
+  offerings: [
+    {
+      title: "Cloud & DevOps",
+      description: "Architecture, migration, automation, and reliable operations for modern workloads.",
+    },
+    {
+      title: "Cybersecurity",
+      description: "Assessments, hardening, and continuous protection aligned to your risk profile.",
+    },
+    {
+      title: "AI Solutions",
+      description: "Practical AI strategy, integration, and automation that support real business outcomes.",
+    },
+    {
+      title: "Website Development & SEO",
+      description: "Professional websites, technical SEO, and content that strengthens your brand online.",
+    },
+    {
+      title: "Digital Marketing",
+      description: "Targeted campaigns across search, social, and content to reach the right audience.",
+    },
+    {
+      title: "End-to-End Support",
+      description: "One partner for technology and growth—so your teams can focus on what matters most.",
+    },
+  ],
+};
+
 export const partnersSection = {
   title: "Trusted Technology Partners",
   subtitle:
@@ -141,11 +172,10 @@ export const technologyPartners = [
     logoAlt: "Amazon Web Services (AWS) logo",
   },
   {
-    name: "Microsoft Azure",
+    name: "Microsoft",
     logo: "/images/partners/microsoft-azure.png",
-    logoAlt: "Microsoft Azure official logo",
-    logoClassName:
-      "w-[9.5rem] max-w-full h-auto max-h-12 object-contain object-center transition duration-300 group-hover:scale-105",
+    logoAlt: "Microsoft logo",
+    logoClipWidth: true,
   },
   {
     name: "Google Cloud Platform",
