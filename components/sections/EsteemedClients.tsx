@@ -23,7 +23,7 @@ export function EsteemedClients() {
 
   return (
     <section
-      className="-mt-8 border-y border-[#0A0F1C]/6 bg-white pb-10 pt-0 md:-mt-10 md:pb-11 md:pt-0 lg:-mt-12 lg:pb-12 lg:pt-1"
+      className="-mt-12 border-y border-[#0A0F1C]/6 bg-white pb-10 pt-0 md:-mt-14 md:pb-11 md:pt-0 lg:-mt-16 lg:pb-12 lg:pt-0"
       aria-labelledby="esteemed-clients-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
