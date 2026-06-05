@@ -23,13 +23,13 @@ export function EsteemedClients() {
 
   return (
     <section
-      className="-mt-12 border-y border-[#0A0F1C]/6 bg-white pb-10 pt-0 md:-mt-14 md:pb-11 md:pt-0 lg:-mt-16 lg:pb-12 lg:pt-0"
+      className="border-y border-[#0A0F1C]/6 bg-white pb-10 pt-0 md:pb-11 lg:pb-12"
       aria-labelledby="esteemed-clients-heading"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading title={esteemedClientsSection.title} />
 
-        <div className="clients-marquee group relative mt-2 overflow-hidden">
+        <div className="clients-marquee group relative mt-4 overflow-hidden">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-white to-transparent sm:w-16" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-white to-transparent sm:w-16" />
           <div className="clients-marquee-track flex w-max items-center">
