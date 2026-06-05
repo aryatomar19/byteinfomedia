@@ -62,7 +62,7 @@ export function ServicesOverview() {
           <SectionHeading title={servicesSection.title} compact />
         </div>
 
-        <div className="section-cards grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="section-cards mt-5 grid gap-3 sm:mt-6 sm:grid-cols-2 lg:grid-cols-4">
           {allServices.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}
