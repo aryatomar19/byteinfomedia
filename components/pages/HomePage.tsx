@@ -12,8 +12,8 @@ export function HomePage() {
     <>
       <HomeHero />
       <OurVision />
-      <EsteemedClients />
       <ServicesOverview />
+      <EsteemedClients />
       <AboutByteInfomedia />
       <GrowYourBusiness />
       <TrustedTechnologyPartners />
