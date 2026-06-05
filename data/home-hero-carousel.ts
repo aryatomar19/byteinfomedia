@@ -63,9 +63,9 @@ export const heroBannerSlides: HeroBannerSlide[] = [
 export const heroCloudPartners = [
   { name: "Amazon Web Services", logo: "/images/partners/aws.svg", logoAlt: "AWS logo" },
   {
-    name: "Microsoft Azure",
-    logo: "/images/partners/microsoft-azure.png",
-    logoAlt: "Microsoft Azure logo",
+    name: "Microsoft",
+    logo: "/images/partners/microsoft.svg",
+    logoAlt: "Microsoft logo",
   },
   { name: "Google Cloud", logo: "/images/partners/gcp.svg", logoAlt: "Google Cloud Platform logo" },
   { name: "Oracle Cloud", logo: "/images/partners/oracle.svg", logoAlt: "Oracle Cloud logo" },
