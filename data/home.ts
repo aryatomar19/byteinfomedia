@@ -128,34 +128,16 @@ export const marketingServiceOverview = [
 ];
 
 export const growYourBusinessSection = {
-  title: "We Can Help You Grow Your Business",
+  titleLine1: "We Can Help You Grow",
+  titleLine2: "Your Business",
   description:
-    "From cloud and DevOps to cybersecurity, AI, and digital marketing, we help you build secure, visible, and scalable operations—without the noise.",
-  offerings: [
-    {
-      title: "Cloud & DevOps",
-      description: "Architecture, migration, automation, and reliable operations for modern workloads.",
-    },
-    {
-      title: "Cybersecurity",
-      description: "Assessments, hardening, and continuous protection aligned to your risk profile.",
-    },
-    {
-      title: "AI Solutions",
-      description: "Practical AI strategy, integration, and automation that support real business outcomes.",
-    },
-    {
-      title: "Website Development & SEO",
-      description: "Professional websites, technical SEO, and content that strengthens your brand online.",
-    },
-    {
-      title: "Digital Marketing",
-      description: "Targeted campaigns across search, social, and content to reach the right audience.",
-    },
-    {
-      title: "End-to-End Support",
-      description: "One partner for technology and growth—so your teams can focus on what matters most.",
-    },
+    "Byte Infomedia delivers enterprise-grade Cloud, DevOps, Cybersecurity, AI Solutions, Website Development, SEO, and Digital Marketing—helping organizations modernize infrastructure, strengthen security, and grow their digital presence with confidence.",
+  stats: [
+    { value: "150+", label: "Projects Delivered" },
+    { value: "100+", label: "Happy Clients" },
+    { value: "250+", label: "Cloud Deployments" },
+    { value: "24/7", label: "Support Availability" },
+    { value: "98%", label: "Customer Satisfaction" },
   ],
 };
 

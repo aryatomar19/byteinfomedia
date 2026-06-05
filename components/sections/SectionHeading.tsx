@@ -13,6 +13,8 @@ type SectionHeadingProps = {
   description?: string;
   centered?: boolean;
   eyebrowVariant?: keyof typeof eyebrowClassNames;
+  /** Tighter margin below the heading block (e.g. Our Services). */
+  compact?: boolean;
 };
 
 export function SectionHeading({
@@ -21,9 +23,12 @@ export function SectionHeading({
   description,
   centered = true,
   eyebrowVariant = "default",
+  compact = false,
 }: SectionHeadingProps) {
   return (
-    <Reveal className={`section-heading ${centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}>
+    <Reveal
+      className={`${compact ? "mb-2 md:mb-2.5" : "section-heading"} ${centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}
+    >
       {eyebrow ? <p className={eyebrowClassNames[eyebrowVariant]}>{eyebrow}</p> : null}
       <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
         {title}
