@@ -58,7 +58,9 @@ export function ServicesOverview() {
   return (
     <section className="-mt-10 bg-white pb-10 pt-8 md:-mt-11 md:pb-11 md:pt-9 lg:-mt-12 lg:pb-12 lg:pt-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading title={servicesSection.title} compact />
+        <div className="relative top-3 md:top-3.5">
+          <SectionHeading title={servicesSection.title} compact />
+        </div>
 
         <div className="section-cards grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {allServices.map((service, index) => (
