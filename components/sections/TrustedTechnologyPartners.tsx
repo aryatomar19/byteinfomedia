@@ -22,7 +22,11 @@ export function TrustedTechnologyPartners() {
                 <img
                   src={partner.logo}
                   alt={partner.logoAlt}
-                  className="max-h-11 w-full max-w-[9.5rem] object-contain object-center transition duration-300 group-hover:scale-105"
+                  className={
+                    "logoClassName" in partner && partner.logoClassName
+                      ? partner.logoClassName
+                      : "max-h-11 w-full max-w-[9.5rem] object-contain object-center transition duration-300 group-hover:scale-105"
+                  }
                   loading="lazy"
                   decoding="async"
                 />
