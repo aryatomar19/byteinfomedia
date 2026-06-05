@@ -19,6 +19,8 @@ export type AssessmentFormProps = {
   showPreferredContact?: boolean;
   showPriorityBadge?: boolean;
   showServiceField?: boolean;
+  /** Tighter single-screen layout for homepage contact section. */
+  compact?: boolean;
 };
 
 export function AssessmentForm({
@@ -31,16 +33,24 @@ export function AssessmentForm({
   showPreferredContact = false,
   showPriorityBadge = true,
   showServiceField = true,
+  compact = false,
 }: AssessmentFormProps) {
   const dark = variant === "dark";
   const [state, setState] = useState<SubmitState>("idle");
   const [message, setMessage] = useState("");
 
   const inputClass = dark
-    ? "w-full rounded-2xl border border-white/12 bg-white/[0.06] px-4 py-3.5 text-sm font-medium text-white outline-none transition placeholder:text-white/35 hover:border-white/25 focus:border-[#FF6B2C]/60 focus:bg-white/[0.08] focus:shadow-[0_0_0_4px_rgba(255,107,44,0.12)]"
-    : "w-full rounded-2xl border border-[#0A0F1C]/12 bg-[#FAFBFD] px-4 py-3.5 text-sm font-medium text-[#0A0F1C] outline-none transition placeholder:text-[#0A0F1C]/35 hover:border-[#0A0F1C]/20 focus:border-[#FF6B2C]/60 focus:bg-white focus:shadow-[0_0_0_4px_rgba(255,107,44,0.1)]";
+    ? cn(
+        "w-full rounded-2xl border border-white/12 bg-white/[0.06] px-4 text-sm font-medium text-white outline-none transition placeholder:text-white/35 hover:border-white/25 focus:border-[#FF6B2C]/60 focus:bg-white/[0.08] focus:shadow-[0_0_0_4px_rgba(255,107,44,0.12)]",
+        compact ? "py-2.5" : "py-3.5",
+      )
+    : cn(
+        "w-full rounded-2xl border border-[#0A0F1C]/12 bg-[#FAFBFD] px-4 text-sm font-medium text-[#0A0F1C] outline-none transition placeholder:text-[#0A0F1C]/35 hover:border-[#0A0F1C]/20 focus:border-[#FF6B2C]/60 focus:bg-white focus:shadow-[0_0_0_4px_rgba(255,107,44,0.1)]",
+        compact ? "py-2.5" : "py-3.5",
+      );
 
   const labelClass = "text-xs font-bold uppercase tracking-[0.14em] text-[#0A0F1C]";
+  const labelGridClass = cn("grid", compact ? "gap-1.5" : "gap-2");
 
   async function submitLead(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -115,7 +125,8 @@ export function AssessmentForm({
     <form
       onSubmit={submitLead}
       className={cn(
-        "relative overflow-hidden rounded-[2rem] p-6 sm:p-8",
+        "relative overflow-hidden rounded-[2rem]",
+        compact ? "p-0 sm:p-0" : "p-6 sm:p-8",
         dark
           ? "glass-card border-white/10"
           : "border border-[#0A0F1C]/8 bg-white shadow-[0_24px_80px_rgba(10,15,28,0.1)]",
@@ -123,9 +134,14 @@ export function AssessmentForm({
       )}
     >
       <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#FF6B2C]/15 blur-3xl" />
-      <div className="relative mb-6">
+      <div className={cn("relative", compact ? "mb-4" : "mb-6")}>
         {showPriorityBadge && (
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-[#0A0F1C]">
+          <div
+            className={cn(
+              "inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-[#0A0F1C]",
+              compact ? "mb-3" : "mb-4",
+            )}
+          >
             <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
             Priority response
           </div>
@@ -133,28 +149,30 @@ export function AssessmentForm({
         <h3 className={cn("text-2xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-3xl", dark && "text-white")}>
           {title}
         </h3>
-        <p className={cn("mt-3 text-sm leading-6", dark ? "text-white/70" : "text-[#0A0F1C]")}>{description}</p>
+        <p className={cn(compact ? "mt-2" : "mt-3", "text-sm leading-6", dark ? "text-white/70" : "text-[#0A0F1C]")}>
+          {description}
+        </p>
       </div>
 
-      <div className="relative grid gap-4 sm:grid-cols-2">
-        <label className="grid gap-2" htmlFor={`${idPrefix}-name`}>
+      <div className={cn("relative grid sm:grid-cols-2", compact ? "gap-3" : "gap-4")}>
+        <label className={labelGridClass} htmlFor={`${idPrefix}-name`}>
           <span className={labelClass}>Full Name</span>
           <input id={`${idPrefix}-name`} name="name" required placeholder="Your full name" className={inputClass} />
         </label>
-        <label className="grid gap-2" htmlFor={`${idPrefix}-email`}>
+        <label className={labelGridClass} htmlFor={`${idPrefix}-email`}>
           <span className={labelClass}>Work Email</span>
           <input id={`${idPrefix}-email`} name="email" type="email" required placeholder="name@company.com" className={inputClass} />
         </label>
-        <label className="grid gap-2" htmlFor={`${idPrefix}-phone`}>
+        <label className={labelGridClass} htmlFor={`${idPrefix}-phone`}>
           <span className={labelClass}>Phone Number</span>
           <input id={`${idPrefix}-phone`} name="phone" required placeholder="+91 98765 43210" className={inputClass} />
         </label>
-        <label className="grid gap-2" htmlFor={`${idPrefix}-company`}>
+        <label className={labelGridClass} htmlFor={`${idPrefix}-company`}>
           <span className={labelClass}>Company Name</span>
           <input id={`${idPrefix}-company`} name="company" placeholder="Company or organization" className={inputClass} />
         </label>
         {showServiceField && (
-          <label className="grid gap-2 sm:col-span-2" htmlFor={`${idPrefix}-service`}>
+          <label className={cn(labelGridClass, "sm:col-span-2")} htmlFor={`${idPrefix}-service`}>
             <span className={labelClass}>Service Required</span>
             <select id={`${idPrefix}-service`} name="service" required className={inputClass} defaultValue="">
               <option value="" disabled>
@@ -169,7 +187,7 @@ export function AssessmentForm({
           </label>
         )}
         {showPreferredContact && (
-          <label className="grid gap-2 sm:col-span-2" htmlFor={`${idPrefix}-contact-method`}>
+          <label className={cn(labelGridClass, "sm:col-span-2")} htmlFor={`${idPrefix}-contact-method`}>
             <span className={labelClass}>Preferred Contact Method</span>
             <select id={`${idPrefix}-contact-method`} name="preferredContactMethod" className={inputClass} defaultValue="">
               <option value="" disabled>
@@ -183,14 +201,14 @@ export function AssessmentForm({
             </select>
           </label>
         )}
-        <label className="grid gap-2 sm:col-span-2" htmlFor={`${idPrefix}-message`}>
+        <label className={cn(labelGridClass, "sm:col-span-2")} htmlFor={`${idPrefix}-message`}>
           <span className={labelClass}>Project Requirements</span>
           <textarea
             id={`${idPrefix}-message`}
             name="message"
-            rows={4}
+            rows={compact ? 2 : 4}
             placeholder="Tell us about your cloud, DevOps, security, or AI requirements."
-            className={inputClass}
+            className={cn(inputClass, compact && "min-h-[4.5rem] resize-y")}
           />
         </label>
       </div>
@@ -198,7 +216,10 @@ export function AssessmentForm({
       <button
         type="submit"
         disabled={state === "submitting"}
-        className="group relative mt-6 inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#FF6B2C] via-[#ff7a3d] to-[#FF6B2C] px-6 py-4 text-sm font-black uppercase tracking-[0.08em] text-white shadow-[0_12px_36px_rgba(255,107,44,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_44px_rgba(255,107,44,0.4)] disabled:opacity-70"
+        className={cn(
+          "group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#FF6B2C] via-[#ff7a3d] to-[#FF6B2C] px-6 text-sm font-black uppercase tracking-[0.08em] text-white shadow-[0_12px_36px_rgba(255,107,44,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_44px_rgba(255,107,44,0.4)] disabled:opacity-70",
+          compact ? "mt-4 py-3" : "mt-6 py-4",
+        )}
       >
         {state === "submitting" ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
         {submitLabel}
@@ -207,7 +228,7 @@ export function AssessmentForm({
       {message && (
         <p
           className={cn(
-            "mt-4 rounded-2xl border px-4 py-3 text-sm text-[#0A0F1C]",
+            compact ? "mt-3 rounded-2xl border px-4 py-2.5 text-sm text-[#0A0F1C]" : "mt-4 rounded-2xl border px-4 py-3 text-sm text-[#0A0F1C]",
             state === "success" ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50",
           )}
           role="status"

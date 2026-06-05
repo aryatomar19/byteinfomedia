@@ -21,9 +21,10 @@ export function ContactSection() {
           <Reveal delay={0.06}>
             <AssessmentForm
               variant="light"
+              compact
               className="border-0 bg-transparent p-0 shadow-none"
               showPriorityBadge
-              showServiceField={false}
+              showServiceField
             />
           </Reveal>
         </div>
