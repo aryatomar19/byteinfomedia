@@ -168,7 +168,7 @@ export function AssessmentForm({
       <div
         className={cn(
           "relative grid",
-          compact ? "gap-2 sm:grid-cols-2 sm:gap-x-3 sm:gap-y-2" : "gap-4 sm:grid-cols-2",
+          compact ? "grid-cols-1 gap-2" : "gap-4 sm:grid-cols-2",
         )}
       >
         <label className={labelGridClass} htmlFor={`${idPrefix}-name`}>
@@ -217,7 +217,7 @@ export function AssessmentForm({
             </select>
           </label>
         )}
-        <label className={cn(labelGridClass, "sm:col-span-2")} htmlFor={`${idPrefix}-message`}>
+        <label className={cn(labelGridClass, !compact && "sm:col-span-2")} htmlFor={`${idPrefix}-message`}>
           <span className={labelClass}>Project Requirements</span>
           <textarea
             id={`${idPrefix}-message`}
