@@ -155,9 +155,8 @@ export const technologyPartners = [
   },
   {
     name: "Microsoft",
-    logo: "/images/partners/microsoft-azure.png",
+    logo: "/images/partners/microsoft.svg",
     logoAlt: "Microsoft logo",
-    logoClipWidth: true,
   },
   {
     name: "Google Cloud Platform",
