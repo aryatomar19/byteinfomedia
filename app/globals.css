@@ -98,6 +98,35 @@ a {
   animation: hero-ken-burns 22s ease-in-out infinite alternate;
 }
 
+/* Esteemed clients infinite marquee */
+.clients-marquee-track {
+  animation: clients-marquee 42s linear infinite;
+  will-change: transform;
+}
+
+.clients-marquee:hover .clients-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes clients-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 0.75rem;
+  }
+}
+
 @keyframes hero-ken-burns {
   from {
     transform: scale(1);

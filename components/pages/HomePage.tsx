@@ -1,4 +1,5 @@
 import { AboutByteInfomedia } from "@/components/sections/AboutByteInfomedia";
+import { EsteemedClients } from "@/components/sections/EsteemedClients";
 import { GrowYourBusiness } from "@/components/sections/GrowYourBusiness";
 import { OurVision } from "@/components/sections/OurVision";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -11,6 +12,7 @@ export function HomePage() {
     <>
       <HomeHero />
       <OurVision />
+      <EsteemedClients />
       <ServicesOverview />
       <AboutByteInfomedia />
       <GrowYourBusiness />
