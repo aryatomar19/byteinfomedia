@@ -1,7 +1,6 @@
 "use client";
 
 import { AssessmentForm } from "@/components/forms/AssessmentForm";
-import { ContactInfoCards } from "@/components/contact/ContactInfoCards";
 import { ContactMap } from "@/components/contact/ContactMap";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -42,13 +41,9 @@ export function BookConsultationPage() {
               </div>
             </Reveal>
             <Reveal delay={0.08} className="h-full">
-              <div className="flex h-full flex-col lg:sticky lg:top-24">
+              <div className="flex h-full flex-col">
                 <h2 className="mb-4 text-lg font-bold text-[#0A0F1C]">How to Reach Us</h2>
-                <ContactInfoCards />
-                <div className="mt-4 flex flex-1 flex-col">
-                  <h3 className="mb-2.5 text-base font-bold text-[#0A0F1C]">How to Reach Us</h3>
-                  <ContactMap className="min-h-[280px] flex-1" />
-                </div>
+                <ContactMap className="min-h-[280px] flex-1" />
               </div>
             </Reveal>
           </div>
