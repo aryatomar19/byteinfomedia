@@ -11,12 +11,7 @@ export function TrustedTechnologyPartners() {
   return (
     <section className="border-t border-[#0A0F1C]/6 bg-[#F7F8FA] py-10 md:py-11 lg:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Technology Ecosystem"
-          eyebrowVariant="about"
-          title={partnersSection.title}
-          description={partnersSection.subtitle}
-        />
+        <SectionHeading title={partnersSection.title} description={partnersSection.subtitle} flushTitle />
 
         <RevealStagger className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
           {technologyPartners.map((partner) => (

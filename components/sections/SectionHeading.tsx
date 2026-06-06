@@ -15,6 +15,8 @@ type SectionHeadingProps = {
   eyebrowVariant?: keyof typeof eyebrowClassNames;
   /** Tighter margin below the heading block (e.g. Our Services). */
   compact?: boolean;
+  /** Remove extra top offset on the title when no eyebrow is shown. */
+  flushTitle?: boolean;
 };
 
 export function SectionHeading({
@@ -24,13 +26,16 @@ export function SectionHeading({
   centered = true,
   eyebrowVariant = "default",
   compact = false,
+  flushTitle = false,
 }: SectionHeadingProps) {
   return (
     <Reveal
       className={`${compact ? "mb-2 md:mb-2.5" : "section-heading"} ${centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}
     >
       {eyebrow ? <p className={eyebrowClassNames[eyebrowVariant]}>{eyebrow}</p> : null}
-      <h2 className="mt-3 font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
+      <h2
+        className={`${eyebrow || !flushTitle ? "mt-3" : ""} font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl`}
+      >
         {title}
       </h2>
       {description ? <p className="mt-3 text-base leading-7 text-[#334155]">{description}</p> : null}

@@ -17,9 +17,8 @@ export const esteemedClients = [
     name: "Needshub",
     logo: "/images/clients/needshub.png",
     logoAlt: "Needshub logo",
-    logoContainerClassName: "flex h-[72%] w-[72%] items-center justify-center",
     logoClassName:
-      "max-h-full max-w-full scale-[1.85] object-contain object-center transition duration-300 group-hover:scale-[1.9]",
+      "h-[70%] w-[70%] scale-[1.35] object-contain object-center transition duration-300 group-hover:scale-[1.38]",
   },
   {
     name: "Paltech",
