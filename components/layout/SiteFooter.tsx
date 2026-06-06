@@ -14,6 +14,10 @@ export function SiteFooter() {
           />
           <div className="mt-4 max-w-sm pl-4 sm:pl-[18px]">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1E293B]">{company.taglineLine1}</p>
+            <p className="mt-6 max-w-[750px] pb-2 text-center text-lg leading-[1.7] text-[#0A0F1C] sm:text-xl">
+              Building secure, scalable, and growth-driven digital experiences through Cloud, AI, Web Development, and
+              Digital Marketing.
+            </p>
           </div>
         </div>
 

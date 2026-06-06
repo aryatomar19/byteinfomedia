@@ -18,7 +18,7 @@ export function ContactMap({ className }: { className?: string }) {
       <iframe
         title={`${company.displayName} office location map`}
         src={mapEmbedSrc}
-        className="h-[min(350px,50vw)] min-h-[280px] w-full border-0"
+        className="h-full min-h-[280px] w-full border-0 lg:min-h-[320px]"
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         allowFullScreen

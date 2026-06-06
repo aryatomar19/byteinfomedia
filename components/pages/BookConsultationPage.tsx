@@ -24,9 +24,9 @@ export function BookConsultationPage() {
 
       <section className="py-12 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-10">
-            <Reveal>
-              <div className="overflow-hidden rounded-[1.75rem] border border-[#0A0F1C]/8 bg-white p-3 shadow-[0_32px_80px_rgba(10,15,28,0.1)] sm:p-4">
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-10">
+            <Reveal className="h-full">
+              <div className="h-full overflow-hidden rounded-[1.75rem] border border-[#0A0F1C]/8 bg-white p-3 shadow-[0_32px_80px_rgba(10,15,28,0.1)] sm:p-4">
                 <AssessmentForm
                   idPrefix="consultation"
                   variant="light"
@@ -41,11 +41,14 @@ export function BookConsultationPage() {
                 />
               </div>
             </Reveal>
-            <Reveal delay={0.08}>
+            <Reveal delay={0.08} className="h-full">
               <div className="flex h-full flex-col lg:sticky lg:top-24">
-                <h2 className="mb-5 text-lg font-bold text-[#0A0F1C]">Contact Information</h2>
+                <h2 className="mb-4 text-lg font-bold text-[#0A0F1C]">How to Reach Us</h2>
                 <ContactInfoCards />
-                <ContactMap className="mt-6" />
+                <div className="mt-4 flex flex-1 flex-col">
+                  <h3 className="mb-2.5 text-base font-bold text-[#0A0F1C]">How to Reach Us</h3>
+                  <ContactMap className="min-h-[280px] flex-1" />
+                </div>
               </div>
             </Reveal>
           </div>
