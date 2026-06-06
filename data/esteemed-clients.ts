@@ -15,7 +15,7 @@ export const esteemedClients = [
   },
   {
     name: "Needshub",
-    logo: "/images/clients/needshub.svg",
+    logo: "/images/clients/needshub.png",
     logoAlt: "Needshub logo",
   },
   {
@@ -25,8 +25,10 @@ export const esteemedClients = [
   },
   {
     name: "Yesminds",
-    logo: "/images/clients/yesminds.svg",
+    logo: "/images/clients/yesminds.png",
     logoAlt: "Yesminds logo",
+    logoClassName:
+      "max-h-9 w-full max-w-[8.75rem] object-contain object-center transition duration-300 group-hover:scale-[1.03]",
   },
   {
     name: "Asmitaa IKS",

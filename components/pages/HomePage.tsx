@@ -1,4 +1,3 @@
-import { AboutByteInfomedia } from "@/components/sections/AboutByteInfomedia";
 import { EsteemedClients } from "@/components/sections/EsteemedClients";
 import { GrowYourBusiness } from "@/components/sections/GrowYourBusiness";
 import { OurVision } from "@/components/sections/OurVision";
@@ -14,7 +13,6 @@ export function HomePage() {
       <OurVision />
       <ServicesOverview />
       <EsteemedClients />
-      <AboutByteInfomedia />
       <GrowYourBusiness />
       <TrustedTechnologyPartners />
       <ContactSection />
