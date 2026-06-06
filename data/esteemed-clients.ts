@@ -15,10 +15,10 @@ export const esteemedClients = [
   },
   {
     name: "Needshub",
-    logo: "/images/clients/needshub.png",
+    logo: "/images/clients/needshub.svg",
     logoAlt: "Needshub logo",
     logoClassName:
-      "h-[70%] w-[70%] scale-[1.35] object-contain object-center transition duration-300 group-hover:scale-[1.38]",
+      "max-h-9 w-full max-w-[8.75rem] object-contain object-center transition duration-300 group-hover:scale-[1.03]",
   },
   {
     name: "Paltech",
