@@ -17,6 +17,8 @@ export const esteemedClients = [
     name: "Needshub",
     logo: "/images/clients/needshub.png",
     logoAlt: "Needshub logo",
+    logoClassName:
+      "max-h-[3.25rem] w-auto max-w-[5.25rem] object-contain object-center px-1 py-0.5 transition duration-300 group-hover:scale-[1.03]",
   },
   {
     name: "Paltech",
