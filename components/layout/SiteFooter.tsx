@@ -6,15 +6,15 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-[#0A0F1C]/8 bg-[#F8F9FC]">
       <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1.25fr_1fr_1fr] lg:px-8">
-        <div>
+        <div className="flex flex-col items-center py-2 text-center">
           <img
             src={company.logo}
             alt={company.name}
-            className="h-12 w-auto object-contain object-left"
+            className="h-12 w-auto object-contain"
           />
-          <div className="mt-4 max-w-sm pl-4 sm:pl-[18px]">
+          <div className="mt-3 w-full max-w-[650px]">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1E293B]">{company.taglineLine1}</p>
-            <p className="mt-6 max-w-[750px] pb-2 text-center text-lg leading-[1.7] text-[#0A0F1C] sm:text-xl">
+            <p className="mx-auto mt-5 max-w-[650px] text-[18px] leading-[1.7] text-[#0A0F1C]">
               Building secure, scalable, and growth-driven digital experiences through Cloud, AI, Web Development, and
               Digital Marketing.
             </p>
