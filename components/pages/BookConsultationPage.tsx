@@ -40,10 +40,12 @@ export function BookConsultationPage() {
                 />
               </div>
             </Reveal>
-            <Reveal delay={0.08} className="h-full">
-              <div className="flex h-full flex-col">
-                <h2 className="mb-4 text-lg font-bold text-[#0A0F1C]">How to Reach Us</h2>
-                <ContactMap className="min-h-[280px] flex-1" />
+            <Reveal delay={0.08} className="h-full w-full">
+              <div className="flex h-full w-full flex-col items-center">
+                <h2 className="mb-5 w-full text-center text-4xl font-bold text-[#FF6B35] lg:text-[2.625rem] lg:leading-tight">
+                  How to Reach Us
+                </h2>
+                <ContactMap className="w-full min-h-[280px] flex-1" />
               </div>
             </Reveal>
           </div>
