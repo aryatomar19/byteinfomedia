@@ -12,14 +12,26 @@ function ClientLogoCard({
   logo,
   logoAlt,
   logoClassName,
+  logoContainerClassName,
   alternateGrey,
 }: {
   name: string;
   logo: string;
   logoAlt: string;
   logoClassName?: string;
+  logoContainerClassName?: string;
   alternateGrey?: boolean;
 }) {
+  const logoImage = (
+    <img
+      src={logo}
+      alt={logoAlt}
+      className={logoClassName ?? defaultLogoClassName}
+      loading="lazy"
+      decoding="async"
+    />
+  );
+
   return (
     <div
       className={cn(
@@ -27,13 +39,11 @@ function ClientLogoCard({
         alternateGrey ? "!bg-[#f5f5f5]" : "!bg-white",
       )}
     >
-      <img
-        src={logo}
-        alt={logoAlt}
-        className={logoClassName ?? defaultLogoClassName}
-        loading="lazy"
-        decoding="async"
-      />
+      {logoContainerClassName ? (
+        <div className={logoContainerClassName}>{logoImage}</div>
+      ) : (
+        logoImage
+      )}
       <span className="sr-only">{name}</span>
     </div>
   );
@@ -61,6 +71,9 @@ export function EsteemedClients() {
                 logo={client.logo}
                 logoAlt={client.logoAlt}
                 logoClassName={"logoClassName" in client ? client.logoClassName : undefined}
+                logoContainerClassName={
+                  "logoContainerClassName" in client ? client.logoContainerClassName : undefined
+                }
                 alternateGrey={index % 2 === 1}
               />
             ))}
