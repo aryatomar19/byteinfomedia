@@ -42,7 +42,7 @@ export function AboutPage() {
             <p className="mt-5 max-w-xl text-lg leading-8 text-white/70">{aboutPage.hero.description}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" asChild>
-                <Link href="/book-consultation/">Book Consultation</Link>
+                <Link href="/book-consultation/#consultation">Book Consultation</Link>
               </Button>
               <Button size="lg" variant="secondary" asChild>
                 <Link href="/#assessment">Request Assessment</Link>
@@ -119,7 +119,7 @@ export function AboutPage() {
             <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Capabilities</p>
             <h2 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">Our Expertise</h2>
             <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
-              End-to-end cloud, security, operations, and AI capabilities for enterprise transformation.
+              End-to-end cloud, security, operations, AI, and digital marketing capabilities for enterprise transformation.
             </p>
           </Reveal>
 
@@ -127,11 +127,7 @@ export function AboutPage() {
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {aboutPage.expertise.map((item, index) => (
-              <Reveal
-                key={item.title}
-                delay={index * 0.05}
-                className={cn(index === 4 && "md:col-span-2 md:max-w-xl md:justify-self-center xl:col-span-1 xl:max-w-none xl:justify-self-stretch")}
-              >
+              <Reveal key={item.title} delay={index * 0.05}>
                 <Link
                   href={item.href}
                   className={cn(

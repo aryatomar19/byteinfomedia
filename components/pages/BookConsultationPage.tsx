@@ -21,7 +21,7 @@ export function BookConsultationPage() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-14">
+      <section id="consultation" className="scroll-mt-24 py-12 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch lg:gap-10">
             <Reveal className="h-full">

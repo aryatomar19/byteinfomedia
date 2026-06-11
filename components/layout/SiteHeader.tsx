@@ -6,6 +6,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { brandingServiceNav, company, serviceNav } from "@/data/site";
 import { BookConsultationButton } from "@/components/ui/BookConsultationButton";
+import { scrollToTop } from "@/lib/scroll";
 import { cn } from "@/lib/utils";
 
 const blogsHref = "/blogs/";
@@ -147,7 +148,15 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex h-[95px] max-w-7xl items-center px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex shrink-0 items-center">
+        <Link
+          href="/"
+          className="flex shrink-0 items-center"
+          onClick={() => {
+            if (pathname === "/") {
+              scrollToTop("smooth");
+            }
+          }}
+        >
           <img src={company.logo} alt={company.name} className="h-[50px] w-auto object-contain" />
         </Link>
 

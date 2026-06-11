@@ -1,6 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
+import { scrollToHash } from "@/lib/scroll";
 import { cn } from "@/lib/utils";
+
+const consultationHref = "/book-consultation/#consultation";
 
 export function BookConsultationButton({
   className,
@@ -9,9 +15,18 @@ export function BookConsultationButton({
   className?: string;
   size?: "sm" | "md";
 }) {
+  const pathname = usePathname();
+  const isConsultationPage = pathname.replace(/\/$/, "") === "/book-consultation";
+
   return (
     <Link
-      href="/book-consultation/"
+      href={consultationHref}
+      onClick={(event) => {
+        if (isConsultationPage) {
+          event.preventDefault();
+          scrollToHash("consultation");
+        }
+      }}
       className={cn(
         "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full font-bold text-white",
         "bg-gradient-to-r from-[#FF6B2C] via-[#ff7a3d] to-[#FF6B2C] bg-[length:200%_100%]",
