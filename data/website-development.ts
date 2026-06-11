@@ -1,66 +1,181 @@
-import type { BrandingServicePageData } from "@/data/branding-service-types";
-import { defaultBenefits } from "@/data/branding-shared";
+import type { FaqItem } from "@/data/service-page-types";
+import type { LucideIcon } from "lucide-react";
+import {
+  Code2,
+  Globe,
+  LayoutTemplate,
+  RefreshCw,
+  ShoppingCart,
+  Wrench,
+} from "lucide-react";
 
 const img = "/images/branding/website-development";
 
-export const websiteDevelopmentPage: BrandingServicePageData = {
-  slug: "website-development",
-  badge: "Branding Solutions",
+export type WebsiteDevelopmentOffering = {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+};
+
+export type WebsiteDevelopmentProcessStep = {
+  step: number;
+  title: string;
+  description: string;
+};
+
+export type WebsiteDevelopmentProject = {
+  title: string;
+  industry: string;
+  result: string;
+  image: string;
+  imageAlt: string;
+};
+
+export const websiteDevelopmentPage = {
   hero: {
-    title: "Professional Website Development",
+    badge: "BRANDING SOLUTIONS",
+    title: "Build a Website That Grows Your Business",
     description:
-      "Custom corporate websites, high-converting landing pages, e-commerce stores, and enterprise web applications engineered for performance, security, and growth.",
+      "Custom, responsive, and SEO-friendly websites designed to attract customers and drive results.",
     image: `${img}/hero.jpg`,
-    imageAlt: "Professional web development team collaborating on a business website project",
+    imageAlt: "Modern website development across laptop, desktop, and mobile devices",
   },
-  overview: {
-    title: "Build a Digital Presence That Converts",
-    description:
-      "BYTEINFOMEDIA designs and develops modern websites that reflect your brand, engage visitors, and support measurable business outcomes. From marketing sites to complex web applications, we combine UX strategy, responsive engineering, and performance optimization so your digital storefront works as hard as your sales team.",
-    businessBenefits: [
-      "Establish credibility with a polished, mobile-first web presence",
-      "Increase conversions with clear information architecture and CTAs",
-      "Reduce maintenance overhead with scalable, standards-based code",
-      "Improve search visibility with technical SEO foundations built in",
-      "Launch faster with structured discovery, design, and delivery phases",
-    ],
-    useCases: [
-      "Corporate and company profile websites",
-      "Product launch and campaign landing pages",
-      "B2B lead-generation funnels",
-      "E-commerce and catalog storefronts",
-      "Customer portals and lightweight web applications",
-      "Website redesigns and platform migrations",
-    ],
+  offerings: {
+    title: "Complete Website Development Solutions",
+    items: [
+      {
+        title: "Business Websites",
+        description: "Professional company sites that establish credibility and convert visitors into leads.",
+        icon: Globe,
+      },
+      {
+        title: "E-commerce Stores",
+        description: "Online storefronts with product catalogs, secure checkout, and sales-focused UX.",
+        icon: ShoppingCart,
+      },
+      {
+        title: "Custom Web Applications",
+        description: "Tailored portals, dashboards, and workflow tools built for your business needs.",
+        icon: Code2,
+      },
+      {
+        title: "WordPress Development",
+        description: "Flexible, easy-to-manage WordPress sites with custom themes and plugin integration.",
+        icon: LayoutTemplate,
+      },
+      {
+        title: "Website Redesign",
+        description: "Modernize outdated websites with refreshed design, improved UX, and better performance.",
+        icon: RefreshCw,
+      },
+      {
+        title: "Website Maintenance",
+        description: "Ongoing updates, security patches, backups, and performance monitoring for peace of mind.",
+        icon: Wrench,
+      },
+    ] satisfies WebsiteDevelopmentOffering[],
   },
-  features: [
-    { title: "Corporate Websites", description: "Brand-aligned sites with clear messaging, service pages, and lead capture.", icon: "globe" },
-    { title: "Landing Pages", description: "Focused pages optimized for campaigns, ads, and conversion goals.", icon: "layout" },
-    { title: "E-Commerce", description: "Product catalogs, checkout flows, and integrations for online sales.", icon: "shopping" },
-    { title: "Web Applications", description: "Custom dashboards, portals, and workflow tools for your teams.", icon: "code" },
-    { title: "Responsive Design", description: "Flawless experiences across desktop, tablet, and mobile devices.", icon: "smartphone" },
-    { title: "Performance Optimization", description: "Fast load times, Core Web Vitals, and caching best practices.", icon: "gauge" },
-    { title: "UX Strategy", description: "Wireframes and user journeys that reduce friction and improve engagement.", icon: "target" },
-    { title: "Secure Deployment", description: "HTTPS, hardened hosting, and release practices for production reliability.", icon: "sparkles" },
-  ],
-  offerings: [
-    { title: "Corporate Websites", description: "Executive-ready company sites with service pages, case studies, and contact flows.", image: `${img}/corporate.jpg`, imageAlt: "Corporate business website design on laptop" },
-    { title: "Landing Pages", description: "Campaign-specific pages built to maximize clicks, sign-ups, and demo requests.", image: `${img}/landing.jpg`, imageAlt: "Marketing landing page design on mobile and desktop" },
-    { title: "E-Commerce Websites", description: "Online stores with product management, payments, and order workflows.", image: `${img}/ecommerce.jpg`, imageAlt: "E-commerce website checkout and product browsing" },
-    { title: "Web Applications", description: "Custom tools for clients, partners, or internal teams with role-based access.", image: `${img}/webapp.jpg`, imageAlt: "Developer building a custom web application" },
-    { title: "Responsive Design", description: "Adaptive layouts tested across breakpoints and real devices.", image: `${img}/responsive.jpg`, imageAlt: "Responsive website displayed on multiple devices" },
-    { title: "Performance Optimization", description: "Audits, image optimization, and code improvements for speed and SEO.", image: `${img}/performance.jpg`, imageAlt: "Website performance analytics dashboard" },
-  ],
-  benefits: defaultBenefits,
-  showcase: {
-    image: `${img}/showcase.jpg`,
-    imageAlt: "Web development team planning a client website project",
-    title: "Enterprise-Grade Web Delivery",
-    description:
-      "Our consultants partner with marketing and IT leaders to ship websites that look premium, load quickly, and integrate with your CRM, analytics, and content workflows.",
+  whyChoose: {
+    title: "Your Trusted Technology Partner",
+    features: [
+      "Mobile-First Design",
+      "SEO-Optimized Structure",
+      "Fast Loading Performance",
+      "Secure Development",
+      "Scalable Solutions",
+      "Dedicated Support",
+    ],
+    highlight: {
+      experience: "20+ Years of Industry Experience",
+      projects: "1200+ Projects Delivered",
+    },
+  },
+  process: {
+    title: "Simple & Transparent Development Journey",
+    steps: [
+      {
+        step: 1,
+        title: "Discovery",
+        description: "Understanding your business goals and requirements.",
+      },
+      {
+        step: 2,
+        title: "Design",
+        description: "Creating intuitive and engaging user experiences.",
+      },
+      {
+        step: 3,
+        title: "Development",
+        description: "Building secure and scalable solutions.",
+      },
+      {
+        step: 4,
+        title: "Testing",
+        description: "Ensuring quality, speed, and reliability.",
+      },
+      {
+        step: 5,
+        title: "Launch",
+        description: "Deploying your website for maximum impact.",
+      },
+    ] satisfies WebsiteDevelopmentProcessStep[],
+  },
+  recentWork: {
+    title: "Websites We've Built",
+    projects: [
+      {
+        title: "Healthcare Portal",
+        industry: "Healthcare",
+        result: "+40% Online Appointments",
+        image: `${img}/corporate.jpg`,
+        imageAlt: "Healthcare portal website project",
+      },
+      {
+        title: "E-commerce Store",
+        industry: "E-commerce",
+        result: "+65% Online Sales",
+        image: `${img}/ecommerce.jpg`,
+        imageAlt: "E-commerce store website project",
+      },
+      {
+        title: "Corporate Website",
+        industry: "Corporate",
+        result: "Improved Lead Generation",
+        image: `${img}/landing.jpg`,
+        imageAlt: "Corporate business website project",
+      },
+    ] satisfies WebsiteDevelopmentProject[],
+  },
+  faqs: {
+    title: "Frequently Asked Questions",
+    items: [
+      {
+        question: "How long does website development take?",
+        answer:
+          "Most business websites take 4–8 weeks from discovery to launch. E-commerce and custom web applications typically require 8–12 weeks depending on complexity, integrations, and content readiness.",
+      },
+      {
+        question: "Will my website be mobile-friendly?",
+        answer:
+          "Yes. Every website we build follows a mobile-first approach, ensuring responsive layouts, touch-friendly navigation, and consistent performance across phones, tablets, and desktops.",
+      },
+      {
+        question: "Do you provide SEO optimization?",
+        answer:
+          "Yes. We implement SEO-friendly structure, clean URLs, meta tags, schema markup, fast load times, and technical foundations that help search engines index and rank your site effectively.",
+      },
+      {
+        question: "Do you offer post-launch support?",
+        answer:
+          "Yes. We provide website maintenance, security updates, performance monitoring, content updates, and dedicated support packages to keep your site secure, fast, and up to date after launch.",
+      },
+    ] satisfies FaqItem[],
   },
   cta: {
-    title: "Ready to Launch Your Next Website?",
-    description: "Share your goals and timeline—we will propose a practical roadmap for design, development, and go-live.",
+    title: "Ready to Launch Your New Website?",
+    description:
+      "Let's build a fast, secure, and professional website that helps your business grow.",
+    primaryLabel: "Request a Quote",
+    secondaryLabel: "Schedule a Call",
   },
 };
