@@ -43,37 +43,37 @@ function SeoProcessTimeline({
     <>
       {/* Desktop — connected horizontal chevrons */}
       <div className="hidden w-full lg:flex">
-        {steps.map((step, index) => (
-          <div
-            key={step.title}
-            className={
-              index === 0
-                ? "seo-chevron-step seo-chevron-step--first"
-                : index === lastIndex
-                  ? "seo-chevron-step seo-chevron-step--last"
-                  : "seo-chevron-step seo-chevron-step--middle"
-            }
-            style={{ zIndex: steps.length - index }}
-          >
-            <ChevronStepContent title={step.title} description={step.description} />
-          </div>
-        ))}
+        {steps.map((step, index) => {
+          const position =
+            index === 0 ? "first" : index === lastIndex ? "last" : "middle";
+
+          return (
+            <div
+              key={step.title}
+              className={`seo-chevron-shell seo-chevron-shell--${position}`}
+              style={{ zIndex: steps.length - index }}
+            >
+              <div className={`seo-chevron-step seo-chevron-step--${position}`}>
+                <ChevronStepContent title={step.title} description={step.description} />
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       {/* Mobile — stacked downward chevrons */}
-      <div className="flex flex-col lg:hidden">
-        {steps.map((step, index) => (
-          <div
-            key={step.title}
-            className={
-              index === lastIndex
-                ? "seo-chevron-step-mobile seo-chevron-step-mobile--last"
-                : "seo-chevron-step-mobile seo-chevron-step-mobile--arrow"
-            }
-          >
-            <ChevronStepContent title={step.title} description={step.description} />
-          </div>
-        ))}
+      <div className="flex flex-col gap-2 lg:hidden">
+        {steps.map((step, index) => {
+          const position = index === lastIndex ? "last" : "arrow";
+
+          return (
+            <div key={step.title} className={`seo-chevron-shell-mobile seo-chevron-shell-mobile--${position}`}>
+              <div className={`seo-chevron-step-mobile seo-chevron-step-mobile--${position}`}>
+                <ChevronStepContent title={step.title} description={step.description} />
+              </div>
+            </div>
+          );
+        })}
       </div>
     </>
   );
