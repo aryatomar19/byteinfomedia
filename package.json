@@ -4,7 +4,7 @@
   "description": "Premium enterprise frontend for ByteInfomedia",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/flatten-blog-export.mjs",
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },

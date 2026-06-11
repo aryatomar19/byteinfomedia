@@ -6,17 +6,32 @@ type BlogNavLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 function resolveBlogHref(href: string): string {
-  if (!href.startsWith("/blogs/") || href === "/blogs/" || href.endsWith("index.html")) {
+  if (!href || href === "/") {
     return href;
   }
 
-  return href.endsWith("/") ? `${href}index.html` : `${href}/index.html`;
+  if (href.endsWith(".html")) {
+    return href;
+  }
+
+  if (href === "/blogs/" || href === "/blog/") {
+    return href.endsWith("/") ? `${href}index.html` : `${href}/index.html`;
+  }
+
+  if (href.startsWith("/blog/") || (href.startsWith("/blogs/") && href.length > "/blogs/".length)) {
+    const normalized = href.replace(/\/$/, "").replace(/\/index\.html$/, "");
+    return `${normalized}.html`;
+  }
+
+  return href;
 }
 
 /** Full-page anchor links for reliable static export navigation on S3/CloudFront. */
 export function BlogNavLink({ href, children, ...props }: BlogNavLinkProps) {
+  const resolvedHref = resolveBlogHref(href);
+
   return (
-    <a href={resolveBlogHref(href)} {...props}>
+    <a href={resolvedHref} {...props}>
       {children}
     </a>
   );
