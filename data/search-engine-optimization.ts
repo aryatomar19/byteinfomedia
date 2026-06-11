@@ -130,9 +130,9 @@ export const searchEngineOptimizationPage = {
       },
     ] satisfies SeoProcessStep[],
   },
-  deliverables: {
-    title: "Results-Focused SEO Deliverables",
-    items: [
+  whyChoose: {
+    title: "Your SEO Growth Partner",
+    features: [
       "SEO Audit Report",
       "Keyword Opportunity Analysis",
       "On-Page Optimization",
@@ -140,6 +140,8 @@ export const searchEngineOptimizationPage = {
       "Monthly Performance Reports",
       "Continuous SEO Improvements",
     ],
+    illustration: `${img}/showcase.jpg`,
+    illustrationAlt: "SEO team reviewing search performance and growth strategy",
   },
   faqs: {
     title: "Frequently Asked Questions",

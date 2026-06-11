@@ -8,7 +8,7 @@ import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 
-const { hero, services, whySeo, process, deliverables, faqs, cta } = searchEngineOptimizationPage;
+const { hero, services, whySeo, process, whyChoose, faqs, cta } = searchEngineOptimizationPage;
 
 const heroSecondaryButtonClass =
   "border-2 border-white/60 bg-white/15 font-semibold text-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:border-white hover:bg-white/25";
@@ -141,22 +141,33 @@ export function SearchEngineOptimizationPage() {
         </div>
       </section>
 
-      {/* 5. What You'll Get */}
-      <section className="section-enterprise bg-white">
+      {/* 5. Your SEO Growth Partner */}
+      <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{deliverables.title}</SectionTitle>
+          <Reveal className="section-heading mx-auto max-w-2xl text-center lg:mx-0 lg:max-w-none lg:text-left">
+            <SectionTitle>{whyChoose.title}</SectionTitle>
           </Reveal>
-          <RevealStagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {deliverables.items.map((item) => (
-              <RevealItem key={item}>
-                <div className="flex items-start gap-3 rounded-2xl border border-[#0A0F1C]/8 bg-[#F8F9FC] px-4 py-4 transition hover:border-[#FF6B2C]/20">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#FF6B2C]" />
-                  <span className="text-sm font-semibold leading-6 text-[#0A0F1C] sm:text-base">{item}</span>
-                </div>
-              </RevealItem>
-            ))}
-          </RevealStagger>
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <RevealStagger className="grid gap-4 sm:grid-cols-2">
+              {whyChoose.features.map((feature) => (
+                <RevealItem key={feature}>
+                  <div className="flex h-full items-start gap-3.5 rounded-2xl border border-[#0A0F1C]/8 bg-white px-5 py-5 transition hover:border-[#FF6B2C]/20">
+                    <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-[#FF6B2C]" />
+                    <span className="text-base font-bold leading-6 text-[#0A0F1C]">{feature}</span>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealStagger>
+            <Reveal delay={0.08}>
+              <div className="overflow-hidden rounded-[1.5rem] border border-[#0A0F1C]/8 shadow-[0_20px_56px_rgba(10,15,28,0.08)]">
+                <img
+                  src={whyChoose.illustration}
+                  alt={whyChoose.illustrationAlt}
+                  className="aspect-[4/3] w-full object-cover"
+                />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 

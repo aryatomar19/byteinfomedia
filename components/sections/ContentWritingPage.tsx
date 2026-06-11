@@ -185,7 +185,7 @@ export function ContentWritingPage() {
             <SectionTitle>{whyChoose.title}</SectionTitle>
           </Reveal>
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <RevealStagger className="grid content-center gap-4 sm:grid-cols-2">
+            <RevealStagger className="grid gap-4 sm:grid-cols-2">
               {whyChoose.features.map((feature) => (
                 <RevealItem key={feature}>
                   <div className="flex h-full items-start gap-3.5 rounded-2xl border border-[#0A0F1C]/8 bg-white px-5 py-5 transition hover:border-[#FF6B2C]/20">
@@ -195,7 +195,7 @@ export function ContentWritingPage() {
                 </RevealItem>
               ))}
             </RevealStagger>
-            <Reveal delay={0.08} className="flex items-center">
+            <Reveal delay={0.08}>
               <div className="overflow-hidden rounded-[1.5rem] border border-[#0A0F1C]/8 shadow-[0_20px_56px_rgba(10,15,28,0.08)]">
                 <img
                   src={whyChoose.illustration}
