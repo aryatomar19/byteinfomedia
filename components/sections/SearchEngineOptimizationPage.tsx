@@ -10,6 +10,9 @@ import { Button } from "@/components/ui/button";
 
 const { hero, services, whySeo, process, deliverables, faqs, cta } = searchEngineOptimizationPage;
 
+const heroSecondaryButtonClass =
+  "border-2 border-white/60 bg-white/15 font-semibold text-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:border-white hover:bg-white/25";
+
 function SectionTitle({ children }: { children: ReactNode }) {
   return (
     <h2 className="font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
@@ -27,12 +30,12 @@ export function SearchEngineOptimizationPage() {
           <img
             src={hero.image}
             alt=""
-            className="h-full min-h-full w-full min-w-full object-cover object-center"
+            className="h-full min-h-full w-full min-w-full object-cover object-center brightness-110 contrast-105"
           />
         </div>
-        <div className="absolute inset-0 bg-[#0A0F1C]/55" aria-hidden />
+        <div className="absolute inset-0 bg-[#0A0F1C]/40" aria-hidden />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#0A0F1C]/75 via-[#0A0F1C]/45 to-[#0A0F1C]/25"
+          className="absolute inset-0 bg-gradient-to-r from-[#0A0F1C]/60 via-[#0A0F1C]/30 to-[#0A0F1C]/15"
           aria-hidden
         />
 
@@ -54,12 +57,7 @@ export function SearchEngineOptimizationPage() {
               <Button size="lg" asChild>
                 <Link href="/book-consultation/">{hero.primaryCta}</Link>
               </Button>
-              <Button
-                size="lg"
-                variant="secondary"
-                className="border-white/25 bg-white/10 text-white hover:border-white/40 hover:bg-white/15"
-                asChild
-              >
+              <Button size="lg" variant="secondary" className={heroSecondaryButtonClass} asChild>
                 <Link href="/book-consultation/">{hero.secondaryCta}</Link>
               </Button>
             </div>
