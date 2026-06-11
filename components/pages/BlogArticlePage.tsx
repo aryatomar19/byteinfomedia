@@ -2,9 +2,47 @@
 
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import type { BlogArticleSubsection } from "@/data/blog";
 import { featuredBlogArticle } from "@/data/blog";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
+
+function BlogBulletList({ items }: { items: readonly string[] }) {
+  return (
+    <ul className="mt-3 space-y-2 pl-5 text-base leading-7 text-[#334155]">
+      {items.map((item) => (
+        <li key={item} className="list-disc marker:text-[#FF6B2C]">
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function BlogSubsectionBlock({
+  subsection,
+  headingLevel,
+}: {
+  subsection: BlogArticleSubsection;
+  headingLevel: "h3" | "h4";
+}) {
+  const HeadingTag = headingLevel;
+  const headingClassName =
+    headingLevel === "h3"
+      ? "font-[family-name:var(--font-inter)] text-xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-2xl"
+      : "font-[family-name:var(--font-inter)] text-lg font-bold tracking-tight text-[#0A0F1C] sm:text-xl";
+
+  return (
+    <div className={headingLevel === "h3" ? "mt-8 first:mt-0" : "mt-5"}>
+      <HeadingTag className={headingClassName}>{subsection.heading}</HeadingTag>
+      {subsection.body ? <p className="mt-3 text-base leading-7 text-[#334155]">{subsection.body}</p> : null}
+      {subsection.bullets ? <BlogBulletList items={subsection.bullets} /> : null}
+      {subsection.subsections?.map((child) => (
+        <BlogSubsectionBlock key={child.heading} subsection={child} headingLevel="h4" />
+      ))}
+    </div>
+  );
+}
 
 export function BlogArticlePage() {
   const { category, title, subtitle, image, imageAlt, publishedAt, readTime, intro, sections } =
@@ -63,7 +101,13 @@ export function BlogArticlePage() {
                 <h2 className="font-[family-name:var(--font-inter)] text-2xl font-extrabold tracking-tight text-[#0A0F1C]">
                   {section.heading}
                 </h2>
-                <p className="mt-3 text-base leading-7 text-[#334155]">{section.body}</p>
+                {section.body ? (
+                  <p className="mt-3 text-base leading-7 text-[#334155]">{section.body}</p>
+                ) : null}
+                {section.bullets ? <BlogBulletList items={section.bullets} /> : null}
+                {section.subsections?.map((subsection) => (
+                  <BlogSubsectionBlock key={subsection.heading} subsection={subsection} headingLevel="h3" />
+                ))}
               </Reveal>
             ))}
           </div>
