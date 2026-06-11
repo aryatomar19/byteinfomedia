@@ -1,66 +1,176 @@
-import type { BrandingServicePageData } from "@/data/branding-service-types";
-import { defaultBenefits } from "@/data/branding-shared";
+import type { FaqItem } from "@/data/service-page-types";
+import type { LucideIcon } from "lucide-react";
+import {
+  BarChart3,
+  FileText,
+  Link2,
+  MapPin,
+  Search,
+  Settings,
+} from "lucide-react";
 
 const img = "/images/branding/seo";
 
-export const searchEngineOptimizationPage: BrandingServicePageData = {
-  slug: "search-engine-optimization",
-  badge: "Branding Solutions",
+export type SeoService = {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+};
+
+export type SeoWhyCard = {
+  title: string;
+  description: string;
+};
+
+export type SeoProcessStep = {
+  step: number;
+  title: string;
+  description: string;
+};
+
+export const searchEngineOptimizationPage = {
   hero: {
-    title: "Search Engine Optimization (SEO)",
+    title: "Get Found on Google. Grow Organically.",
     description:
-      "Technical SEO, on-page optimization, keyword strategy, and local search programs that increase organic visibility, qualified traffic, and long-term growth.",
+      "Increase your website visibility, attract qualified traffic, and generate more leads with data-driven SEO strategies.",
     image: `${img}/hero.jpg`,
     imageAlt: "SEO specialists analyzing search rankings and organic growth metrics",
+    highlights: ["Higher Rankings", "More Organic Traffic", "Better Conversions"],
+    primaryCta: "Get Free SEO Audit",
+    secondaryCta: "Request Proposal",
   },
-  overview: {
-    title: "Grow Organic Traffic With Data-Led SEO",
-    description:
-      "Our SEO consultants audit your site, fix technical blockers, and build content strategies aligned with how your buyers search. We focus on sustainable rankings—not shortcuts—so your brand earns visibility on Google and other search engines while supporting sales and marketing goals.",
-    businessBenefits: [
-      "Increase qualified organic traffic without rising ad spend",
-      "Improve discoverability for high-intent product and service keywords",
-      "Strengthen domain authority with ethical off-page practices",
-      "Align content and landing pages with buyer search journeys",
-      "Track rankings, clicks, and conversions with transparent reporting",
-    ],
-    useCases: [
-      "New website SEO foundations and migrations",
-      "Local SEO for multi-location businesses",
-      "B2B service and SaaS keyword programs",
-      "E-commerce category and product optimization",
-      "Competitive gap analysis and content roadmaps",
-      "Ongoing SEO retainers for marketing teams",
+  services: {
+    title: "Everything You Need to Rank Higher",
+    items: [
+      {
+        title: "Keyword Research & Strategy",
+        description: "Identify high-intent keywords and build a roadmap aligned with your business goals.",
+        icon: Search,
+      },
+      {
+        title: "Technical SEO",
+        description: "Fix crawlability, indexing, site speed, and architecture issues holding back rankings.",
+        icon: Settings,
+      },
+      {
+        title: "On-Page SEO",
+        description: "Optimize titles, headings, content, and internal links for relevance and conversions.",
+        icon: FileText,
+      },
+      {
+        title: "Link Building",
+        description: "Earn authoritative backlinks that strengthen domain trust and search visibility.",
+        icon: Link2,
+      },
+      {
+        title: "Local SEO",
+        description: "Improve map pack rankings, citations, and geo-targeted visibility for local customers.",
+        icon: MapPin,
+      },
+      {
+        title: "SEO Reporting & Analytics",
+        description: "Track rankings, traffic, and conversions with transparent monthly performance reports.",
+        icon: BarChart3,
+      },
+    ] satisfies SeoService[],
+  },
+  whySeo: {
+    title: "Turn Searches Into Customers",
+    items: [
+      {
+        title: "Increase Visibility",
+        description: "Appear when customers search for your services.",
+      },
+      {
+        title: "Drive Qualified Traffic",
+        description: "Attract visitors actively looking for solutions.",
+      },
+      {
+        title: "Build Authority",
+        description: "Establish trust and credibility in your industry.",
+      },
+      {
+        title: "Generate Long-Term Results",
+        description: "Unlike ads, SEO continues delivering value over time.",
+      },
+    ] satisfies SeoWhyCard[],
+  },
+  process: {
+    title: "A Proven Strategy for Sustainable Growth",
+    steps: [
+      {
+        step: 1,
+        title: "Audit",
+        description: "Website & Competitor Analysis",
+      },
+      {
+        step: 2,
+        title: "Research",
+        description: "Keyword Research",
+      },
+      {
+        step: 3,
+        title: "Optimize",
+        description: "Technical Optimization",
+      },
+      {
+        step: 4,
+        title: "Create",
+        description: "Content Enhancement",
+      },
+      {
+        step: 5,
+        title: "Build Authority",
+        description: "Link Building",
+      },
+      {
+        step: 6,
+        title: "Report",
+        description: "Performance Tracking",
+      },
+    ] satisfies SeoProcessStep[],
+  },
+  deliverables: {
+    title: "Results-Focused SEO Deliverables",
+    items: [
+      "SEO Audit Report",
+      "Keyword Opportunity Analysis",
+      "On-Page Optimization",
+      "Technical Fix Recommendations",
+      "Monthly Performance Reports",
+      "Continuous SEO Improvements",
     ],
   },
-  features: [
-    { title: "Technical SEO", description: "Crawlability, indexing, schema, site speed, and architecture fixes.", icon: "code" },
-    { title: "On-Page SEO", description: "Titles, meta descriptions, headings, and internal linking optimization.", icon: "fileText" },
-    { title: "Off-Page SEO", description: "Authority building through ethical outreach and digital PR.", icon: "link" },
-    { title: "Keyword Research", description: "Search intent mapping and priority keyword portfolios.", icon: "key" },
-    { title: "Local SEO", description: "Google Business Profile, citations, and geo-targeted landing pages.", icon: "mapPin" },
-    { title: "SEO Audits", description: "Comprehensive site reviews with prioritized remediation plans.", icon: "clipboard" },
-    { title: "Organic Growth Strategy", description: "Editorial calendars and content clusters for sustained visibility.", icon: "trending" },
-    { title: "Analytics & Reporting", description: "Search Console, GA4, and ranking dashboards for stakeholders.", icon: "barChart" },
-  ],
-  offerings: [
-    { title: "Technical SEO", description: "Resolve crawl errors, Core Web Vitals issues, and indexation gaps.", image: `${img}/technical.jpg`, imageAlt: "Technical SEO audit on website infrastructure" },
-    { title: "On-Page SEO", description: "Optimize pages for relevance, readability, and conversion.", image: `${img}/onpage.jpg`, imageAlt: "On-page SEO content optimization workflow" },
-    { title: "Off-Page SEO", description: "Earn links and mentions that strengthen domain trust.", image: `${img}/offpage.jpg`, imageAlt: "Digital marketing team discussing link-building strategy" },
-    { title: "Keyword Research", description: "Identify winnable terms aligned with revenue goals.", image: `${img}/keywords.jpg`, imageAlt: "Keyword research and search analytics on screen" },
-    { title: "Local SEO", description: "Dominate map pack and local queries in your service areas.", image: `${img}/local.jpg`, imageAlt: "Local SEO and location-based search marketing" },
-    { title: "SEO Audits", description: "Baseline assessments with clear quick wins and long-term plays.", image: `${img}/audit.jpg`, imageAlt: "SEO performance dashboard with traffic trends" },
-  ],
-  benefits: defaultBenefits,
-  showcase: {
-    image: `${img}/showcase.jpg`,
-    imageAlt: "Marketing team reviewing SEO growth and analytics",
-    title: "SEO Built for Business Outcomes",
-    description:
-      "We connect search performance to pipeline metrics so leadership sees how organic channels contribute to leads, demos, and revenue—not just rankings.",
+  faqs: {
+    title: "Frequently Asked Questions",
+    items: [
+      {
+        question: "How long does SEO take?",
+        answer:
+          "Most businesses begin seeing measurable improvements within 3–6 months. Competitive industries may take longer, but SEO builds compounding value that continues to grow over time.",
+      },
+      {
+        question: "Do you guarantee rankings?",
+        answer:
+          "No ethical SEO provider can guarantee specific rankings. We focus on proven strategies, transparent reporting, and sustainable growth that improves visibility, traffic, and conversions.",
+      },
+      {
+        question: "What's included in monthly SEO services?",
+        answer:
+          "Monthly services typically include technical monitoring, on-page optimization, content recommendations, link-building outreach, local SEO updates, and detailed performance reports.",
+      },
+      {
+        question: "Do you provide Local SEO?",
+        answer:
+          "Yes. We optimize Google Business Profiles, local citations, geo-targeted landing pages, and map pack visibility to help businesses attract nearby customers.",
+      },
+    ] satisfies FaqItem[],
   },
   cta: {
-    title: "Ready to Improve Your Search Rankings?",
-    description: "Request an SEO assessment and receive a prioritized plan for technical fixes, content, and growth opportunities.",
+    title: "Ready to Rank Higher on Google?",
+    description:
+      "Let's create an SEO strategy that increases visibility, traffic, and revenue.",
+    primaryLabel: "Get Free SEO Audit",
+    secondaryLabel: "Talk to an SEO Expert",
   },
 };

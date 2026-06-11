@@ -2,13 +2,13 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
-import { websiteDevelopmentPage } from "@/data/website-development";
+import { ArrowDown, CheckCircle2 } from "lucide-react";
+import { searchEngineOptimizationPage } from "@/data/search-engine-optimization";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 
-const { hero, offerings, whyChoose, process, recentWork, faqs, cta } = websiteDevelopmentPage;
+const { hero, services, whySeo, process, deliverables, faqs, cta } = searchEngineOptimizationPage;
 
 function SectionTitle({ children }: { children: ReactNode }) {
   return (
@@ -18,42 +18,7 @@ function SectionTitle({ children }: { children: ReactNode }) {
   );
 }
 
-function ProjectCard({
-  title,
-  industry,
-  result,
-  image,
-  imageAlt,
-}: {
-  title: string;
-  industry: string;
-  result: string;
-  image: string;
-  imageAlt: string;
-}) {
-  return (
-    <div className="enterprise-card group overflow-hidden rounded-[1.5rem] transition duration-300 hover:-translate-y-1">
-      <div className="relative aspect-[16/10] overflow-hidden">
-        <img
-          src={image}
-          alt={imageAlt}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/70 via-[#0A0F1C]/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">{industry}</p>
-          <h3 className="mt-1 text-xl font-extrabold text-white sm:text-2xl">{title}</h3>
-        </div>
-      </div>
-      <div className="p-5 sm:p-6">
-        <p className="text-sm font-bold uppercase tracking-[0.08em] text-[#FF6B2C]">Result</p>
-        <p className="mt-1 text-base font-semibold text-[#0A0F1C]">{result}</p>
-      </div>
-    </div>
-  );
-}
-
-export function WebsiteDevelopmentPage() {
+export function SearchEngineOptimizationPage() {
   return (
     <>
       {/* 1. Hero */}
@@ -65,26 +30,29 @@ export function WebsiteDevelopmentPage() {
             className="h-full min-h-full w-full min-w-full object-cover object-center"
           />
         </div>
-        <div className="absolute inset-0 bg-[#0A0F1C]/60" aria-hidden />
+        <div className="absolute inset-0 bg-[#0A0F1C]/55" aria-hidden />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#0A0F1C]/80 via-[#0A0F1C]/50 to-[#0A0F1C]/30"
+          className="absolute inset-0 bg-gradient-to-r from-[#0A0F1C]/75 via-[#0A0F1C]/45 to-[#0A0F1C]/25"
           aria-hidden
         />
-        <div className="absolute inset-0 grid-pattern opacity-35" aria-hidden />
 
         <div className="relative mx-auto flex min-h-[70vh] max-h-[75vh] max-w-7xl items-center px-4 hero-service sm:px-6 lg:px-8">
           <Reveal className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
-              <Sparkles className="h-3.5 w-3.5" />
-              {hero.badge}
-            </span>
-            <h1 className="mt-4 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.25rem]">
+            <h1 className="font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.25rem]">
               {hero.title}
             </h1>
             <p className="mt-4 max-w-xl text-lg leading-7 text-white/80">{hero.description}</p>
+            <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+              {hero.highlights.map((item) => (
+                <li key={item} className="flex items-center gap-2 text-sm font-semibold text-white/90">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-[#FF6B2C]" />
+                  {item}
+                </li>
+              ))}
+            </ul>
             <div className="mt-5 flex flex-wrap gap-3">
               <Button size="lg" asChild>
-                <Link href="/book-consultation/">Get Free Consultation</Link>
+                <Link href="/book-consultation/">{hero.primaryCta}</Link>
               </Button>
               <Button
                 size="lg"
@@ -92,21 +60,21 @@ export function WebsiteDevelopmentPage() {
                 className="border-white/25 bg-white/10 text-white hover:border-white/40 hover:bg-white/15"
                 asChild
               >
-                <Link href="#recent-work">View Portfolio</Link>
+                <Link href="/book-consultation/">{hero.secondaryCta}</Link>
               </Button>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* 2. What We Offer */}
+      {/* 2. SEO Services */}
       <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{offerings.title}</SectionTitle>
+            <SectionTitle>{services.title}</SectionTitle>
           </Reveal>
           <RevealStagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {offerings.items.map((item) => {
+            {services.items.map((item) => {
               const Icon = item.icon;
               return (
                 <RevealItem key={item.title}>
@@ -124,18 +92,18 @@ export function WebsiteDevelopmentPage() {
         </div>
       </section>
 
-      {/* 3. Why Choose Byte Infomedia */}
+      {/* 3. Why SEO Matters */}
       <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{whyChoose.title}</SectionTitle>
+            <SectionTitle>{whySeo.title}</SectionTitle>
           </Reveal>
-          <RevealStagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {whyChoose.features.map((feature) => (
-              <RevealItem key={feature}>
-                <div className="flex items-start gap-3 rounded-2xl border border-[#0A0F1C]/8 bg-[#F8F9FC] px-4 py-4 transition hover:border-[#FF6B2C]/20">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#FF6B2C]" />
-                  <span className="text-sm font-semibold leading-6 text-[#0A0F1C] sm:text-base">{feature}</span>
+          <RevealStagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {whySeo.items.map((item) => (
+              <RevealItem key={item.title}>
+                <div className="enterprise-card h-full rounded-2xl p-5 transition duration-300 hover:-translate-y-1">
+                  <h3 className="font-extrabold text-[#0A0F1C]">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#334155]">{item.description}</p>
                 </div>
               </RevealItem>
             ))}
@@ -143,28 +111,25 @@ export function WebsiteDevelopmentPage() {
         </div>
       </section>
 
-      {/* 4. Our Process */}
+      {/* 4. Our SEO Process */}
       <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{process.title}</SectionTitle>
           </Reveal>
-          <div className="mt-2 flex flex-col gap-4 lg:flex-row lg:items-stretch lg:gap-3">
+          <div className="mx-auto flex max-w-xl flex-col items-center">
             {process.steps.map((step, index) => (
-              <Reveal key={step.title} delay={index * 0.05} className="flex flex-1 flex-col lg:flex-row lg:items-stretch">
-                <div className="flex flex-1 flex-col">
-                  <div className="enterprise-card flex h-full flex-col rounded-2xl p-5 transition hover:-translate-y-0.5">
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6B2C] text-sm font-black text-white">
-                      {step.step}
-                    </span>
-                    <h3 className="mt-4 font-extrabold text-[#0A0F1C]">{step.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-[#334155]">{step.description}</p>
-                  </div>
+              <Reveal key={step.title} delay={index * 0.04} className="w-full">
+                <div className="enterprise-card flex w-full flex-col rounded-2xl p-5 transition hover:-translate-y-0.5">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6B2C] text-sm font-black text-white">
+                    {step.step}
+                  </span>
+                  <h3 className="mt-4 font-extrabold text-[#0A0F1C]">{step.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#334155]">{step.description}</p>
                 </div>
                 {index < process.steps.length - 1 ? (
-                  <div className="flex items-center justify-center py-1 lg:px-1 lg:py-0">
-                    <ArrowRight className="hidden h-5 w-5 shrink-0 text-[#FF6B2C] lg:block" aria-hidden />
-                    <ArrowRight className="h-5 w-5 rotate-90 text-[#FF6B2C] lg:hidden" aria-hidden />
+                  <div className="flex justify-center py-2">
+                    <ArrowDown className="h-5 w-5 text-[#FF6B2C]" aria-hidden />
                   </div>
                 ) : null}
               </Reveal>
@@ -173,16 +138,19 @@ export function WebsiteDevelopmentPage() {
         </div>
       </section>
 
-      {/* 5. Recent Work */}
-      <section id="recent-work" className="section-enterprise bg-white">
+      {/* 5. What You'll Get */}
+      <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{recentWork.title}</SectionTitle>
+            <SectionTitle>{deliverables.title}</SectionTitle>
           </Reveal>
-          <RevealStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {recentWork.projects.map((project) => (
-              <RevealItem key={project.title}>
-                <ProjectCard {...project} />
+          <RevealStagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {deliverables.items.map((item) => (
+              <RevealItem key={item}>
+                <div className="flex items-start gap-3 rounded-2xl border border-[#0A0F1C]/8 bg-[#F8F9FC] px-4 py-4 transition hover:border-[#FF6B2C]/20">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#FF6B2C]" />
+                  <span className="text-sm font-semibold leading-6 text-[#0A0F1C] sm:text-base">{item}</span>
+                </div>
               </RevealItem>
             ))}
           </RevealStagger>
