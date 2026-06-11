@@ -2,8 +2,9 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { CheckCircle2, Sparkles } from "lucide-react";
 import { websiteDevelopmentPage } from "@/data/website-development";
+import { ChevronProcessTimeline } from "@/components/sections/ChevronProcessTimeline";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -147,27 +148,9 @@ export function WebsiteDevelopmentPage() {
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{process.title}</SectionTitle>
           </Reveal>
-          <div className="mt-2 flex flex-col gap-4 lg:flex-row lg:items-stretch lg:gap-3">
-            {process.steps.map((step, index) => (
-              <Reveal key={step.title} delay={index * 0.05} className="flex flex-1 flex-col lg:flex-row lg:items-stretch">
-                <div className="flex flex-1 flex-col">
-                  <div className="enterprise-card flex h-full flex-col rounded-2xl p-5 transition hover:-translate-y-0.5">
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6B2C] text-sm font-black text-white">
-                      {step.step}
-                    </span>
-                    <h3 className="mt-4 font-extrabold text-[#0A0F1C]">{step.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-[#334155]">{step.description}</p>
-                  </div>
-                </div>
-                {index < process.steps.length - 1 ? (
-                  <div className="flex items-center justify-center py-1 lg:px-1 lg:py-0">
-                    <ArrowRight className="hidden h-5 w-5 shrink-0 text-[#FF6B2C] lg:block" aria-hidden />
-                    <ArrowRight className="h-5 w-5 rotate-90 text-[#FF6B2C] lg:hidden" aria-hidden />
-                  </div>
-                ) : null}
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.06}>
+            <ChevronProcessTimeline steps={process.steps} />
+          </Reveal>
         </div>
       </section>
 
