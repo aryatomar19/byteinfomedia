@@ -140,7 +140,7 @@ export const socialMediaMarketingPage = {
       "Dedicated Account Management",
     ],
     illustration: `${img}/showcase.jpg`,
-    illustrationAlt: "Professional marketing team discussing social media strategy in a modern office",
+    illustrationAlt: "Digital marketing professionals collaborating on campaign strategy in a modern office",
   },
   faqs: {
     title: "Frequently Asked Questions",
