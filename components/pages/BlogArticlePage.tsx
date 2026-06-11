@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 
 export function BlogArticlePage() {
-  const { category, title, image, imageAlt, publishedAt, readTime, intro, sections } =
+  const { category, title, subtitle, image, imageAlt, publishedAt, readTime, intro, sections } =
     featuredBlogArticle;
 
   return (
@@ -28,6 +28,11 @@ export function BlogArticlePage() {
             <h1 className="mt-4 font-[family-name:var(--font-inter)] text-3xl font-extrabold leading-tight tracking-tight text-[#0A0F1C] sm:text-4xl lg:text-[2.75rem]">
               {title}
             </h1>
+            {subtitle ? (
+              <h2 className="mt-3 text-lg font-semibold leading-8 text-[#334155] sm:text-xl">
+                {subtitle}
+              </h2>
+            ) : null}
             <div className="mt-5 flex flex-wrap items-center gap-4 text-sm font-semibold text-[#5F6F86]">
               <span className="inline-flex items-center gap-2">
                 <Calendar className="h-4 w-4 text-[#FF6B2C]" aria-hidden />
