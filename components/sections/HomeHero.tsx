@@ -107,12 +107,12 @@ export function HomeHero() {
                 <Button
                   variant="secondary"
                   size="lg"
-                  className="min-h-[48px] border-white/30 bg-white/10 text-white hover:bg-white/18"
+                  className="min-h-[48px] border border-white/30 bg-white/10 font-semibold text-white shadow-[0_4px_20px_rgba(0,0,0,0.18)] transition-all duration-300 hover:border-[#FF6B2C]/70 hover:bg-white/20 hover:shadow-[0_0_24px_rgba(255,107,44,0.28)]"
                   asChild
                 >
                   <Link href={slide.learnMoreHref}>
                     Learn More
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-4 w-4 text-white" />
                   </Link>
                 </Button>
               </div>
