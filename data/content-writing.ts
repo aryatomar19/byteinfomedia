@@ -25,6 +25,7 @@ export type ContentWritingWhyCard = {
 export type ContentWritingProcessStep = {
   step: number;
   title: string;
+  description: string;
 };
 
 export type ContentJourneyStage = {
@@ -102,12 +103,12 @@ export const contentWritingPage = {
   process: {
     title: "From Research to Results",
     steps: [
-      { step: 1, title: "Research" },
-      { step: 2, title: "Strategy" },
-      { step: 3, title: "Writing" },
-      { step: 4, title: "Review" },
-      { step: 5, title: "Optimization" },
-      { step: 6, title: "Publish" },
+      { step: 1, title: "Research", description: "Audience & Market Research" },
+      { step: 2, title: "Strategy", description: "Content Planning" },
+      { step: 3, title: "Writing", description: "High-Quality Content Creation" },
+      { step: 4, title: "Review", description: "Editing & Quality Check" },
+      { step: 5, title: "Optimization", description: "SEO & Performance Enhancement" },
+      { step: 6, title: "Publish", description: "Distribution & Performance Tracking" },
     ] satisfies ContentWritingProcessStep[],
   },
   contentTypes: {
