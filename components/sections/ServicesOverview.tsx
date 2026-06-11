@@ -43,6 +43,7 @@ function ServiceCard({
         <p className="text-base leading-7 text-[#334155] line-clamp-2">{service.description}</p>
         <Link
           href={service.href}
+          scroll
           className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#FF6B2C] transition group-hover:gap-3"
         >
           Learn More <ArrowRight className="h-4 w-4" />

@@ -21,7 +21,7 @@ export function ServiceImageCard({
   image,
   imageAlt,
   index = 0,
-  learnMoreHref = "/book-consultation/",
+  learnMoreHref,
 }: ServiceImageCardProps) {
   return (
     <motion.article
@@ -43,12 +43,15 @@ export function ServiceImageCard({
       </div>
       <div className="p-5 sm:p-6">
         <p className="line-clamp-3 text-base leading-6 text-[#0A0F1C]">{description}</p>
-        <Link
-          href={learnMoreHref}
-          className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#FF6B2C] transition group-hover:gap-3"
-        >
-          Learn More <ArrowRight className="h-4 w-4" />
-        </Link>
+        {learnMoreHref ? (
+          <Link
+            href={learnMoreHref}
+            scroll
+            className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#FF6B2C] transition group-hover:gap-3"
+          >
+            Learn More <ArrowRight className="h-4 w-4" />
+          </Link>
+        ) : null}
       </div>
     </motion.article>
   );

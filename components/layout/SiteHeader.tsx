@@ -70,6 +70,7 @@ function NavDropdown({
             <Link
               key={item.href}
               href={item.href}
+              scroll
               role="menuitem"
               className={cn(
                 "block px-4 py-2.5 text-base font-semibold transition",
@@ -224,6 +225,7 @@ export function SiteHeader() {
                     <Link
                       key={item.href}
                       href={item.href}
+                      scroll
                       onClick={() => setOpen(false)}
                       className={cn(
                         "rounded-lg px-4 py-2.5 text-base font-semibold hover:bg-[#F8F9FC]",
@@ -259,6 +261,7 @@ export function SiteHeader() {
                     <Link
                       key={item.href}
                       href={item.href}
+                      scroll
                       onClick={() => setOpen(false)}
                       className={cn(
                         "rounded-lg px-4 py-2.5 text-base font-semibold hover:bg-[#F8F9FC]",
