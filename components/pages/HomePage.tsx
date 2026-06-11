@@ -4,7 +4,6 @@ import { OurVision } from "@/components/sections/OurVision";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { HomeHero } from "@/components/sections/HomeHero";
 import { ServicesOverview } from "@/components/sections/ServicesOverview";
-import { LatestBlogSection } from "@/components/sections/LatestBlogSection";
 import { TrustedTechnologyPartners } from "@/components/sections/TrustedTechnologyPartners";
 
 export function HomePage() {
@@ -16,7 +15,6 @@ export function HomePage() {
       <EsteemedClients />
       <GrowYourBusiness />
       <TrustedTechnologyPartners />
-      <LatestBlogSection />
       <ContactSection />
     </>
   );
