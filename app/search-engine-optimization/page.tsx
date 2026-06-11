@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BrandingServicePage } from "@/components/sections/BrandingServicePage";
+import { SearchEngineOptimizationPage } from "@/components/sections/SearchEngineOptimizationPage";
 import { searchEngineOptimizationPage } from "@/data/search-engine-optimization";
 
 export const metadata: Metadata = {
@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <BrandingServicePage data={searchEngineOptimizationPage} />;
+  return <SearchEngineOptimizationPage />;
 }

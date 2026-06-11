@@ -49,7 +49,7 @@ export const websiteDevelopmentPage = {
         icon: Globe,
       },
       {
-        title: "E-commerce Stores",
+        title: "E-commerce Websites",
         description: "Online storefronts with product catalogs, secure checkout, and sales-focused UX.",
         icon: ShoppingCart,
       },
@@ -85,10 +85,6 @@ export const websiteDevelopmentPage = {
       "Scalable Solutions",
       "Dedicated Support",
     ],
-    highlight: {
-      experience: "20+ Years of Industry Experience",
-      projects: "1200+ Projects Delivered",
-    },
   },
   process: {
     title: "Simple & Transparent Development Journey",
