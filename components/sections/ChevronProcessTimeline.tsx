@@ -30,11 +30,13 @@ export function ChevronProcessTimeline({ steps }: { steps: ChevronProcessStep[] 
           return (
             <div
               key={step.title}
-              className={`process-chevron-shell process-chevron-shell--${position}`}
+              className={`process-chevron-item process-chevron-item--${position}`}
               style={{ zIndex: steps.length - index }}
             >
-              <div className={`process-chevron-step process-chevron-step--${position}`}>
-                <ChevronStepContent title={step.title} description={step.description} />
+              <div className={`process-chevron-shell process-chevron-shell--${position}`}>
+                <div className={`process-chevron-step process-chevron-step--${position}`}>
+                  <ChevronStepContent title={step.title} description={step.description} />
+                </div>
               </div>
             </div>
           );
@@ -42,14 +44,16 @@ export function ChevronProcessTimeline({ steps }: { steps: ChevronProcessStep[] 
       </div>
 
       {/* Mobile — stacked downward chevrons */}
-      <div className="flex flex-col gap-2 lg:hidden">
+      <div className="process-chevron-track-mobile flex flex-col gap-2 lg:hidden">
         {steps.map((step, index) => {
           const position = index === lastIndex ? "last" : "arrow";
 
           return (
-            <div key={step.title} className={`process-chevron-shell-mobile process-chevron-shell-mobile--${position}`}>
-              <div className={`process-chevron-step-mobile process-chevron-step-mobile--${position}`}>
-                <ChevronStepContent title={step.title} description={step.description} />
+            <div key={step.title} className="process-chevron-item-mobile">
+              <div className={`process-chevron-shell-mobile process-chevron-shell-mobile--${position}`}>
+                <div className={`process-chevron-step-mobile process-chevron-step-mobile--${position}`}>
+                  <ChevronStepContent title={step.title} description={step.description} />
+                </div>
               </div>
             </div>
           );
