@@ -21,6 +21,32 @@ function SectionTitle({ children }: { children: ReactNode }) {
   );
 }
 
+function SeoProcessTimeline({
+  steps,
+}: {
+  steps: { title: string; description: string }[];
+}) {
+  return (
+    <div className="-mx-4 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 lg:mx-0 lg:overflow-visible lg:px-0">
+      <div className="flex min-w-max items-center gap-1.5 lg:min-w-0 lg:gap-2">
+        {steps.map((step, index) => (
+          <div key={step.title} className="flex items-center">
+            <div className="enterprise-card flex w-[9.25rem] flex-col items-center justify-center rounded-2xl px-3 py-3.5 text-center transition hover:-translate-y-0.5 sm:w-[10rem] lg:w-auto lg:min-w-0 lg:flex-1 lg:px-4 lg:py-4">
+              <h3 className="text-base font-extrabold leading-tight text-[#0A0F1C] sm:text-lg">{step.title}</h3>
+              <p className="mt-1 text-xs leading-5 text-[#334155] sm:text-sm">{step.description}</p>
+            </div>
+            {index < steps.length - 1 ? (
+              <div className="flex shrink-0 items-center px-0.5 sm:px-1">
+                <ArrowRight className="h-4 w-4 text-[#FF6B2C]" aria-hidden />
+              </div>
+            ) : null}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function SearchEngineOptimizationPage() {
   return (
     <>
@@ -115,29 +141,9 @@ export function SearchEngineOptimizationPage() {
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{process.title}</SectionTitle>
           </Reveal>
-          <div className="-mx-4 px-4 md:-mx-6 md:overflow-x-auto md:px-6 md:pb-2 lg:mx-0 lg:overflow-visible lg:px-0">
-            <div className="flex flex-col gap-4 md:min-w-max md:flex-row md:items-stretch md:gap-3 lg:min-w-0">
-              {process.steps.map((step, index) => (
-                <Reveal key={step.title} delay={index * 0.04} className="flex flex-col md:flex-row md:items-stretch lg:flex-1">
-                  <div className="flex flex-1 flex-col">
-                    <div className="enterprise-card flex h-full min-w-[10rem] flex-col rounded-2xl p-5 transition hover:-translate-y-0.5 md:min-w-[11rem] lg:min-w-0">
-                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6B2C] text-sm font-black text-white">
-                        {step.step}
-                      </span>
-                      <h3 className="mt-4 font-extrabold text-[#0A0F1C]">{step.title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-[#334155]">{step.description}</p>
-                    </div>
-                  </div>
-                  {index < process.steps.length - 1 ? (
-                    <div className="flex items-center justify-center py-1 md:px-1 md:py-0">
-                      <ArrowRight className="hidden h-5 w-5 shrink-0 text-[#FF6B2C] md:block" aria-hidden />
-                      <ArrowRight className="h-5 w-5 rotate-90 text-[#FF6B2C] md:hidden" aria-hidden />
-                    </div>
-                  ) : null}
-                </Reveal>
-              ))}
-            </div>
-          </div>
+          <Reveal delay={0.06}>
+            <SeoProcessTimeline steps={process.steps} />
+          </Reveal>
         </div>
       </section>
 
