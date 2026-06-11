@@ -3,12 +3,12 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { searchEngineOptimizationPage } from "@/data/search-engine-optimization";
+import { contentWritingPage } from "@/data/content-writing";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 
-const { hero, services, whySeo, process, deliverables, faqs, cta } = searchEngineOptimizationPage;
+const { hero, services, whyContent, process, contentTypes, whyChoose, faqs, cta } = contentWritingPage;
 
 function SectionTitle({ children }: { children: ReactNode }) {
   return (
@@ -18,7 +18,38 @@ function SectionTitle({ children }: { children: ReactNode }) {
   );
 }
 
-export function SearchEngineOptimizationPage() {
+function HorizontalProcessTimeline({
+  steps,
+}: {
+  steps: { step: number; title: string; description?: string }[];
+}) {
+  return (
+    <div className="-mx-4 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 lg:mx-0 lg:overflow-visible lg:px-0">
+      <div className="flex min-w-max items-stretch gap-2 lg:min-w-0 lg:gap-3">
+        {steps.map((step, index) => (
+          <div key={step.title} className="flex items-stretch">
+            <div className="enterprise-card flex w-[9.5rem] flex-col rounded-2xl p-4 transition hover:-translate-y-0.5 sm:w-[10.5rem] lg:w-auto lg:min-w-0 lg:flex-1 lg:p-5">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6B2C] text-sm font-black text-white">
+                {step.step}
+              </span>
+              <h3 className="mt-3 font-extrabold text-[#0A0F1C] lg:mt-4">{step.title}</h3>
+              {step.description ? (
+                <p className="mt-2 hidden text-sm leading-6 text-[#334155] lg:block">{step.description}</p>
+              ) : null}
+            </div>
+            {index < steps.length - 1 ? (
+              <div className="flex items-center px-1 sm:px-1.5">
+                <ArrowRight className="h-5 w-5 shrink-0 text-[#FF6B2C]" aria-hidden />
+              </div>
+            ) : null}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function ContentWritingPage() {
   return (
     <>
       {/* 1. Hero */}
@@ -67,7 +98,7 @@ export function SearchEngineOptimizationPage() {
         </div>
       </section>
 
-      {/* 2. SEO Services */}
+      {/* 2. Content Writing Services */}
       <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
@@ -92,14 +123,14 @@ export function SearchEngineOptimizationPage() {
         </div>
       </section>
 
-      {/* 3. Why SEO Matters */}
+      {/* 3. Why Great Content Matters */}
       <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{whySeo.title}</SectionTitle>
+            <SectionTitle>{whyContent.title}</SectionTitle>
           </Reveal>
           <RevealStagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {whySeo.items.map((item) => (
+            {whyContent.items.map((item) => (
               <RevealItem key={item.title}>
                 <div className="enterprise-card h-full rounded-2xl p-5 transition duration-300 hover:-translate-y-1">
                   <h3 className="font-extrabold text-[#0A0F1C]">{item.title}</h3>
@@ -111,50 +142,37 @@ export function SearchEngineOptimizationPage() {
         </div>
       </section>
 
-      {/* 4. Our SEO Process */}
+      {/* 4. Our Content Creation Process — horizontal timeline */}
       <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{process.title}</SectionTitle>
           </Reveal>
-          <div className="-mx-4 px-4 md:-mx-6 md:overflow-x-auto md:px-6 md:pb-2 lg:mx-0 lg:overflow-visible lg:px-0">
-            <div className="flex flex-col gap-4 md:min-w-max md:flex-row md:items-stretch md:gap-3 lg:min-w-0">
-              {process.steps.map((step, index) => (
-                <Reveal key={step.title} delay={index * 0.04} className="flex flex-col md:flex-row md:items-stretch lg:flex-1">
-                  <div className="flex flex-1 flex-col">
-                    <div className="enterprise-card flex h-full min-w-[10rem] flex-col rounded-2xl p-5 transition hover:-translate-y-0.5 md:min-w-[11rem] lg:min-w-0">
-                      <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6B2C] text-sm font-black text-white">
-                        {step.step}
-                      </span>
-                      <h3 className="mt-4 font-extrabold text-[#0A0F1C]">{step.title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-[#334155]">{step.description}</p>
-                    </div>
-                  </div>
-                  {index < process.steps.length - 1 ? (
-                    <div className="flex items-center justify-center py-1 md:px-1 md:py-0">
-                      <ArrowRight className="hidden h-5 w-5 shrink-0 text-[#FF6B2C] md:block" aria-hidden />
-                      <ArrowRight className="h-5 w-5 rotate-90 text-[#FF6B2C] md:hidden" aria-hidden />
-                    </div>
-                  ) : null}
-                </Reveal>
-              ))}
-            </div>
-          </div>
+          <Reveal delay={0.06}>
+            <HorizontalProcessTimeline steps={process.steps} />
+          </Reveal>
         </div>
       </section>
 
-      {/* 5. What You'll Get */}
+      {/* 5. Content Types We Create */}
       <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{deliverables.title}</SectionTitle>
+            <SectionTitle>{contentTypes.title}</SectionTitle>
           </Reveal>
-          <RevealStagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {deliverables.items.map((item) => (
-              <RevealItem key={item}>
-                <div className="flex items-start gap-3 rounded-2xl border border-[#0A0F1C]/8 bg-[#F8F9FC] px-4 py-4 transition hover:border-[#FF6B2C]/20">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#FF6B2C]" />
-                  <span className="text-sm font-semibold leading-6 text-[#0A0F1C] sm:text-base">{item}</span>
+          <RevealStagger className="grid gap-4 lg:grid-cols-3">
+            {contentTypes.stages.map((stage) => (
+              <RevealItem key={stage.stage}>
+                <div className="enterprise-card h-full rounded-2xl p-5 transition hover:-translate-y-0.5">
+                  <h3 className="text-lg font-extrabold text-[#FF6B2C]">{stage.stage}</h3>
+                  <ul className="mt-4 space-y-2">
+                    {stage.items.map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-sm font-medium text-[#0A0F1C]">
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF6B2C]" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </RevealItem>
             ))}
@@ -162,8 +180,38 @@ export function SearchEngineOptimizationPage() {
         </div>
       </section>
 
-      {/* 6. FAQ */}
+      {/* 6. Why Choose Byte Infomedia */}
       <section className="mesh-light section-enterprise">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal className="section-heading mx-auto max-w-2xl text-center lg:mx-0 lg:max-w-none lg:text-left">
+            <SectionTitle>{whyChoose.title}</SectionTitle>
+          </Reveal>
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <RevealStagger className="grid gap-3 sm:grid-cols-2">
+              {whyChoose.features.map((feature) => (
+                <RevealItem key={feature}>
+                  <div className="flex items-start gap-3 rounded-2xl border border-[#0A0F1C]/8 bg-white px-4 py-4 transition hover:border-[#FF6B2C]/20">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#FF6B2C]" />
+                    <span className="text-sm font-semibold leading-6 text-[#0A0F1C]">{feature}</span>
+                  </div>
+                </RevealItem>
+              ))}
+            </RevealStagger>
+            <Reveal delay={0.08}>
+              <div className="overflow-hidden rounded-[1.5rem] border border-[#0A0F1C]/8 shadow-[0_20px_56px_rgba(10,15,28,0.08)]">
+                <img
+                  src={whyChoose.illustration}
+                  alt={whyChoose.illustrationAlt}
+                  className="aspect-[4/3] w-full object-cover"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FAQ */}
+      <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading text-center">
             <SectionTitle>{faqs.title}</SectionTitle>
@@ -174,7 +222,7 @@ export function SearchEngineOptimizationPage() {
         </div>
       </section>
 
-      {/* 7. Final CTA */}
+      {/* 8. Final CTA */}
       <section className="mesh-hero relative overflow-hidden section-enterprise">
         <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">

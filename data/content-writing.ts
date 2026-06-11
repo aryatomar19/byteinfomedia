@@ -1,66 +1,175 @@
-import type { BrandingServicePageData } from "@/data/branding-service-types";
-import { defaultBenefits } from "@/data/branding-shared";
+import type { FaqItem } from "@/data/service-page-types";
+import type { LucideIcon } from "lucide-react";
+import {
+  BookOpen,
+  Globe,
+  Mail,
+  Megaphone,
+  Search,
+  Share2,
+} from "lucide-react";
 
 const img = "/images/branding/content-writing";
 
-export const contentWritingPage: BrandingServicePageData = {
-  slug: "content-writing",
-  badge: "Branding Solutions",
+export type ContentWritingService = {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+};
+
+export type ContentWritingWhyCard = {
+  title: string;
+  description: string;
+};
+
+export type ContentWritingProcessStep = {
+  step: number;
+  title: string;
+};
+
+export type ContentJourneyStage = {
+  stage: string;
+  items: string[];
+};
+
+export const contentWritingPage = {
   hero: {
-    title: "Professional Content Writing",
+    title: "Content That Connects, Engages & Converts",
     description:
-      "Website copy, blogs, technical documentation, product descriptions, and SEO content crafted to educate buyers, build trust, and drive action.",
+      "Professional content writing services that strengthen your brand, improve search visibility, and turn visitors into customers.",
     image: `${img}/hero.jpg`,
     imageAlt: "Content writers collaborating on website and marketing copy",
+    highlights: ["SEO-Friendly Content", "Industry-Specific Writers", "Conversion-Focused Copy"],
+    primaryCta: "Request Content Strategy",
+    secondaryCta: "Get a Free Quote",
   },
-  overview: {
-    title: "Content That Builds Authority and Converts",
-    description:
-      "BYTEINFOMEDIA produces clear, on-brand content for every stage of the buyer journey. Our writers work with your subject-matter experts to translate complex offerings into compelling narratives—optimized for search, structured for readability, and aligned with your tone of voice.",
-    businessBenefits: [
-      "Publish consistent, high-quality content without overloading internal teams",
-      "Improve SEO with keyword-informed articles and landing page copy",
-      "Accelerate sales cycles with case studies, whitepapers, and product messaging",
-      "Maintain brand voice across web, email, and social channels",
-      "Scale content production with editorial calendars and review workflows",
-    ],
-    useCases: [
-      "Website copy for new launches and redesigns",
-      "Weekly or monthly blog programs",
-      "Technical guides and solution documentation",
-      "E-commerce product and category descriptions",
-      "Email nurture and newsletter content",
-      "Thought leadership for executives and founders",
-    ],
+  services: {
+    title: "Content Tailored to Your Business Goals",
+    items: [
+      {
+        title: "Website Content",
+        description: "Clear, compelling copy for homepages, service pages, and core brand messaging.",
+        icon: Globe,
+      },
+      {
+        title: "Blog & Article Writing",
+        description: "Research-backed articles that build authority and attract organic traffic.",
+        icon: BookOpen,
+      },
+      {
+        title: "SEO Content Writing",
+        description: "Keyword-informed content designed to rank and convert search visitors.",
+        icon: Search,
+      },
+      {
+        title: "Marketing & Ad Copy",
+        description: "Persuasive campaign copy for ads, landing pages, and promotional assets.",
+        icon: Megaphone,
+      },
+      {
+        title: "Email Content",
+        description: "Engaging newsletters, nurture sequences, and email campaigns that drive action.",
+        icon: Mail,
+      },
+      {
+        title: "Social Media Content",
+        description: "On-brand posts and captions tailored for engagement across social platforms.",
+        icon: Share2,
+      },
+    ] satisfies ContentWritingService[],
   },
-  features: [
-    { title: "Website Content", description: "Homepage, service, and about copy that communicates value fast.", icon: "globe" },
-    { title: "Blog Writing", description: "Research-backed articles that attract traffic and nurture leads.", icon: "book" },
-    { title: "Technical Writing", description: "Documentation, how-tos, and solution briefs for technical buyers.", icon: "fileCode" },
-    { title: "Product Descriptions", description: "Persuasive copy for catalogs, marketplaces, and product pages.", icon: "package" },
-    { title: "SEO Content", description: "Search-optimized pages and posts mapped to intent and keywords.", icon: "search" },
-    { title: "Marketing Copywriting", description: "Ads, landing pages, emails, and campaign messaging.", icon: "megaphone" },
-    { title: "Editorial Planning", description: "Content calendars aligned with campaigns and product milestones.", icon: "clipboard" },
-    { title: "Proofreading & QA", description: "Grammar, style, and fact-check reviews before publication.", icon: "pen" },
-  ],
-  offerings: [
-    { title: "Website Content", description: "Conversion-focused copy for core pages and service lines.", image: `${img}/website-content.jpg`, imageAlt: "Professional writing website content on a laptop" },
-    { title: "Blog Writing", description: "Long-form posts and series that establish topical authority.", image: `${img}/blog.jpg`, imageAlt: "Blog writing and content marketing workspace" },
-    { title: "Technical Writing", description: "Clear explanations for APIs, platforms, and complex services.", image: `${img}/technical.jpg`, imageAlt: "Technical writer documenting software solutions" },
-    { title: "Product Descriptions", description: "Benefit-led descriptions that help shoppers decide quickly.", image: `${img}/product.jpg`, imageAlt: "Product description and e-commerce copywriting" },
-    { title: "SEO Content", description: "Keyword-targeted pages designed to rank and convert.", image: `${img}/seo-content.jpg`, imageAlt: "SEO content strategy and article planning" },
-    { title: "Marketing Copywriting", description: "Campaign assets that align creative with measurable goals.", image: `${img}/marketing.jpg`, imageAlt: "Marketing team reviewing campaign copy and creative" },
-  ],
-  benefits: defaultBenefits,
-  showcase: {
-    image: `${img}/showcase.jpg`,
-    imageAlt: "Content team workshop for brand messaging and editorial planning",
-    title: "Writers Who Understand Technology and Business",
-    description:
-      "We blend marketing storytelling with technical accuracy—ideal for IT services, cloud, cybersecurity, and B2B brands that need credibility without jargon overload.",
+  whyContent: {
+    title: "More Than Just Words",
+    items: [
+      {
+        title: "Build Brand Authority",
+        description: "Establish trust with your audience.",
+      },
+      {
+        title: "Improve SEO Rankings",
+        description: "Rank higher with optimized content.",
+      },
+      {
+        title: "Increase Engagement",
+        description: "Keep visitors interested and informed.",
+      },
+      {
+        title: "Generate More Leads",
+        description: "Guide readers toward action.",
+      },
+    ] satisfies ContentWritingWhyCard[],
+  },
+  process: {
+    title: "From Research to Results",
+    steps: [
+      { step: 1, title: "Research" },
+      { step: 2, title: "Strategy" },
+      { step: 3, title: "Writing" },
+      { step: 4, title: "Review" },
+      { step: 5, title: "Optimization" },
+      { step: 6, title: "Publish" },
+    ] satisfies ContentWritingProcessStep[],
+  },
+  contentTypes: {
+    title: "Content for Every Stage of the Customer Journey",
+    stages: [
+      {
+        stage: "Awareness",
+        items: ["Blogs", "Articles", "Social Posts"],
+      },
+      {
+        stage: "Consideration",
+        items: ["Case Studies", "Guides", "Email Campaigns"],
+      },
+      {
+        stage: "Conversion",
+        items: ["Landing Pages", "Sales Copy", "Product Descriptions"],
+      },
+    ] satisfies ContentJourneyStage[],
+  },
+  whyChoose: {
+    title: "Content That Delivers Business Results",
+    features: [
+      "Experienced Writers",
+      "SEO-Optimized Content",
+      "Industry Research",
+      "Original & Plagiarism-Free",
+      "Consistent Brand Voice",
+      "Fast Turnaround Time",
+    ],
+    illustration: `${img}/showcase.jpg`,
+    illustrationAlt: "Content marketing team planning editorial strategy",
+  },
+  faqs: {
+    title: "Frequently Asked Questions",
+    items: [
+      {
+        question: "What industries do you write for?",
+        answer:
+          "We write for B2B technology, cloud services, cybersecurity, healthcare, e-commerce, professional services, and other industries requiring clear, credible messaging.",
+      },
+      {
+        question: "Is the content SEO optimized?",
+        answer:
+          "Yes. Our writers incorporate keyword research, search intent, meta elements, and on-page best practices to help your content rank and convert.",
+      },
+      {
+        question: "Do you provide blog writing services?",
+        answer:
+          "Yes. We offer ongoing blog programs, editorial calendars, topic research, and long-form articles tailored to your audience and business goals.",
+      },
+      {
+        question: "How do you ensure originality?",
+        answer:
+          "Every piece is written from scratch, reviewed for quality, and checked with plagiarism detection tools before delivery to ensure unique, original content.",
+      },
+    ] satisfies FaqItem[],
   },
   cta: {
-    title: "Need Content That Drives Results?",
-    description: "Tell us about your audience and publishing goals—we will recommend a content plan and sample topics.",
+    title: "Ready to Tell Your Story Better?",
+    description:
+      "Let our content experts create compelling content that attracts, engages, and converts your audience.",
+    primaryLabel: "Get Started Today",
+    secondaryLabel: "Talk to a Content Expert",
   },
 };
