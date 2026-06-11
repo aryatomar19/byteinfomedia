@@ -21,7 +21,7 @@ export type BlogArticleSection = {
 };
 
 export const featuredBlog = {
-  slug: "digital-marketing-online-business-growth",
+  slug: "digital-marketing-key-to-online-business-growth",
   category: "Digital Marketing",
   title: "Digital Marketing: The Key to Online Business Growth",
   subtitle: "Why Some Businesses Grow Faster Online Than Others",
@@ -32,7 +32,7 @@ export const featuredBlog = {
     "Digital marketing featured graphic showing analytics dashboards, a marketing strategy notebook, and growth pillars including visibility, audience targeting, measurable results, and sustainable growth",
   publishedAt: "June 11, 2026",
   readTime: "6 min read",
-  href: "/blogs/digital-marketing-online-business-growth/",
+  href: "/blog/digital-marketing-key-to-online-business-growth/",
   readMoreLabel: "Read More",
 } as const;
 
