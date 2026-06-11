@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { searchEngineOptimizationPage } from "@/data/search-engine-optimization";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
@@ -21,29 +21,61 @@ function SectionTitle({ children }: { children: ReactNode }) {
   );
 }
 
+function ChevronStepContent({ title, description }: { title: string; description: string }) {
+  return (
+    <div className="px-1">
+      <h3 className="text-sm font-extrabold leading-tight text-[#0A0F1C] sm:text-base lg:text-[0.95rem] xl:text-base">
+        {title}
+      </h3>
+      <p className="mt-0.5 text-[0.6875rem] leading-4 text-[#334155] sm:text-xs lg:leading-5">{description}</p>
+    </div>
+  );
+}
+
 function SeoProcessTimeline({
   steps,
 }: {
   steps: { title: string; description: string }[];
 }) {
+  const lastIndex = steps.length - 1;
+
   return (
-    <div className="-mx-4 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 lg:mx-0 lg:overflow-visible lg:px-0">
-      <div className="flex min-w-max items-center gap-1.5 lg:min-w-0 lg:gap-2">
+    <>
+      {/* Desktop — connected horizontal chevrons */}
+      <div className="hidden w-full lg:flex">
         {steps.map((step, index) => (
-          <div key={step.title} className="flex items-center">
-            <div className="enterprise-card flex w-[9.25rem] flex-col items-center justify-center rounded-2xl px-3 py-3.5 text-center transition hover:-translate-y-0.5 sm:w-[10rem] lg:w-auto lg:min-w-0 lg:flex-1 lg:px-4 lg:py-4">
-              <h3 className="text-base font-extrabold leading-tight text-[#0A0F1C] sm:text-lg">{step.title}</h3>
-              <p className="mt-1 text-xs leading-5 text-[#334155] sm:text-sm">{step.description}</p>
-            </div>
-            {index < steps.length - 1 ? (
-              <div className="flex shrink-0 items-center px-0.5 sm:px-1">
-                <ArrowRight className="h-4 w-4 text-[#FF6B2C]" aria-hidden />
-              </div>
-            ) : null}
+          <div
+            key={step.title}
+            className={
+              index === 0
+                ? "seo-chevron-step seo-chevron-step--first"
+                : index === lastIndex
+                  ? "seo-chevron-step seo-chevron-step--last"
+                  : "seo-chevron-step seo-chevron-step--middle"
+            }
+            style={{ zIndex: steps.length - index }}
+          >
+            <ChevronStepContent title={step.title} description={step.description} />
           </div>
         ))}
       </div>
-    </div>
+
+      {/* Mobile — stacked downward chevrons */}
+      <div className="flex flex-col lg:hidden">
+        {steps.map((step, index) => (
+          <div
+            key={step.title}
+            className={
+              index === lastIndex
+                ? "seo-chevron-step-mobile seo-chevron-step-mobile--last"
+                : "seo-chevron-step-mobile seo-chevron-step-mobile--arrow"
+            }
+          >
+            <ChevronStepContent title={step.title} description={step.description} />
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
