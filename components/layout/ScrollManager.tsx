@@ -2,23 +2,54 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { scrollToHash, scrollToTop } from "@/lib/scroll";
+import { forceScrollToTop, initScrollRestoration, isIntentionalHash, scrollToHash } from "@/lib/scroll";
+
+function runAfterNavigation(callback: () => void) {
+  callback();
+  const frame = window.requestAnimationFrame(callback);
+  const timeout = window.setTimeout(callback, 0);
+
+  return () => {
+    window.cancelAnimationFrame(frame);
+    window.clearTimeout(timeout);
+  };
+}
 
 export function ScrollManager() {
   const pathname = usePathname();
 
   useEffect(() => {
+    initScrollRestoration();
+  }, []);
+
+  useEffect(() => {
     const hash = window.location.hash;
 
-    if (hash) {
-      const frame = window.requestAnimationFrame(() => {
-        scrollToHash(hash, "smooth");
+    if (isIntentionalHash(hash)) {
+      return runAfterNavigation(() => {
+        scrollToHash(hash, "instant");
       });
-      return () => window.cancelAnimationFrame(frame);
     }
 
-    scrollToTop("instant");
+    return runAfterNavigation(() => {
+      forceScrollToTop();
+    });
   }, [pathname]);
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const hash = window.location.hash;
+      if (isIntentionalHash(hash)) {
+        scrollToHash(hash, "instant");
+        return;
+      }
+
+      forceScrollToTop();
+    };
+
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   return null;
 }
