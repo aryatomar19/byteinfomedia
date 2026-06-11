@@ -4,6 +4,7 @@ import {
   CloudCog,
   Eye,
   Headphones,
+  Megaphone,
   ShieldCheck,
   Sparkles,
   Target,
@@ -13,10 +14,10 @@ import {
 export const aboutPage = {
   hero: {
     badge: "ABOUT BYTEINFOMEDIA",
-    titleLine1: "Transforming Cloud, Security & AI",
+    titleLine1: "Transforming Technology & Digital Growth",
     titleLine2: "For Modern Businesses",
     description:
-      "BYTEINFOMEDIA helps organizations modernize infrastructure, accelerate cloud adoption, strengthen cybersecurity, and implement scalable AI solutions.",
+      "BYTEINFOMEDIA helps organizations modernize cloud, DevOps, cybersecurity, and AI while driving website development, SEO, content writing, social media marketing, and digital marketing growth.",
   },
   heroImage: {
     src: "/images/about/hero-enterprise.jpg",
@@ -24,11 +25,11 @@ export const aboutPage = {
   },
   mission: {
     title: "Mission",
-    body: "Our mission is to empower businesses with reliable, secure, and scalable technology solutions. We aim to simplify IT operations, optimize infrastructure, and provide innovative cloud and cybersecurity services that allow organizations to focus on growth and innovation.",
+    body: "Our mission is to empower businesses with reliable, secure, and scalable technology solutions. We simplify IT operations, optimize infrastructure, and drive digital growth through cloud, cybersecurity, and marketing services that let organizations focus on innovation.",
   },
   vision: {
     title: "Vision",
-    body: "Our vision is to become a trusted technology partner for businesses worldwide by delivering cutting-edge IT solutions that drive digital transformation and create long-term value for our clients.",
+    body: "Our vision is to become a trusted partner for businesses worldwide by delivering technology transformation and digital growth solutions that create long-term value for our clients.",
   },
   whyChoose: [
     {
@@ -52,13 +53,13 @@ export const aboutPage = {
       icon: Headphones,
     },
     {
-      title: "Transparent Delivery",
-      description: "Clear roadmaps, direct consultant access, and measurable milestones throughout engagement.",
-      icon: Target,
+      title: "Digital Growth Solutions",
+      description: "SEO, website development, social media, and digital marketing programs that expand reach and generate qualified leads.",
+      icon: Megaphone,
     },
     {
       title: "Business-Focused Solutions",
-      description: "Technology decisions tied to outcomes — cost, speed, compliance, and reliability.",
+      description: "Technology and marketing decisions tied to outcomes — cost, speed, compliance, and revenue growth.",
       icon: CloudCog,
     },
   ] satisfies { title: string; description: string; icon: LucideIcon }[],
@@ -92,6 +93,12 @@ export const aboutPage = {
       description: "AI strategy, LLM integration, chatbots, and enterprise automation.",
       icon: Sparkles,
       href: "/generative-ai/",
+    },
+    {
+      title: "Digital Marketing",
+      description: "SEO, website development, content marketing, social media management, paid campaigns, and online brand growth.",
+      icon: Megaphone,
+      href: "/social-media-marketing/",
     },
   ] satisfies { title: string; description: string; icon: LucideIcon; href: string }[],
   expertiseBanner: {
