@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { searchEngineOptimizationPage } from "@/data/search-engine-optimization";
+import { ChevronProcessTimeline } from "@/components/sections/ChevronProcessTimeline";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -18,64 +19,6 @@ function SectionTitle({ children }: { children: ReactNode }) {
     <h2 className="font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
       {children}
     </h2>
-  );
-}
-
-function ChevronStepContent({ title, description }: { title: string; description: string }) {
-  return (
-    <div className="px-1">
-      <h3 className="text-sm font-extrabold leading-tight text-[#0A0F1C] sm:text-base lg:text-[0.95rem] xl:text-base">
-        {title}
-      </h3>
-      <p className="mt-0.5 text-[0.6875rem] leading-4 text-[#334155] sm:text-xs lg:leading-5">{description}</p>
-    </div>
-  );
-}
-
-function SeoProcessTimeline({
-  steps,
-}: {
-  steps: { title: string; description: string }[];
-}) {
-  const lastIndex = steps.length - 1;
-
-  return (
-    <>
-      {/* Desktop — connected horizontal chevrons */}
-      <div className="hidden w-full lg:flex">
-        {steps.map((step, index) => {
-          const position =
-            index === 0 ? "first" : index === lastIndex ? "last" : "middle";
-
-          return (
-            <div
-              key={step.title}
-              className={`seo-chevron-shell seo-chevron-shell--${position}`}
-              style={{ zIndex: steps.length - index }}
-            >
-              <div className={`seo-chevron-step seo-chevron-step--${position}`}>
-                <ChevronStepContent title={step.title} description={step.description} />
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Mobile — stacked downward chevrons */}
-      <div className="flex flex-col gap-2 lg:hidden">
-        {steps.map((step, index) => {
-          const position = index === lastIndex ? "last" : "arrow";
-
-          return (
-            <div key={step.title} className={`seo-chevron-shell-mobile seo-chevron-shell-mobile--${position}`}>
-              <div className={`seo-chevron-step-mobile seo-chevron-step-mobile--${position}`}>
-                <ChevronStepContent title={step.title} description={step.description} />
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </>
   );
 }
 
@@ -174,7 +117,7 @@ export function SearchEngineOptimizationPage() {
             <SectionTitle>{process.title}</SectionTitle>
           </Reveal>
           <Reveal delay={0.06}>
-            <SeoProcessTimeline steps={process.steps} />
+            <ChevronProcessTimeline steps={process.steps} />
           </Reveal>
         </div>
       </section>

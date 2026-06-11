@@ -2,8 +2,9 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { contentWritingPage } from "@/data/content-writing";
+import { ChevronProcessTimeline } from "@/components/sections/ChevronProcessTimeline";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -18,37 +19,6 @@ function SectionTitle({ children }: { children: ReactNode }) {
     <h2 className="font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
       {children}
     </h2>
-  );
-}
-
-function HorizontalProcessTimeline({
-  steps,
-}: {
-  steps: { step: number; title: string; description?: string }[];
-}) {
-  return (
-    <div className="-mx-4 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 lg:mx-0 lg:overflow-visible lg:px-0">
-      <div className="flex min-w-max items-stretch justify-center gap-3 lg:min-w-0 lg:gap-4">
-        {steps.map((step, index) => (
-          <div key={step.title} className="flex items-stretch">
-            <div className="enterprise-card flex w-[11rem] flex-col rounded-2xl p-5 transition hover:-translate-y-0.5 sm:w-[12rem] lg:w-auto lg:min-w-0 lg:flex-1">
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#FF6B2C] text-base font-black text-white">
-                {step.step}
-              </span>
-              <h3 className="mt-4 text-lg font-extrabold text-[#0A0F1C]">{step.title}</h3>
-              {step.description ? (
-                <p className="mt-2 hidden text-sm leading-6 text-[#334155] lg:block">{step.description}</p>
-              ) : null}
-            </div>
-            {index < steps.length - 1 ? (
-              <div className="flex items-center px-1.5 sm:px-2">
-                <ArrowRight className="h-6 w-6 shrink-0 text-[#FF6B2C]" aria-hidden />
-              </div>
-            ) : null}
-          </div>
-        ))}
-      </div>
-    </div>
   );
 }
 
@@ -147,7 +117,7 @@ export function ContentWritingPage() {
             <SectionTitle>{process.title}</SectionTitle>
           </Reveal>
           <Reveal delay={0.06}>
-            <HorizontalProcessTimeline steps={process.steps} />
+            <ChevronProcessTimeline steps={process.steps} />
           </Reveal>
         </div>
       </section>
