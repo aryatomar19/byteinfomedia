@@ -179,27 +179,40 @@ a {
 /* Service process — connected chevron arrow blocks */
 .process-chevron-track {
   overflow: visible;
-  padding-bottom: 3px;
-  padding-left: 2px;
+  padding-bottom: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.process-chevron-item {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: visible;
+  filter:
+    drop-shadow(0 3px 0 #b0b0b0)
+    drop-shadow(0 5px 14px rgba(10, 15, 28, 0.14));
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.process-chevron-item:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 0 1.5px rgba(255, 107, 44, 0.85)) drop-shadow(0 8px 22px rgba(255, 107, 44, 0.2));
+}
+
+.process-chevron-item:hover .process-chevron-shell {
+  background: #ff6b2c;
+}
+
+.process-chevron-item--middle,
+.process-chevron-item--last {
+  margin-left: -7px;
 }
 
 .process-chevron-shell {
-  flex: 1 1 0;
-  min-width: 0;
   background: #d9d9d9;
-  filter:
-    drop-shadow(0 1.5px 0 #d9d9d9)
-    drop-shadow(0 4px 16px rgba(10, 15, 28, 0.12));
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease,
-    background 0.3s ease;
-}
-
-.process-chevron-shell:hover {
-  background: #ff6b2c;
-  transform: translateY(-2px);
-  filter: drop-shadow(0 0 0 1.5px rgba(255, 107, 44, 0.9)) drop-shadow(0 8px 22px rgba(255, 107, 44, 0.2));
+  transition: background 0.3s ease;
 }
 
 .process-chevron-shell--first {
@@ -208,12 +221,10 @@ a {
 
 .process-chevron-shell--middle {
   clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
-  margin-left: -7px;
 }
 
 .process-chevron-shell--last {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 20px 50%);
-  margin-left: -7px;
 }
 
 .process-chevron-step {
@@ -221,7 +232,7 @@ a {
   min-height: 5.5rem;
   align-items: center;
   justify-content: center;
-  padding: 0.875rem 1.25rem 0.875rem 1.5rem;
+  padding: 0.875rem 1.25rem;
   text-align: center;
   background: #ffffff;
 }
@@ -231,10 +242,9 @@ a {
     1.5px 1.5px,
     calc(100% - 21.5px) 1.5px,
     calc(100% - 1.5px) 50%,
-    calc(100% - 21.5px) calc(100% - 2px),
-    1.5px calc(100% - 2px)
+    calc(100% - 21.5px) calc(100% - 4px),
+    1.5px calc(100% - 4px)
   );
-  padding-left: 1rem;
 }
 
 .process-chevron-step--middle {
@@ -242,8 +252,8 @@ a {
     1.5px 1.5px,
     calc(100% - 21.5px) 1.5px,
     calc(100% - 1.5px) 50%,
-    calc(100% - 21.5px) calc(100% - 2px),
-    1.5px calc(100% - 2px),
+    calc(100% - 21.5px) calc(100% - 4px),
+    1.5px calc(100% - 4px),
     21.5px 50%
   );
 }
@@ -252,28 +262,39 @@ a {
   clip-path: polygon(
     1.5px 1.5px,
     calc(100% - 1.5px) 1.5px,
-    calc(100% - 1.5px) calc(100% - 2px),
-    1.5px calc(100% - 2px),
+    calc(100% - 1.5px) calc(100% - 4px),
+    1.5px calc(100% - 4px),
     21.5px 50%
   );
-  padding-right: 1rem;
+}
+
+.process-chevron-track-mobile {
+  overflow: visible;
+  padding-bottom: 4px;
+}
+
+.process-chevron-item-mobile {
+  overflow: visible;
+  filter:
+    drop-shadow(0 3px 0 #b0b0b0)
+    drop-shadow(0 4px 14px rgba(10, 15, 28, 0.12));
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.process-chevron-item-mobile:hover {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 0 0 1.5px rgba(255, 107, 44, 0.85)) drop-shadow(0 6px 18px rgba(255, 107, 44, 0.18));
+}
+
+.process-chevron-item-mobile:hover .process-chevron-shell-mobile {
+  background: #ff6b2c;
 }
 
 .process-chevron-shell-mobile {
   background: #d9d9d9;
-  filter:
-    drop-shadow(0 1.5px 0 #d9d9d9)
-    drop-shadow(0 4px 14px rgba(10, 15, 28, 0.1));
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease,
-    background 0.3s ease;
-}
-
-.process-chevron-shell-mobile:hover {
-  background: #ff6b2c;
-  transform: translateY(-1px);
-  filter: drop-shadow(0 0 0 1.5px rgba(255, 107, 44, 0.9)) drop-shadow(0 6px 18px rgba(255, 107, 44, 0.18));
+  transition: background 0.3s ease;
 }
 
 .process-chevron-shell-mobile--arrow {
