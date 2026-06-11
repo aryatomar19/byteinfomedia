@@ -3,12 +3,12 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { contentWritingPage } from "@/data/content-writing";
+import { socialMediaMarketingPage } from "@/data/social-media-marketing";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 
-const { hero, services, whyContent, process, contentTypes, whyChoose, faqs, cta } = contentWritingPage;
+const { hero, services, platforms, process, results, whyChoose, faqs, cta } = socialMediaMarketingPage;
 
 const heroSecondaryButtonClass =
   "border-2 border-white/60 bg-white/15 font-semibold text-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:border-white hover:bg-white/25";
@@ -24,11 +24,11 @@ function SectionTitle({ children }: { children: ReactNode }) {
 function HorizontalProcessTimeline({
   steps,
 }: {
-  steps: { step: number; title: string; description?: string }[];
+  steps: { step: number; title: string; description: string }[];
 }) {
   return (
     <div className="-mx-4 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 lg:mx-0 lg:overflow-visible lg:px-0">
-      <div className="flex min-w-max items-stretch justify-center gap-3 lg:min-w-0 lg:gap-4">
+      <div className="flex min-w-max items-stretch gap-3 lg:min-w-0 lg:gap-4">
         {steps.map((step, index) => (
           <div key={step.title} className="flex items-stretch">
             <div className="enterprise-card flex w-[11rem] flex-col rounded-2xl p-5 transition hover:-translate-y-0.5 sm:w-[12rem] lg:w-auto lg:min-w-0 lg:flex-1">
@@ -36,9 +36,7 @@ function HorizontalProcessTimeline({
                 {step.step}
               </span>
               <h3 className="mt-4 text-lg font-extrabold text-[#0A0F1C]">{step.title}</h3>
-              {step.description ? (
-                <p className="mt-2 hidden text-sm leading-6 text-[#334155] lg:block">{step.description}</p>
-              ) : null}
+              <p className="mt-2 text-sm leading-6 text-[#334155]">{step.description}</p>
             </div>
             {index < steps.length - 1 ? (
               <div className="flex items-center px-1.5 sm:px-2">
@@ -52,7 +50,7 @@ function HorizontalProcessTimeline({
   );
 }
 
-export function ContentWritingPage() {
+export function SocialMediaMarketingPage() {
   return (
     <>
       {/* 1. Hero */}
@@ -96,7 +94,7 @@ export function ContentWritingPage() {
         </div>
       </section>
 
-      {/* 2. Content Writing Services */}
+      {/* 2. Social Media Services */}
       <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
@@ -121,18 +119,17 @@ export function ContentWritingPage() {
         </div>
       </section>
 
-      {/* 3. Why Great Content Matters */}
+      {/* 3. Platforms We Manage */}
       <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{whyContent.title}</SectionTitle>
+            <SectionTitle>{platforms.title}</SectionTitle>
           </Reveal>
-          <RevealStagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {whyContent.items.map((item) => (
-              <RevealItem key={item.title}>
-                <div className="enterprise-card h-full rounded-2xl p-5 transition duration-300 hover:-translate-y-1">
-                  <h3 className="font-extrabold text-[#0A0F1C]">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#334155]">{item.description}</p>
+          <RevealStagger className="flex flex-wrap justify-center gap-4">
+            {platforms.items.map((platform) => (
+              <RevealItem key={platform}>
+                <div className="enterprise-card flex h-24 min-w-[8.5rem] items-center justify-center rounded-2xl px-8 transition duration-300 hover:-translate-y-1 sm:min-w-[10rem]">
+                  <span className="text-lg font-extrabold text-[#0A0F1C]">{platform}</span>
                 </div>
               </RevealItem>
             ))}
@@ -140,7 +137,7 @@ export function ContentWritingPage() {
         </div>
       </section>
 
-      {/* 4. Our Content Creation Process — horizontal timeline */}
+      {/* 4. Our Social Media Process */}
       <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
@@ -152,28 +149,26 @@ export function ContentWritingPage() {
         </div>
       </section>
 
-      {/* 5. Content Types We Create */}
+      {/* 5. What You Can Expect */}
       <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{contentTypes.title}</SectionTitle>
+            <SectionTitle>{results.title}</SectionTitle>
           </Reveal>
-          <RevealStagger className="grid gap-4 lg:grid-cols-3">
-            {contentTypes.stages.map((stage) => (
-              <RevealItem key={stage.stage}>
-                <div className="enterprise-card h-full rounded-2xl p-5 transition hover:-translate-y-0.5">
-                  <h3 className="text-lg font-extrabold text-[#FF6B2C]">{stage.stage}</h3>
-                  <ul className="mt-4 space-y-2">
-                    {stage.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-sm font-medium text-[#0A0F1C]">
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF6B2C]" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </RevealItem>
-            ))}
+          <RevealStagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {results.items.map((item) => {
+              const Icon = item.icon;
+              return (
+                <RevealItem key={item.title}>
+                  <div className="enterprise-card group h-full rounded-2xl p-5 transition duration-300 hover:-translate-y-1">
+                    <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FF6B2C]/12 text-[#FF6B2C] ring-1 ring-[#FF6B2C]/20 transition group-hover:scale-105">
+                      <Icon className="h-6 w-6" />
+                    </span>
+                    <h3 className="mt-4 font-extrabold text-[#0A0F1C]">{item.title}</h3>
+                  </div>
+                </RevealItem>
+              );
+            })}
           </RevealStagger>
         </div>
       </section>
@@ -185,7 +180,7 @@ export function ContentWritingPage() {
             <SectionTitle>{whyChoose.title}</SectionTitle>
           </Reveal>
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <RevealStagger className="grid content-center gap-4 sm:grid-cols-2">
+            <RevealStagger className="grid gap-4 sm:grid-cols-2">
               {whyChoose.features.map((feature) => (
                 <RevealItem key={feature}>
                   <div className="flex h-full items-start gap-3.5 rounded-2xl border border-[#0A0F1C]/8 bg-white px-5 py-5 transition hover:border-[#FF6B2C]/20">
@@ -195,7 +190,7 @@ export function ContentWritingPage() {
                 </RevealItem>
               ))}
             </RevealStagger>
-            <Reveal delay={0.08} className="flex items-center">
+            <Reveal delay={0.08}>
               <div className="overflow-hidden rounded-[1.5rem] border border-[#0A0F1C]/8 shadow-[0_20px_56px_rgba(10,15,28,0.08)]">
                 <img
                   src={whyChoose.illustration}
