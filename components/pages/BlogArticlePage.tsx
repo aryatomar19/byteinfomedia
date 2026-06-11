@@ -1,11 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { BlogNavLink } from "@/components/blog/BlogNavLink";
 import type { BlogArticleSubsection } from "@/data/blog";
-import { featuredBlogArticle } from "@/data/blog";
+import { featuredBlogArticle, latestBlogSection } from "@/data/blog";
 import { Reveal } from "@/components/motion/Reveal";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 function BlogBulletList({ items }: { items: readonly string[] }) {
   return (
@@ -52,12 +53,13 @@ export function BlogArticlePage() {
     <article className="bg-white">
       <section className="border-b border-[#0A0F1C]/6 bg-[#F7F8FA] py-8 sm:py-10">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <Button variant="ghost" size="sm" className="mb-6 -ml-2" asChild>
-            <Link href="/blogs/" scroll>
-              <ArrowLeft className="h-4 w-4" />
-              All Blogs
-            </Link>
-          </Button>
+          <BlogNavLink
+            href={latestBlogSection.viewAllHref}
+            className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "mb-6 -ml-2")}
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back to Blogs
+          </BlogNavLink>
 
           <Reveal>
             <span className="inline-flex rounded-full border border-[#FF6B2C]/25 bg-white px-3.5 py-1 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#FF6B2C]">

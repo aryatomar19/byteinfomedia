@@ -1,18 +1,28 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { motion } from "framer-motion";
+import { BlogNavLink } from "@/components/blog/BlogNavLink";
 import { featuredBlog } from "@/data/blog";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type FeaturedBlogCardProps = {
   index?: number;
 };
 
 export function FeaturedBlogCard({ index = 0 }: FeaturedBlogCardProps) {
-  const { category, title, excerpt, image, imageAlt, publishedAt, readTime, href, readMoreLabel } =
-    featuredBlog;
+  const {
+    category,
+    title,
+    excerpt,
+    image,
+    imageAlt,
+    publishedAt,
+    readTime,
+    href,
+    readMoreLabel,
+  } = featuredBlog;
 
   return (
     <motion.article
@@ -23,7 +33,7 @@ export function FeaturedBlogCard({ index = 0 }: FeaturedBlogCardProps) {
       whileHover={{ y: -4 }}
       className="enterprise-card group overflow-hidden rounded-[1.25rem] bg-white shadow-[0_20px_60px_rgba(10,15,28,0.08)] transition duration-300 hover:shadow-[0_28px_72px_rgba(10,15,28,0.12)] sm:rounded-[1.125rem] lg:rounded-[1.25rem]"
     >
-      <Link href={href} scroll className="block">
+      <BlogNavLink href={href} className="block">
         <div className="relative aspect-[16/9] overflow-hidden sm:aspect-[21/9]">
           <img
             src={image}
@@ -34,7 +44,7 @@ export function FeaturedBlogCard({ index = 0 }: FeaturedBlogCardProps) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/35 via-transparent to-transparent" />
         </div>
-      </Link>
+      </BlogNavLink>
 
       <div className="p-6 sm:p-8">
         <span className="inline-flex rounded-full border border-[#FF6B2C]/25 bg-[#FFF7F3] px-3.5 py-1 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#FF6B2C]">
@@ -42,9 +52,9 @@ export function FeaturedBlogCard({ index = 0 }: FeaturedBlogCardProps) {
         </span>
 
         <h3 className="mt-4 font-[family-name:var(--font-inter)] text-2xl font-extrabold leading-tight tracking-tight text-[#0A0F1C] sm:text-[1.75rem]">
-          <Link href={href} scroll className="transition hover:text-[#FF6B2C]">
+          <BlogNavLink href={href} className="transition hover:text-[#FF6B2C]">
             {title}
-          </Link>
+          </BlogNavLink>
         </h3>
 
         <p className="mt-4 text-base leading-7 text-[#334155]">{excerpt}</p>
@@ -60,12 +70,13 @@ export function FeaturedBlogCard({ index = 0 }: FeaturedBlogCardProps) {
           </span>
         </div>
 
-        <Button variant="outline" size="default" className="mt-6" asChild>
-          <Link href={href} scroll>
-            {readMoreLabel}
-            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-          </Link>
-        </Button>
+        <BlogNavLink
+          href={href}
+          className={cn(buttonVariants({ variant: "outline", size: "default" }), "mt-6")}
+        >
+          {readMoreLabel}
+          <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+        </BlogNavLink>
       </div>
     </motion.article>
   );

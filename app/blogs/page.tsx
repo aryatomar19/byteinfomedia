@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { BlogsPage } from "@/components/pages/BlogsPage";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "Blogs",
   description:
