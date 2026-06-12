@@ -10,9 +10,9 @@ import { Button } from "@/components/ui/button";
 export function BlogsPage() {
   return (
     <div className="bg-[#F7F8FA]">
-      <section className="border-b border-[#0A0F1C]/6 bg-white py-6 sm:py-7">
+      <section className="border-b border-[#0A0F1C]/6 bg-white pt-2 pb-4 sm:pt-3 sm:pb-5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Button variant="ghost" size="sm" className="mb-3 -ml-2" asChild>
+          <Button variant="ghost" size="sm" className="mb-1 h-8 -ml-2 px-2" asChild>
             <Link href="/" scroll>
               <ArrowLeft className="h-4 w-4" />
               Back to Home
@@ -24,13 +24,9 @@ export function BlogsPage() {
             centered={false}
             flushTitle
             compact
+            dense
           />
-        </div>
-      </section>
-
-      <section className="py-4 md:py-5 lg:py-6">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-5xl">
+          <div className="mx-auto mt-3 max-w-5xl sm:mt-4">
             <FeaturedBlogCard compact />
           </div>
         </div>
