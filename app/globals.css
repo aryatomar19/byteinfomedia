@@ -32,6 +32,19 @@ a {
   text-decoration: none;
 }
 
+.hero-learn-more-btn,
+.hero-learn-more-btn:hover,
+.hero-learn-more-btn:focus-visible {
+  color: #ffffff !important;
+}
+
+.hero-learn-more-btn svg,
+.hero-learn-more-btn svg path {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+  fill: none;
+}
+
 ::selection {
   background: rgba(255, 107, 44, 0.22);
   color: var(--text);
