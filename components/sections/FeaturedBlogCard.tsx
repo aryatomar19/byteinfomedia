@@ -9,9 +9,10 @@ import { cn } from "@/lib/utils";
 
 type FeaturedBlogCardProps = {
   index?: number;
+  compact?: boolean;
 };
 
-export function FeaturedBlogCard({ index = 0 }: FeaturedBlogCardProps) {
+export function FeaturedBlogCard({ index = 0, compact = false }: FeaturedBlogCardProps) {
   const {
     category,
     title,
@@ -34,7 +35,12 @@ export function FeaturedBlogCard({ index = 0 }: FeaturedBlogCardProps) {
       className="enterprise-card group overflow-hidden rounded-[1.25rem] bg-white shadow-[0_20px_60px_rgba(10,15,28,0.08)] transition duration-300 hover:shadow-[0_28px_72px_rgba(10,15,28,0.12)] sm:rounded-[1.125rem] lg:rounded-[1.25rem]"
     >
       <BlogNavLink href={href} className="block">
-        <div className="relative aspect-[16/9] overflow-hidden sm:aspect-[21/9]">
+        <div
+          className={cn(
+            "relative aspect-[16/9] overflow-hidden",
+            compact ? "sm:aspect-[18/9]" : "sm:aspect-[21/9]",
+          )}
+        >
           <img
             src={image}
             alt={imageAlt}
@@ -46,20 +52,32 @@ export function FeaturedBlogCard({ index = 0 }: FeaturedBlogCardProps) {
         </div>
       </BlogNavLink>
 
-      <div className="p-6 sm:p-8">
+      <div className={cn(compact ? "p-5 sm:p-6" : "p-6 sm:p-8")}>
         <span className="inline-flex rounded-full border border-[#FF6B2C]/25 bg-[#FFF7F3] px-3.5 py-1 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#FF6B2C]">
           {category}
         </span>
 
-        <h3 className="mt-4 font-[family-name:var(--font-inter)] text-2xl font-extrabold leading-tight tracking-tight text-[#0A0F1C] sm:text-[1.75rem]">
+        <h3
+          className={cn(
+            "font-[family-name:var(--font-inter)] font-extrabold leading-tight tracking-tight text-[#0A0F1C]",
+            compact ? "mt-3 text-xl sm:text-2xl" : "mt-4 text-2xl sm:text-[1.75rem]",
+          )}
+        >
           <BlogNavLink href={href} className="transition hover:text-[#FF6B2C]">
             {title}
           </BlogNavLink>
         </h3>
 
-        <p className="mt-4 text-base leading-7 text-[#334155]">{excerpt}</p>
+        <p className={cn("text-base text-[#334155]", compact ? "mt-3 line-clamp-3 leading-6" : "mt-4 leading-7")}>
+          {excerpt}
+        </p>
 
-        <div className="mt-5 flex flex-wrap items-center gap-4 text-sm font-semibold text-[#5F6F86]">
+        <div
+          className={cn(
+            "flex flex-wrap items-center gap-4 text-sm font-semibold text-[#5F6F86]",
+            compact ? "mt-4" : "mt-5",
+          )}
+        >
           <span className="inline-flex items-center gap-2">
             <Calendar className="h-4 w-4 text-[#FF6B2C]" aria-hidden />
             {publishedAt}
@@ -72,7 +90,7 @@ export function FeaturedBlogCard({ index = 0 }: FeaturedBlogCardProps) {
 
         <BlogNavLink
           href={href}
-          className={cn(buttonVariants({ variant: "outline", size: "default" }), "mt-6")}
+          className={cn(buttonVariants({ variant: "outline", size: "default" }), compact ? "mt-4" : "mt-6")}
         >
           {readMoreLabel}
           <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />

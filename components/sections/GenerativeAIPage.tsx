@@ -5,6 +5,7 @@ import { Check, Sparkles } from "lucide-react";
 import { generativeAiPageData } from "@/data/generative-ai-page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
+import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 import { ServiceImageCard } from "@/components/sections/ServiceImageCard";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 import { ServiceCtaBand } from "@/components/sections/ServiceCtaBand";
@@ -30,12 +31,7 @@ export function GenerativeAIPage() {
               <Button size="lg" asChild>
                 <Link href="/book-consultation/">Book Consultation</Link>
               </Button>
-              <Button
-                variant="secondary"
-                size="lg"
-                className="border-white/20 bg-white/10 text-white hover:bg-white/20"
-                asChild
-              >
+              <Button variant="secondary" size="lg" className={darkHeroSecondaryButtonClass} asChild>
                 <Link href="/book-consultation/">Request AI Assessment</Link>
               </Button>
             </div>

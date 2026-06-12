@@ -5,6 +5,7 @@ import { Sparkles } from "lucide-react";
 import { cyberSecurityPageData } from "@/data/cyber-security-page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
+import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 import { ServiceImageCard } from "@/components/sections/ServiceImageCard";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 
@@ -42,12 +43,7 @@ export function CyberSecurityPage() {
               <Button size="lg" asChild>
                 <Link href="/book-consultation/">Request Security Assessment</Link>
               </Button>
-              <Button
-                variant="secondary"
-                size="lg"
-                className="border-white/20 bg-white/10 text-white hover:bg-white/20"
-                asChild
-              >
+              <Button variant="secondary" size="lg" className={darkHeroSecondaryButtonClass} asChild>
                 <Link href="/book-consultation/">Book Consultation</Link>
               </Button>
             </div>
