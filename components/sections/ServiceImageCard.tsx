@@ -30,9 +30,9 @@ export function ServiceImageCard({
       viewport={{ once: true, margin: "-40px" }}
       transition={{ delay: index * 0.06, duration: 0.5 }}
       whileHover={{ y: -4 }}
-      className="enterprise-card group overflow-hidden rounded-[1.5rem]"
+      className="enterprise-card group flex h-full flex-col overflow-hidden rounded-[1.5rem]"
     >
-      <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative aspect-[16/10] shrink-0 overflow-hidden">
         <img
           src={image}
           alt={imageAlt}
@@ -41,8 +41,8 @@ export function ServiceImageCard({
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/55 via-[#0A0F1C]/15 to-transparent" />
         <h3 className="absolute bottom-5 left-5 right-5 text-xl font-extrabold text-white sm:text-2xl">{title}</h3>
       </div>
-      <div className="p-5 sm:p-6">
-        <p className="line-clamp-3 text-base leading-6 text-[#0A0F1C]">{description}</p>
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <p className="line-clamp-3 flex-1 text-base leading-6 text-[#0A0F1C]">{description}</p>
         {learnMoreHref ? (
           <Link
             href={learnMoreHref}

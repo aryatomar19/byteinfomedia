@@ -75,10 +75,10 @@ export function ManagedServicesPage() {
         </div>
       </section>
 
-      <section className="mesh-light section-enterprise">
+      <section className="mesh-light section-tech">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Managed Operations Portfolio" flushTitle />
-          <div className="section-cards grid gap-4 sm:grid-cols-2">
+          <SectionHeading title="Managed Operations Portfolio" flushTitle compact />
+          <div className="section-tech-grid grid sm:grid-cols-2">
             {coreServices.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}
@@ -86,15 +86,15 @@ export function ManagedServicesPage() {
         </div>
       </section>
 
-      <section className="section-enterprise bg-white">
+      <section className="section-tech bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Why Managed Services" flushTitle />
-          <div className="section-cards mb-0 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHeading title="Why Managed Services" flushTitle compact />
+          <div className="section-tech-grid grid sm:grid-cols-2 lg:grid-cols-4">
             {whyManaged.map((item, index) => {
               const Icon = whyIcons[item.title] ?? Activity;
               return (
                 <Reveal key={item.title} delay={index * 0.04}>
-                  <div className="enterprise-card h-full rounded-2xl p-5 transition hover:-translate-y-1">
+                  <div className="enterprise-card flex h-full flex-col rounded-2xl p-5 transition hover:-translate-y-1">
                     <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FF6B2C]/12 text-[#FF6B2C] ring-1 ring-[#FF6B2C]/20">
                       <Icon className="h-6 w-6" />
                     </span>
@@ -108,7 +108,7 @@ export function ManagedServicesPage() {
         </div>
       </section>
 
-      <section className="mesh-hero relative overflow-hidden section-enterprise">
+      <section className="mesh-hero relative overflow-hidden section-tech">
         <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <Reveal>
