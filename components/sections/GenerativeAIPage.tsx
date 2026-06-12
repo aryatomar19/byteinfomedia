@@ -8,8 +8,6 @@ import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 import { ServiceImageCard } from "@/components/sections/ServiceImageCard";
 import { SectionHeading } from "@/components/sections/SectionHeading";
-import { ServiceCtaBand } from "@/components/sections/ServiceCtaBand";
-
 export function GenerativeAIPage() {
   const { hero, capabilities, useCases, cta, badge } = generativeAiPageData;
 
@@ -79,7 +77,27 @@ export function GenerativeAIPage() {
         </div>
       </section>
 
-      <ServiceCtaBand title={cta.title} />
+      <section className="mesh-hero relative overflow-hidden section-enterprise">
+        <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden />
+        <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <Reveal>
+            <h2 className="font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              {cta.title}
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/75">{cta.description}</p>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <Button size="lg" asChild>
+                <Link href="/book-consultation/">{cta.primaryLabel}</Link>
+              </Button>
+              <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
+                <Link href="/book-consultation/" className="!text-white hover:!text-white">
+                  {cta.secondaryLabel}
+                </Link>
+              </Button>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }

@@ -68,4 +68,11 @@ export const cyberSecurityPageData = {
       imageAlt: "Penetration testing and ethical hacking security assessment",
     },
   ] satisfies CyberSecurityCard[],
+  cta: {
+    title: "Ready to Strengthen Your Cyber Security?",
+    description:
+      "Protect your business with proactive security solutions, compliance, and threat management.",
+    primaryLabel: "Get Free Consultation",
+    secondaryLabel: "Talk to an Expert",
+  },
 };
