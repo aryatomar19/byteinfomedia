@@ -32,7 +32,7 @@ export const featuredBlog = {
     "Digital marketing featured graphic showing analytics dashboards, a marketing strategy notebook, and growth pillars including visibility, audience targeting, measurable results, and sustainable growth",
   publishedAt: "June 11, 2026",
   readTime: "6 min read",
-  href: "/blog/digital-marketing-key-to-online-business-growth/",
+  href: "/blogs/digital-marketing-key-to-online-business-growth/",
   readMoreLabel: "Read More",
 } as const;
 
