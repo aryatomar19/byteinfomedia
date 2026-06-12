@@ -7,6 +7,7 @@ import { AssessmentForm } from "@/components/forms/AssessmentForm";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 import { DiagramByType } from "@/components/visuals/ServiceDiagrams";
 import { HeroCloudScene } from "@/components/visuals/HeroCloudScene";
 
@@ -30,7 +31,7 @@ export function PremiumServicePage({ data }: { data: ServicePageData }) {
               <Button size="lg" asChild>
                 <Link href="#assessment">Request Free Assessment</Link>
               </Button>
-              <Button variant="secondary" size="lg" className="border-white/20 bg-white/10 text-white hover:bg-white/20" asChild>
+              <Button variant="secondary" size="lg" className={darkHeroSecondaryButtonClass} asChild>
                 <Link href="/#assessment">Talk to Experts</Link>
               </Button>
             </div>
