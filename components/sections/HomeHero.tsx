@@ -104,10 +104,15 @@ export function HomeHero() {
                 >
                   <Link href="/book-consultation/">Book Consultation</Link>
                 </Button>
-                <Button variant="secondary" size="lg" className={cn("min-h-[48px] font-semibold", darkHeroLearnMoreButtonClass)} asChild>
-                  <Link href={slide.learnMoreHref} scroll>
+                <Button
+                  variant="dark"
+                  size="lg"
+                  className={cn("min-h-[48px] bg-transparent font-semibold hover:bg-transparent", darkHeroLearnMoreButtonClass)}
+                  asChild
+                >
+                  <Link href={slide.learnMoreHref} scroll className="!text-white hover:!text-white">
                     Learn More
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-4 w-4 stroke-white" />
                   </Link>
                 </Button>
               </div>
