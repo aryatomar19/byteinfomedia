@@ -65,8 +65,10 @@ export function ManagedServicesPage() {
               <Button size="lg" asChild>
                 <Link href="/book-consultation/">Request Free Assessment</Link>
               </Button>
-              <Button variant="secondary" size="lg" className={darkHeroSecondaryButtonClass} asChild>
-                <Link href="/book-consultation/">Book Consultation</Link>
+              <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
+                <Link href="/book-consultation/" className="!text-white hover:!text-white">
+                  Book Consultation
+                </Link>
               </Button>
             </div>
           </Reveal>

@@ -31,8 +31,10 @@ export function GenerativeAIPage() {
               <Button size="lg" asChild>
                 <Link href="/book-consultation/">Book Consultation</Link>
               </Button>
-              <Button variant="secondary" size="lg" className={darkHeroSecondaryButtonClass} asChild>
-                <Link href="/book-consultation/">Request AI Assessment</Link>
+              <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
+                <Link href="/book-consultation/" className="!text-white hover:!text-white">
+                  Request AI Assessment
+                </Link>
               </Button>
             </div>
             <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/15 pt-4">

@@ -45,6 +45,19 @@ a {
   fill: none;
 }
 
+.hero-secondary-btn,
+.hero-secondary-btn:hover,
+.hero-secondary-btn:focus-visible {
+  color: #ffffff !important;
+}
+
+.hero-secondary-btn svg,
+.hero-secondary-btn svg path {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+  fill: none;
+}
+
 ::selection {
   background: rgba(255, 107, 44, 0.22);
   color: var(--text);
