@@ -55,7 +55,7 @@ export function CyberSecurityPage() {
 
       <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Security Services" title="End-to-End Cybersecurity" />
+          <SectionHeading title="End-to-End Cybersecurity" flushTitle />
           <div className="section-cards mb-0 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
