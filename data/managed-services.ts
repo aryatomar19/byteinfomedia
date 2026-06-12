@@ -72,4 +72,11 @@ export const managedServicesPage = {
     { title: "Cost Governance", description: "Spend visibility and optimization built into operations." },
     { title: "Security Monitoring", description: "Integrated threat visibility across cloud workloads." },
   ] satisfies ManagedFeature[],
+  cta: {
+    title: "Ready to Simplify Your IT Operations?",
+    description:
+      "Let our managed services team handle monitoring, maintenance, and support while you focus on growing your business.",
+    primaryLabel: "Get Free Consultation",
+    secondaryLabel: "Talk to an Expert",
+  },
 };

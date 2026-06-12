@@ -114,6 +114,10 @@ export const generativeAiPageData = {
     },
   ] satisfies GenerativeAiCard[],
   cta: {
-    title: "Ready To Build AI-Powered Business Operations?",
+    title: "Ready to Accelerate Your Business with AI?",
+    description:
+      "Unlock the power of Generative AI with intelligent automation, custom AI solutions, and business innovation.",
+    primaryLabel: "Get Free Consultation",
+    secondaryLabel: "Talk to an Expert",
   },
 };
