@@ -57,7 +57,7 @@ export function GenerativeAIPage() {
 
       <section className="mesh-light section-tech">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Enterprise Generative AI Services" flushTitle compact />
+          <SectionHeading title="Enterprise Generative AI Services" flushTitle tech />
           <div className="section-tech-grid grid sm:grid-cols-2 lg:grid-cols-3">
             {capabilities.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
@@ -68,7 +68,7 @@ export function GenerativeAIPage() {
 
       <section className="section-tech bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="AI Solutions Across Your Business" flushTitle compact />
+          <SectionHeading title="AI Solutions Across Your Business" flushTitle tech />
           <div className="section-tech-grid grid sm:grid-cols-2 lg:grid-cols-3">
             {useCases.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
