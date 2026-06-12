@@ -77,7 +77,7 @@ export function ManagedServicesPage() {
 
       <section className="mesh-light section-enterprise">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Core Services" title="Managed Operations Portfolio" />
+          <SectionHeading title="Managed Operations Portfolio" flushTitle />
           <div className="section-cards grid gap-4 sm:grid-cols-2">
             {coreServices.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
@@ -88,7 +88,7 @@ export function ManagedServicesPage() {
 
       <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Why Choose Us" title="Why Managed Services" />
+          <SectionHeading title="Why Managed Services" flushTitle />
           <div className="section-cards mb-0 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {whyManaged.map((item, index) => {
               const Icon = whyIcons[item.title] ?? Activity;

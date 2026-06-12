@@ -8,11 +8,9 @@ import { ChevronProcessTimeline } from "@/components/sections/ChevronProcessTime
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 
 const { hero, services, whySeo, process, whyChoose, faqs, cta } = searchEngineOptimizationPage;
-
-const heroSecondaryButtonClass =
-  "border-2 border-white/60 bg-white/15 font-semibold text-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] hover:border-white hover:bg-white/25";
 
 function SectionTitle({ children }: { children: ReactNode }) {
   return (
@@ -58,8 +56,10 @@ export function SearchEngineOptimizationPage() {
               <Button size="lg" asChild>
                 <Link href="/book-consultation/">{hero.primaryCta}</Link>
               </Button>
-              <Button size="lg" variant="secondary" className={heroSecondaryButtonClass} asChild>
-                <Link href="/book-consultation/">{hero.secondaryCta}</Link>
+              <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
+                <Link href="/book-consultation/" className="!text-white hover:!text-white">
+                  {hero.secondaryCta}
+                </Link>
               </Button>
             </div>
           </Reveal>
@@ -177,13 +177,10 @@ export function SearchEngineOptimizationPage() {
               <Button size="lg" asChild>
                 <Link href="/book-consultation/">{cta.primaryLabel}</Link>
               </Button>
-              <Button
-                size="lg"
-                variant="secondary"
-                className="border-white/25 bg-white/10 text-white hover:border-white/40 hover:bg-white/15"
-                asChild
-              >
-                <Link href="/book-consultation/">{cta.secondaryLabel}</Link>
+              <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
+                <Link href="/book-consultation/" className="!text-white hover:!text-white">
+                  {cta.secondaryLabel}
+                </Link>
               </Button>
             </div>
           </Reveal>
