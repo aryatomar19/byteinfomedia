@@ -26,7 +26,7 @@ export function BlogsPage() {
             compact
             dense
           />
-          <div className="mx-auto mt-3 max-w-5xl sm:mt-4">
+          <div className="mx-auto mt-2 max-w-5xl sm:mt-2.5">
             <FeaturedBlogCard compact />
           </div>
         </div>
