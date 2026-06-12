@@ -96,4 +96,11 @@ export const cloudServicesPage = {
       imageAlt: "DevOps automation and CI/CD engineering workflow",
     },
   ] satisfies CloudServiceCard[],
+  cta: {
+    title: "Ready to Transform Your Technology?",
+    description:
+      "Let's build secure, scalable, and future-ready technology solutions for your business.",
+    primaryLabel: "Get Free Consultation",
+    secondaryLabel: "Talk to an Expert",
+  },
 };
