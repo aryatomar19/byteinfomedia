@@ -38,7 +38,7 @@ export function FeaturedBlogCard({ index = 0, compact = false }: FeaturedBlogCar
         <div
           className={cn(
             "relative aspect-[16/9] overflow-hidden",
-            compact ? "sm:aspect-[18/9]" : "sm:aspect-[21/9]",
+            compact ? "sm:aspect-[12/5]" : "sm:aspect-[21/9]",
           )}
         >
           <img
@@ -52,7 +52,7 @@ export function FeaturedBlogCard({ index = 0, compact = false }: FeaturedBlogCar
         </div>
       </BlogNavLink>
 
-      <div className={cn(compact ? "p-5 sm:p-6" : "p-6 sm:p-8")}>
+      <div className={cn(compact ? "p-4 sm:p-5" : "p-6 sm:p-8")}>
         <span className="inline-flex rounded-full border border-[#FF6B2C]/25 bg-[#FFF7F3] px-3.5 py-1 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#FF6B2C]">
           {category}
         </span>
@@ -60,7 +60,7 @@ export function FeaturedBlogCard({ index = 0, compact = false }: FeaturedBlogCar
         <h3
           className={cn(
             "font-[family-name:var(--font-inter)] font-extrabold leading-tight tracking-tight text-[#0A0F1C]",
-            compact ? "mt-3 text-xl sm:text-2xl" : "mt-4 text-2xl sm:text-[1.75rem]",
+            compact ? "mt-2.5 text-xl sm:text-2xl" : "mt-4 text-2xl sm:text-[1.75rem]",
           )}
         >
           <BlogNavLink href={href} className="transition hover:text-[#FF6B2C]">
@@ -68,14 +68,14 @@ export function FeaturedBlogCard({ index = 0, compact = false }: FeaturedBlogCar
           </BlogNavLink>
         </h3>
 
-        <p className={cn("text-base text-[#334155]", compact ? "mt-3 line-clamp-3 leading-6" : "mt-4 leading-7")}>
+        <p className={cn("text-base text-[#334155]", compact ? "mt-2.5 line-clamp-3 leading-6" : "mt-4 leading-7")}>
           {excerpt}
         </p>
 
         <div
           className={cn(
             "flex flex-wrap items-center gap-4 text-sm font-semibold text-[#5F6F86]",
-            compact ? "mt-4" : "mt-5",
+            compact ? "mt-3" : "mt-5",
           )}
         >
           <span className="inline-flex items-center gap-2">
@@ -90,7 +90,7 @@ export function FeaturedBlogCard({ index = 0, compact = false }: FeaturedBlogCar
 
         <BlogNavLink
           href={href}
-          className={cn(buttonVariants({ variant: "outline", size: "default" }), compact ? "mt-4" : "mt-6")}
+          className={cn(buttonVariants({ variant: "outline", size: "default" }), compact ? "mt-3" : "mt-6")}
         >
           {readMoreLabel}
           <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
