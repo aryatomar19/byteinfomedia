@@ -15,6 +15,8 @@ type SectionHeadingProps = {
   eyebrowVariant?: keyof typeof eyebrowClassNames;
   /** Tighter margin below the heading block (e.g. Our Services). */
   compact?: boolean;
+  /** Tech Solutions pages: balanced gap between heading and card grid (24–32px). */
+  tech?: boolean;
   /** Minimal spacing for page headers that share a viewport with content below. */
   dense?: boolean;
   /** Remove extra top offset on the title when no eyebrow is shown. */
@@ -28,12 +30,21 @@ export function SectionHeading({
   centered = true,
   eyebrowVariant = "default",
   compact = false,
+  tech = false,
   dense = false,
   flushTitle = false,
 }: SectionHeadingProps) {
+  const spacingClass = dense
+    ? "mb-0"
+    : tech
+      ? "mb-6 md:mb-8"
+      : compact
+        ? "mb-2 md:mb-2.5"
+        : "section-heading";
+
   return (
     <Reveal
-      className={`${dense ? "mb-0" : compact ? "mb-2 md:mb-2.5" : "section-heading"} ${centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}
+      className={`${spacingClass} ${centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}
     >
       {eyebrow ? <p className={eyebrowClassNames[eyebrowVariant]}>{eyebrow}</p> : null}
       <h2
