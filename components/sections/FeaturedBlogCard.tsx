@@ -37,8 +37,8 @@ export function FeaturedBlogCard({ index = 0, compact = false }: FeaturedBlogCar
       <BlogNavLink href={href} className="block">
         <div
           className={cn(
-            "relative aspect-[16/9] overflow-hidden",
-            compact ? "sm:aspect-[12/5]" : "sm:aspect-[21/9]",
+            "relative overflow-hidden",
+            compact ? "h-[168px] sm:h-[260px] lg:h-[340px]" : "aspect-[16/9] sm:aspect-[21/9]",
           )}
         >
           <img
@@ -52,15 +52,20 @@ export function FeaturedBlogCard({ index = 0, compact = false }: FeaturedBlogCar
         </div>
       </BlogNavLink>
 
-      <div className={cn(compact ? "p-4 sm:p-5" : "p-6 sm:p-8")}>
-        <span className="inline-flex rounded-full border border-[#FF6B2C]/25 bg-[#FFF7F3] px-3.5 py-1 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-[#FF6B2C]">
+      <div className={cn(compact ? "p-3.5 sm:p-4" : "p-6 sm:p-8")}>
+        <span
+          className={cn(
+            "inline-flex rounded-full border border-[#FF6B2C]/25 bg-[#FFF7F3] font-bold uppercase tracking-[0.14em] text-[#FF6B2C]",
+            compact ? "px-3 py-0.5 text-[0.65rem]" : "px-3.5 py-1 text-[0.7rem]",
+          )}
+        >
           {category}
         </span>
 
         <h3
           className={cn(
             "font-[family-name:var(--font-inter)] font-extrabold leading-tight tracking-tight text-[#0A0F1C]",
-            compact ? "mt-2.5 text-xl sm:text-2xl" : "mt-4 text-2xl sm:text-[1.75rem]",
+            compact ? "mt-2 text-lg sm:text-xl" : "mt-4 text-2xl sm:text-[1.75rem]",
           )}
         >
           <BlogNavLink href={href} className="transition hover:text-[#FF6B2C]">
@@ -68,29 +73,37 @@ export function FeaturedBlogCard({ index = 0, compact = false }: FeaturedBlogCar
           </BlogNavLink>
         </h3>
 
-        <p className={cn("text-base text-[#334155]", compact ? "mt-2.5 line-clamp-3 leading-6" : "mt-4 leading-7")}>
+        <p
+          className={cn(
+            "text-[#334155]",
+            compact ? "mt-2 line-clamp-2 text-sm leading-5 sm:line-clamp-3 sm:text-base sm:leading-6" : "mt-4 text-base leading-7",
+          )}
+        >
           {excerpt}
         </p>
 
         <div
           className={cn(
-            "flex flex-wrap items-center gap-4 text-sm font-semibold text-[#5F6F86]",
-            compact ? "mt-3" : "mt-5",
+            "flex flex-wrap items-center font-semibold text-[#5F6F86]",
+            compact ? "mt-2 gap-3 text-xs sm:text-sm" : "mt-5 gap-4 text-sm",
           )}
         >
-          <span className="inline-flex items-center gap-2">
-            <Calendar className="h-4 w-4 text-[#FF6B2C]" aria-hidden />
+          <span className="inline-flex items-center gap-1.5 sm:gap-2">
+            <Calendar className={cn("text-[#FF6B2C]", compact ? "h-3.5 w-3.5 sm:h-4 sm:w-4" : "h-4 w-4")} aria-hidden />
             {publishedAt}
           </span>
-          <span className="inline-flex items-center gap-2">
-            <Clock className="h-4 w-4 text-[#FF6B2C]" aria-hidden />
+          <span className="inline-flex items-center gap-1.5 sm:gap-2">
+            <Clock className={cn("text-[#FF6B2C]", compact ? "h-3.5 w-3.5 sm:h-4 sm:w-4" : "h-4 w-4")} aria-hidden />
             {readTime}
           </span>
         </div>
 
         <BlogNavLink
           href={href}
-          className={cn(buttonVariants({ variant: "outline", size: "default" }), compact ? "mt-3" : "mt-6")}
+          className={cn(
+            buttonVariants({ variant: "outline", size: compact ? "sm" : "default" }),
+            compact ? "mt-2.5" : "mt-6",
+          )}
         >
           {readMoreLabel}
           <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
