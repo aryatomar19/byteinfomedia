@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 /** Secondary CTA styling for dark hero sections (cloud and tech service pages). */
 export const darkHeroSecondaryButtonClass =
-  "border border-white/20 bg-white/[0.12] text-white backdrop-blur-sm transition-all duration-200 hover:border-white/35 hover:bg-white/[0.18] hover:text-white";
+  "hero-secondary-btn border border-white/20 !bg-white/[0.12] !text-white backdrop-blur-sm transition-all duration-200 hover:border-white/35 hover:!bg-white/[0.18] hover:!text-white [&_svg]:!text-white [&_svg]:stroke-white";
 
 /** Learn More CTA styling for dark hero sections with high contrast readability. */
 export const darkHeroLearnMoreButtonClass =

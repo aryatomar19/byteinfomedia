@@ -31,8 +31,10 @@ export function PremiumServicePage({ data }: { data: ServicePageData }) {
               <Button size="lg" asChild>
                 <Link href="#assessment">Request Free Assessment</Link>
               </Button>
-              <Button variant="secondary" size="lg" className={darkHeroSecondaryButtonClass} asChild>
-                <Link href="/#assessment">Talk to Experts</Link>
+              <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
+                <Link href="/#assessment" className="!text-white hover:!text-white">
+                  Talk to Experts
+                </Link>
               </Button>
             </div>
           </Reveal>
