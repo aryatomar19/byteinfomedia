@@ -53,10 +53,10 @@ export function CloudServicesPage() {
         </div>
       </section>
 
-      <section className="mesh-light section-enterprise">
+      <section className="mesh-light section-tech">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Cloud Foundations That Scale" flushTitle />
-          <div className="section-cards grid gap-4 sm:grid-cols-2">
+          <SectionHeading title="Cloud Foundations That Scale" flushTitle compact />
+          <div className="section-tech-grid grid sm:grid-cols-2">
             {capabilities.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}
@@ -64,10 +64,10 @@ export function CloudServicesPage() {
         </div>
       </section>
 
-      <section className="section-enterprise bg-white">
+      <section className="section-tech bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Additional Cloud Services" flushTitle />
-          <div className="section-cards mb-0 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <SectionHeading title="Additional Cloud Services" flushTitle compact />
+          <div className="section-tech-grid grid sm:grid-cols-2 lg:grid-cols-3">
             {additionalServices.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}
@@ -75,7 +75,7 @@ export function CloudServicesPage() {
         </div>
       </section>
 
-      <section className="mesh-hero relative overflow-hidden section-enterprise">
+      <section className="mesh-hero relative overflow-hidden section-tech">
         <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden />
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <Reveal>

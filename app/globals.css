@@ -107,6 +107,30 @@ a {
   margin-bottom: 2rem; /* 32px */
 }
 
+/* Tech Solutions pages — tighter, consistent section rhythm */
+.section-tech {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+@media (min-width: 640px) {
+  .section-tech {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.section-tech-grid {
+  align-items: stretch;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-tech-grid {
+    gap: 1.25rem;
+  }
+}
+
 /* Cinematic heroes: compact vertical padding */
 .hero-service {
   padding-top: 2.5rem;
