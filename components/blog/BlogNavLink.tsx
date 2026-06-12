@@ -14,11 +14,11 @@ function resolveBlogHref(href: string): string {
     return href;
   }
 
-  if (href === "/blogs/" || href === "/blog/") {
+  if (href === "/blogs/") {
     return href.endsWith("/") ? `${href}index.html` : `${href}/index.html`;
   }
 
-  if (href.startsWith("/blog/") || (href.startsWith("/blogs/") && href.length > "/blogs/".length)) {
+  if (href.startsWith("/blogs/") && href.length > "/blogs/".length) {
     const normalized = href.replace(/\/$/, "").replace(/\/index\.html$/, "");
     return `${normalized}.html`;
   }
