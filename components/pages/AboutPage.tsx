@@ -41,7 +41,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* Mission, Vision & Service Offerings */}
+      {/* Mission & Vision */}
       <section className="mesh-section py-14 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-5 lg:grid-cols-2 lg:gap-6">
@@ -63,38 +63,6 @@ export function AboutPage() {
                 <p className="mt-3 flex-1 text-base leading-7 text-white/65">{aboutPage.vision.body}</p>
               </article>
             </Reveal>
-          </div>
-
-          <Reveal delay={0.12} className="mt-10 sm:mt-12">
-            <h3 className="text-2xl font-extrabold text-white sm:text-3xl">Our Service Offerings</h3>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
-              End-to-end cloud, security, operations, and digital marketing capabilities for enterprise transformation.
-            </p>
-          </Reveal>
-
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {aboutPage.expertise.map((item, index) => (
-              <Reveal key={item.title} delay={index * 0.05}>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "group flex h-full min-h-[180px] flex-col rounded-[1.25rem] border border-white/12 p-5 sm:p-6",
-                    "bg-gradient-to-br from-[#121a2e] via-[#0d1424] to-[#060a14]",
-                    "shadow-[0_16px_40px_rgba(0,0,0,0.28)] transition duration-300",
-                    "hover:-translate-y-1.5 hover:border-[#FF6B2C]/40 hover:shadow-[0_24px_60px_rgba(255,107,44,0.16)]",
-                  )}
-                >
-                  <span className="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/[0.06] text-[#FF6B2C] transition group-hover:border-[#FF6B2C]/40 group-hover:bg-[#FF6B2C] group-hover:text-white">
-                    <item.icon className="h-5 w-5" strokeWidth={1.75} />
-                  </span>
-                  <h4 className="mt-4 text-lg font-extrabold text-white">{item.title}</h4>
-                  <p className="mt-2 flex-1 text-sm leading-6 text-white/60">{item.description}</p>
-                  <span className="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-[#FF6B2C]">
-                    Explore service →
-                  </span>
-                </Link>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>

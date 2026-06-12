@@ -5,9 +5,9 @@ import {
   Globe,
   Headphones,
   Megaphone,
+  Search,
   ShieldCheck,
   Target,
-  Workflow,
 } from "lucide-react";
 
 export const aboutPage = {
@@ -31,7 +31,7 @@ export const aboutPage = {
     body: "Our vision is to become a trusted partner for businesses worldwide by delivering technology transformation and digital growth solutions that create long-term value for our clients.",
   },
   whyChooseDescription:
-    "From cloud infrastructure and security to DevOps, websites, SEO, and digital marketing — BYTEINFOMEDIA delivers integrated technology and growth services for modern businesses.",
+    "BYTEINFOMEDIA delivers cloud consulting, managed services, cybersecurity, website development, SEO, and digital marketing solutions that help modern businesses grow with confidence.",
   whyChoose: [
     {
       title: "Cloud Consulting",
@@ -49,14 +49,14 @@ export const aboutPage = {
       icon: ShieldCheck,
     },
     {
-      title: "DevOps Engineering",
-      points: ["CI/CD Automation", "Infrastructure as Code"],
-      icon: Workflow,
+      title: "Website Development",
+      points: ["Custom Business Websites", "Landing Pages & Enterprise Solutions"],
+      icon: Globe,
     },
     {
-      title: "Website Development & SEO",
-      points: ["Professional Websites", "Search Engine Optimization"],
-      icon: Globe,
+      title: "Search Engine Optimization (SEO)",
+      points: ["Organic Search Growth", "Technical & On-Page SEO"],
+      icon: Search,
     },
     {
       title: "Digital Marketing",
@@ -64,44 +64,6 @@ export const aboutPage = {
       icon: Megaphone,
     },
   ] satisfies { title: string; points: readonly string[]; icon: LucideIcon }[],
-  expertise: [
-    {
-      title: "Cloud Consulting",
-      description: "AWS & Azure Cloud Solutions · Migration & Modernization",
-      icon: CloudCog,
-      href: "/cloud-services/",
-    },
-    {
-      title: "Managed Services",
-      description: "24x7 Monitoring · Backup & Incident Management",
-      icon: Headphones,
-      href: "/managed-services/",
-    },
-    {
-      title: "Cyber Security",
-      description: "Security Assessments · Compliance & Protection",
-      icon: ShieldCheck,
-      href: "/cyber-security/",
-    },
-    {
-      title: "DevOps Engineering",
-      description: "CI/CD Automation · Infrastructure as Code",
-      icon: Workflow,
-      href: "/cloud-services/",
-    },
-    {
-      title: "Website Development & SEO",
-      description: "Professional Websites · Search Engine Optimization",
-      icon: Globe,
-      href: "/website-development/",
-    },
-    {
-      title: "Digital Marketing",
-      description: "Social Media Marketing · Content Marketing & Paid Campaigns",
-      icon: Megaphone,
-      href: "/social-media-marketing/",
-    },
-  ] satisfies { title: string; description: string; icon: LucideIcon; href: string }[],
   missionIcon: Target,
   visionIcon: Eye,
 };
