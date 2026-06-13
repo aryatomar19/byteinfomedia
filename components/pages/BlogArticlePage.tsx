@@ -127,11 +127,11 @@ export function BlogArticlePage() {
       </section>
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center overflow-hidden rounded-[1.25rem] bg-[#F8FAFC] shadow-[0_20px_60px_rgba(10,15,28,0.08)]">
+        <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[1.25rem] shadow-[0_20px_60px_rgba(10,15,28,0.08)]">
           <img
             src={image}
             alt={imageAlt}
-            className="aspect-[3/2] w-full object-contain object-center"
+            className="absolute inset-0 h-full w-full object-cover object-center"
           />
         </div>
 

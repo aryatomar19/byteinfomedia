@@ -35,11 +35,11 @@ export function FeaturedBlogCard({ index = 0, compact = false }: FeaturedBlogCar
       className="enterprise-card group overflow-hidden rounded-[1.25rem] bg-white shadow-[0_20px_60px_rgba(10,15,28,0.08)] transition duration-300 hover:shadow-[0_28px_72px_rgba(10,15,28,0.12)] sm:rounded-[1.125rem] lg:rounded-[1.25rem]"
     >
       <BlogNavLink href={href} className="block">
-        <div className="relative flex aspect-[3/2] w-full items-center justify-center overflow-hidden bg-[#F8FAFC]">
+        <div className="relative aspect-[3/2] w-full overflow-hidden">
           <img
             src={image}
             alt={imageAlt}
-            className="h-full w-full object-contain object-center"
+            className="absolute inset-0 h-full w-full object-cover object-center"
             loading="lazy"
             decoding="async"
           />

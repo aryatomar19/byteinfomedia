@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Fragment } from "react";
 import { company, footerLinks } from "@/data/site";
 import { FooterContactInfo } from "@/components/layout/FooterContactInfo";
 
@@ -13,8 +14,17 @@ export function SiteFooter() {
             className="h-12 w-auto object-contain object-left"
           />
           <div className="mt-3 max-w-[600px]">
-            <p className="text-lg font-bold uppercase tracking-[0.12em] text-[#1E293B] sm:text-xl">
-              {company.taglineLine1}
+            <p className="flex flex-wrap items-baseline gap-x-2.5 text-base font-bold uppercase tracking-[0.12em] text-[#1E293B] sm:text-lg lg:flex-nowrap lg:whitespace-nowrap lg:text-[1.05rem] xl:text-lg">
+              {company.taglineLine1.split(" | ").map((part, index) => (
+                <Fragment key={part}>
+                  {index > 0 ? (
+                    <span className="text-[#FF6B2C]" aria-hidden>
+                      |
+                    </span>
+                  ) : null}
+                  <span>{part}</span>
+                </Fragment>
+              ))}
             </p>
             <p className="mt-4 max-w-[600px] text-base leading-[1.7] text-[#0A0F1C] sm:text-[17px]">
               Building secure, scalable, and growth-driven digital experiences through Cloud, AI, Web Development, and Digital Marketing.
