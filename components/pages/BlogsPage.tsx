@@ -10,14 +10,15 @@ import { Button } from "@/components/ui/button";
 export function BlogsPage() {
   return (
     <div className="bg-[#F7F8FA]">
-      <section className="border-b border-[#0A0F1C]/6 bg-white pt-2 pb-4 sm:pt-3 sm:pb-5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Button variant="ghost" size="sm" className="mb-1 h-8 -ml-2 px-2" asChild>
+      <section className="py-8 sm:py-10 lg:py-12">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <Button variant="ghost" size="sm" className="mb-4 h-8 -ml-2 px-2" asChild>
             <Link href="/" scroll>
               <ArrowLeft className="h-4 w-4" />
               Back to Home
             </Link>
           </Button>
+
           <SectionHeading
             title="Our Blogs"
             description={latestBlogSection.subtitle}
@@ -26,8 +27,9 @@ export function BlogsPage() {
             compact
             dense
           />
-          <div className="mx-auto mt-2 max-w-5xl sm:mt-2.5">
-            <FeaturedBlogCard compact />
+
+          <div className="mt-8 sm:mt-10">
+            <FeaturedBlogCard />
           </div>
         </div>
       </section>
