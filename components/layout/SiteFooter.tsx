@@ -13,21 +13,23 @@ export function SiteFooter() {
             alt={company.name}
             className="block h-12 w-auto max-w-full"
           />
-          <p className="mt-3 flex w-full flex-wrap items-center gap-x-2 font-bold uppercase tracking-[0.12em] text-[#1E293B] text-[0.9rem] leading-none sm:text-[1rem] lg:flex-nowrap lg:whitespace-nowrap lg:text-[0.95rem]">
-            {company.taglineLine1.split(" | ").map((part, index) => (
-              <Fragment key={part}>
-                {index > 0 ? (
-                  <span className="px-0.5 text-[#FF6B2C]" aria-hidden>
-                    |
-                  </span>
-                ) : null}
-                <span>{part}</span>
-              </Fragment>
-            ))}
-          </p>
-          <p className="mt-4 w-full text-base leading-[1.7] text-[#0A0F1C] sm:text-[17px]">
-            Building secure, scalable, and growth-driven digital experiences through Cloud, AI, Web Development, and Digital Marketing.
-          </p>
+          <div className="w-full pl-[13px]">
+            <p className="mt-3 flex flex-wrap items-center gap-x-2 font-bold uppercase tracking-[0.12em] text-[#1E293B] text-[0.9rem] leading-none sm:text-[1rem] lg:flex-nowrap lg:whitespace-nowrap lg:text-[0.95rem]">
+              {company.taglineLine1.split(" | ").map((part, index) => (
+                <Fragment key={part}>
+                  {index > 0 ? (
+                    <span className="text-[#FF6B2C]" aria-hidden>
+                      |
+                    </span>
+                  ) : null}
+                  <span>{part}</span>
+                </Fragment>
+              ))}
+            </p>
+            <p className="mt-4 text-base leading-[1.7] text-[#0A0F1C] sm:text-[17px]">
+              Building secure, scalable, and growth-driven digital experiences through Cloud, AI, Web Development, and Digital Marketing.
+            </p>
+          </div>
         </div>
 
         <div>
