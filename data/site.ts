@@ -8,7 +8,7 @@ export const company = {
   faviconPng32: "/favicon-32x32.png",
   faviconPng48: "/favicon-48x48.png",
   appleTouchIcon: "/apple-touch-icon.png",
-  taglineLine1: "CLOUD | DIGITAL MARKETING",
+  taglineLine1: "Cloud Services | Digital Marketing",
   taglineLine2: "Cloud & Digital Growth Solutions",
   address: "First Floor, Plot No. 27, Sector 19, Nanda Enclave, Dwarka, Delhi - 110075",
   addressLines: [
