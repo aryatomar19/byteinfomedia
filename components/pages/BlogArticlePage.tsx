@@ -127,7 +127,7 @@ export function BlogArticlePage() {
       </section>
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="relative mt-4 h-[220px] w-full overflow-hidden rounded-[1.25rem] shadow-[0_20px_60px_rgba(10,15,28,0.08)] sm:mt-5 sm:h-[300px] md:h-[380px] lg:mt-6 lg:h-[500px] lg:max-h-[520px]">
+        <div className="relative mt-3 h-[240px] w-full overflow-hidden rounded-[1.25rem] shadow-[0_20px_60px_rgba(10,15,28,0.08)] md:h-[320px] lg:mt-4 lg:h-[400px]">
           <img
             src={image}
             alt={imageAlt}
@@ -135,7 +135,7 @@ export function BlogArticlePage() {
           />
         </div>
 
-        <div className="py-6 sm:py-8">
+        <div className="py-4 sm:py-6">
           <Reveal>
             <p className="text-lg leading-8 text-[#334155]">{intro}</p>
           </Reveal>
