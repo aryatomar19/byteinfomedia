@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Fragment } from "react";
 import { company, footerLinks } from "@/data/site";
 import { FooterContactInfo } from "@/components/layout/FooterContactInfo";
 
@@ -6,17 +7,26 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-[#0A0F1C]/8 bg-[#F8F9FC]">
       <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1.25fr_1fr_1fr] lg:px-8">
-        <div>
+        <div className="flex flex-col">
           <img
             src={company.logo}
             alt={company.name}
             className="h-12 w-auto object-contain object-left"
           />
-          <div className="mt-3 max-w-[600px]">
-            <p className="text-lg font-bold uppercase tracking-[0.12em] text-[#1E293B] sm:text-xl">
-              {company.taglineLine1}
+          <div className="mt-5 max-w-xl">
+            <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-bold text-[#1E293B] text-base leading-tight sm:text-lg lg:flex-nowrap lg:text-xl lg:whitespace-nowrap">
+              {company.taglineLine1.split(" | ").map((part, index) => (
+                <Fragment key={part}>
+                  {index > 0 ? (
+                    <span className="font-bold text-[#1E293B]" aria-hidden>
+                      |
+                    </span>
+                  ) : null}
+                  <span>{part}</span>
+                </Fragment>
+              ))}
             </p>
-            <p className="mt-4 max-w-[600px] text-base leading-[1.7] text-[#0A0F1C] sm:text-[17px]">
+            <p className="mt-4 max-w-xl text-base leading-7 text-[#334155] sm:text-[17px] sm:leading-[1.7]">
               Building secure, scalable, and growth-driven digital experiences through Cloud, AI, Web Development, and Digital Marketing.
             </p>
           </div>
