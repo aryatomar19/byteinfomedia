@@ -10,8 +10,10 @@ import { cn } from "@/lib/utils";
 
 /** ~24px mobile / ~28px desktop — nested content under section headings */
 const sectionContentIndent = "pl-6 sm:pl-7";
-/** Additional indent for bullet lists under subheadings */
-const nestedBulletIndent = "pl-5 sm:pl-6";
+/** Bullet list left padding — inset from section headings (~40–48px) */
+const bulletListPadding = "pl-10 sm:pl-12";
+/** Deeper padding for bullets nested under subheadings */
+const nestedBulletPadding = "pl-12 sm:pl-14";
 
 function BlogBulletList({
   items,
@@ -23,8 +25,8 @@ function BlogBulletList({
   return (
     <ul
       className={cn(
-        "mt-3 space-y-2 pl-5 text-base leading-7 text-[#334155]",
-        nested && nestedBulletIndent,
+        "mt-3 space-y-2 text-base leading-7 text-[#334155]",
+        nested ? nestedBulletPadding : bulletListPadding,
       )}
     >
       {items.map((item) => (
