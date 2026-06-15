@@ -99,7 +99,7 @@ export function ContentWritingPage() {
       </section>
 
       {/* 4. Our Content Creation Process — horizontal timeline */}
-      <section className="section-enterprise branding-surface-white">
+      <section className="section-enterprise branding-surface-white branding-process-section">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <BrandingSectionHeading>{process.title}</BrandingSectionHeading>
           <Reveal delay={0.06}>

@@ -116,6 +116,71 @@ a {
   background-color: #f8f9fa;
 }
 
+/* Branding Solutions — balanced vertical rhythm between major sections */
+.section-enterprise.branding-surface-white,
+.section-enterprise.branding-surface-muted {
+  padding-top: 3.25rem;
+  padding-bottom: 3.25rem;
+}
+
+@media (min-width: 640px) {
+  .section-enterprise.branding-surface-white,
+  .section-enterprise.branding-surface-muted {
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-enterprise.branding-surface-white,
+  .section-enterprise.branding-surface-muted {
+    padding-top: 4.25rem;
+    padding-bottom: 4.25rem;
+  }
+}
+
+.branding-surface-white .section-heading,
+.branding-surface-muted .section-heading {
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .branding-surface-white .section-heading,
+  .branding-surface-muted .section-heading {
+    margin-bottom: 1.75rem;
+  }
+}
+
+/* Process / timeline sections — extra breathing room */
+.section-enterprise.branding-process-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  .section-enterprise.branding-process-section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-enterprise.branding-process-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.branding-process-section .section-heading {
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .branding-process-section .section-heading {
+    margin-bottom: 2.5rem;
+  }
+}
+
 /* Premium highlight cards for branding feature sections */
 .branding-highlight-card {
   position: relative;
