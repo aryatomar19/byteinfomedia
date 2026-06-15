@@ -67,7 +67,7 @@ export function SearchEngineOptimizationPage() {
       </section>
 
       {/* 2. SEO Services */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{services.title}</SectionTitle>
@@ -92,17 +92,17 @@ export function SearchEngineOptimizationPage() {
       </section>
 
       {/* 3. Why SEO Matters */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{whySeo.title}</SectionTitle>
           </Reveal>
-          <RevealStagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <RevealStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {whySeo.items.map((item) => (
               <RevealItem key={item.title}>
-                <div className="enterprise-card h-full rounded-2xl p-5 transition duration-300 hover:-translate-y-1">
+                <div className="branding-highlight-card">
                   <h3 className="font-extrabold text-[#0A0F1C]">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#334155]">{item.description}</p>
+                  <p className="mt-3 text-sm leading-6 text-[#334155]">{item.description}</p>
                 </div>
               </RevealItem>
             ))}
@@ -111,7 +111,7 @@ export function SearchEngineOptimizationPage() {
       </section>
 
       {/* 4. Our SEO Process */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{process.title}</SectionTitle>
@@ -123,7 +123,7 @@ export function SearchEngineOptimizationPage() {
       </section>
 
       {/* 5. Your SEO Growth Partner */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{whyChoose.title}</SectionTitle>
@@ -153,7 +153,7 @@ export function SearchEngineOptimizationPage() {
       </section>
 
       {/* 6. FAQ */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading text-center">
             <SectionTitle>{faqs.title}</SectionTitle>

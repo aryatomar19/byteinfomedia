@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
+import { AtSign, Briefcase, Camera, CheckCircle2, Play, Share2, type LucideIcon } from "lucide-react";
 import { socialMediaMarketingPage } from "@/data/social-media-marketing";
 import { ChevronProcessTimeline } from "@/components/sections/ChevronProcessTimeline";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
@@ -11,6 +11,14 @@ import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 
 const { hero, services, platforms, process, results, whyChoose, faqs, cta } = socialMediaMarketingPage;
+
+const platformIcons: Record<string, LucideIcon> = {
+  Facebook: Share2,
+  Instagram: Camera,
+  LinkedIn: Briefcase,
+  YouTube: Play,
+  X: AtSign,
+};
 
 function SectionTitle({ children }: { children: ReactNode }) {
   return (
@@ -67,7 +75,7 @@ export function SocialMediaMarketingPage() {
       </section>
 
       {/* 2. Social Media Services */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{services.title}</SectionTitle>
@@ -92,25 +100,33 @@ export function SocialMediaMarketingPage() {
       </section>
 
       {/* 3. Platforms We Manage */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{platforms.title}</SectionTitle>
           </Reveal>
-          <RevealStagger className="flex flex-wrap justify-center gap-4">
-            {platforms.items.map((platform) => (
-              <RevealItem key={platform}>
-                <div className="enterprise-card flex h-24 min-w-[8.5rem] items-center justify-center rounded-2xl px-8 transition duration-300 hover:-translate-y-1 sm:min-w-[10rem]">
-                  <span className="text-lg font-extrabold text-[#0A0F1C]">{platform}</span>
-                </div>
-              </RevealItem>
-            ))}
+          <RevealStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            {platforms.items.map((platform) => {
+              const Icon = platformIcons[platform] ?? Share2;
+              return (
+                <RevealItem key={platform}>
+                  <div className="branding-platform-card">
+                    <span className="branding-platform-icon">
+                      <Icon className="h-6 w-6" aria-hidden />
+                    </span>
+                    <span className="text-center text-base font-extrabold text-[#0A0F1C] sm:text-lg">
+                      {platform}
+                    </span>
+                  </div>
+                </RevealItem>
+              );
+            })}
           </RevealStagger>
         </div>
       </section>
 
       {/* 4. Our Social Media Process */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{process.title}</SectionTitle>
@@ -122,7 +138,7 @@ export function SocialMediaMarketingPage() {
       </section>
 
       {/* 5. What You Can Expect */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{results.title}</SectionTitle>
@@ -146,7 +162,7 @@ export function SocialMediaMarketingPage() {
       </section>
 
       {/* 6. Why Choose Byte Infomedia */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{whyChoose.title}</SectionTitle>
@@ -176,7 +192,7 @@ export function SocialMediaMarketingPage() {
       </section>
 
       {/* 7. FAQ */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading text-center">
             <SectionTitle>{faqs.title}</SectionTitle>

@@ -107,6 +107,84 @@ a {
   margin-bottom: 2rem; /* 32px */
 }
 
+/* Branding Solutions — alternating section surfaces */
+.branding-surface-white {
+  background-color: #ffffff;
+}
+
+.branding-surface-muted {
+  background-color: #f8f9fa;
+}
+
+/* Premium highlight cards for branding feature sections */
+.branding-highlight-card {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgba(10, 15, 28, 0.08);
+  background: #ffffff;
+  padding: 1.5rem;
+  box-shadow: 0 12px 40px rgba(10, 15, 28, 0.06);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.branding-highlight-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b2c 0%, rgba(255, 107, 44, 0.35) 100%);
+  content: "";
+}
+
+.branding-highlight-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 107, 44, 0.22);
+  box-shadow: 0 20px 56px rgba(10, 15, 28, 0.1);
+}
+
+.branding-platform-card {
+  display: flex;
+  height: 100%;
+  min-height: 8.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(10, 15, 28, 0.08);
+  background: #ffffff;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 12px 40px rgba(10, 15, 28, 0.06);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.branding-platform-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(255, 107, 44, 0.22);
+  box-shadow: 0 20px 56px rgba(10, 15, 28, 0.1);
+}
+
+.branding-platform-icon {
+  display: inline-flex;
+  height: 3rem;
+  width: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.875rem;
+  border: 1px solid rgba(255, 107, 44, 0.18);
+  background: rgba(255, 107, 44, 0.1);
+  color: #ff6b2c;
+}
+
 /* Tech Solutions pages — tighter, consistent section rhythm */
 .section-tech {
   padding-top: 1.75rem;

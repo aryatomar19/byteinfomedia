@@ -99,7 +99,7 @@ export function WebsiteDevelopmentPage() {
       </section>
 
       {/* 2. What We Offer */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{offerings.title}</SectionTitle>
@@ -124,7 +124,7 @@ export function WebsiteDevelopmentPage() {
       </section>
 
       {/* 3. Why Choose Byte Infomedia */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{whyChoose.title}</SectionTitle>
@@ -143,7 +143,7 @@ export function WebsiteDevelopmentPage() {
       </section>
 
       {/* 4. Our Process */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{process.title}</SectionTitle>
@@ -155,7 +155,7 @@ export function WebsiteDevelopmentPage() {
       </section>
 
       {/* 5. Recent Work */}
-      <section id="recent-work" className="section-enterprise bg-white">
+      <section id="recent-work" className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{recentWork.title}</SectionTitle>
@@ -171,7 +171,7 @@ export function WebsiteDevelopmentPage() {
       </section>
 
       {/* 6. FAQ */}
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading text-center">
             <SectionTitle>{faqs.title}</SectionTitle>
