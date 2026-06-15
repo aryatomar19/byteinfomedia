@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Check, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { generativeAiPageData } from "@/data/generative-ai-page";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
@@ -35,16 +35,6 @@ export function GenerativeAIPage() {
                 </Link>
               </Button>
             </div>
-            <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 border-t border-white/15 pt-4">
-              {hero.featureTags.map((tag) => (
-                <li key={tag} className="flex items-center gap-2 text-sm font-semibold text-white/90">
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FF6B2C] text-white">
-                    <Check className="h-3 w-3" strokeWidth={3} />
-                  </span>
-                  {tag}
-                </li>
-              ))}
-            </ul>
           </Reveal>
           <Reveal delay={0.1}>
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/15 shadow-[0_32px_80px_rgba(0,0,0,0.45)]">

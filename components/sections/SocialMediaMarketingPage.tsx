@@ -2,7 +2,8 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { AtSign, Briefcase, Camera, CheckCircle2, Play, Share2, type LucideIcon } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
+import { SocialPlatformIcon } from "@/components/icons/SocialPlatformIcon";
 import { socialMediaMarketingPage } from "@/data/social-media-marketing";
 import { ChevronProcessTimeline } from "@/components/sections/ChevronProcessTimeline";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
@@ -11,14 +12,6 @@ import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 
 const { hero, services, platforms, process, results, whyChoose, faqs, cta } = socialMediaMarketingPage;
-
-const platformIcons: Record<string, LucideIcon> = {
-  Facebook: Share2,
-  Instagram: Camera,
-  LinkedIn: Briefcase,
-  YouTube: Play,
-  X: AtSign,
-};
 
 function SectionTitle({ children }: { children: ReactNode }) {
   return (
@@ -106,21 +99,18 @@ export function SocialMediaMarketingPage() {
             <SectionTitle>{platforms.title}</SectionTitle>
           </Reveal>
           <RevealStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {platforms.items.map((platform) => {
-              const Icon = platformIcons[platform] ?? Share2;
-              return (
+            {platforms.items.map((platform) => (
                 <RevealItem key={platform}>
                   <div className="branding-platform-card">
                     <span className="branding-platform-icon">
-                      <Icon className="h-6 w-6" aria-hidden />
+                      <SocialPlatformIcon platform={platform} className="h-7 w-7" />
                     </span>
                     <span className="text-center text-base font-extrabold text-[#0A0F1C] sm:text-lg">
                       {platform}
                     </span>
                   </div>
                 </RevealItem>
-              );
-            })}
+            ))}
           </RevealStagger>
         </div>
       </section>
