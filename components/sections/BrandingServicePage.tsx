@@ -116,7 +116,7 @@ export function BrandingServicePage({ data }: { data: BrandingServicePageData })
         </div>
       </section>
 
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Service Overview" title={overview.title} />
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
@@ -153,7 +153,7 @@ export function BrandingServicePage({ data }: { data: BrandingServicePageData })
         </div>
       </section>
 
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Capabilities" title="Key Features" />
           <div className="section-cards mb-0 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -175,7 +175,7 @@ export function BrandingServicePage({ data }: { data: BrandingServicePageData })
         </div>
       </section>
 
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="What We Deliver" title="Service Offerings" />
           <div className="section-cards mb-0 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -186,7 +186,7 @@ export function BrandingServicePage({ data }: { data: BrandingServicePageData })
         </div>
       </section>
 
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Outcomes" title="Benefits for Your Business" />
           <div className="section-cards mb-0 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -208,7 +208,7 @@ export function BrandingServicePage({ data }: { data: BrandingServicePageData })
         </div>
       </section>
 
-      <section className="section-enterprise bg-white">
+      <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-[1.75rem]">
             <img src={showcase.image} alt={showcase.imageAlt} className="aspect-[21/9] w-full object-cover" />
