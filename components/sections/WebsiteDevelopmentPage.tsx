@@ -1,9 +1,9 @@
 "use client";
 
-import type { ReactNode } from "react";
 import Link from "next/link";
 import { CheckCircle2, Sparkles } from "lucide-react";
 import { websiteDevelopmentPage } from "@/data/website-development";
+import { BrandingFaqHeading, BrandingSectionHeading } from "@/components/sections/BrandingSectionHeading";
 import { ChevronProcessTimeline } from "@/components/sections/ChevronProcessTimeline";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
@@ -11,14 +11,6 @@ import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 
 const { hero, offerings, whyChoose, process, recentWork, faqs, cta } = websiteDevelopmentPage;
-
-function SectionTitle({ children }: { children: ReactNode }) {
-  return (
-    <h2 className="font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-      {children}
-    </h2>
-  );
-}
 
 function ProjectCard({
   title,
@@ -101,9 +93,7 @@ export function WebsiteDevelopmentPage() {
       {/* 2. What We Offer */}
       <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{offerings.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{offerings.title}</BrandingSectionHeading>
           <RevealStagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {offerings.items.map((item) => {
               const Icon = item.icon;
@@ -126,9 +116,7 @@ export function WebsiteDevelopmentPage() {
       {/* 3. Why Choose Byte Infomedia */}
       <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{whyChoose.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{whyChoose.title}</BrandingSectionHeading>
           <RevealStagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {whyChoose.features.map((feature) => (
               <RevealItem key={feature}>
@@ -145,9 +133,7 @@ export function WebsiteDevelopmentPage() {
       {/* 4. Our Process */}
       <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{process.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{process.title}</BrandingSectionHeading>
           <Reveal delay={0.06}>
             <ChevronProcessTimeline steps={process.steps} />
           </Reveal>
@@ -157,9 +143,7 @@ export function WebsiteDevelopmentPage() {
       {/* 5. Recent Work */}
       <section id="recent-work" className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{recentWork.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{recentWork.title}</BrandingSectionHeading>
           <RevealStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {recentWork.projects.map((project) => (
               <RevealItem key={project.title}>
@@ -173,9 +157,7 @@ export function WebsiteDevelopmentPage() {
       {/* 6. FAQ */}
       <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading text-center">
-            <SectionTitle>{faqs.title}</SectionTitle>
-          </Reveal>
+          <BrandingFaqHeading>{faqs.title}</BrandingFaqHeading>
           <Reveal delay={0.06}>
             <FAQAccordion items={faqs.items} dark={false} variant="premium" />
           </Reveal>

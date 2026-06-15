@@ -1,9 +1,9 @@
 "use client";
 
-import type { ReactNode } from "react";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { searchEngineOptimizationPage } from "@/data/search-engine-optimization";
+import { BrandingFaqHeading, BrandingSectionHeading } from "@/components/sections/BrandingSectionHeading";
 import { ChevronProcessTimeline } from "@/components/sections/ChevronProcessTimeline";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
@@ -11,14 +11,6 @@ import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 
 const { hero, services, whySeo, process, whyChoose, faqs, cta } = searchEngineOptimizationPage;
-
-function SectionTitle({ children }: { children: ReactNode }) {
-  return (
-    <h2 className="font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-      {children}
-    </h2>
-  );
-}
 
 export function SearchEngineOptimizationPage() {
   return (
@@ -69,9 +61,7 @@ export function SearchEngineOptimizationPage() {
       {/* 2. SEO Services */}
       <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{services.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{services.title}</BrandingSectionHeading>
           <RevealStagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {services.items.map((item) => {
               const Icon = item.icon;
@@ -94,9 +84,7 @@ export function SearchEngineOptimizationPage() {
       {/* 3. Why SEO Matters */}
       <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{whySeo.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{whySeo.title}</BrandingSectionHeading>
           <RevealStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {whySeo.items.map((item) => (
               <RevealItem key={item.title}>
@@ -113,9 +101,7 @@ export function SearchEngineOptimizationPage() {
       {/* 4. Our SEO Process */}
       <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{process.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{process.title}</BrandingSectionHeading>
           <Reveal delay={0.06}>
             <ChevronProcessTimeline steps={process.steps} />
           </Reveal>
@@ -125,9 +111,7 @@ export function SearchEngineOptimizationPage() {
       {/* 5. Your SEO Growth Partner */}
       <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{whyChoose.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{whyChoose.title}</BrandingSectionHeading>
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <RevealStagger className="grid gap-4 sm:grid-cols-2">
               {whyChoose.features.map((feature) => (
@@ -155,9 +139,7 @@ export function SearchEngineOptimizationPage() {
       {/* 6. FAQ */}
       <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading text-center">
-            <SectionTitle>{faqs.title}</SectionTitle>
-          </Reveal>
+          <BrandingFaqHeading>{faqs.title}</BrandingFaqHeading>
           <Reveal delay={0.06}>
             <FAQAccordion items={faqs.items} dark={false} variant="premium" />
           </Reveal>

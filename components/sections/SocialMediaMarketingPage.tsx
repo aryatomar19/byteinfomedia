@@ -1,10 +1,10 @@
 "use client";
 
-import type { ReactNode } from "react";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { SocialPlatformIcon } from "@/components/icons/SocialPlatformIcon";
 import { socialMediaMarketingPage } from "@/data/social-media-marketing";
+import { BrandingFaqHeading, BrandingSectionHeading } from "@/components/sections/BrandingSectionHeading";
 import { ChevronProcessTimeline } from "@/components/sections/ChevronProcessTimeline";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
@@ -12,14 +12,6 @@ import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 
 const { hero, services, platforms, process, results, whyChoose, faqs, cta } = socialMediaMarketingPage;
-
-function SectionTitle({ children }: { children: ReactNode }) {
-  return (
-    <h2 className="font-[family-name:var(--font-inter)] text-3xl font-extrabold tracking-tight text-[#0A0F1C] sm:text-4xl">
-      {children}
-    </h2>
-  );
-}
 
 export function SocialMediaMarketingPage() {
   return (
@@ -70,9 +62,7 @@ export function SocialMediaMarketingPage() {
       {/* 2. Social Media Services */}
       <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{services.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{services.title}</BrandingSectionHeading>
           <RevealStagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {services.items.map((item) => {
               const Icon = item.icon;
@@ -95,9 +85,7 @@ export function SocialMediaMarketingPage() {
       {/* 3. Platforms We Manage */}
       <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{platforms.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{platforms.title}</BrandingSectionHeading>
           <RevealStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {platforms.items.map((platform) => (
                 <RevealItem key={platform}>
@@ -118,9 +106,7 @@ export function SocialMediaMarketingPage() {
       {/* 4. Our Social Media Process */}
       <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{process.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{process.title}</BrandingSectionHeading>
           <Reveal delay={0.06}>
             <ChevronProcessTimeline steps={process.steps} />
           </Reveal>
@@ -130,9 +116,7 @@ export function SocialMediaMarketingPage() {
       {/* 5. What You Can Expect */}
       <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{results.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{results.title}</BrandingSectionHeading>
           <RevealStagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {results.items.map((item) => {
               const Icon = item.icon;
@@ -154,9 +138,7 @@ export function SocialMediaMarketingPage() {
       {/* 6. Why Choose Byte Infomedia */}
       <section className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center">
-            <SectionTitle>{whyChoose.title}</SectionTitle>
-          </Reveal>
+          <BrandingSectionHeading>{whyChoose.title}</BrandingSectionHeading>
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <RevealStagger className="grid gap-4 sm:grid-cols-2">
               {whyChoose.features.map((feature) => (
@@ -184,9 +166,7 @@ export function SocialMediaMarketingPage() {
       {/* 7. FAQ */}
       <section className="section-enterprise branding-surface-muted">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading text-center">
-            <SectionTitle>{faqs.title}</SectionTitle>
-          </Reveal>
+          <BrandingFaqHeading>{faqs.title}</BrandingFaqHeading>
           <Reveal delay={0.06}>
             <FAQAccordion items={faqs.items} dark={false} variant="premium" />
           </Reveal>
