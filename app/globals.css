@@ -180,9 +180,9 @@ a {
   align-items: center;
   justify-content: center;
   border-radius: 0.875rem;
-  border: 1px solid rgba(255, 107, 44, 0.18);
-  background: rgba(255, 107, 44, 0.1);
-  color: #ff6b2c;
+  border: 1px solid rgba(255, 107, 44, 0.22);
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(255, 107, 44, 0.08);
 }
 
 /* Tech Solutions pages — tighter, consistent section rhythm */
