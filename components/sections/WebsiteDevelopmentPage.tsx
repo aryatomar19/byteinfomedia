@@ -99,7 +99,7 @@ export function WebsiteDevelopmentPage() {
       </section>
 
       {/* 2. What We Offer */}
-      <section className="mesh-light section-enterprise">
+      <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{offerings.title}</SectionTitle>
@@ -132,7 +132,7 @@ export function WebsiteDevelopmentPage() {
           <RevealStagger className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {whyChoose.features.map((feature) => (
               <RevealItem key={feature}>
-                <div className="flex items-start gap-3 rounded-2xl border border-[#0A0F1C]/8 bg-[#F8F9FC] px-4 py-4 transition hover:border-[#FF6B2C]/20">
+                <div className="flex items-start gap-3 rounded-2xl border border-[#0A0F1C]/8 bg-white px-4 py-4 transition hover:border-[#FF6B2C]/20">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#FF6B2C]" />
                   <span className="text-sm font-semibold leading-6 text-[#0A0F1C] sm:text-base">{feature}</span>
                 </div>
@@ -143,7 +143,7 @@ export function WebsiteDevelopmentPage() {
       </section>
 
       {/* 4. Our Process */}
-      <section className="mesh-light section-enterprise">
+      <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{process.title}</SectionTitle>
@@ -171,7 +171,7 @@ export function WebsiteDevelopmentPage() {
       </section>
 
       {/* 6. FAQ */}
-      <section className="mesh-light section-enterprise">
+      <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading text-center">
             <SectionTitle>{faqs.title}</SectionTitle>

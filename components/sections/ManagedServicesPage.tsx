@@ -78,7 +78,7 @@ export function ManagedServicesPage() {
       <section className="mesh-light section-tech">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading title="Managed Operations Portfolio" flushTitle tech />
-          <div className="section-tech-grid grid sm:grid-cols-2">
+          <div className="section-tech-grid grid sm:grid-cols-2 lg:grid-cols-3">
             {coreServices.map((card, index) => (
               <ServiceImageCard key={card.title} {...card} index={index} />
             ))}

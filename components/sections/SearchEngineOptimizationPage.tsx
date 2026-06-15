@@ -67,7 +67,7 @@ export function SearchEngineOptimizationPage() {
       </section>
 
       {/* 2. SEO Services */}
-      <section className="mesh-light section-enterprise">
+      <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{services.title}</SectionTitle>
@@ -111,7 +111,7 @@ export function SearchEngineOptimizationPage() {
       </section>
 
       {/* 4. Our SEO Process */}
-      <section className="mesh-light section-enterprise">
+      <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{process.title}</SectionTitle>
@@ -123,9 +123,9 @@ export function SearchEngineOptimizationPage() {
       </section>
 
       {/* 5. Your SEO Growth Partner */}
-      <section className="mesh-light section-enterprise">
+      <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Reveal className="section-heading mx-auto max-w-2xl text-center lg:mx-0 lg:max-w-none lg:text-left">
+          <Reveal className="section-heading mx-auto max-w-2xl text-center">
             <SectionTitle>{whyChoose.title}</SectionTitle>
           </Reveal>
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
@@ -153,7 +153,7 @@ export function SearchEngineOptimizationPage() {
       </section>
 
       {/* 6. FAQ */}
-      <section className="mesh-light section-enterprise">
+      <section className="section-enterprise bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <Reveal className="section-heading text-center">
             <SectionTitle>{faqs.title}</SectionTitle>
