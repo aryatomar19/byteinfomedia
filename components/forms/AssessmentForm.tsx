@@ -62,7 +62,7 @@ export function AssessmentForm({
   );
   const labelGridClass = cn(
     "grid",
-    consultation ? "gap-1.5" : compact ? "gap-0.5" : "gap-2",
+    consultation ? "gap-1" : compact ? "gap-0.5" : "gap-2",
   );
 
   async function submitLead(event: FormEvent<HTMLFormElement>) {
@@ -138,7 +138,8 @@ export function AssessmentForm({
     <form
       onSubmit={submitLead}
       className={cn(
-        "relative overflow-hidden rounded-[2rem]",
+        "relative rounded-[2rem]",
+        compact ? "overflow-visible" : "overflow-hidden",
         compact ? "p-0" : "p-6 sm:p-8",
         dark
           ? "glass-card border-white/10"
@@ -147,12 +148,12 @@ export function AssessmentForm({
       )}
     >
       <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#FF6B2C]/15 blur-3xl" />
-      <div className={cn("relative", compact ? "mb-2" : "mb-6")}>
+      <div className={cn("relative", compact ? "mb-1.5" : "mb-6")}>
         {showPriorityBadge && (
           <div
             className={cn(
-              "inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-[#0A0F1C]",
-              compact ? "mb-1.5 py-0.5" : "mb-4 px-3 py-1 text-xs tracking-[0.14em]",
+              "inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 text-[0.6875rem] font-bold uppercase leading-tight tracking-[0.12em] text-[#0A0F1C]",
+              compact ? "mb-1 py-1" : "mb-4 px-3 py-1 text-xs tracking-[0.14em]",
             )}
           >
             <ShieldCheck className={cn("text-emerald-600", compact ? "h-3 w-3" : "h-3.5 w-3.5")} />
@@ -164,7 +165,7 @@ export function AssessmentForm({
         </h3>
         <p
           className={cn(
-            compact ? "mt-1 text-sm leading-5" : "mt-3 text-sm leading-6",
+            compact ? "mt-0.5 text-sm leading-5" : "mt-3 text-sm leading-6",
             dark ? "text-white/70" : "text-[#0A0F1C]",
           )}
         >
@@ -175,7 +176,7 @@ export function AssessmentForm({
       <div
         className={cn(
           "relative grid",
-          compact ? cn("grid-cols-1", consultation ? "gap-3" : "gap-2") : "gap-4 sm:grid-cols-2",
+          compact ? cn("grid-cols-1", consultation ? "gap-2" : "gap-1.5") : "gap-4 sm:grid-cols-2",
         )}
       >
         <label className={labelGridClass} htmlFor={`${idPrefix}-name`}>
@@ -235,8 +236,8 @@ export function AssessmentForm({
               inputClass,
               compact &&
                 (consultation
-                  ? "h-[64px] min-h-[60px] max-h-[72px] resize-none py-2 leading-snug"
-                  : "h-[72px] min-h-[60px] max-h-[80px] resize-none py-2 leading-snug"),
+                  ? "h-[58px] min-h-[56px] max-h-[64px] resize-none py-2 leading-snug"
+                  : "h-[60px] min-h-[56px] max-h-[66px] resize-none py-2 leading-snug"),
             )}
           />
         </label>
@@ -247,7 +248,7 @@ export function AssessmentForm({
         disabled={state === "submitting"}
         className={cn(
           "group relative inline-flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#FF6B2C] via-[#ff7a3d] to-[#FF6B2C] px-6 text-sm font-black uppercase tracking-[0.08em] text-white shadow-[0_12px_36px_rgba(255,107,44,0.32)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_44px_rgba(255,107,44,0.4)] disabled:opacity-70",
-          compact ? "mt-2 py-2" : "mt-6 py-4",
+          compact ? "mt-1.5 py-2" : "mt-6 py-4",
         )}
       >
         {state === "submitting" ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}

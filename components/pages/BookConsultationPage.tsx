@@ -25,7 +25,7 @@ export function BookConsultationPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-10">
             <Reveal className="h-full">
-              <div className="h-full overflow-hidden rounded-[1.75rem] border border-[#0A0F1C]/8 bg-white p-3 shadow-[0_32px_80px_rgba(10,15,28,0.1)] sm:p-4">
+              <div className="h-full rounded-[1.75rem] border border-[#0A0F1C]/8 bg-white px-3 py-2.5 shadow-[0_32px_80px_rgba(10,15,28,0.1)] sm:px-4 sm:py-3">
                 <AssessmentForm
                   idPrefix="consultation"
                   variant="light"
