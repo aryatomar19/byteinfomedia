@@ -13,40 +13,40 @@ export function GenerativeAIPage() {
 
   return (
     <>
-      <section className="generative-ai-hero mesh-hero relative overflow-hidden">
-        <div className="generative-ai-hero__backdrop" aria-hidden>
-          <div className="absolute inset-0 grid-pattern opacity-40" />
-          <div className="generative-ai-hero__glow generative-ai-hero__glow--orange" />
-          <div className="generative-ai-hero__glow generative-ai-hero__glow--blue" />
-          <div className="generative-ai-hero__veil" />
+      <section className="relative min-h-[70vh] max-h-[75vh] overflow-hidden">
+        <div className="absolute inset-0 hero-ken-burns" aria-hidden>
+          <img
+            src={hero.image}
+            alt=""
+            className="h-full min-h-full w-full min-w-full object-cover object-center"
+          />
         </div>
-        <div className="generative-ai-hero__grid relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="generative-ai-hero__content">
-            <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
-                <Sparkles className="h-3.5 w-3.5" />
-                {badge}
-              </span>
-              <h1 className="mt-4 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.15rem]">
-                {hero.title}
-              </h1>
-              <p className="mt-4 max-w-xl text-lg leading-7 text-white/80">{hero.description}</p>
-              <div className="mt-5 flex flex-wrap gap-3">
-                <Button size="lg" asChild>
-                  <Link href="/book-consultation/">Book Consultation</Link>
-                </Button>
-                <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
-                  <Link href="/book-consultation/" className="!text-white hover:!text-white">
-                    Request AI Assessment
-                  </Link>
-                </Button>
-              </div>
-            </Reveal>
-          </div>
-          <Reveal delay={0.1} className="generative-ai-hero__media">
-            <div className="generative-ai-hero__image-shell">
-              <img src={hero.image} alt={hero.imageAlt} />
-              <div className="generative-ai-hero__image-overlay" aria-hidden />
+        <div className="absolute inset-0 bg-[#0A0F1C]/60" aria-hidden />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[#0A0F1C]/80 via-[#0A0F1C]/50 to-[#0A0F1C]/30"
+          aria-hidden
+        />
+        <div className="absolute inset-0 grid-pattern opacity-35" aria-hidden />
+
+        <div className="relative mx-auto flex min-h-[70vh] max-h-[75vh] max-w-7xl items-center px-4 hero-service sm:px-6 lg:px-8">
+          <Reveal className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
+              <Sparkles className="h-3.5 w-3.5" />
+              {badge}
+            </span>
+            <h1 className="mt-4 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.15rem]">
+              {hero.title}
+            </h1>
+            <p className="mt-4 max-w-xl text-lg leading-7 text-white/80">{hero.description}</p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Button size="lg" asChild>
+                <Link href="/book-consultation/">Book Consultation</Link>
+              </Button>
+              <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
+                <Link href="/book-consultation/" className="!text-white hover:!text-white">
+                  Request AI Assessment
+                </Link>
+              </Button>
             </div>
           </Reveal>
         </div>
