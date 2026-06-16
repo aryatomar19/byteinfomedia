@@ -52,14 +52,17 @@ function BlogSubsectionBlock({
       : "font-[family-name:var(--font-inter)] text-lg font-bold tracking-tight text-[#0A0F1C] sm:text-xl";
 
   if (headingLevel === "h3") {
+    const hasBullets = Boolean(subsection.bullets);
+    const hasSubsections = Boolean(subsection.subsections?.length);
+
     return (
       <div className="mt-8 first:mt-0">
         <HeadingTag className={headingClassName}>{subsection.heading}</HeadingTag>
-        {(subsection.body || subsection.bullets || subsection.subsections?.length) ? (
+        {subsection.body ? (
+          <p className="mt-4 text-base leading-7 text-[#334155]">{subsection.body}</p>
+        ) : null}
+        {hasBullets || hasSubsections ? (
           <div className={cn("mt-4", sectionContentIndent)}>
-            {subsection.body ? (
-              <p className="text-base leading-7 text-[#334155]">{subsection.body}</p>
-            ) : null}
             {subsection.bullets ? <BlogBulletList items={subsection.bullets} /> : null}
             {subsection.subsections?.map((child) => (
               <BlogSubsectionBlock key={child.heading} subsection={child} headingLevel="h4" />
@@ -74,7 +77,7 @@ function BlogSubsectionBlock({
     <div className="mt-5">
       <HeadingTag className={headingClassName}>{subsection.heading}</HeadingTag>
       {subsection.body ? (
-        <p className="mt-3 text-base leading-7 text-[#334155]">{subsection.body}</p>
+        <p className="mt-4 text-base leading-7 text-[#334155]">{subsection.body}</p>
       ) : null}
       {subsection.bullets ? <BlogBulletList items={subsection.bullets} nested /> : null}
       {subsection.subsections?.map((child) => (
@@ -146,12 +149,12 @@ export function BlogArticlePage() {
                 <h2 className="font-[family-name:var(--font-inter)] text-2xl font-extrabold tracking-tight text-[#0A0F1C]">
                   {section.heading}
                 </h2>
-                {section.body || section.bullets ? (
+                {section.body ? (
+                  <p className="mt-4 text-base leading-7 text-[#334155]">{section.body}</p>
+                ) : null}
+                {section.bullets ? (
                   <div className={cn("mt-4", sectionContentIndent)}>
-                    {section.body ? (
-                      <p className="text-base leading-7 text-[#334155]">{section.body}</p>
-                    ) : null}
-                    {section.bullets ? <BlogBulletList items={section.bullets} /> : null}
+                    <BlogBulletList items={section.bullets} />
                   </div>
                 ) : null}
                 {section.subsections?.length ? (
