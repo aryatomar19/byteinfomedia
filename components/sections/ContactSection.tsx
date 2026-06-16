@@ -17,7 +17,7 @@ export function ContactSection() {
           </p>
         </Reveal>
 
-        <div className="mx-auto w-full max-w-6xl overflow-hidden rounded-[1.75rem] border border-[#0A0F1C]/8 bg-white p-3 shadow-[0_32px_80px_rgba(10,15,28,0.1)] sm:p-4">
+        <div className="mx-auto w-full max-w-6xl rounded-[1.75rem] border border-[#0A0F1C]/8 bg-white px-3 py-2.5 shadow-[0_32px_80px_rgba(10,15,28,0.1)] sm:px-4 sm:py-3">
           <Reveal delay={0.06}>
             <AssessmentForm
               variant="light"
