@@ -52,6 +52,7 @@ export const footerLinks = [
   { label: "About Us", href: "/about-us/" },
   { label: "Branding Solutions", href: "/website-development/" },
   { label: "Tech Solutions", href: "/cloud-services/" },
+  { label: "FAQ", href: "/faq/" },
   { label: "Contact Us", href: "/#assessment" },
 ] as const;
 

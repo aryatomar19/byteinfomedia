@@ -6,7 +6,7 @@ import { FooterContactInfo } from "@/components/layout/FooterContactInfo";
 export function SiteFooter() {
   return (
     <footer className="border-t border-[#0A0F1C]/8 bg-[#F8F9FC]">
-      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1.25fr_1fr_1fr] lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:px-6 lg:grid-cols-[1.25fr_1fr_1fr] lg:gap-x-5 lg:px-8">
         <div className="flex max-w-xl flex-col items-start">
           <img
             src={company.logo}
@@ -32,7 +32,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div>
+        <div className="lg:pl-5">
           <p className="text-sm font-semibold text-[#1E293B]">Quick Links</p>
           <div className="mt-3 grid gap-2">
             {footerLinks.map((link) => (
@@ -43,7 +43,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div>
+        <div className="lg:-ml-2">
           <p className="text-sm font-semibold text-[#1E293B]">Contact Information</p>
           <div className="mt-3">
             <FooterContactInfo />
