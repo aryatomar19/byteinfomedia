@@ -1,3 +1,5 @@
+import { cloudServicesBlog, cloudServicesBlogArticle } from "@/data/cloud-services-blog";
+
 export const latestBlogSection = {
   eyebrow: "LATEST INSIGHTS",
   title: "Our Latest Blog",
@@ -145,3 +147,15 @@ export const featuredBlogArticle = {
     },
   ] satisfies readonly BlogArticleSection[],
 } as const;
+
+export const blogPosts = [featuredBlog, cloudServicesBlog] as const;
+
+export const blogArticles = {
+  [featuredBlog.slug]: featuredBlogArticle,
+  [cloudServicesBlog.slug]: cloudServicesBlogArticle,
+} as const;
+
+export type BlogPost = (typeof blogPosts)[number];
+export type BlogArticle = (typeof blogArticles)[keyof typeof blogArticles];
+
+export { cloudServicesBlog, cloudServicesBlogArticle } from "@/data/cloud-services-blog";
