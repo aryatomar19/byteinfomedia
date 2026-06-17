@@ -3,17 +3,18 @@
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { BlogNavLink } from "@/components/blog/BlogNavLink";
 import type { BlogArticleSubsection } from "@/data/blog";
-import { featuredBlogArticle, latestBlogSection } from "@/data/blog";
+import type { BlogArticle } from "@/data/blog";
+import { latestBlogSection } from "@/data/blog";
 import { Reveal } from "@/components/motion/Reveal";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-/** ~24px mobile / ~28px desktop — nested content under section headings */
+/** ~20px mobile / ~24px desktop — consistent bullet list indentation */
+const bulletListPadding = "pl-5 sm:pl-6";
+/** Nested bullets aligned under subheadings within indented sections */
+const nestedBulletPadding = "pl-4 sm:pl-5";
+/** Nested content blocks under subsection headings */
 const sectionContentIndent = "pl-6 sm:pl-7";
-/** Bullet list left padding — inset from section headings (~40–48px) */
-const bulletListPadding = "pl-10 sm:pl-12";
-/** Deeper padding for bullets nested under subheadings */
-const nestedBulletPadding = "pl-12 sm:pl-14";
 
 function BlogBulletList({
   items,
@@ -63,7 +64,7 @@ function BlogSubsectionBlock({
         ) : null}
         {hasBullets || hasSubsections ? (
           <div className={cn("mt-4", sectionContentIndent)}>
-            {subsection.bullets ? <BlogBulletList items={subsection.bullets} /> : null}
+            {subsection.bullets ? <BlogBulletList items={subsection.bullets} nested /> : null}
             {subsection.subsections?.map((child) => (
               <BlogSubsectionBlock key={child.heading} subsection={child} headingLevel="h4" />
             ))}
@@ -87,9 +88,13 @@ function BlogSubsectionBlock({
   );
 }
 
-export function BlogArticlePage() {
-  const { category, title, subtitle, image, imageAlt, publishedAt, readTime, intro, sections } =
-    featuredBlogArticle;
+type BlogArticlePageProps = {
+  article: BlogArticle;
+};
+
+export function BlogArticlePage({ article }: BlogArticlePageProps) {
+  const { category, title, image, imageAlt, publishedAt, readTime, intro, sections } = article;
+  const subtitle = "subtitle" in article ? article.subtitle : undefined;
 
   return (
     <article className="bg-white">
@@ -153,7 +158,7 @@ export function BlogArticlePage() {
                   <p className="mt-4 text-base leading-7 text-[#334155]">{section.body}</p>
                 ) : null}
                 {section.bullets ? (
-                  <div className={cn("mt-4", sectionContentIndent)}>
+                  <div className="mt-4">
                     <BlogBulletList items={section.bullets} />
                   </div>
                 ) : null}

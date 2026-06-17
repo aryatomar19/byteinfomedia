@@ -3,17 +3,19 @@
 import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { BlogNavLink } from "@/components/blog/BlogNavLink";
+import type { BlogPost } from "@/data/blog";
 import { featuredBlog } from "@/data/blog";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 type FeaturedBlogCardProps = {
+  blog?: BlogPost;
   index?: number;
   /** Compact mode for homepage sections; default listing card is premium full layout. */
   compact?: boolean;
 };
 
-export function FeaturedBlogCard({ index = 0, compact = false }: FeaturedBlogCardProps) {
+export function FeaturedBlogCard({ blog = featuredBlog, index = 0, compact = false }: FeaturedBlogCardProps) {
   const {
     category,
     title,
@@ -24,7 +26,7 @@ export function FeaturedBlogCard({ index = 0, compact = false }: FeaturedBlogCar
     readTime,
     href,
     readMoreLabel,
-  } = featuredBlog;
+  } = blog;
 
   if (compact) {
     return (

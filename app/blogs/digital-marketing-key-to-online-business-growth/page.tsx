@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { BlogArticlePage } from "@/components/pages/BlogArticlePage";
-import { featuredBlog } from "@/data/blog";
+import { blogArticles, featuredBlog } from "@/data/blog";
 
 export const dynamic = "force-static";
 
@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <BlogArticlePage />;
+  return <BlogArticlePage article={blogArticles[featuredBlog.slug]} />;
 }
