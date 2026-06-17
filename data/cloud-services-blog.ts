@@ -8,7 +8,7 @@ export const cloudServicesBlog = {
     "Discover how cloud services help businesses reduce costs, improve security, scale infrastructure, and ensure business continuity through modern cloud solutions.",
   image: "/images/blog/cloud-services-power.jpg",
   imageAlt:
-    "Enterprise cloud computing infrastructure with server racks, networking, and modern data center technology",
+    "Professional cloud computing illustration showing global cloud infrastructure connectivity and enterprise network technology",
   publishedAt: "June 16, 2026",
   readTime: "6 min read",
   href: "/blogs/move-beyond-limits-unlock-the-power-of-cloud-services/",
