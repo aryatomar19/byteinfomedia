@@ -32,7 +32,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="lg:pl-5">
+        <div className="lg:pl-10">
           <p className="text-sm font-semibold text-[#1E293B]">Quick Links</p>
           <div className="mt-3 grid gap-2">
             {footerLinks.map((link) => (
