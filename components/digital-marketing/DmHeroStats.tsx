@@ -41,7 +41,8 @@ function StatItem({ stat, index }: { stat: Stat; index: number }) {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3 + index * 0.08 }}
-      className="dm-hero-stat rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-center backdrop-blur-sm"
+      whileHover={{ y: -4, scale: 1.02 }}
+      className="dm-hero-stat rounded-2xl px-4 py-4 text-center"
     >
       <p className="text-2xl font-extrabold text-[#FF6B2C] sm:text-3xl">{display}</p>
       <p className="mt-1 text-xs font-semibold text-white/70">{stat.label}</p>
