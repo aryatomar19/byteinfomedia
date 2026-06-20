@@ -25,10 +25,14 @@ export function DmWhySection({
           initial={{ opacity: 0, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="dm-image-card relative overflow-hidden rounded-3xl border border-white/10"
+          className="dm-image-card group relative overflow-hidden rounded-3xl border border-white/10 transition-shadow duration-500 hover:shadow-[0_28px_72px_rgba(0,0,0,0.35)]"
         >
-          <img src={image} alt={imageAlt} className="dm-image-fixed h-[360px] w-full object-cover sm:h-[420px] lg:h-[520px]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/60 to-transparent" />
+          <img
+            src={image}
+            alt={imageAlt}
+            className="dm-image-fixed h-[360px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] sm:h-[420px] lg:h-[520px]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/75 via-[#0A0F1C]/25 to-[#0A0F1C]/10" />
         </motion.div>
 
         <div>
@@ -50,14 +54,14 @@ export function DmWhySection({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.06 }}
-                  whileHover={{ y: -4, borderColor: "rgba(255,107,44,0.3)" }}
-                  className="dm-why-card flex h-full min-h-[140px] flex-col rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition duration-300 hover:bg-white/8"
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  className="dm-why-card group flex h-full min-h-[168px] flex-col items-center rounded-2xl p-5 text-center"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#FF6B2C]/15 text-[#FF6B2C]">
-                    <Icon className="h-5 w-5" />
+                  <span className="dm-why-icon flex h-12 w-12 items-center justify-center rounded-xl">
+                    <Icon className="h-5 w-5 text-[#FF6B2C]" />
                   </span>
                   <h3 className="mt-4 font-extrabold text-white">{feature.title}</h3>
-                  <p className="mt-1.5 flex-1 text-sm leading-6 text-white/60">{feature.description}</p>
+                  <p className="mt-2 flex-1 text-sm leading-6 text-white/60">{feature.description}</p>
                 </motion.div>
               );
             })}
