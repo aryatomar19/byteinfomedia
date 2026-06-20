@@ -25,7 +25,7 @@ export function DigitalMarketingPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A0F1C] via-[#121a2e] to-[#0a0f1c]" aria-hidden />
 
         <div className="relative mx-auto flex min-h-[85vh] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid w-full items-center gap-12 lg:grid-cols-[2fr_3fr] lg:gap-14">
+          <div className="grid w-full items-center gap-12 lg:grid-cols-[11fr_9fr] lg:gap-14">
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
