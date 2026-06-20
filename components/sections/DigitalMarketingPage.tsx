@@ -18,6 +18,36 @@ import { BrandingTestimonialCarousel } from "@/components/branding/BrandingTesti
 import { BrandingWhySection } from "@/components/branding/BrandingWhySection";
 import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { useMagnetic } from "@/lib/use-magnetic";
+
+import type { ReactNode } from "react";
+
+function HeroMagneticButton({
+  href,
+  variant,
+  children,
+}: {
+  href: string;
+  variant: "primary" | "secondary";
+  children: ReactNode;
+}) {
+  const { ref, onMove, onLeave } = useMagnetic(0.2);
+
+  return (
+    <Button
+      size="lg"
+      variant={variant === "primary" ? "primary" : "secondary"}
+      className={`bs-hero-btn h-12 rounded-full px-7 text-sm font-bold transition-transform duration-200 ${
+        variant === "primary" ? "shadow-[0_8px_28px_rgba(255,107,44,0.3)]" : ""
+      }`}
+      asChild
+    >
+      <Link ref={ref} href={href} onMouseMove={onMove} onMouseLeave={onLeave}>
+        {children}
+      </Link>
+    </Button>
+  );
+}
 
 export function DigitalMarketingPage() {
   const { hero, services, whyByte, metrics, process, featuredStory, testimonials, faqs, cta } =
@@ -28,39 +58,40 @@ export function DigitalMarketingPage() {
       <BrandingPageAmbient />
 
       {/* Section 1 — Full screen hero */}
-      <section className="bs-hero-section relative flex min-h-screen items-center">
+      <section className="bs-hero-section relative flex min-h-screen items-center overflow-hidden">
         <div className="absolute inset-0" aria-hidden>
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-[#FAFAFA] to-[#FFF8F4]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_30%,rgba(255,107,44,0.07),transparent_50%)]" />
+          <div className="bs-hero-grid absolute inset-0 opacity-[0.35]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-[#FAFAFA] to-[#FFF6F1]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_40%,rgba(255,107,44,0.09),transparent_55%)]" />
         </div>
 
-        <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="grid items-center gap-10 lg:grid-cols-[2fr_3fr] lg:gap-12">
+        <div className="relative mx-auto w-full max-w-[90rem] px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+          <div className="grid items-center gap-8 lg:grid-cols-[2fr_3fr] lg:gap-6 xl:gap-10">
             <motion.div
               initial={{ opacity: 0, y: 36 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="lg:pr-4"
+              className="relative z-10 lg:max-w-md lg:pr-2 xl:max-w-lg"
             >
               <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/25 bg-white/90 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#FF6B2C] shadow-sm backdrop-blur-sm">
                 <Sparkles className="h-3.5 w-3.5" />
                 {hero.badge}
               </span>
-              <h1 className="mt-6 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-[#111] sm:text-5xl lg:text-[2.75rem] xl:text-[3.15rem]">
+              <h1 className="mt-6 font-[family-name:var(--font-inter)] text-[2.5rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-[#111] sm:text-5xl lg:text-[3rem] xl:text-[3.35rem]">
                 {hero.titleLines.map((line) => (
                   <span key={line} className="block">
                     {line}
                   </span>
                 ))}
               </h1>
-              <p className="mt-5 max-w-md text-base leading-7 text-[#666]">{hero.description}</p>
+              <p className="mt-5 max-w-sm text-[0.95rem] leading-7 text-[#666] sm:text-base">{hero.description}</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button size="lg" asChild>
-                  <Link href="/book-consultation/">{hero.primaryCta}</Link>
-                </Button>
-                <Button variant="secondary" size="lg" asChild>
-                  <Link href="#bs-services">{hero.secondaryCta}</Link>
-                </Button>
+                <HeroMagneticButton href="/book-consultation/" variant="primary">
+                  {hero.primaryCta}
+                </HeroMagneticButton>
+                <HeroMagneticButton href="#bs-services" variant="secondary">
+                  {hero.secondaryCta}
+                </HeroMagneticButton>
               </div>
               <div className="mt-7 flex flex-wrap gap-2">
                 {hero.trustBadges.map((badge) => (
@@ -85,10 +116,10 @@ export function DigitalMarketingPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
+              initial={{ opacity: 0, scale: 0.94 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.12 }}
-              className="relative w-full lg:pl-2"
+              className="relative w-full lg:-mr-4 lg:w-[108%] lg:max-w-none xl:-mr-8 xl:w-[115%]"
             >
               <BrandingHeroStudio />
             </motion.div>
