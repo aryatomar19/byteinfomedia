@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 import { digitalMarketingPage } from "@/data/digital-marketing";
 import { BrandingFaqHeading, BrandingSectionHeading } from "@/components/sections/BrandingSectionHeading";
-import { ChevronProcessTimeline } from "@/components/sections/ChevronProcessTimeline";
 import { AnimatedMetric } from "@/components/motion/AnimatedMetric";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { FAQAccordion } from "@/components/ui/accordion";
@@ -43,22 +42,22 @@ function PortfolioServiceCard({
   index: number;
 }) {
   return (
-    <Reveal delay={index * 0.08}>
-      <Link href={href} scroll className="dm-portfolio-card group flex h-full flex-col overflow-hidden rounded-[1.25rem]">
-        <div className="dm-portfolio-media relative h-[260px] shrink-0 overflow-hidden sm:h-[280px]">
+    <Reveal delay={index * 0.08} className="h-full">
+      <Link href={href} scroll className="dm-service-equal group flex h-full flex-col overflow-hidden rounded-[1.25rem]">
+        <div className="dm-service-equal-media relative h-[220px] shrink-0 overflow-hidden">
           <img
             src={image}
             alt={imageAlt}
-            className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-110"
+            className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07162d]/95 via-[#07162d]/45 to-[#07162d]/15 transition duration-500 group-hover:from-[#07162d]/90" />
-          <div className="absolute inset-x-0 bottom-0 p-6">
-            <h3 className="text-2xl font-extrabold tracking-tight text-white sm:text-[1.65rem]">{title}</h3>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#07162d]/90 via-[#07162d]/40 to-[#07162d]/10" />
+          <h3 className="absolute bottom-0 left-0 right-0 p-5 text-xl font-extrabold tracking-tight text-white sm:text-2xl">
+            {title}
+          </h3>
         </div>
-        <div className="flex flex-1 flex-col bg-white p-6">
-          <p className="line-clamp-2 flex-1 text-sm leading-7 text-[#334155]">{description}</p>
-          <span className="dm-portfolio-cta mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#FF6B2C]">
+        <div className="dm-service-equal-body flex flex-1 flex-col p-6">
+          <p className="dm-service-equal-desc line-clamp-3 text-sm leading-7 text-[#334155]">{description}</p>
+          <span className="dm-portfolio-cta mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-[#FF6B2C]">
             Learn More
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </span>
@@ -111,32 +110,40 @@ function PortfolioCaseCard({
 }
 
 export function DigitalMarketingPage() {
-  const { hero, about, benefits, services, process, whyByte, metrics, caseStudies, strategies, faqs, cta } =
+  const { hero, about, benefits, services, whyByte, metrics, caseStudies, strategies, faqs, cta } =
     digitalMarketingPage;
 
   return (
     <div className="dm-page">
-      {/* Hero */}
-      <section className="dm-hero relative flex min-h-screen items-center overflow-hidden bg-[#07162d]">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#07162d] via-[#0a1e3d] to-[#07162d]" aria-hidden />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(255,107,44,0.18),transparent_50%)]" aria-hidden />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_80%,rgba(255,107,44,0.08),transparent_45%)]" aria-hidden />
-        <div className="absolute inset-0 grid-pattern opacity-[0.12]" aria-hidden />
-        <div className="dm-float-shape dm-float-shape--1 absolute h-80 w-80 rounded-full bg-[#FF6B2C]/14 blur-3xl" aria-hidden />
-        <div className="dm-float-shape dm-float-shape--2 absolute h-64 w-64 rounded-full bg-[#FF6B2C]/10 blur-3xl" aria-hidden />
-        <div className="dm-float-shape dm-float-shape--3 absolute h-36 w-36 rounded-full bg-white/5 blur-2xl" aria-hidden />
+      {/* Hero — immersive full-width background */}
+      <section className="dm-hero-immersive relative flex min-h-[88vh] items-center overflow-hidden lg:min-h-screen">
+        <div className="absolute inset-0" aria-hidden>
+          <img
+            src={hero.image}
+            alt=""
+            className="hero-ken-burns h-full min-h-full w-full min-w-full object-cover object-center"
+          />
+        </div>
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[#07162d]/95 via-[#07162d]/82 to-[#07162d]/55"
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(255,107,44,0.14),transparent_55%)]" aria-hidden />
+        <div className="absolute inset-0 grid-pattern opacity-[0.08]" aria-hidden />
+        <div className="dm-float-shape dm-float-shape--1 absolute h-72 w-72 rounded-full bg-[#FF6B2C]/12 blur-3xl" aria-hidden />
+        <div className="dm-float-shape dm-float-shape--2 absolute h-56 w-56 rounded-full bg-[#FF6B2C]/8 blur-3xl" aria-hidden />
 
-        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:px-8 lg:py-24">
-          <Reveal>
+        <div className="relative mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <Reveal className="max-w-2xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#ffb088] backdrop-blur-md sm:text-xs">
               <Sparkles className="h-3.5 w-3.5" />
               {hero.badge}
             </span>
-            <h1 className="mt-5 font-[family-name:var(--font-inter)] text-[2.35rem] font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.25rem]">
+            <h1 className="mt-6 font-[family-name:var(--font-inter)] text-[2.35rem] font-extrabold leading-[1.04] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.35rem]">
               {hero.title}
             </h1>
-            <p className="mt-5 max-w-lg text-base leading-8 text-white/78 sm:text-lg">{hero.description}</p>
-            <div className="mt-7 flex flex-wrap gap-3">
+            <p className="mt-5 max-w-xl text-base leading-8 text-white/82 sm:text-lg">{hero.description}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
               <Button size="lg" asChild>
                 <Link href="/book-consultation/">Book Consultation</Link>
               </Button>
@@ -146,15 +153,6 @@ export function DigitalMarketingPage() {
                 </Link>
               </Button>
             </div>
-          </Reveal>
-
-          <Reveal delay={0.1} className="relative">
-            <div className="dm-hero-glow absolute -inset-3 rounded-[1.75rem] bg-[#FF6B2C]/25 blur-3xl" aria-hidden />
-            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.5)]">
-              <img src={hero.image} alt={hero.imageAlt} className="aspect-[5/4] w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#07162d]/55 via-transparent to-transparent" />
-            </div>
-            <div className="dm-float-shape dm-float-shape--4 absolute -bottom-4 -left-4 hidden h-16 w-16 rounded-xl border border-[#FF6B2C]/35 bg-[#FF6B2C]/10 backdrop-blur-md lg:block" aria-hidden />
           </Reveal>
         </div>
       </section>
@@ -216,21 +214,11 @@ export function DigitalMarketingPage() {
       <section id="dm-services" className="dm-section branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <BrandingSectionHeading>{services.title}</BrandingSectionHeading>
-          <div className="dm-equal-grid mt-8 grid gap-5 sm:grid-cols-2 lg:mt-10 lg:gap-6">
+          <div className="dm-services-grid mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:mt-10">
             {services.items.map((item, index) => (
               <PortfolioServiceCard key={item.title} {...item} index={index} />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="dm-section branding-surface-muted branding-process-section">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <BrandingSectionHeading>{process.title}</BrandingSectionHeading>
-          <Reveal delay={0.06} className="mt-8 lg:mt-10">
-            <ChevronProcessTimeline steps={[...process.steps]} />
-          </Reveal>
         </div>
       </section>
 

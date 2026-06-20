@@ -1,6 +1,7 @@
 import type { FaqItem } from "@/data/service-page-types";
 
 const img = "/images/home";
+const dmImg = "/images/digital-marketing";
 
 export const digitalMarketingPage = {
   hero: {
@@ -8,8 +9,8 @@ export const digitalMarketingPage = {
     title: "Grow Your Business With Smart Digital Marketing",
     description:
       "We help businesses increase visibility, generate qualified leads, and build lasting customer relationships through SEO, social media, content marketing, and performance-driven campaigns.",
-    image: `${img}/hero-slides/digital-marketing-seo.jpg`,
-    imageAlt: "Digital marketing team analyzing campaign performance and growth metrics",
+    image: `${dmImg}/hero.jpg`,
+    imageAlt: "Digital marketing analytics dashboard and business growth strategy",
   },
   about: {
     eyebrow: "About Us",
@@ -51,29 +52,29 @@ export const digitalMarketingPage = {
       {
         title: "Website Development",
         description: "Custom business websites, landing pages, and enterprise web applications.",
-        image: `${img}/marketing/website-development.jpg`,
-        imageAlt: "Professional team collaborating on website development",
+        image: `${dmImg}/website-development.jpg`,
+        imageAlt: "Modern laptop workspace for professional website development",
         href: "/website-development/",
       },
       {
         title: "SEO",
         description: "Improve search rankings, organic traffic, and online visibility.",
-        image: `${img}/marketing/seo.jpg`,
-        imageAlt: "Marketing team planning search engine optimization strategy",
+        image: `${dmImg}/seo.jpg`,
+        imageAlt: "Business team reviewing search engine optimization performance",
         href: "/search-engine-optimization/",
       },
       {
         title: "Content Writing",
         description: "Professional website, blog, marketing, and technical content creation.",
-        image: `${img}/marketing/content-writing.jpg`,
-        imageAlt: "Professionals creating website and marketing content",
+        image: `${dmImg}/content-writing.jpg`,
+        imageAlt: "Creative professional writing marketing and website content",
         href: "/content-writing/",
       },
       {
         title: "Social Media Marketing",
         description: "Brand awareness, audience engagement, and social media growth strategies.",
-        image: `${img}/marketing/social-media-marketing.jpg`,
-        imageAlt: "Creative team developing social media marketing campaigns",
+        image: `${dmImg}/social-media-marketing.jpg`,
+        imageAlt: "Urban brand presence representing social media marketing reach",
         href: "/social-media-marketing/",
       },
     ],
