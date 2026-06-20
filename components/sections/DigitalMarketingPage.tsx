@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
 import { esteemedClients } from "@/data/esteemed-clients";
 import { digitalMarketingPage } from "@/data/digital-marketing";
+import { motion } from "framer-motion";
 import { BrandingFeaturedStory } from "@/components/branding/BrandingFeaturedStory";
 import { BrandingFinalCta } from "@/components/branding/BrandingFinalCta";
 import { BrandingFaqVisual } from "@/components/branding/BrandingFaqVisual";
-import { BrandingHeroStudio } from "@/components/branding/BrandingHeroStudio";
 import { BrandingMetricsSection } from "@/components/branding/BrandingMetricsSection";
 import { BrandingPageAmbient } from "@/components/branding/BrandingPageAmbient";
 import { BrandingProcessTimeline } from "@/components/branding/BrandingProcessTimeline";
@@ -16,118 +15,87 @@ import { BrandingSectionDivider } from "@/components/branding/BrandingSectionDiv
 import { BrandingServicePanels } from "@/components/branding/BrandingServicePanels";
 import { BrandingTestimonialCarousel } from "@/components/branding/BrandingTestimonialCarousel";
 import { BrandingWhySection } from "@/components/branding/BrandingWhySection";
+import { HeroBrandingScene } from "@/components/visuals/HeroBrandingScene";
 import { FAQAccordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { useMagnetic } from "@/lib/use-magnetic";
-
-import type { ReactNode } from "react";
-
-function HeroMagneticButton({
-  href,
-  variant,
-  children,
-}: {
-  href: string;
-  variant: "primary" | "secondary";
-  children: ReactNode;
-}) {
-  const { ref, onMove, onLeave } = useMagnetic(0.2);
-
-  return (
-    <Button
-      size="lg"
-      variant={variant === "primary" ? "primary" : "secondary"}
-      className={`bs-hero-btn h-12 rounded-full px-7 text-sm font-bold transition-transform duration-200 ${
-        variant === "primary" ? "shadow-[0_8px_28px_rgba(255,107,44,0.3)]" : ""
-      }`}
-      asChild
-    >
-      <Link ref={ref} href={href} onMouseMove={onMove} onMouseLeave={onLeave}>
-        {children}
-      </Link>
-    </Button>
-  );
-}
+import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 
 export function DigitalMarketingPage() {
   const { hero, services, whyByte, metrics, process, featuredStory, testimonials, faqs, cta } =
     digitalMarketingPage;
 
   return (
-    <div className="bs-premium relative overflow-hidden bg-[#FAFAFA]">
-      <BrandingPageAmbient />
+    <div className="bs-premium relative overflow-hidden">
+      {/* Hero — dark cinematic banner (matches Cloud Services quality) */}
+      <section className="relative min-h-[70vh] max-h-[85vh] overflow-hidden mesh-hero">
+        <div className="absolute inset-0 grid-pattern-light opacity-30" aria-hidden />
+        <div
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgba(255,107,44,0.12),transparent_55%)]"
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[#0A0F1C] via-[#0A0F1C]/85 to-[#0A0F1C]/40"
+          aria-hidden
+        />
 
-      {/* Section 1 — Full screen hero */}
-      <section className="bs-hero-section relative flex min-h-screen items-center overflow-hidden">
-        <div className="absolute inset-0" aria-hidden>
-          <div className="bs-hero-grid absolute inset-0 opacity-[0.35]" />
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-[#FAFAFA] to-[#FFF6F1]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_40%,rgba(255,107,44,0.09),transparent_55%)]" />
-        </div>
-
-        <div className="relative mx-auto w-full max-w-[90rem] px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-          <div className="grid items-center gap-8 lg:grid-cols-[2fr_3fr] lg:gap-6 xl:gap-10">
+        <div className="relative mx-auto flex min-h-[70vh] max-h-[85vh] max-w-7xl items-center px-4 py-10 hero-service sm:px-6 lg:px-8">
+          <div className="grid w-full items-center gap-10 lg:grid-cols-[2fr_3fr] lg:gap-12">
             <motion.div
-              initial={{ opacity: 0, y: 36 }}
+              initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="relative z-10 lg:max-w-md lg:pr-2 xl:max-w-lg"
+              transition={{ duration: 0.65 }}
+              className="relative z-10 max-w-xl"
             >
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/25 bg-white/90 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#FF6B2C] shadow-sm backdrop-blur-sm">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
                 <Sparkles className="h-3.5 w-3.5" />
                 {hero.badge}
               </span>
-              <h1 className="mt-6 font-[family-name:var(--font-inter)] text-[2.5rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-[#111] sm:text-5xl lg:text-[3rem] xl:text-[3.35rem]">
+              <h1 className="mt-5 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.15rem]">
                 {hero.titleLines.map((line) => (
                   <span key={line} className="block">
                     {line}
                   </span>
                 ))}
               </h1>
-              <p className="mt-5 max-w-sm text-[0.95rem] leading-7 text-[#666] sm:text-base">{hero.description}</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <HeroMagneticButton href="/book-consultation/" variant="primary">
-                  {hero.primaryCta}
-                </HeroMagneticButton>
-                <HeroMagneticButton href="#bs-services" variant="secondary">
-                  {hero.secondaryCta}
-                </HeroMagneticButton>
+              <p className="mt-4 max-w-md text-base leading-7 text-white/75 sm:text-lg">{hero.description}</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button size="lg" asChild>
+                  <Link href="/book-consultation/">{hero.primaryCta}</Link>
+                </Button>
+                <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
+                  <Link href="#bs-services" className="!text-white hover:!text-white">
+                    {hero.secondaryCta}
+                  </Link>
+                </Button>
               </div>
-              <div className="mt-7 flex flex-wrap gap-2">
-                {hero.trustBadges.map((badge) => (
-                  <span
-                    key={badge}
-                    className="rounded-full border border-[#111]/8 bg-white/90 px-3 py-1.5 text-xs font-semibold text-[#666] shadow-sm backdrop-blur-sm"
-                  >
-                    {badge}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-8 flex flex-wrap items-center gap-5 opacity-70 grayscale transition hover:grayscale-0">
+              <div className="mt-8 flex flex-wrap items-center gap-5 opacity-80 grayscale transition hover:grayscale-0">
                 {esteemedClients.slice(0, 5).map((client) => (
                   <img
                     key={client.name}
                     src={client.logo}
                     alt={client.logoAlt}
-                    className="h-7 w-auto max-w-[5.5rem] object-contain"
+                    className="h-7 w-auto max-w-[5.5rem] brightness-0 invert object-contain"
                   />
                 ))}
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.94 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.12 }}
-              className="relative w-full lg:-mr-4 lg:w-[108%] lg:max-w-none xl:-mr-8 xl:w-[115%]"
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="relative w-full"
             >
-              <BrandingHeroStudio />
+              <HeroBrandingScene />
             </motion.div>
           </div>
         </div>
-
-        <BrandingSectionDivider variant="curve" className="bs-divider--hero text-[#FAFAFA]" />
       </section>
+
+      <div className="relative bg-[#FAFAFA]">
+        <BrandingPageAmbient />
+
+      <BrandingSectionDivider variant="curve" className="text-[#FAFAFA]" />
 
       {/* Section 2 — Services */}
       <BrandingServicePanels title={services.title} subtitle={services.subtitle} items={services.items} />
@@ -190,6 +158,7 @@ export function DigitalMarketingPage() {
 
       {/* Section 9 — CTA */}
       <BrandingFinalCta title={cta.title} description={cta.description} primaryLabel={cta.primaryLabel} />
+      </div>
     </div>
   );
 }

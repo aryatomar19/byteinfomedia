@@ -362,6 +362,13 @@ a {
   background-size: 48px 48px;
 }
 
+.grid-pattern-light {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
 .text-gradient {
   background: linear-gradient(90deg, #0a0f1c 0%, #ff6b2c 100%);
   -webkit-background-clip: text;
