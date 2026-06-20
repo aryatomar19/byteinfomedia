@@ -164,7 +164,7 @@ export function SiteHeader() {
         <div className="ml-auto flex items-center gap-6 lg:gap-8 xl:gap-10">
           <nav className="hidden items-center gap-1 lg:flex xl:gap-2" aria-label="Main">
             <NavDropdown
-              label="Branding Solutions"
+              label="Digital Marketing"
               items={brandingServiceNav}
               isActiveGroup={brandingActive}
               menuRef={brandingMenuRef}
@@ -213,7 +213,7 @@ export function SiteHeader() {
                 aria-expanded={mobileBrandingOpen}
                 onClick={() => setMobileBrandingOpen((value) => !value)}
               >
-                Branding Solutions
+                Digital Marketing
                 <ChevronDown
                   className={cn("h-5 w-5 transition-transform duration-200", mobileBrandingOpen && "rotate-180")}
                   aria-hidden
