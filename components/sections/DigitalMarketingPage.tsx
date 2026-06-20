@@ -8,7 +8,7 @@ import { digitalMarketingPage } from "@/data/digital-marketing";
 import { BrandingFeaturedStory } from "@/components/branding/BrandingFeaturedStory";
 import { BrandingFinalCta } from "@/components/branding/BrandingFinalCta";
 import { BrandingFaqVisual } from "@/components/branding/BrandingFaqVisual";
-import { BrandingHeroEcosystem } from "@/components/branding/BrandingHeroEcosystem";
+import { BrandingHeroStudio } from "@/components/branding/BrandingHeroStudio";
 import { BrandingMetricsSection } from "@/components/branding/BrandingMetricsSection";
 import { BrandingPageAmbient } from "@/components/branding/BrandingPageAmbient";
 import { BrandingProcessTimeline } from "@/components/branding/BrandingProcessTimeline";
@@ -30,22 +30,23 @@ export function DigitalMarketingPage() {
       {/* Section 1 — Full screen hero */}
       <section className="bs-hero-section relative flex min-h-screen items-center">
         <div className="absolute inset-0" aria-hidden>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgba(255,107,44,0.1),transparent_55%)]" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#FAFAFA] via-[#FAFAFA]/95 to-[#FAFAFA]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-[#FAFAFA] to-[#FFF8F4]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_30%,rgba(255,107,44,0.07),transparent_50%)]" />
         </div>
 
-        <div className="relative mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+          <div className="grid items-center gap-10 lg:grid-cols-[2fr_3fr] lg:gap-12">
             <motion.div
               initial={{ opacity: 0, y: 36 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
+              className="lg:pr-4"
             >
               <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/25 bg-white/90 px-4 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#FF6B2C] shadow-sm backdrop-blur-sm">
                 <Sparkles className="h-3.5 w-3.5" />
                 {hero.badge}
               </span>
-              <h1 className="mt-6 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.06] tracking-[-0.04em] text-[#111] sm:text-5xl lg:text-[3.25rem] xl:text-[3.5rem]">
+              <h1 className="mt-6 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-[#111] sm:text-5xl lg:text-[2.75rem] xl:text-[3.15rem]">
                 {hero.titleLines.map((line) => (
                   <span key={line} className="block">
                     {line}
@@ -84,12 +85,12 @@ export function DigitalMarketingPage() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
+              initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.12 }}
-              className="relative lg:-mr-6"
+              className="relative w-full lg:pl-2"
             >
-              <BrandingHeroEcosystem />
+              <BrandingHeroStudio />
             </motion.div>
           </div>
         </div>
