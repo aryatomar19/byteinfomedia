@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { BarChart3, Megaphone, Sparkles, TrendingUp, Users, type LucideIcon } from "lucide-react";
-import { digitalMarketingPage } from "@/data/digital-marketing";
+import { Activity, Cloud, Shield, Sparkles, Wrench, type LucideIcon } from "lucide-react";
+import { techSolutionsPage } from "@/data/tech-solutions";
 import { BrandingSectionHeading } from "@/components/sections/BrandingSectionHeading";
 import { Reveal, RevealItem, RevealStagger } from "@/components/motion/Reveal";
 import { ServiceImageCard } from "@/components/sections/ServiceImageCard";
@@ -10,18 +10,23 @@ import { SectionHeading } from "@/components/sections/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 
-const benefitIcons: LucideIcon[] = [TrendingUp, Users, Megaphone, BarChart3];
+const benefitIcons: LucideIcon[] = [Cloud, Activity, Shield, Wrench];
 
-export function DigitalMarketingPage() {
-  const { hero, overview, benefits, services, cta } = digitalMarketingPage;
+export function TechSolutionsPage() {
+  const { hero, overview, benefits, services, cta } = techSolutionsPage;
 
   return (
     <>
       <section className="relative min-h-[72vh] overflow-hidden bg-[#07162d] lg:min-h-[78vh]">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#07162d] via-[#0c2244] to-[#07162d]" aria-hidden />
+        <div className="absolute inset-0 hero-ken-burns" aria-hidden>
+          <img src={hero.image} alt="" className="h-full min-h-full w-full min-w-full object-cover object-center" />
+        </div>
+        <div className="absolute inset-0 bg-[#07162d]/70" aria-hidden />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[#07162d]/90 via-[#07162d]/55 to-[#07162d]/30"
+          aria-hidden
+        />
         <div className="absolute inset-0 grid-pattern opacity-25" aria-hidden />
-        <div className="dm-float-shape dm-float-shape--1 absolute h-64 w-64 rounded-full bg-[#FF6B2C]/10 blur-3xl" aria-hidden />
-        <div className="dm-float-shape dm-float-shape--2 absolute h-48 w-48 rounded-full bg-[#FF6B2C]/8 blur-2xl" aria-hidden />
 
         <div className="relative mx-auto grid min-h-[72vh] max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:min-h-[78vh] lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-16">
           <Reveal>
@@ -38,7 +43,7 @@ export function DigitalMarketingPage() {
                 <Link href="/book-consultation/">Book Consultation</Link>
               </Button>
               <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
-                <Link href="#dm-services" className="!text-white hover:!text-white">
+                <Link href="#tech-services" className="!text-white hover:!text-white">
                   View Services
                 </Link>
               </Button>
@@ -68,7 +73,7 @@ export function DigitalMarketingPage() {
           <BrandingSectionHeading>{benefits.title}</BrandingSectionHeading>
           <RevealStagger className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:mt-12">
             {benefits.items.map((item, index) => {
-              const Icon = benefitIcons[index] ?? TrendingUp;
+              const Icon = benefitIcons[index] ?? Cloud;
               return (
                 <RevealItem key={item.title}>
                   <div className="enterprise-card group h-full rounded-2xl p-6 transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_24px_64px_rgba(10,15,28,0.1)]">
@@ -85,7 +90,7 @@ export function DigitalMarketingPage() {
         </div>
       </section>
 
-      <section id="dm-services" className="section-enterprise branding-surface-white">
+      <section id="tech-services" className="section-enterprise branding-surface-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <BrandingSectionHeading>{services.title}</BrandingSectionHeading>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4">
