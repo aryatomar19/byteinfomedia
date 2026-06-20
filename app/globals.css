@@ -750,6 +750,211 @@ a {
   padding-bottom: 0;
 }
 
+/* Branding Solutions — premium interactive page */
+.bs-premium {
+  color: #111111;
+}
+
+.bs-section {
+  position: relative;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .bs-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.bs-section-title {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #111111;
+}
+
+@media (min-width: 640px) {
+  .bs-section-title {
+    font-size: 2.5rem;
+  }
+}
+
+.bs-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.45;
+}
+
+.bs-blob--1 {
+  top: 5%;
+  right: -5%;
+  width: 420px;
+  height: 420px;
+  background: rgba(255, 107, 44, 0.12);
+  animation: bs-blob-drift 18s ease-in-out infinite;
+}
+
+.bs-blob--2 {
+  bottom: 20%;
+  left: -8%;
+  width: 360px;
+  height: 360px;
+  background: rgba(17, 17, 17, 0.04);
+  animation: bs-blob-drift 22s ease-in-out infinite reverse;
+}
+
+@keyframes bs-blob-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, -24px);
+  }
+}
+
+.bs-hero-scene {
+  perspective: 1000px;
+  min-height: 380px;
+}
+
+.bs-service-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(17, 17, 17, 0.06);
+  background: #ffffff;
+  box-shadow: 0 12px 40px rgba(17, 17, 17, 0.06);
+  overflow: hidden;
+}
+
+.bs-service-card:hover {
+  box-shadow: 0 24px 64px rgba(17, 17, 17, 0.1), 0 0 0 1px rgba(255, 107, 44, 0.12);
+}
+
+.bs-service-illus {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(145deg, #fafafa, #f3f3f3);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.05);
+  overflow: hidden;
+}
+
+.bs-service-desc {
+  min-height: 3rem;
+}
+
+.bs-browser {
+  margin: 1.25rem auto;
+  width: 75%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: white;
+  box-shadow: 0 16px 40px rgba(17, 17, 17, 0.1);
+  overflow: hidden;
+}
+
+.bs-browser-bar {
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+}
+
+.bs-browser-bar span {
+  height: 0.4rem;
+  width: 0.4rem;
+  border-radius: 9999px;
+  background: rgba(17, 17, 17, 0.12);
+}
+
+.bs-browser-bar span:first-child {
+  background: rgba(255, 107, 44, 0.7);
+}
+
+.bs-browser-body {
+  padding: 0.75rem;
+}
+
+.bs-browser-hero {
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, rgba(255, 107, 44, 0.2), rgba(17, 17, 17, 0.05));
+}
+
+.bs-browser-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.bs-browser-grid span {
+  height: 1.5rem;
+  border-radius: 0.25rem;
+  background: rgba(17, 17, 17, 0.06);
+}
+
+.bs-doc-card {
+  margin: 1.5rem auto;
+  width: 70%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background: white;
+  padding: 1.25rem;
+  box-shadow: 0 12px 32px rgba(17, 17, 17, 0.08);
+}
+
+.bs-stats-strip {
+  background: linear-gradient(135deg, #111111 0%, #1a1a2e 100%);
+}
+
+.bs-stat-item {
+  transition: transform 0.3s ease;
+}
+
+.bs-stat-item:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(0 0 20px rgba(255, 107, 44, 0.25));
+}
+
+.bs-feature-card {
+  border: 1px solid rgba(17, 17, 17, 0.06);
+  background: white;
+  box-shadow: 0 8px 28px rgba(17, 17, 17, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bs-case-card {
+  border: 1px solid rgba(17, 17, 17, 0.06);
+  background: white;
+  box-shadow: 0 12px 36px rgba(17, 17, 17, 0.06);
+}
+
+.bs-case-card:hover {
+  box-shadow: 0 24px 56px rgba(17, 17, 17, 0.1);
+}
+
+.bs-testimonial-card {
+  border: 1px solid rgba(17, 17, 17, 0.06);
+  background: white;
+  box-shadow: 0 16px 48px rgba(17, 17, 17, 0.06);
+}
+
+.bs-cta-card {
+  background: linear-gradient(135deg, #111111 0%, #1a1a2e 60%, #111111 100%);
+  box-shadow: 0 24px 64px rgba(17, 17, 17, 0.2);
+}
+
+.bs-magnetic-btn {
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
 /* Legacy aliases — kept for compatibility */
 .dm-service-card {
   border-radius: 1.5rem;
