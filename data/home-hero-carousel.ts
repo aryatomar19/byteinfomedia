@@ -33,7 +33,7 @@ export const heroBannerSlides: HeroBannerSlide[] = [
     image: `${slideImages}/digital-marketing-seo.jpg`,
     imageAlt:
       "SEO analytics dashboards and digital marketing performance charts showing growth metrics",
-    learnMoreHref: "/search-engine-optimization/",
+    learnMoreHref: "/digital-marketing/",
   },
   {
     id: "cloud-migration-devops",
@@ -56,7 +56,7 @@ export const heroBannerSlides: HeroBannerSlide[] = [
     image: `${slideImages}/branding-social-media.jpg`,
     imageAlt:
       "Social media marketing, branding strategy, content creation, and audience engagement visuals",
-    learnMoreHref: "/website-development/",
+    learnMoreHref: "/digital-marketing/",
   },
 ];
 

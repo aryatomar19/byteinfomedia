@@ -35,6 +35,7 @@ export const serviceNav = [
 ] as const;
 
 export const brandingServiceNav = [
+  { label: "Digital Marketing Home", href: "/digital-marketing/" },
   { label: "Website Development", href: "/website-development/" },
   { label: "Search Engine Optimization (SEO)", href: "/search-engine-optimization/" },
   { label: "Content Writing", href: "/content-writing/" },
@@ -50,7 +51,7 @@ export const headerNav = [
 export const footerLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us/" },
-  { label: "Branding Solutions", href: "/website-development/" },
+  { label: "Digital Marketing", href: "/digital-marketing/" },
   { label: "Tech Solutions", href: "/cloud-services/" },
   { label: "FAQ", href: "/faq/" },
   { label: "Contact Us", href: "/#assessment" },
