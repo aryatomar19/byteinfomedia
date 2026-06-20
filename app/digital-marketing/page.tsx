@@ -3,7 +3,7 @@ import { DigitalMarketingPage } from "@/components/sections/DigitalMarketingPage
 import { digitalMarketingPage } from "@/data/digital-marketing";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing",
+  title: "Branding Solutions | Digital Marketing",
   description: digitalMarketingPage.hero.description,
   alternates: { canonical: "/digital-marketing/" },
 };

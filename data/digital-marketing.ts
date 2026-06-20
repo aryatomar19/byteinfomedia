@@ -1,157 +1,104 @@
 import type { FaqItem } from "@/data/service-page-types";
 
-const img = "/images/home";
 const dmImg = "/images/digital-marketing";
 
 export const digitalMarketingPage = {
   hero: {
-    badge: "DIGITAL MARKETING SOLUTIONS",
-    title: "Grow Your Business With Smart Digital Marketing",
+    badge: "BRANDING SOLUTIONS",
+    title: "Build Strong Brands That Drive Real Business Growth",
     description:
-      "We help businesses increase visibility, generate qualified leads, and build lasting customer relationships through SEO, social media, content marketing, and performance-driven campaigns.",
-    image: `${dmImg}/hero.jpg`,
-    imageAlt: "Digital marketing analytics dashboard and business growth strategy",
-  },
-  about: {
-    eyebrow: "About Us",
-    title: "Strategic Digital Marketing for Modern Businesses",
-    description:
-      "Byte Infomedia helps businesses build a strong online presence through integrated digital marketing. From search visibility and compelling content to social engagement and conversion-focused websites, we create strategies that attract the right audience and turn interest into measurable growth.",
-    highlights: [
-      "Data-driven campaigns tailored to your goals",
-      "Full-funnel strategy across search, social, and web",
-      "Transparent reporting with measurable ROI",
-    ],
-    image: `${img}/about-highlights/digital-marketing.jpg`,
-    imageAlt: "Digital marketing professionals reviewing analytics and campaign strategy",
-  },
-  benefits: {
-    title: "Why Businesses Choose Digital Marketing",
-    items: [
-      {
-        title: "Increase Traffic",
-        description: "Reach more qualified visitors through search, social, and paid channels.",
-      },
-      {
-        title: "Generate Leads",
-        description: "Convert interest into pipeline with landing pages and campaigns built for action.",
-      },
-      {
-        title: "Build Brand Awareness",
-        description: "Strengthen recognition with consistent messaging across every touchpoint.",
-      },
-      {
-        title: "Improve ROI",
-        description: "Measure what works, optimize spend, and reinvest in high-performing strategies.",
-      },
-    ],
+      "Premium websites, SEO, content, and social media — crafted to elevate your brand and convert attention into revenue.",
+    primaryCta: "Get Free Consultation",
+    secondaryCta: "Explore Services",
+    trustBadges: ["SEO & Web Experts", "Data-Led Growth", "Trusted by 100+ Brands"],
   },
   services: {
-    title: "Our Digital Marketing Services",
+    title: "Our Branding Solutions",
+    subtitle: "Four focused services. One premium partner.",
     items: [
       {
+        id: "website" as const,
         title: "Website Development",
-        description: "Custom business websites, landing pages, and enterprise web applications.",
-        image: `${dmImg}/website-development.jpg`,
-        imageAlt: "Modern laptop workspace for professional website development",
+        description: "Fast, elegant websites built to impress and convert.",
         href: "/website-development/",
       },
       {
-        title: "SEO",
-        description: "Improve search rankings, organic traffic, and online visibility.",
-        image: `${dmImg}/seo.jpg`,
-        imageAlt: "Business team reviewing search engine optimization performance",
+        id: "seo" as const,
+        title: "Search Engine Optimization (SEO)",
+        description: "Rank higher, attract qualified traffic, and grow organically.",
         href: "/search-engine-optimization/",
       },
       {
+        id: "content" as const,
         title: "Content Writing",
-        description: "Professional website, blog, marketing, and technical content creation.",
-        image: `${dmImg}/content-writing.jpg`,
-        imageAlt: "Creative professional writing marketing and website content",
+        description: "Clear, compelling copy that builds trust and authority.",
         href: "/content-writing/",
       },
       {
+        id: "social" as const,
         title: "Social Media Marketing",
-        description: "Brand awareness, audience engagement, and social media growth strategies.",
-        image: `${dmImg}/social-media-marketing.jpg`,
-        imageAlt: "Urban brand presence representing social media marketing reach",
+        description: "Engage audiences and grow your brand across social channels.",
         href: "/social-media-marketing/",
       },
     ],
   },
-  process: {
-    title: "Our Process",
-    steps: [
-      { title: "Discover", description: "Understand your goals, audience, and current digital footprint." },
-      { title: "Research", description: "Analyze competitors, keywords, channels, and market opportunities." },
-      { title: "Strategy", description: "Build a tailored roadmap with clear priorities and KPIs." },
-      { title: "Execute", description: "Launch campaigns, content, and optimizations across chosen channels." },
-      { title: "Optimize", description: "Track performance, refine tactics, and scale what delivers results." },
-    ],
-  },
-  whyByte: {
-    title: "Why Byte Infomedia",
-    image: `${img}/marketing/social-media-marketing.jpg`,
-    imageAlt: "Byte Infomedia digital marketing team collaborating on strategy",
-    features: [
-      { title: "Dedicated Team", description: "Specialists focused on your brand, channels, and growth targets." },
-      { title: "Data Driven Strategy", description: "Every decision backed by analytics, testing, and performance insights." },
-      { title: "Transparent Reporting", description: "Clear dashboards and regular updates so you always know what's working." },
-      { title: "Affordable Solutions", description: "Enterprise-quality marketing tailored to your budget and scale." },
-      { title: "Custom Campaigns", description: "Strategies built around your industry, audience, and business goals." },
-      { title: "Long Term Growth", description: "Sustainable programs that compound results month over month." },
-    ],
-  },
   metrics: [
-    { value: 100, suffix: "+", label: "Projects" },
+    { value: 100, suffix: "+", label: "Projects Completed" },
     { value: 95, suffix: "%", label: "Client Satisfaction" },
     { value: 300, suffix: "%", label: "Average Growth" },
-    { value: null as number | null, display: "24x7", label: "Support" },
+    { value: null as number | null, display: "24/7", label: "Support" },
   ],
+  whyByte: {
+    title: "Why Byte Infomedia",
+    features: [
+      { title: "Dedicated Team", description: "Experts focused on your brand goals." },
+      { title: "Data Driven Strategy", description: "Decisions backed by real analytics." },
+      { title: "Transparent Reporting", description: "Clear insights you can act on." },
+      { title: "Affordable Solutions", description: "Premium quality within your budget." },
+      { title: "Custom Solutions", description: "Tailored to your industry and audience." },
+      { title: "Long Term Growth", description: "Sustainable results that compound." },
+    ],
+  },
   caseStudies: {
     title: "Case Studies",
     items: [
       {
-        category: "SEO",
         title: "SEO Growth",
-        result: "180% increase in organic traffic within 6 months",
-        image: "/images/branding/seo/showcase.jpg",
-        imageAlt: "SEO growth dashboard showing improved search rankings",
+        description: "180% organic traffic lift in six months.",
+        image: `${dmImg}/seo.jpg`,
+        imageAlt: "SEO growth results",
       },
       {
-        category: "Social Media",
         title: "Social Media Campaign",
-        result: "3x engagement rate across brand channels",
-        image: "/images/branding/social-media/showcase.jpg",
-        imageAlt: "Social media campaign performance metrics",
+        description: "3× engagement across brand channels.",
+        image: `${dmImg}/social-media-marketing.jpg`,
+        imageAlt: "Social media campaign results",
       },
       {
-        category: "Lead Generation",
         title: "Lead Generation",
-        result: "250+ qualified leads per month from paid campaigns",
-        image: `${img}/marketing/website-development.jpg`,
-        imageAlt: "Lead generation funnel and conversion analytics",
+        description: "250+ qualified leads per month.",
+        image: `${dmImg}/website-development.jpg`,
+        imageAlt: "Lead generation results",
       },
     ],
   },
-  strategies: {
-    title: "Why Our Digital Strategies Work",
+  testimonials: {
+    title: "What Clients Say",
     items: [
       {
-        title: "Data Driven",
-        description: "Every campaign is guided by analytics, audience insights, and performance benchmarks.",
+        quote: "Byte Infomedia transformed our online presence. Professional, creative, and results-driven.",
+        name: "Rajesh K.",
+        role: "Business Owner",
       },
       {
-        title: "ROI Focused",
-        description: "We prioritize tactics that deliver measurable returns on your marketing investment.",
+        quote: "Our SEO rankings improved dramatically. Transparent reporting and a team that truly cares.",
+        name: "Priya S.",
+        role: "Marketing Director",
       },
       {
-        title: "Creative Campaigns",
-        description: "Compelling creative and messaging that captures attention and drives engagement.",
-      },
-      {
-        title: "Transparent Reporting",
-        description: "Regular updates and clear dashboards so you always know what's working.",
+        quote: "The website they built is stunning. Clean design, fast performance, and more conversions.",
+        name: "Amit M.",
+        role: "Founder",
       },
     ],
   },
@@ -159,36 +106,29 @@ export const digitalMarketingPage = {
     title: "Frequently Asked Questions",
     items: [
       {
-        question: "What digital marketing services do you offer?",
+        question: "What branding services do you offer?",
         answer:
-          "We offer SEO, social media marketing, content marketing, website development, performance marketing, email marketing, brand strategy, and online reputation management tailored to your business goals.",
+          "We specialize in Website Development, SEO, Content Writing, and Social Media Marketing — four focused services to grow your brand online.",
       },
       {
-        question: "How long does it take to see results from digital marketing?",
+        question: "How quickly can I see results?",
         answer:
-          "Timelines vary by channel. Paid campaigns can generate leads quickly, while SEO and content marketing typically build momentum over 3–6 months with compounding returns.",
+          "Paid and social campaigns can show traction within weeks. SEO and content typically build strong momentum over 3–6 months.",
       },
       {
-        question: "Do you work with small businesses and enterprises?",
-        answer:
-          "Yes. We design scalable strategies for startups, growing SMBs, and enterprise teams — from focused campaigns to full-funnel digital programs.",
+        question: "Do you work with small businesses?",
+        answer: "Yes. We design scalable branding programs for startups, SMBs, and growing enterprises.",
       },
       {
-        question: "How do you measure campaign success?",
-        answer:
-          "We track KPIs such as traffic, leads, conversion rates, engagement, and ROI with transparent reporting so you always know what is working.",
-      },
-      {
-        question: "Can you manage our existing website and marketing channels?",
-        answer:
-          "Absolutely. We can audit your current setup, optimize underperforming assets, and manage ongoing campaigns across search, social, email, and web.",
+        question: "How do you measure success?",
+        answer: "We track traffic, leads, engagement, and ROI with clear dashboards and regular updates.",
       },
     ] satisfies FaqItem[],
   },
   cta: {
-    title: "Ready To Grow Your Business?",
-    description: "Let's create a digital marketing strategy tailored for your goals.",
-    primaryLabel: "Book Consultation",
+    title: "Ready To Grow Your Brand?",
+    description: "Let's build a branding strategy tailored to your goals.",
+    primaryLabel: "Get Free Consultation",
     secondaryLabel: "Contact Us",
   },
 } as const;
