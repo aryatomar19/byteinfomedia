@@ -11,8 +11,8 @@ export const digitalMarketingPage = {
     image: `${img}/hero-slides/digital-marketing-seo.jpg`,
     imageAlt: "Digital marketing team analyzing campaign performance and growth metrics",
   },
-  overview: {
-    eyebrow: "Who We Are",
+  about: {
+    eyebrow: "About Us",
     title: "Strategic Digital Marketing for Modern Businesses",
     description:
       "Byte Infomedia helps businesses build a strong online presence through integrated digital marketing. From search visibility and compelling content to social engagement and conversion-focused websites, we create strategies that attract the right audience and turn interest into measurable growth.",
@@ -29,19 +29,19 @@ export const digitalMarketingPage = {
     items: [
       {
         title: "Increase Traffic",
-        description: "Reach more qualified visitors through search, social, and paid channels that align with your audience.",
+        description: "Reach more qualified visitors through search, social, and paid channels.",
       },
       {
         title: "Generate Leads",
-        description: "Convert interest into pipeline with landing pages, content funnels, and campaigns built for action.",
+        description: "Convert interest into pipeline with landing pages and campaigns built for action.",
       },
       {
         title: "Build Brand Awareness",
-        description: "Strengthen recognition and trust with consistent messaging across every digital touchpoint.",
+        description: "Strengthen recognition with consistent messaging across every touchpoint.",
       },
       {
         title: "Improve ROI",
-        description: "Measure what works, optimize spend, and reinvest in strategies that deliver measurable returns.",
+        description: "Measure what works, optimize spend, and reinvest in high-performing strategies.",
       },
     ],
   },
@@ -111,18 +111,21 @@ export const digitalMarketingPage = {
     title: "Case Studies",
     items: [
       {
+        category: "SEO",
         title: "SEO Growth",
         result: "180% increase in organic traffic within 6 months",
         image: "/images/branding/seo/showcase.jpg",
         imageAlt: "SEO growth dashboard showing improved search rankings",
       },
       {
+        category: "Social Media",
         title: "Social Media Campaign",
         result: "3x engagement rate across brand channels",
         image: "/images/branding/social-media/showcase.jpg",
         imageAlt: "Social media campaign performance metrics",
       },
       {
+        category: "Lead Generation",
         title: "Lead Generation",
         result: "250+ qualified leads per month from paid campaigns",
         image: `${img}/marketing/website-development.jpg`,
@@ -130,17 +133,25 @@ export const digitalMarketingPage = {
       },
     ],
   },
-  industries: {
-    title: "Industries We Serve",
+  strategies: {
+    title: "Why Our Digital Strategies Work",
     items: [
-      { name: "Healthcare", icon: "healthcare" as const },
-      { name: "Education", icon: "education" as const },
-      { name: "Real Estate", icon: "realEstate" as const },
-      { name: "Ecommerce", icon: "ecommerce" as const },
-      { name: "Manufacturing", icon: "manufacturing" as const },
-      { name: "Technology", icon: "technology" as const },
-      { name: "Finance", icon: "finance" as const },
-      { name: "Hospitality", icon: "hospitality" as const },
+      {
+        title: "Data Driven",
+        description: "Every campaign is guided by analytics, audience insights, and performance benchmarks.",
+      },
+      {
+        title: "ROI Focused",
+        description: "We prioritize tactics that deliver measurable returns on your marketing investment.",
+      },
+      {
+        title: "Creative Campaigns",
+        description: "Compelling creative and messaging that captures attention and drives engagement.",
+      },
+      {
+        title: "Transparent Reporting",
+        description: "Regular updates and clear dashboards so you always know what's working.",
+      },
     ],
   },
   faqs: {
