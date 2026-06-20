@@ -1,147 +1,90 @@
-import type { FaqItem } from "@/data/service-page-types";
-
-const dmImg = "/images/digital-marketing";
+const img = "/images/dm-landing";
 
 export const digitalMarketingPage = {
   hero: {
-    badge: "BRANDING SOLUTIONS",
-    titleLines: ["Build Better Brands.", "Grow Better Businesses."],
+    badge: "DIGITAL MARKETING SOLUTIONS",
+    title: "Grow Your Business With Smart Digital Marketing",
     description:
-      "We craft premium digital experiences through web, SEO, content and social.",
+      "Data-led strategies across web, SEO, content, and social — built to attract, engage, and convert your ideal customers.",
     primaryCta: "Book Consultation",
-    secondaryCta: "Explore Services",
-    trustBadges: ["100+ Brands", "SEO Experts", "Creative Team"],
+    secondaryCta: "View Services",
+    stats: [
+      { value: 100, suffix: "+", label: "Projects" },
+      { value: 95, suffix: "%", label: "Client Satisfaction" },
+      { value: 300, suffix: "%", label: "Average Growth" },
+      { value: null as number | null, display: "24x7", label: "Support" },
+    ],
+  },
+  whoWeAre: {
+    title: "Strategic Digital Marketing for Modern Businesses",
+    description:
+      "Byte Infomedia partners with ambitious brands to deliver measurable growth through premium digital marketing — from stunning websites to search visibility, compelling content, and social engagement.",
+    image: `${img}/who-we-are.jpg`,
+    imageAlt: "Digital marketing strategy team collaboration",
+    features: [
+      "End-to-end digital marketing under one roof",
+      "Transparent reporting with clear ROI metrics",
+      "Strategies tailored to your industry and goals",
+    ],
   },
   services: {
-    title: "Our Branding Solutions",
-    subtitle: "Four services. One creative partner.",
+    title: "Our Digital Marketing Services",
     items: [
       {
         id: "website" as const,
         title: "Website Development",
-        description: "Fast, elegant sites that impress and convert.",
+        description: "Fast, elegant websites engineered to impress visitors and drive conversions.",
         href: "/website-development/",
-        image: `${dmImg}/website-development.jpg`,
+        image: `${img}/website.jpg`,
+        imageAlt: "Website development and design",
       },
       {
         id: "seo" as const,
-        title: "Search Engine Optimization (SEO)",
-        description: "Rank higher and grow organic traffic.",
+        title: "Search Engine Optimization",
+        description: "Rank higher, attract qualified traffic, and grow organic visibility.",
         href: "/search-engine-optimization/",
-        image: `${dmImg}/seo.jpg`,
+        image: `${img}/seo.jpg`,
+        imageAlt: "SEO analytics and search rankings",
       },
       {
         id: "content" as const,
         title: "Content Writing",
-        description: "Copy that builds trust and authority.",
+        description: "Clear, compelling copy that builds trust, authority, and engagement.",
         href: "/content-writing/",
-        image: `${dmImg}/content-writing.jpg`,
+        image: `${img}/content.jpg`,
+        imageAlt: "Content writing and brand storytelling",
       },
       {
         id: "social" as const,
         title: "Social Media Marketing",
-        description: "Engage audiences across every channel.",
+        description: "Grow your brand presence and engage audiences across social channels.",
         href: "/social-media-marketing/",
-        image: `${dmImg}/social-media-marketing.jpg`,
+        image: `${img}/social.jpg`,
+        imageAlt: "Social media marketing campaigns",
       },
+    ],
+  },
+  process: {
+    title: "Our Process",
+    steps: [
+      { title: "Discover", description: "Understand your brand, audience, and goals." },
+      { title: "Research", description: "Analyze market, competitors, and opportunities." },
+      { title: "Strategy", description: "Build a data-led roadmap for growth." },
+      { title: "Execute", description: "Launch campaigns and assets with precision." },
+      { title: "Optimize", description: "Measure, refine, and scale what works." },
     ],
   },
   whyByte: {
     title: "Why Byte Infomedia",
-    image: `${dmImg}/hero.jpg`,
-    imageAlt: "Byte Infomedia creative team",
+    image: `${img}/why-byte.jpg`,
+    imageAlt: "Byte Infomedia digital marketing team",
     features: [
-      { title: "Dedicated Team", description: "Experts focused on your brand." },
-      { title: "Creative Strategy", description: "Bold ideas backed by data." },
-      { title: "SEO Experts", description: "Rankings that compound." },
-      { title: "Content Specialists", description: "Stories that resonate." },
-      { title: "Social Growth", description: "Audiences that engage." },
-      { title: "Long Term Support", description: "Partnership beyond launch." },
+      { title: "Dedicated Team", description: "Experts focused on your growth goals." },
+      { title: "Data Driven Strategy", description: "Decisions backed by real analytics." },
+      { title: "Transparent Reporting", description: "Clear dashboards you can act on." },
+      { title: "Affordable Solutions", description: "Premium quality within your budget." },
+      { title: "Custom Campaigns", description: "Tailored to your industry and audience." },
+      { title: "Long Term Growth", description: "Sustainable results that compound." },
     ],
-  },
-  metrics: [
-    { value: 100, suffix: "+", label: "Projects" },
-    { value: 95, suffix: "%", label: "Client Satisfaction" },
-    { value: 300, suffix: "%", label: "Growth" },
-    { value: null as number | null, display: "24/7", label: "Support" },
-  ],
-  process: {
-    title: "How We Work",
-    steps: [
-      { title: "Discover", description: "Audit brand, audience, and goals." },
-      { title: "Plan", description: "Map strategy across all channels." },
-      { title: "Create", description: "Design assets that stand out." },
-      { title: "Launch", description: "Deploy with precision." },
-      { title: "Grow", description: "Optimize and scale results." },
-    ],
-  },
-  featuredStory: {
-    title: "Featured Success Story",
-    project: "Regional B2B Brand",
-    metric: "+180%",
-    metricLabel: "Traffic Growth",
-    description: "Organic traffic lift in six months through SEO and content.",
-    image: `${dmImg}/seo.jpg`,
-    imageAlt: "SEO traffic growth case study",
-  },
-  testimonials: {
-    title: "Client Testimonials",
-    items: [
-      {
-        quote: "Byte Infomedia transformed our online presence. Creative and results-driven.",
-        name: "Rajesh K.",
-        role: "Business Owner",
-      },
-      {
-        quote: "SEO rankings improved dramatically. Transparent and professional.",
-        name: "Priya S.",
-        role: "Marketing Director",
-      },
-      {
-        quote: "Stunning website. Fast, beautiful, and more conversions.",
-        name: "Amit M.",
-        role: "Founder",
-      },
-      {
-        quote: "Social campaigns gave us visibility we never had before.",
-        name: "Neha R.",
-        role: "CMO",
-      },
-      {
-        quote: "A true creative partner. Every deliverable exceeded expectations.",
-        name: "Vikram D.",
-        role: "CEO",
-      },
-    ],
-  },
-  faqs: {
-    title: "Frequently Asked Questions",
-    items: [
-      {
-        question: "What services do you offer?",
-        answer: "Website Development, SEO, Content Writing, and Social Media Marketing.",
-      },
-      {
-        question: "How quickly will I see results?",
-        answer: "Social traction in weeks. SEO and content build over 3–6 months.",
-      },
-      {
-        question: "Do you work with small businesses?",
-        answer: "Yes — startups, SMBs, and growing enterprises.",
-      },
-      {
-        question: "How do you measure success?",
-        answer: "Traffic, leads, engagement, and ROI with clear reporting.",
-      },
-      {
-        question: "Can I start with one service?",
-        answer: "Absolutely. Scale across services as your brand grows.",
-      },
-    ] satisfies FaqItem[],
-  },
-  cta: {
-    title: "Ready To Build Your Brand?",
-    description: "Let's Grow Together.",
-    primaryLabel: "Book Free Consultation",
   },
 } as const;
