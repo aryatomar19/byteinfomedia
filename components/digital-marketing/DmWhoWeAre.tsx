@@ -24,9 +24,13 @@ export function DmWhoWeAre({
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="dm-image-card relative overflow-hidden rounded-3xl"
+          className="dm-image-card group relative overflow-hidden rounded-3xl transition-shadow duration-500 hover:shadow-[0_24px_64px_rgba(10,15,28,0.16)]"
         >
-          <img src={image} alt={imageAlt} className="dm-image-fixed h-[360px] w-full object-cover sm:h-[420px] lg:h-[480px]" />
+          <img
+            src={image}
+            alt={imageAlt}
+            className="dm-image-fixed h-[360px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] sm:h-[420px] lg:h-[480px]"
+          />
         </motion.div>
 
         <motion.div
