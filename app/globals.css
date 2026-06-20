@@ -1024,6 +1024,35 @@ a {
   transform: scale(1.04);
 }
 
+/* Creative studio hero */
+.bs-studio-hero {
+  perspective: 1400px;
+}
+
+.bs-studio-scene {
+  transform-style: preserve-3d;
+}
+
+.bs-studio-desk {
+  background: linear-gradient(165deg, #ffffff 0%, #f5f5f5 45%, #ececec 100%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 4px 24px rgba(17, 17, 17, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.bs-studio-monitor,
+.bs-studio-laptop,
+.bs-studio-tablet,
+.bs-studio-phone {
+  transition: filter 0.3s ease;
+}
+
+.bs-studio-scene:hover .bs-studio-monitor,
+.bs-studio-scene:hover .bs-studio-laptop {
+  filter: brightness(1.02);
+}
+
 /* Master prompt — agency experience */
 .bs-ecosystem-scene {
   perspective: 1200px;
