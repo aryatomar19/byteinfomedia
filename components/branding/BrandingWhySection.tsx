@@ -1,58 +1,83 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import type { LucideIcon } from "lucide-react";
-import { Sparkles, Target, Users, LineChart, BarChart3, Wallet } from "lucide-react";
+import { LineChart, PenLine, Search, Share2, Users, Zap } from "lucide-react";
 
-const icons: LucideIcon[] = [Users, LineChart, BarChart3, Wallet, Target, Sparkles];
+const icons: LucideIcon[] = [Users, Zap, Search, PenLine, Share2, LineChart];
 
 export function BrandingWhySection({
   title,
+  image,
+  imageAlt,
   features,
 }: {
   title: string;
+  image: string;
+  imageAlt: string;
   features: readonly { title: string; description: string }[];
 }) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const imageY = useTransform(scrollYProgress, [0, 1], ["8%", "-8%"]);
+
   return (
-    <section className="bs-section relative overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="bs-section-title text-center">{title}</h2>
-        <div className="relative mx-auto mt-14 max-w-4xl">
-          <div className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FF6B2C]/6 blur-3xl" aria-hidden />
+    <section ref={sectionRef} className="bs-section bs-why-split relative overflow-hidden bg-white">
+      <div className="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-[#FF6B2C]/5 blur-3xl" aria-hidden />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <motion.div
-            className="relative mx-auto flex h-36 w-36 items-center justify-center rounded-full border border-[#FF6B2C]/20 bg-gradient-to-br from-white to-[#FAFAFA] shadow-[0_24px_64px_rgba(255,107,44,0.15)]"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            initial={{ opacity: 0, x: -28 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative"
           >
-            <motion.div
-              className="absolute inset-3 rounded-full border border-dashed border-[#FF6B2C]/25"
-              animate={{ rotate: -360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            />
-            <Sparkles className="h-10 w-10 text-[#FF6B2C]" />
+            <div className="bs-why-image-wrap relative overflow-hidden rounded-3xl border border-[#111]/6 shadow-[0_32px_80px_rgba(17,17,17,0.1)]">
+              <motion.img
+                src={image}
+                alt={imageAlt}
+                className="h-[360px] w-full object-cover sm:h-[440px] lg:h-[520px]"
+                style={{ y: imageY }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111]/50 via-transparent to-transparent" />
+              <motion.div
+                className="absolute bottom-6 left-6 rounded-2xl border border-white/30 bg-white/90 px-5 py-4 shadow-xl backdrop-blur-sm"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <p className="text-3xl font-extrabold text-[#FF6B2C]">95%</p>
+                <p className="text-xs font-semibold text-[#666]">Client retention</p>
+              </motion.div>
+            </div>
           </motion.div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => {
-              const Icon = icons[index] ?? Sparkles;
-              return (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.06 }}
-                  whileHover={{ y: -4, boxShadow: "0 20px 48px rgba(17,17,17,0.08)" }}
-                  className="bs-feature-card rounded-2xl p-5"
-                >
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#FF6B2C]/10 text-[#FF6B2C]">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <h3 className="mt-4 font-extrabold text-[#111]">{feature.title}</h3>
-                  <p className="mt-1.5 text-sm leading-6 text-[#666]">{feature.description}</p>
-                </motion.div>
-              );
-            })}
+          <div>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#FF6B2C]">Why Us</span>
+            <h2 className="bs-section-title mt-2">{title}</h2>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {features.map((feature, index) => {
+                const Icon = icons[index] ?? Users;
+                return (
+                  <motion.div
+                    key={feature.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.06 }}
+                    whileHover={{ y: -4, boxShadow: "0 20px 48px rgba(17,17,17,0.08)" }}
+                    className="bs-feature-card rounded-2xl p-5"
+                  >
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#FF6B2C]/12 text-[#FF6B2C]">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <h3 className="mt-3 font-extrabold text-[#111]">{feature.title}</h3>
+                    <p className="mt-1 text-sm leading-6 text-[#666]">{feature.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
