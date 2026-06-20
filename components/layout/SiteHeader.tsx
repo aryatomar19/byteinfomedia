@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { brandingServiceNav, company, serviceNav } from "@/data/site";
+import { brandingServiceNav, company, techSolutionsServiceNav } from "@/data/site";
 import { BookConsultationButton } from "@/components/ui/BookConsultationButton";
 import { scrollToTop } from "@/lib/scroll";
 import { cn } from "@/lib/utils";
@@ -97,7 +97,7 @@ export function SiteHeader() {
   const brandingMenuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  const techActive = serviceNav.some((item) => pathname.startsWith(item.href.replace(/\/$/, "")));
+  const techActive = techSolutionsServiceNav.some((item) => pathname.startsWith(item.href.replace(/\/$/, "")));
   const brandingActive = brandingServiceNav.some((item) =>
     pathname.startsWith(item.href.replace(/\/$/, "")),
   );
@@ -173,7 +173,7 @@ export function SiteHeader() {
             />
             <NavDropdown
               label="Tech Solutions"
-              items={serviceNav}
+              items={techSolutionsServiceNav}
               isActiveGroup={techActive}
               menuRef={techMenuRef}
               open={techOpen}
@@ -257,7 +257,7 @@ export function SiteHeader() {
               </button>
               {mobileTechOpen && (
                 <div className="grid gap-0.5 pb-1 pl-2">
-                  {serviceNav.map((item) => (
+                  {techSolutionsServiceNav.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}

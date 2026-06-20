@@ -60,8 +60,29 @@ export const aboutByteInfomediaSection = {
   ],
 };
 
+export const homeServiceCategories = [
+  {
+    title: "Digital Marketing",
+    description:
+      "Grow visibility, generate leads, and build your brand with SEO, social media, content marketing, and high-converting websites.",
+    image: "/images/home/about-highlights/digital-marketing.jpg",
+    imageAlt: "Digital marketing team reviewing SEO and campaign performance analytics",
+    href: "/digital-marketing/",
+    cta: "Explore Digital Marketing",
+  },
+  {
+    title: "Tech Solutions",
+    description:
+      "Modernize infrastructure with cloud consulting, managed operations, cybersecurity, and enterprise technology services built for scale.",
+    image: homeImages.cloudServices,
+    imageAlt: "Enterprise cloud infrastructure and technology operations",
+    href: "/tech-solutions/",
+    cta: "Explore Tech Solutions",
+  },
+] as const;
+
 export const servicesSection = {
-  title: "Our Services",
+  title: "Our Solutions",
 };
 
 export const serviceOverview = [
