@@ -5,8 +5,9 @@ const dmImg = "/images/digital-marketing";
 export const digitalMarketingPage = {
   hero: {
     badge: "BRANDING SOLUTIONS",
-    titleLines: ["Build Better Brands.", "Create Better Experiences.", "Grow Your Business."],
-    description: "We craft premium digital brands through web, SEO, content, and social.",
+    titleLines: ["Build Better Brands.", "Grow Faster."],
+    description:
+      "We craft premium digital experiences through web, SEO, content and social.",
     primaryCta: "Book Consultation",
     secondaryCta: "Explore Services",
     trustBadges: ["100+ Brands", "SEO Experts", "Creative Team"],

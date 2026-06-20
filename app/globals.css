@@ -820,19 +820,36 @@ a {
   position: relative;
 }
 
-.bs-hero-visual-wrap {
-  perspective: 1200px;
+.bs-hero-grid {
+  background-image:
+    linear-gradient(rgba(17, 17, 17, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 70% 50%, black 20%, transparent 75%);
 }
 
-.bs-hero-scene--immersive {
-  min-height: 420px;
-  perspective: 1200px;
+.bs-hero-btn {
+  will-change: transform;
 }
 
-@media (min-width: 1024px) {
-  .bs-hero-scene--immersive {
-    min-height: 560px;
-  }
+.bs-studio-hero {
+  perspective: 1400px;
+}
+
+.bs-studio-scene {
+  transform-style: preserve-3d;
+}
+
+.bs-studio-monitor,
+.bs-studio-laptop,
+.bs-studio-tablet,
+.bs-studio-phone {
+  transition: filter 0.3s ease;
+}
+
+.bs-studio-scene:hover .bs-studio-monitor,
+.bs-studio-scene:hover .bs-studio-laptop {
+  filter: brightness(1.02);
 }
 
 .bs-divider {
@@ -1026,31 +1043,11 @@ a {
 
 /* Creative studio hero */
 .bs-studio-hero {
-  perspective: 1400px;
+  perspective: 1600px;
 }
 
 .bs-studio-scene {
   transform-style: preserve-3d;
-}
-
-.bs-studio-desk {
-  background: linear-gradient(165deg, #ffffff 0%, #f5f5f5 45%, #ececec 100%);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow:
-    0 4px 24px rgba(17, 17, 17, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-}
-
-.bs-studio-monitor,
-.bs-studio-laptop,
-.bs-studio-tablet,
-.bs-studio-phone {
-  transition: filter 0.3s ease;
-}
-
-.bs-studio-scene:hover .bs-studio-monitor,
-.bs-studio-scene:hover .bs-studio-laptop {
-  filter: brightness(1.02);
 }
 
 /* Master prompt — agency experience */
