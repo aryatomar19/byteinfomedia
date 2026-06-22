@@ -1,29 +1,26 @@
 "use client";
 
 import { digitalMarketingPage } from "@/data/digital-marketing";
-import { DmCapabilitiesShowcase } from "@/components/digital-marketing/DmCapabilitiesShowcase";
-import { DmClientsBento } from "@/components/digital-marketing/DmClientsBento";
+import { DmExpertiseGrid } from "@/components/digital-marketing/DmExpertiseGrid";
 import { DmHeroSection } from "@/components/digital-marketing/DmHeroSection";
 import { DmPageAmbient } from "@/components/digital-marketing/DmPageAmbient";
-import { DmPerformanceMetrics } from "@/components/digital-marketing/DmPerformanceMetrics";
-import { DmResultsApproach } from "@/components/digital-marketing/DmResultsApproach";
-import { DmWhySection } from "@/components/digital-marketing/DmWhySection";
-import { DmWorkflowTimeline } from "@/components/digital-marketing/DmWorkflowTimeline";
+import { DmProcessSection } from "@/components/digital-marketing/DmProcessSection";
+import { DmResultsStats } from "@/components/digital-marketing/DmResultsStats";
+import { DmServicesPremium } from "@/components/digital-marketing/DmServicesPremium";
+import { DmWhyTrustSection } from "@/components/digital-marketing/DmWhyTrustSection";
 
 export function DigitalMarketingPage() {
-  const { hero, whyByte, capabilities, performanceMetrics, workflow, resultsApproach, clientsChoose } =
-    digitalMarketingPage;
+  const { hero, whyByte, expertise, services, process, results } = digitalMarketingPage;
 
   return (
     <div className="dm-landing dm-landing--enterprise relative overflow-x-hidden">
       <DmPageAmbient />
       <DmHeroSection hero={hero} />
-      <DmWhySection {...whyByte} />
-      <DmCapabilitiesShowcase {...capabilities} />
-      <DmPerformanceMetrics {...performanceMetrics} />
-      <DmWorkflowTimeline {...workflow} />
-      <DmResultsApproach {...resultsApproach} />
-      <DmClientsBento {...clientsChoose} />
+      <DmWhyTrustSection {...whyByte} />
+      <DmExpertiseGrid {...expertise} />
+      <DmServicesPremium {...services} />
+      <DmProcessSection {...process} />
+      <DmResultsStats {...results} />
     </div>
   );
 }

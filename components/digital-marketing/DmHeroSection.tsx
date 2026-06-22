@@ -326,7 +326,7 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
             </DmMagnetic>
             <DmMagnetic strength={0.2}>
               <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
-                <Link href="#dm-capabilities" className="!text-white hover:!text-white">
+                <Link href="#dm-services" className="!text-white hover:!text-white">
                   {hero.secondaryCta}
                 </Link>
               </Button>
