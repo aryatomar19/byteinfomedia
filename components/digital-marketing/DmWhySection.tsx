@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import { BarChart3, LineChart, Target, Users, Wallet, Wrench } from "lucide-react";
 import { DmGsapReveal } from "@/components/digital-marketing/DmGsapReveal";
-import { DmTilt3D } from "@/components/digital-marketing/DmTilt3D";
+import { DmWhyVisual } from "@/components/digital-marketing/DmWhyVisual";
 
 const icons: LucideIcon[] = [Users, LineChart, BarChart3, Wallet, Target, Wrench];
 
@@ -70,16 +70,7 @@ export function DmWhySection({
 
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <DmGsapReveal y={40}>
-            <DmTilt3D className="dm-image-card group relative" max={9}>
-              <div className="dm-glass-frame relative overflow-hidden rounded-3xl">
-                <img
-                  src={image}
-                  alt={imageAlt}
-                  className="dm-image-fixed h-[360px] w-full object-cover sm:h-[420px] lg:h-[520px]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/75 via-[#0A0F1C]/20 to-transparent" />
-              </div>
-            </DmTilt3D>
+            <DmWhyVisual image={image} imageAlt={imageAlt} />
           </DmGsapReveal>
 
           <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 sm:gap-5">
