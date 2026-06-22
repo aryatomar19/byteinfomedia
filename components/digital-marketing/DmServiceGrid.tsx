@@ -28,8 +28,13 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   const y = useMotionValue(0);
   const springX = useSpring(x, { stiffness: 200, damping: 22 });
   const springY = useSpring(y, { stiffness: 200, damping: 22 });
-  const rotateX = useTransform(springY, [-0.5, 0.5], [6, -6]);
-  const rotateY = useTransform(springX, [-0.5, 0.5], [-6, 6]);
+  const rotateX = useTransform(springY, [-0.5, 0.5], [8, -8]);
+  const rotateY = useTransform(springX, [-0.5, 0.5], [-8, 8]);
+  const imageX = useTransform(springX, [-0.5, 0.5], [-16, 16]);
+  const imageY = useTransform(springY, [-0.5, 0.5], [-12, 12]);
+  const glowX = useTransform(springX, [-0.5, 0.5], [-20, 20]);
+  const glowY = useTransform(springY, [-0.5, 0.5], [-16, 16]);
+  const iconRotate = useTransform(springX, [-0.5, 0.5], [-8, 8]);
 
   return (
     <motion.article
@@ -43,7 +48,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       <motion.div
         className="dm-service-card dm-service-card--interactive group flex h-full min-h-[420px] flex-col overflow-hidden rounded-3xl"
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        whileHover={{ y: -10, transition: { duration: 0.35 } }}
+        whileHover={{ y: -12, transition: { duration: 0.35 } }}
         onMouseMove={(event) => {
           const rect = event.currentTarget.getBoundingClientRect();
           x.set((event.clientX - rect.left) / rect.width - 0.5);
@@ -55,14 +60,25 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
         }}
       >
         <div className="dm-service-card__image relative h-52 shrink-0 overflow-hidden sm:h-56">
-          <img
-            src={service.image}
-            alt={service.imageAlt}
-            className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+          <motion.div
+            className="absolute inset-0"
+            style={{ x: imageX, y: imageY, scale: 1.12 }}
+          >
+            <img
+              src={service.image}
+              alt={service.imageAlt}
+              className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+            />
+          </motion.div>
+          <motion.div
+            className="pointer-events-none absolute -inset-8 rounded-full bg-[#FF6B2C]/20 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+            style={{ x: glowX, y: glowY }}
+            aria-hidden
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/90 via-[#0A0F1C]/40 to-[#0A0F1C]/20 transition duration-500 group-hover:from-[#0A0F1C]/95" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/92 via-[#0A0F1C]/45 to-[#0A0F1C]/15 transition duration-500 group-hover:from-[#0A0F1C]/95" />
           <motion.span
-            className="absolute left-5 top-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FF6B2C] shadow-[0_8px_24px_rgba(255,107,44,0.4)]"
+            className="absolute left-5 top-5 z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#FF6B2C] shadow-[0_8px_24px_rgba(255,107,44,0.4)]"
+            style={{ rotate: iconRotate }}
             whileHover={{ rotate: 12, scale: 1.08 }}
             transition={{ type: "spring", stiffness: 260, damping: 18 }}
           >
