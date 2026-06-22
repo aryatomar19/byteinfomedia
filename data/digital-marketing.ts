@@ -42,6 +42,13 @@ const heroStats = [
   { value: null as number | null, display: "24x7", label: "Support" },
 ] as const;
 
+const whyByteStats = [
+  { value: 100, suffix: "+", label: "Projects Delivered" },
+  { value: 95, suffix: "%", label: "Client Retention" },
+  { value: 300, suffix: "%", label: "Average Growth" },
+  { value: null as number | null, display: "24/7", label: "Expert Support" },
+] as const;
+
 export const digitalMarketingPage = {
   hero: {
     badge: "DIGITAL MARKETING SOLUTIONS",
@@ -81,16 +88,33 @@ export const digitalMarketingPage = {
   whyByte: {
     title: "Why Byte Infomedia",
     image: `${img}/why-byte-digital-world.jpg`,
-    characterImage: `${img}/why-byte-character.png`,
-    imageAlt: "Digital marketing ecosystem with globe, analytics, and network technology",
-    stats: heroStats,
+    imageAlt: "Immersive digital marketing dashboard with analytics, globe, and connected channels",
+    stats: whyByteStats,
     features: [
-      { title: "Dedicated Team", description: "Experts focused on your growth goals." },
-      { title: "Data Driven Strategy", description: "Decisions backed by real analytics." },
-      { title: "Transparent Reporting", description: "Clear dashboards you can act on." },
-      { title: "Affordable Solutions", description: "Premium quality within your budget." },
-      { title: "Custom Campaigns", description: "Tailored to your industry and audience." },
-      { title: "Long Term Growth", description: "Sustainable results that compound." },
+      {
+        title: "Growth-Focused Team",
+        description: "Digital marketers, designers, and strategists working as one team.",
+      },
+      {
+        title: "Data-Driven Decisions",
+        description: "Every campaign backed by analytics and measurable insights.",
+      },
+      {
+        title: "Transparent Reporting",
+        description: "Real-time performance tracking with clear KPIs.",
+      },
+      {
+        title: "ROI-Centered Campaigns",
+        description: "Marketing strategies built to maximize revenue growth.",
+      },
+      {
+        title: "Tailored Marketing Solutions",
+        description: "Customized campaigns for every business stage.",
+      },
+      {
+        title: "Sustainable Brand Growth",
+        description: "Long-term strategies that build authority and trust.",
+      },
     ],
   },
 } as const;
