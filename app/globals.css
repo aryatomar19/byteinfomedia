@@ -1310,6 +1310,103 @@ a {
   color: #0a0f1c;
 }
 
+.dm-landing--enterprise {
+  background: #0a0f1c;
+  color: #ffffff;
+}
+
+.dm-landing--enterprise .dm-section--light {
+  background: linear-gradient(180deg, #0f1628 0%, #0a0f1c 100%);
+}
+
+.dm-section--mesh {
+  background: linear-gradient(165deg, #0a0f1c 0%, #121a2e 55%, #0f1628 100%);
+}
+
+.dm-marquee-section {
+  background: linear-gradient(180deg, #0a0f1c 0%, #0f1628 100%);
+}
+
+.dm-marquee-track {
+  animation: dm-marquee 38s linear infinite;
+  will-change: transform;
+}
+
+.dm-marquee:hover .dm-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes dm-marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.dm-glass-frame {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35), 0 0 40px rgba(255, 107, 44, 0.08);
+}
+
+.dm-service-card--enterprise {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(165deg, rgba(18, 26, 46, 0.95), rgba(10, 15, 28, 0.98));
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.dm-service-card--enterprise:hover {
+  border-color: rgba(255, 107, 44, 0.35);
+  box-shadow:
+    0 32px 72px rgba(0, 0, 0, 0.4),
+    0 0 48px rgba(255, 107, 44, 0.15);
+}
+
+.dm-process-card--enterprise {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(16px);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.dm-process-card--enterprise:hover {
+  border-color: rgba(255, 107, 44, 0.32);
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.32),
+    0 0 32px rgba(255, 107, 44, 0.12);
+}
+
+.dm-case-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(165deg, rgba(18, 26, 46, 0.96), rgba(10, 15, 28, 0.98));
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.dm-case-card:hover {
+  border-color: rgba(255, 107, 44, 0.3);
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.38),
+    0 0 36px rgba(255, 107, 44, 0.12);
+}
+
+.dm-stat-band {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
 .dm-landing--interactive {
   isolation: isolate;
 }

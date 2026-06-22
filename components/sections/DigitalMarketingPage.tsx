@@ -1,6 +1,8 @@
 "use client";
 
 import { digitalMarketingPage } from "@/data/digital-marketing";
+import { DmCaseStudies } from "@/components/digital-marketing/DmCaseStudies";
+import { DmClientMarquee } from "@/components/digital-marketing/DmClientMarquee";
 import { DmHeroSection } from "@/components/digital-marketing/DmHeroSection";
 import { DmPageAmbient } from "@/components/digital-marketing/DmPageAmbient";
 import { DmProcessTimeline } from "@/components/digital-marketing/DmProcessTimeline";
@@ -9,15 +11,17 @@ import { DmWhoWeAre } from "@/components/digital-marketing/DmWhoWeAre";
 import { DmWhySection } from "@/components/digital-marketing/DmWhySection";
 
 export function DigitalMarketingPage() {
-  const { hero, whoWeAre, services, process, whyByte } = digitalMarketingPage;
+  const { hero, whoWeAre, services, process, caseStudies, whyByte } = digitalMarketingPage;
 
   return (
-    <div className="dm-landing dm-landing--interactive relative">
+    <div className="dm-landing dm-landing--enterprise relative overflow-x-hidden">
       <DmPageAmbient />
       <DmHeroSection hero={hero} />
+      <DmClientMarquee />
       <DmWhoWeAre {...whoWeAre} />
       <DmServiceGrid title={services.title} items={services.items} />
       <DmProcessTimeline title={process.title} steps={process.steps} />
+      <DmCaseStudies title={caseStudies.title} items={caseStudies.items} />
       <DmWhySection {...whyByte} />
     </div>
   );
