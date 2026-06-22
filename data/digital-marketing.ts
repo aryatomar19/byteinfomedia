@@ -19,21 +19,25 @@ export const digitalMarketingPage = {
   },
   whyByte: {
     eyebrow: "WHY CHOOSE BYTE INFOMEDIA",
-    title: "Your Growth Partner for Digital Success",
+    title: "Driving Measurable Growth Through Strategy, Creativity & Performance",
     description:
-      "Byte Infomedia delivers end-to-end digital marketing built for measurable growth. From SEO and Google Ads to social media, website development, and content marketing, we combine strategy, creativity, and analytics to generate qualified leads and maximize ROI for ambitious brands.",
-    image: `${img}/why-byte-team.jpg`,
+      "Byte Infomedia is a full-service digital marketing agency built for brands that demand results. We engineer high-performance campaigns across SEO, Google Ads, social media marketing, and website development — combining data, creativity, and conversion strategy to generate qualified leads and maximize ROI at every stage of growth.",
+    image: `${img}/why-byte-growth.jpg`,
     imageAlt:
-      "Professional digital marketing team reviewing campaign analytics and growth dashboards in a modern agency office",
+      "Digital marketing team collaborating in a modern office while reviewing SEO analytics, campaign performance dashboards, and growth reports",
     trustIndicators: [
-      "95% Client Retention",
-      "Data-Driven Marketing",
-      "Transparent Reporting",
+      "Proven ROI-Focused Campaigns",
+      "Dedicated Digital Growth Team",
+      "Real-Time Analytics & Reporting",
+      "SEO, Ads & Social Media Experts",
+      "Scalable Marketing Strategies",
     ],
     highlightStats: [
       { value: "100+", label: "Projects Delivered" },
+      { value: "95%", label: "Client Satisfaction" },
       { value: "300%", label: "Average Growth" },
-      { value: "24/7", label: "Support" },
+      { value: "1000+", label: "Qualified Leads Generated" },
+      { value: "24/7", label: "Expert Support" },
     ],
   },
   expertise: {
