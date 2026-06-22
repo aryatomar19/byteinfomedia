@@ -1978,15 +1978,50 @@ a {
   isolation: isolate;
 }
 
+.dm-heading--2xl {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+@media (min-width: 640px) {
+  .dm-heading--2xl {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dm-heading--2xl {
+    font-size: 3.5rem;
+  }
+}
+
 .dm-why-image {
   box-shadow:
-    0 28px 72px rgba(0, 0, 0, 0.45),
-    0 0 48px rgba(255, 107, 44, 0.08);
+    0 32px 80px rgba(0, 0, 0, 0.5),
+    0 0 56px rgba(255, 107, 44, 0.1);
 }
 
 .dm-why-image__glass {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01));
-  backdrop-filter: blur(8px);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(10px);
+}
+
+.dm-why-stats-row > div {
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .dm-why-stats-row > div:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    height: 50%;
+    width: 1px;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.08);
+  }
 }
 
 .dm-numbered-faq__item:hover {
