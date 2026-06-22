@@ -36,7 +36,7 @@ export const digitalMarketingPage = {
         description: "Fast, elegant websites engineered to impress visitors and drive conversions.",
         href: "/website-development/",
         image: `${img}/website.jpg`,
-        imageAlt: "Website development and design",
+        imageAlt: "Orange laptop digital marketing and website development scene",
       },
       {
         id: "seo" as const,
@@ -44,7 +44,7 @@ export const digitalMarketingPage = {
         description: "Rank higher, attract qualified traffic, and grow organic visibility.",
         href: "/search-engine-optimization/",
         image: `${img}/seo.jpg`,
-        imageAlt: "SEO analytics and search rankings",
+        imageAlt: "Glowing SEO analytics and growth dashboard scene",
       },
       {
         id: "content" as const,
@@ -60,7 +60,7 @@ export const digitalMarketingPage = {
         description: "Grow your brand presence and engage audiences across social channels.",
         href: "/social-media-marketing/",
         image: `${img}/social.jpg`,
-        imageAlt: "Social media marketing campaigns",
+        imageAlt: "Floating social media marketing and analytics scene",
       },
     ],
   },
