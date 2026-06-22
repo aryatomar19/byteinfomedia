@@ -78,24 +78,6 @@ export const digitalMarketingPage = {
       { title: "Optimize", description: "Measure, refine, and scale what works." },
     ],
   },
-  caseStudies: {
-    title: "Case Studies / Success Stories",
-    items: serviceItems.map((service, index) => {
-      const stat = heroStats[index];
-      const metric =
-        "display" in stat && stat.display
-          ? stat.display
-          : `${stat.value}${"suffix" in stat ? stat.suffix : ""}`;
-      return {
-        title: service.title,
-        description: service.description,
-        image: service.image,
-        imageAlt: service.imageAlt,
-        metric,
-        tag: stat.label,
-      };
-    }),
-  },
   whyByte: {
     title: "Why Byte Infomedia",
     image: `${img}/why-byte.jpg`,
