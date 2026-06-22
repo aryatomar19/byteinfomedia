@@ -80,8 +80,8 @@ export const digitalMarketingPage = {
   },
   whyByte: {
     title: "Why Byte Infomedia",
-    image: `${img}/why-byte-3d.jpg`,
-    imageAlt: "3D digital marketing professional illustration",
+    image: `${img}/why-byte-digital-world.jpg`,
+    imageAlt: "Build your digital world — premium digital marketing command center",
     stats: heroStats,
     features: [
       { title: "Dedicated Team", description: "Experts focused on your growth goals." },
