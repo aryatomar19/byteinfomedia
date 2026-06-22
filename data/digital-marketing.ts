@@ -1,5 +1,47 @@
 const img = "/images/dm-landing";
 
+const serviceItems = [
+  {
+    id: "website" as const,
+    title: "Website Development",
+    description: "Fast, elegant websites engineered to impress visitors and drive conversions.",
+    href: "/website-development/",
+    image: `${img}/website.jpg`,
+    imageAlt: "Orange laptop digital marketing and website development scene",
+  },
+  {
+    id: "seo" as const,
+    title: "Search Engine Optimization",
+    description: "Rank higher, attract qualified traffic, and grow organic visibility.",
+    href: "/search-engine-optimization/",
+    image: `${img}/seo.jpg`,
+    imageAlt: "Glowing SEO analytics and growth dashboard scene",
+  },
+  {
+    id: "content" as const,
+    title: "Content Writing",
+    description: "Clear, compelling copy that builds trust, authority, and engagement.",
+    href: "/content-writing/",
+    image: `${img}/content.jpg`,
+    imageAlt: "Content writing and brand storytelling",
+  },
+  {
+    id: "social" as const,
+    title: "Social Media Marketing",
+    description: "Grow your brand presence and engage audiences across social channels.",
+    href: "/social-media-marketing/",
+    image: `${img}/social.jpg`,
+    imageAlt: "Floating social media marketing and analytics scene",
+  },
+] as const;
+
+const heroStats = [
+  { value: 100, suffix: "+", label: "Projects" },
+  { value: 95, suffix: "%", label: "Client Satisfaction" },
+  { value: 300, suffix: "%", label: "Average Growth" },
+  { value: null as number | null, display: "24x7", label: "Support" },
+] as const;
+
 export const digitalMarketingPage = {
   hero: {
     badge: "DIGITAL MARKETING SOLUTIONS",
@@ -8,12 +50,7 @@ export const digitalMarketingPage = {
       "Data-led strategies across web, SEO, content, and social — built to attract, engage, and convert your ideal customers.",
     primaryCta: "Book Consultation",
     secondaryCta: "View Services",
-    stats: [
-      { value: 100, suffix: "+", label: "Projects" },
-      { value: 95, suffix: "%", label: "Client Satisfaction" },
-      { value: 300, suffix: "%", label: "Average Growth" },
-      { value: null as number | null, display: "24x7", label: "Support" },
-    ],
+    stats: heroStats,
   },
   whoWeAre: {
     title: "Strategic Digital Marketing for Modern Businesses",
@@ -29,40 +66,7 @@ export const digitalMarketingPage = {
   },
   services: {
     title: "Our Digital Marketing Services",
-    items: [
-      {
-        id: "website" as const,
-        title: "Website Development",
-        description: "Fast, elegant websites engineered to impress visitors and drive conversions.",
-        href: "/website-development/",
-        image: `${img}/website.jpg`,
-        imageAlt: "Orange laptop digital marketing and website development scene",
-      },
-      {
-        id: "seo" as const,
-        title: "Search Engine Optimization",
-        description: "Rank higher, attract qualified traffic, and grow organic visibility.",
-        href: "/search-engine-optimization/",
-        image: `${img}/seo.jpg`,
-        imageAlt: "Glowing SEO analytics and growth dashboard scene",
-      },
-      {
-        id: "content" as const,
-        title: "Content Writing",
-        description: "Clear, compelling copy that builds trust, authority, and engagement.",
-        href: "/content-writing/",
-        image: `${img}/content.jpg`,
-        imageAlt: "Content writing and brand storytelling",
-      },
-      {
-        id: "social" as const,
-        title: "Social Media Marketing",
-        description: "Grow your brand presence and engage audiences across social channels.",
-        href: "/social-media-marketing/",
-        image: `${img}/social.jpg`,
-        imageAlt: "Floating social media marketing and analytics scene",
-      },
-    ],
+    items: serviceItems,
   },
   process: {
     title: "Our Process",
@@ -74,10 +78,29 @@ export const digitalMarketingPage = {
       { title: "Optimize", description: "Measure, refine, and scale what works." },
     ],
   },
+  caseStudies: {
+    title: "Case Studies / Success Stories",
+    items: serviceItems.map((service, index) => {
+      const stat = heroStats[index];
+      const metric =
+        "display" in stat && stat.display
+          ? stat.display
+          : `${stat.value}${"suffix" in stat ? stat.suffix : ""}`;
+      return {
+        title: service.title,
+        description: service.description,
+        image: service.image,
+        imageAlt: service.imageAlt,
+        metric,
+        tag: stat.label,
+      };
+    }),
+  },
   whyByte: {
     title: "Why Byte Infomedia",
     image: `${img}/why-byte.jpg`,
     imageAlt: "Byte Infomedia digital marketing team",
+    stats: heroStats,
     features: [
       { title: "Dedicated Team", description: "Experts focused on your growth goals." },
       { title: "Data Driven Strategy", description: "Decisions backed by real analytics." },
