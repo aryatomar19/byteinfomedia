@@ -1,3 +1,5 @@
+const img = "/images/dm-landing";
+
 const heroStats = [
   { value: 100, suffix: "+", label: "Projects" },
   { value: 95, suffix: "%", label: "Client Satisfaction" },
@@ -20,7 +22,9 @@ export const digitalMarketingPage = {
     title: "Your Growth Partner for Digital Success",
     description:
       "Byte Infomedia delivers end-to-end digital marketing built for measurable growth. From SEO and Google Ads to social media, website development, and content marketing, we combine strategy, creativity, and analytics to generate qualified leads and maximize ROI for ambitious brands.",
-    imageAlt: "Digital marketing growth ecosystem with analytics and connected channels",
+    image: `${img}/why-byte-team.jpg`,
+    imageAlt:
+      "Professional digital marketing team reviewing campaign analytics and growth dashboards in a modern agency office",
     trustIndicators: [
       "95% Client Retention",
       "Data-Driven Marketing",
@@ -31,38 +35,6 @@ export const digitalMarketingPage = {
       { value: "300%", label: "Average Growth" },
       { value: "24/7", label: "Support" },
     ],
-    faqs: [
-      {
-        question: "What digital marketing services do you provide?",
-        answer:
-          "We offer SEO optimization, Google Ads management, social media marketing, website development, content marketing, marketing analytics, lead generation, and full-funnel growth strategy — all tailored to your business goals.",
-      },
-      {
-        question: "How can SEO help my business grow?",
-        answer:
-          "SEO improves your visibility in search results, driving qualified organic traffic to your website. With technical SEO, keyword strategy, and content optimization, we help you attract customers actively searching for your products or services.",
-      },
-      {
-        question: "Do you manage Google Ads campaigns?",
-        answer:
-          "Yes. We manage Search, Display, Shopping, Remarketing, and Performance Max campaigns with continuous optimization to lower cost-per-lead and maximize return on ad spend.",
-      },
-      {
-        question: "How do you measure campaign success?",
-        answer:
-          "We track KPIs including traffic, leads, conversions, cost-per-acquisition, and ROI using GA4, Search Console, and custom dashboards — with transparent monthly reporting you can act on.",
-      },
-      {
-        question: "Can you help generate qualified leads?",
-        answer:
-          "Absolutely. We build integrated lead generation systems across paid and organic channels, combining landing pages, ad campaigns, SEO, and content funnels to attract and convert high-intent prospects.",
-      },
-      {
-        question: "Do you provide monthly reporting?",
-        answer:
-          "Yes. Every client receives clear monthly reports covering campaign performance, key metrics, insights, and recommended next steps — so you always know what's working and where to invest.",
-      },
-    ],
   },
   expertise: {
     title: "Our Expertise",
@@ -72,49 +44,41 @@ export const digitalMarketingPage = {
         id: "seo",
         title: "SEO Strategy",
         description: "Technical SEO, On-page SEO, Local SEO, Keyword Research.",
-        size: "tall" as const,
       },
       {
         id: "google-ads",
         title: "Google Ads",
         description: "Search, Display, Shopping, Performance Max Campaigns.",
-        size: "medium" as const,
       },
       {
         id: "social",
         title: "Social Media Marketing",
         description: "Instagram, Facebook, LinkedIn, Content Planning.",
-        size: "short" as const,
       },
       {
         id: "content",
         title: "Content Marketing",
         description: "Blogs, Landing Pages, Content Strategy, Copywriting.",
-        size: "medium" as const,
       },
       {
         id: "website",
         title: "Website Development",
         description: "Business Websites, Landing Pages, Conversion Optimization.",
-        size: "tall" as const,
       },
       {
         id: "analytics",
         title: "Marketing Analytics",
         description: "GA4, Search Console, Tracking, Reporting Dashboards.",
-        size: "short" as const,
       },
       {
         id: "leads",
         title: "Lead Generation",
         description: "Qualified leads through paid and organic channels.",
-        size: "medium" as const,
       },
       {
         id: "brand",
         title: "Brand Growth",
         description: "Long-term visibility, trust, and customer acquisition.",
-        size: "short" as const,
       },
     ],
   },
@@ -213,5 +177,48 @@ export const digitalMarketingPage = {
       { value: 1000, suffix: "+", label: "Qualified Leads Generated" },
       { value: null as number | null, display: "24/7", label: "Expert Support" },
     ],
+  },
+  faq: {
+    title: "Frequently Asked Questions",
+    eyebrow: "FAQ",
+    items: [
+      {
+        question: "What digital marketing services do you provide?",
+        answer:
+          "We offer SEO optimization, Google Ads management, social media marketing, website development, content marketing, marketing analytics, lead generation, and full-funnel growth strategy — all tailored to your business goals.",
+      },
+      {
+        question: "How can SEO help my business grow?",
+        answer:
+          "SEO improves your visibility in search results, driving qualified organic traffic to your website. With technical SEO, keyword strategy, and content optimization, we help you attract customers actively searching for your products or services.",
+      },
+      {
+        question: "Do you manage Google Ads campaigns?",
+        answer:
+          "Yes. We manage Search, Display, Shopping, Remarketing, and Performance Max campaigns with continuous optimization to lower cost-per-lead and maximize return on ad spend.",
+      },
+      {
+        question: "How do you measure campaign success?",
+        answer:
+          "We track KPIs including traffic, leads, conversions, cost-per-acquisition, and ROI using GA4, Search Console, and custom dashboards — with transparent monthly reporting you can act on.",
+      },
+      {
+        question: "Can you help generate qualified leads?",
+        answer:
+          "Absolutely. We build integrated lead generation systems across paid and organic channels, combining landing pages, ad campaigns, SEO, and content funnels to attract and convert high-intent prospects.",
+      },
+      {
+        question: "Do you provide monthly reporting?",
+        answer:
+          "Yes. Every client receives clear monthly reports covering campaign performance, key metrics, insights, and recommended next steps — so you always know what's working and where to invest.",
+      },
+    ],
+  },
+  cta: {
+    title: "Ready to Accelerate Your Digital Growth?",
+    description:
+      "Partner with Byte Infomedia for data-driven strategies, transparent reporting, and measurable ROI. Book a free consultation and discover how we can scale your business.",
+    primaryCta: "Book Free Consultation",
+    secondaryCta: "Explore Services",
   },
 } as const;
