@@ -1,24 +1,29 @@
 "use client";
 
 import { digitalMarketingPage } from "@/data/digital-marketing";
+import { DmCapabilitiesShowcase } from "@/components/digital-marketing/DmCapabilitiesShowcase";
+import { DmClientsBento } from "@/components/digital-marketing/DmClientsBento";
 import { DmHeroSection } from "@/components/digital-marketing/DmHeroSection";
 import { DmPageAmbient } from "@/components/digital-marketing/DmPageAmbient";
-import { DmProcessTimeline } from "@/components/digital-marketing/DmProcessTimeline";
-import { DmServiceGrid } from "@/components/digital-marketing/DmServiceGrid";
-import { DmWhoWeAre } from "@/components/digital-marketing/DmWhoWeAre";
+import { DmPerformanceMetrics } from "@/components/digital-marketing/DmPerformanceMetrics";
+import { DmResultsApproach } from "@/components/digital-marketing/DmResultsApproach";
 import { DmWhySection } from "@/components/digital-marketing/DmWhySection";
+import { DmWorkflowTimeline } from "@/components/digital-marketing/DmWorkflowTimeline";
 
 export function DigitalMarketingPage() {
-  const { hero, whoWeAre, services, process, whyByte } = digitalMarketingPage;
+  const { hero, whyByte, capabilities, performanceMetrics, workflow, resultsApproach, clientsChoose } =
+    digitalMarketingPage;
 
   return (
     <div className="dm-landing dm-landing--enterprise relative overflow-x-hidden">
       <DmPageAmbient />
       <DmHeroSection hero={hero} />
-      <DmWhoWeAre {...whoWeAre} />
-      <DmServiceGrid title={services.title} items={services.items} />
-      <DmProcessTimeline title={process.title} steps={process.steps} />
       <DmWhySection {...whyByte} />
+      <DmCapabilitiesShowcase {...capabilities} />
+      <DmPerformanceMetrics {...performanceMetrics} />
+      <DmWorkflowTimeline {...workflow} />
+      <DmResultsApproach {...resultsApproach} />
+      <DmClientsBento {...clientsChoose} />
     </div>
   );
 }

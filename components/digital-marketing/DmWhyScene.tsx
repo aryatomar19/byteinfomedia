@@ -86,15 +86,9 @@ function SceneParticle({ x, y, delay, size }: { x: string; y: string; delay: num
   );
 }
 
-export function DmWhyScene({
-  backgroundImage,
-  imageAlt,
-}: {
-  backgroundImage: string;
-  imageAlt: string;
-}) {
+export function DmWhyScene({ imageAlt }: { imageAlt: string }) {
   const sceneRef = useRef<HTMLDivElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
+  const meshRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 40, damping: 22 });
@@ -106,8 +100,8 @@ export function DmWhyScene({
       const ny = event.clientY / window.innerHeight - 0.5;
       mouseX.set(nx);
       mouseY.set(ny);
-      if (bgRef.current) {
-        gsap.to(bgRef.current, {
+      if (meshRef.current) {
+        gsap.to(meshRef.current, {
           x: nx * 28,
           y: ny * 18,
           duration: 0.9,
@@ -119,8 +113,8 @@ export function DmWhyScene({
     const onLeave = () => {
       mouseX.set(0);
       mouseY.set(0);
-      if (bgRef.current) {
-        gsap.to(bgRef.current, { x: 0, y: 0, duration: 1.1, ease: "power3.out" });
+      if (meshRef.current) {
+        gsap.to(meshRef.current, { x: 0, y: 0, duration: 1.1, ease: "power3.out" });
       }
     };
     window.addEventListener("mousemove", onMove, { passive: true });
@@ -140,16 +134,21 @@ export function DmWhyScene({
     >
       <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#FF6B2C]/20 to-[#3B82F6]/15 blur-3xl" aria-hidden />
 
-      <div className="dm-why-scene__frame relative h-full min-h-[inherit] overflow-hidden rounded-3xl border border-white/10">
+      <div className="dm-why-scene__frame relative h-full min-h-[inherit] overflow-hidden rounded-3xl border border-white/10 bg-[#050B1F]">
         <div
-          ref={bgRef}
-          className="absolute inset-[-6%] bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
+          ref={meshRef}
+          className="absolute inset-[-8%]"
           aria-hidden
-        />
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_25%,rgba(59,130,246,0.18),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_65%,rgba(255,107,44,0.14),transparent_45%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(26,58,107,0.35),transparent_60%)]" />
+          <div className="absolute inset-0 opacity-30" style={{
+            backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px)",
+          }} />
+        </div>
 
-        <div className="absolute inset-0 bg-[#050B1F]/50" aria-hidden />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#050B1F]/70 via-[#050B1F]/20 to-[#050B1F]/60" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#050B1F]/40 via-transparent to-[#050B1F]/50" aria-hidden />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,rgba(255,107,44,0.14),transparent_55%)]" aria-hidden />
 
         <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-40" aria-hidden>
@@ -208,6 +207,45 @@ export function DmWhyScene({
 
           <DashboardPanel className="right-[22%] top-[42%] w-[26%]" delay={0.6} parallaxX={springX} parallaxY={springY} depth={22}>
             <MiniBars heights={[55, 68, 92, 74]} />
+          </DashboardPanel>
+
+          <DashboardPanel className="left-[22%] top-[38%] w-[22%]" delay={0.5} parallaxX={springX} parallaxY={springY} depth={18}>
+            <div className="flex items-center justify-center gap-1.5" aria-hidden>
+              <svg viewBox="0 0 24 24" className="h-8 w-8">
+                <polygon points="4,20 4,4 18,12" fill="#4285F4" opacity="0.85" />
+                <polygon points="18,12 20,11 20,13" fill="#FBBC04" opacity="0.85" />
+                <polygon points="18,12 20,13 4,20" fill="#34A853" opacity="0.85" />
+              </svg>
+            </div>
+          </DashboardPanel>
+
+          <DashboardPanel className="right-[12%] top-[62%] w-[20%]" delay={0.7} parallaxX={springX} parallaxY={springY} depth={16}>
+            <div className="flex items-center justify-center" aria-hidden>
+              <svg viewBox="0 0 40 24" className="h-6 w-10">
+                <motion.path
+                  d="M8 12 C8 6, 14 6, 20 12 C26 18, 32 18, 32 12 C32 6, 26 6, 20 12 C14 18, 8 18, 8 12"
+                  fill="none"
+                  stroke="url(#metaGrad)"
+                  strokeWidth="2.5"
+                  animate={{ opacity: [0.5, 1, 0.5] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                />
+                <defs>
+                  <linearGradient id="metaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#3B82F6" />
+                    <stop offset="100%" stopColor="#A855F7" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </DashboardPanel>
+
+          <DashboardPanel className="left-[52%] top-[58%] w-[18%]" delay={0.9} parallaxX={springX} parallaxY={springY} depth={14}>
+            <div className="mx-auto flex flex-col items-center gap-0.5" aria-hidden>
+              <div className="h-0 w-0 border-x-[14px] border-b-[10px] border-x-transparent border-b-[#FF6B2C]/50" />
+              <div className="h-2 w-8 rounded-sm bg-[#FF6B2C]/30" />
+              <div className="h-2.5 w-10 rounded-sm bg-[#FF6B2C]/20" />
+            </div>
           </DashboardPanel>
         </div>
       </div>

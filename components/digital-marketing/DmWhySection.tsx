@@ -25,13 +25,11 @@ type Stat = {
 
 export function DmWhySection({
   title,
-  image,
   imageAlt,
   stats,
   features,
 }: {
   title: string;
-  image: string;
   imageAlt: string;
   stats: readonly Stat[];
   features: readonly { title: string; description: string }[];
@@ -106,7 +104,7 @@ export function DmWhySection({
 
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
           <DmGsapReveal y={40}>
-            <DmWhyScene backgroundImage={image} imageAlt={imageAlt} />
+            <DmWhyScene imageAlt={imageAlt} />
           </DmGsapReveal>
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
