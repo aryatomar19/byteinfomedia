@@ -1,55 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { LucideIcon } from "lucide-react";
-import {
-  BarChart3,
-  Globe,
-  LineChart,
-  Megaphone,
-  PenLine,
-  Search,
-  Target,
-  TrendingUp,
-} from "lucide-react";
 import { DmGsapReveal } from "@/components/digital-marketing/DmGsapReveal";
-
-const icons: Record<string, LucideIcon> = {
-  seo: Search,
-  "google-ads": Megaphone,
-  social: TrendingUp,
-  content: PenLine,
-  website: Globe,
-  analytics: BarChart3,
-  leads: Target,
-  brand: LineChart,
-};
 
 type ExpertiseItem = {
   id: string;
   title: string;
   description: string;
+  image: string;
+  imageAlt: string;
+  size: "tall" | "medium" | "short";
+};
+
+const sizeClasses: Record<ExpertiseItem["size"], string> = {
+  tall: "dm-expertise-masonry-card--tall",
+  medium: "dm-expertise-masonry-card--medium",
+  short: "dm-expertise-masonry-card--short",
 };
 
 function ExpertiseCard({ item, index }: { item: ExpertiseItem; index: number }) {
-  const Icon = icons[item.id] ?? Search;
-
   return (
-    <DmGsapReveal delay={index * 0.06} y={36} className="h-full">
+    <DmGsapReveal delay={index * 0.05} y={40} className="dm-expertise-masonry-item mb-6 break-inside-avoid md:mb-8">
       <motion.article
-        className="dm-expertise-card group flex h-full min-h-[220px] flex-col rounded-3xl p-8 sm:min-h-[240px] sm:p-9"
-        whileHover={{ y: -8 }}
-        transition={{ type: "spring", stiffness: 340, damping: 26 }}
+        className={`dm-expertise-masonry-card group ${sizeClasses[item.size]}`}
+        whileHover={{ y: -10 }}
+        transition={{ type: "spring", stiffness: 320, damping: 24 }}
       >
-        <span className="dm-expertise-icon flex h-14 w-14 items-center justify-center rounded-2xl">
-          <Icon className="h-6 w-6 text-[#FF6B2C]" strokeWidth={2} />
-        </span>
-        <h3 className="mt-6 text-2xl font-extrabold text-white">{item.title}</h3>
-        <p className="mt-4 flex-1 text-base leading-8 text-white/55">{item.description}</p>
-        <span
-          className="pointer-events-none mt-8 h-px w-0 bg-gradient-to-r from-[#FF6B2C] to-transparent transition-all duration-500 group-hover:w-full"
-          aria-hidden
-        />
+        <div className="dm-expertise-masonry-card__visual relative overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.imageAlt}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#030B2A] via-[#030B2A]/20 to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(255,107,44,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        </div>
+
+        <div className="dm-expertise-masonry-card__content">
+          <h3 className="text-xl font-extrabold text-white sm:text-2xl">{item.title}</h3>
+          <p className="mt-2 text-sm leading-7 text-white/55 sm:text-base">{item.description}</p>
+        </div>
       </motion.article>
     </DmGsapReveal>
   );
@@ -68,10 +58,12 @@ export function DmExpertiseGrid({
     <section
       id="dm-expertise"
       className="dm-section dm-section--xl dm-expertise-section relative overflow-hidden"
-      style={{ background: "#050B24" }}
+      style={{ background: "#030B2A" }}
       aria-labelledby="dm-expertise-heading"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(59,130,246,0.06),transparent_50%)]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_10%,rgba(255,107,44,0.08),transparent_45%)]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(59,130,246,0.05),transparent_45%)]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 grid-pattern-light opacity-[0.03]" aria-hidden />
 
       <div className="dm-container relative">
         <DmGsapReveal className="mx-auto mb-16 max-w-3xl text-center lg:mb-20">
@@ -81,7 +73,7 @@ export function DmExpertiseGrid({
           <p className="mt-5 text-lg leading-8 text-white/55">{subheading}</p>
         </DmGsapReveal>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+        <div className="dm-expertise-masonry columns-1 gap-6 md:columns-2 md:gap-8 lg:columns-4">
           {items.map((item, index) => (
             <ExpertiseCard key={item.id} item={item} index={index} />
           ))}
