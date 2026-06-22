@@ -1,7 +1,6 @@
 "use client";
 
 import { digitalMarketingPage } from "@/data/digital-marketing";
-import { DmClientMarquee } from "@/components/digital-marketing/DmClientMarquee";
 import { DmHeroSection } from "@/components/digital-marketing/DmHeroSection";
 import { DmPageAmbient } from "@/components/digital-marketing/DmPageAmbient";
 import { DmProcessTimeline } from "@/components/digital-marketing/DmProcessTimeline";
@@ -16,7 +15,6 @@ export function DigitalMarketingPage() {
     <div className="dm-landing dm-landing--enterprise relative overflow-x-hidden">
       <DmPageAmbient />
       <DmHeroSection hero={hero} />
-      <DmClientMarquee />
       <DmWhoWeAre {...whoWeAre} />
       <DmServiceGrid title={services.title} items={services.items} />
       <DmProcessTimeline title={process.title} steps={process.steps} />
