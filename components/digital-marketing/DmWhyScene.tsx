@@ -86,15 +86,9 @@ function SceneParticle({ x, y, delay, size }: { x: string; y: string; delay: num
   );
 }
 
-export function DmWhyScene({
-  backgroundImage,
-  imageAlt,
-}: {
-  backgroundImage: string;
-  imageAlt: string;
-}) {
+export function DmWhyScene({ imageAlt }: { imageAlt: string }) {
   const sceneRef = useRef<HTMLDivElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
+  const meshRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 40, damping: 22 });
@@ -106,8 +100,8 @@ export function DmWhyScene({
       const ny = event.clientY / window.innerHeight - 0.5;
       mouseX.set(nx);
       mouseY.set(ny);
-      if (bgRef.current) {
-        gsap.to(bgRef.current, {
+      if (meshRef.current) {
+        gsap.to(meshRef.current, {
           x: nx * 28,
           y: ny * 18,
           duration: 0.9,
@@ -119,8 +113,8 @@ export function DmWhyScene({
     const onLeave = () => {
       mouseX.set(0);
       mouseY.set(0);
-      if (bgRef.current) {
-        gsap.to(bgRef.current, { x: 0, y: 0, duration: 1.1, ease: "power3.out" });
+      if (meshRef.current) {
+        gsap.to(meshRef.current, { x: 0, y: 0, duration: 1.1, ease: "power3.out" });
       }
     };
     window.addEventListener("mousemove", onMove, { passive: true });
@@ -140,16 +134,21 @@ export function DmWhyScene({
     >
       <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#FF6B2C]/20 to-[#3B82F6]/15 blur-3xl" aria-hidden />
 
-      <div className="dm-why-scene__frame relative h-full min-h-[inherit] overflow-hidden rounded-3xl border border-white/10">
+      <div className="dm-why-scene__frame relative h-full min-h-[inherit] overflow-hidden rounded-3xl border border-white/10 bg-[#050B1F]">
         <div
-          ref={bgRef}
-          className="absolute inset-[-6%] bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
+          ref={meshRef}
+          className="absolute inset-[-8%]"
           aria-hidden
-        />
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_25%,rgba(59,130,246,0.18),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_65%,rgba(255,107,44,0.14),transparent_45%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(26,58,107,0.35),transparent_60%)]" />
+          <div className="absolute inset-0 opacity-30" style={{
+            backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px)",
+          }} />
+        </div>
 
-        <div className="absolute inset-0 bg-[#050B1F]/50" aria-hidden />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#050B1F]/70 via-[#050B1F]/20 to-[#050B1F]/60" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#050B1F]/40 via-transparent to-[#050B1F]/50" aria-hidden />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,rgba(255,107,44,0.14),transparent_55%)]" aria-hidden />
 
         <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-40" aria-hidden>

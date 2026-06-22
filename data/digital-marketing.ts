@@ -1,5 +1,3 @@
-const img = "/images/dm-landing";
-
 const heroStats = [
   { value: 100, suffix: "+", label: "Projects" },
   { value: 95, suffix: "%", label: "Client Satisfaction" },
@@ -26,7 +24,6 @@ export const digitalMarketingPage = {
   },
   whyByte: {
     title: "Why Byte Infomedia",
-    image: `${img}/why-byte-digital-world.jpg`,
     imageAlt: "Immersive digital marketing ecosystem with analytics, globe, and connected channels",
     stats: whyByteStats,
     features: [
