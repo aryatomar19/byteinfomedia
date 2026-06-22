@@ -2,11 +2,19 @@
 
 import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
-import { BarChart3, LineChart, Target, Users, Wallet, Wrench } from "lucide-react";
+import {
+  BarChart3,
+  LineChart,
+  Sprout,
+  Target,
+  TrendingUp,
+  Users,
+} from "lucide-react";
 import { DmGsapReveal } from "@/components/digital-marketing/DmGsapReveal";
-import { DmWhyVisual } from "@/components/digital-marketing/DmWhyVisual";
+import { DmWhyFeatureCard } from "@/components/digital-marketing/DmWhyFeatureCard";
+import { DmWhyScene } from "@/components/digital-marketing/DmWhyScene";
 
-const icons: LucideIcon[] = [Users, LineChart, BarChart3, Wallet, Target, Wrench];
+const icons: LucideIcon[] = [Users, LineChart, BarChart3, TrendingUp, Target, Sprout];
 
 type Stat = {
   value: number | null;
@@ -18,82 +26,100 @@ type Stat = {
 export function DmWhySection({
   title,
   image,
-  characterImage,
   imageAlt,
   stats,
   features,
 }: {
   title: string;
   image: string;
-  characterImage: string;
   imageAlt: string;
   stats: readonly Stat[];
   features: readonly { title: string; description: string }[];
 }) {
   return (
-    <section className="dm-section dm-section--dark dm-why-section relative overflow-hidden">
-      <motion.div
-        className="pointer-events-none absolute inset-0"
-        animate={{
-          background: [
-            "radial-gradient(ellipse at 80% 50%, rgba(255,107,44,0.1), transparent 50%)",
-            "radial-gradient(ellipse at 70% 40%, rgba(59,130,246,0.12), transparent 52%)",
-            "radial-gradient(ellipse at 80% 50%, rgba(255,107,44,0.1), transparent 50%)",
-          ],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+    <section
+      className="dm-section dm-why-premium relative overflow-hidden"
+      style={{ background: "#050B1F" }}
+      aria-labelledby="dm-why-heading"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_30%,rgba(255,107,44,0.08),transparent_50%)]"
         aria-hidden
       />
-      <div className="pointer-events-none absolute inset-0 grid-pattern-light opacity-[0.08]" aria-hidden />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_85%_70%,rgba(59,130,246,0.06),transparent_45%)]"
+        aria-hidden
+      />
+      <div className="pointer-events-none absolute inset-0 grid-pattern-light opacity-[0.05]" aria-hidden />
 
       <div className="dm-container relative">
-        <DmGsapReveal className="mx-auto mb-10 max-w-3xl text-center lg:mb-14">
+        <DmGsapReveal className="mx-auto mb-10 max-w-3xl text-center lg:mb-12">
           <span className="dm-eyebrow dm-eyebrow--light">Why Us</span>
-          <h2 className="dm-heading mt-3 text-white">{title}</h2>
+          <h2 id="dm-why-heading" className="dm-heading mt-3 text-white">
+            {title}
+          </h2>
         </DmGsapReveal>
 
-        <DmGsapReveal y={32}>
-          <div className="dm-stat-band mb-12 grid grid-cols-2 gap-4 rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-md sm:grid-cols-4 sm:gap-6 sm:p-6 lg:mb-16">
-            {stats.map((stat) => {
-              const display = stat.display ?? `${stat.value}${stat.suffix ?? ""}`;
-              return (
-                <motion.div
-                  key={stat.label}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className="text-center"
-                >
-                  <p className="text-3xl font-extrabold text-[#FF6B2C] sm:text-4xl">{display}</p>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-white/60">{stat.label}</p>
-                </motion.div>
-              );
-            })}
+        <DmGsapReveal y={28}>
+          <div className="dm-why-stats-bar mb-12 lg:mb-14">
+            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 sm:grid-cols-4">
+              {stats.map((stat, index) => {
+                const display = stat.display ?? `${stat.value}${stat.suffix ?? ""}`;
+                return (
+                  <motion.div
+                    key={stat.label}
+                    className="dm-why-stat relative bg-[#050B1F]/80 px-4 py-5 text-center backdrop-blur-md sm:px-6 sm:py-6"
+                    whileHover={{ backgroundColor: "rgba(255,107,44,0.06)" }}
+                  >
+                    <motion.p
+                      className="text-2xl font-extrabold text-[#FF6B2C] sm:text-3xl lg:text-4xl"
+                      animate={{ textShadow: ["0 0 0px rgba(255,107,44,0)", "0 0 20px rgba(255,107,44,0.35)", "0 0 0px rgba(255,107,44,0)"] }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: index * 0.4,
+                      }}
+                    >
+                      {display}
+                    </motion.p>
+                    <p className="mt-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-white/55 sm:text-xs">
+                      {stat.label}
+                    </p>
+                    <motion.span
+                      className="dm-why-stat__ring pointer-events-none absolute inset-3 rounded-xl border border-[#FF6B2C]/0"
+                      animate={{ borderColor: ["rgba(255,107,44,0)", "rgba(255,107,44,0.2)", "rgba(255,107,44,0)"] }}
+                      transition={{
+                        duration: 3.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: index * 0.3,
+                      }}
+                      aria-hidden
+                    />
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </DmGsapReveal>
 
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
           <DmGsapReveal y={40}>
-            <DmWhyVisual image={image} characterImage={characterImage} imageAlt={imageAlt} />
+            <DmWhyScene backgroundImage={image} imageAlt={imageAlt} />
           </DmGsapReveal>
 
-          <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 sm:gap-5">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
             {features.map((feature, index) => {
               const Icon = icons[index] ?? Users;
               return (
-                <DmGsapReveal key={feature.title} delay={index * 0.06} y={32} className="h-full">
-                  <motion.div
-                    animate={{ y: [0, -4, 0] }}
-                    whileHover={{ y: -8, scale: 1.03 }}
-                    transition={{
-                      y: { delay: index * 0.4, duration: 4 + index * 0.2, repeat: Infinity, ease: "easeInOut" },
-                    }}
-                    className="dm-why-card group flex h-full min-h-[180px] flex-col items-center rounded-2xl p-5 text-center"
-                  >
-                    <span className="dm-why-icon flex h-12 w-12 items-center justify-center rounded-xl">
-                      <Icon className="h-5 w-5 text-[#FF6B2C]" />
-                    </span>
-                    <h3 className="mt-4 font-extrabold text-white">{feature.title}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-6 text-white/60">{feature.description}</p>
-                  </motion.div>
+                <DmGsapReveal key={feature.title} delay={index * 0.07} y={28} className="h-full">
+                  <DmWhyFeatureCard
+                    icon={Icon}
+                    title={feature.title}
+                    description={feature.description}
+                    index={index}
+                  />
                 </DmGsapReveal>
               );
             })}
