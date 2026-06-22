@@ -1,15 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import { BarChart3, Megaphone, Search, Share2, Sparkles, Target, TrendingUp } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect } from "react";
 import type { ReactNode } from "react";
 import { DmHeroStats } from "@/components/digital-marketing/DmHeroStats";
+import { DmMagnetic } from "@/components/digital-marketing/DmMagnetic";
 import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 
 const HERO_IMAGE = "/images/dm-landing/hero-visual.png";
+
+const FLOATING_ICONS = [
+  { Icon: Search, x: "72%", y: "18%", delay: 0 },
+  { Icon: Share2, x: "84%", y: "42%", delay: 0.5 },
+  { Icon: BarChart3, x: "58%", y: "28%", delay: 1 },
+  { Icon: Target, x: "90%", y: "68%", delay: 0.3 },
+  { Icon: Megaphone, x: "48%", y: "72%", delay: 0.8 },
+  { Icon: TrendingUp, x: "78%", y: "82%", delay: 1.2 },
+] as const;
 
 type HeroContent = {
   badge: string;
@@ -37,13 +47,39 @@ function HeroParticle({ delay, x, y, size }: { delay: number; x: string; y: stri
   );
 }
 
+function FloatingMarketingIcon({
+  Icon,
+  x,
+  y,
+  delay,
+}: {
+  Icon: typeof Search;
+  x: string;
+  y: string;
+  delay: number;
+}) {
+  return (
+    <motion.span
+      className="dm-hero-float-icon pointer-events-none absolute hidden items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md sm:flex"
+      style={{ left: x, top: y, width: 44, height: 44 }}
+      animate={{ y: [0, -12, 0], rotate: [0, 4, 0] }}
+      transition={{ duration: 4 + delay, repeat: Infinity, ease: "easeInOut", delay }}
+      aria-hidden
+    >
+      <Icon className="h-5 w-5 text-[#FF6B2C]" />
+    </motion.span>
+  );
+}
+
 function HeroBackground({ children }: { children: ReactNode }) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 42, damping: 24 });
   const springY = useSpring(mouseY, { stiffness: 42, damping: 24 });
-  const parallaxX = useTransform(springX, [-0.5, 0.5], [-24, 24]);
-  const parallaxY = useTransform(springY, [-0.5, 0.5], [-18, 18]);
+  const parallaxX = useTransform(springX, [-0.5, 0.5], [-32, 32]);
+  const parallaxY = useTransform(springY, [-0.5, 0.5], [-24, 24]);
+  const glowX = useTransform(springX, [-0.5, 0.5], [-40, 40]);
+  const glowY = useTransform(springY, [-0.5, 0.5], [-30, 30]);
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -57,7 +93,7 @@ function HeroBackground({ children }: { children: ReactNode }) {
   return (
     <section className="dm-hero relative min-h-[90vh] overflow-hidden">
       <motion.div
-        className="dm-hero-bg absolute inset-0 scale-110 bg-cover bg-center bg-no-repeat"
+        className="dm-hero-bg absolute inset-0 scale-[1.12] bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${HERO_IMAGE})`,
           x: parallaxX,
@@ -66,6 +102,11 @@ function HeroBackground({ children }: { children: ReactNode }) {
         aria-hidden
       />
 
+      <motion.div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_70%_30%,rgba(255,107,44,0.16),transparent_55%)]"
+        style={{ x: glowX, y: glowY }}
+        aria-hidden
+      />
       <div className="absolute inset-0 bg-[#0A0F1C]/60" aria-hidden />
       <div
         className="absolute inset-0 bg-gradient-to-r from-[#0A0F1C]/92 via-[#0A0F1C]/68 to-[#0A0F1C]/35 sm:from-[#0A0F1C]/88 sm:via-[#0A0F1C]/58 sm:to-[#0A0F1C]/25"
@@ -88,6 +129,9 @@ function HeroBackground({ children }: { children: ReactNode }) {
         <HeroParticle delay={0.3} x="42%" y="58%" size={4} />
         <HeroParticle delay={1.8} x="88%" y="48%" size={7} />
         <HeroParticle delay={0.9} x="24%" y="82%" size={5} />
+        {FLOATING_ICONS.map(({ Icon, x, y, delay }) => (
+          <FloatingMarketingIcon key={`${x}-${y}`} Icon={Icon} x={x} y={y} delay={delay} />
+        ))}
       </div>
 
       {children}
@@ -98,7 +142,7 @@ function HeroBackground({ children }: { children: ReactNode }) {
 export function DmHeroSection({ hero }: { hero: HeroContent }) {
   return (
     <HeroBackground>
-      <div className="relative mx-auto flex min-h-[90vh] max-w-7xl items-center px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="relative z-10 mx-auto flex min-h-[90vh] max-w-7xl items-center px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
@@ -139,25 +183,22 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
             transition={{ duration: 0.6, delay: 0.34 }}
             className="mt-7 flex flex-wrap gap-3"
           >
-            <div className="relative">
+            <DmMagnetic className="relative">
               <span
-                className="pointer-events-none absolute -inset-1 rounded-xl bg-[#FF6B2C]/35 blur-xl"
+                className="pointer-events-none absolute -inset-2 rounded-xl bg-[#FF6B2C]/40 blur-2xl"
                 aria-hidden
               />
-              <Button size="lg" asChild className="relative transition-transform duration-300 hover:scale-[1.03]">
+              <Button size="lg" asChild className="relative shadow-[0_0_32px_rgba(255,107,44,0.35)]">
                 <Link href="/book-consultation/">{hero.primaryCta}</Link>
               </Button>
-            </div>
-            <Button
-              variant="dark"
-              size="lg"
-              className={`${darkHeroSecondaryButtonClass} transition-transform duration-300 hover:scale-[1.03]`}
-              asChild
-            >
-              <Link href="#dm-services" className="!text-white hover:!text-white">
-                {hero.secondaryCta}
-              </Link>
-            </Button>
+            </DmMagnetic>
+            <DmMagnetic strength={0.2}>
+              <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
+                <Link href="#dm-services" className="!text-white hover:!text-white">
+                  {hero.secondaryCta}
+                </Link>
+              </Button>
+            </DmMagnetic>
           </motion.div>
 
           <DmHeroStats stats={hero.stats} />

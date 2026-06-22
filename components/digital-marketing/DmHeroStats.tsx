@@ -39,10 +39,17 @@ function StatItem({ stat, index }: { stat: Stat; index: number }) {
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.3 + index * 0.08 }}
-      whileHover={{ y: -4, scale: 1.02 }}
+      animate={{
+        opacity: 1,
+        y: [0, -6, 0],
+      }}
+      transition={{
+        opacity: { delay: 0.3 + index * 0.08, duration: 0.5 },
+        y: { delay: 0.8 + index * 0.4, duration: 3.5 + index * 0.3, repeat: Infinity, ease: "easeInOut" },
+      }}
+      whileHover={{ y: -8, scale: 1.04, transition: { duration: 0.25 } }}
       className="dm-hero-stat rounded-2xl px-4 py-4 text-center"
+      style={{ transformStyle: "preserve-3d" }}
     >
       <p className="text-2xl font-extrabold text-[#FF6B2C] sm:text-3xl">{display}</p>
       <p className="mt-1 text-xs font-semibold text-white/70">{stat.label}</p>
