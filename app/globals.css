@@ -1392,8 +1392,8 @@ a {
     0 0 72px rgba(59, 130, 246, 0.1);
 }
 
-.dm-why-widget {
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28), 0 0 20px rgba(255, 107, 44, 0.08);
+.dm-why-icon-float {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 0 16px rgba(255, 107, 44, 0.12);
 }
 
 .dm-why-float-badge {

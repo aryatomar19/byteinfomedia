@@ -81,7 +81,8 @@ export const digitalMarketingPage = {
   whyByte: {
     title: "Why Byte Infomedia",
     image: `${img}/why-byte-digital-world.jpg`,
-    imageAlt: "Build your digital world — premium digital marketing command center",
+    characterImage: `${img}/why-byte-character.png`,
+    imageAlt: "Digital marketing ecosystem with globe, analytics, and network technology",
     stats: heroStats,
     features: [
       { title: "Dedicated Team", description: "Experts focused on your growth goals." },
