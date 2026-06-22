@@ -1994,6 +1994,73 @@ a {
 }
 
 /* Expertise masonry */
+/* Expertise masonry */
+.dm-expertise-masonry {
+  column-gap: 1.5rem;
+}
+
+.dm-expertise-masonry-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.dm-expertise-masonry-card:hover {
+  border-color: rgba(255, 107, 44, 0.35);
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.38),
+    0 0 40px rgba(255, 107, 44, 0.12);
+}
+
+.dm-expertise-masonry-card__visual {
+  flex: 7 1 0%;
+  min-height: 0;
+}
+
+.dm-expertise-masonry-card__content {
+  flex: 3 1 0%;
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .dm-expertise-masonry-card__content {
+    padding: 1.5rem 1.75rem 1.75rem;
+  }
+}
+
+.dm-expertise-masonry-card--tall {
+  min-height: 420px;
+}
+
+.dm-expertise-masonry-card--tall .dm-expertise-masonry-card__visual {
+  min-height: 300px;
+}
+
+.dm-expertise-masonry-card--medium {
+  min-height: 360px;
+}
+
+.dm-expertise-masonry-card--medium .dm-expertise-masonry-card__visual {
+  min-height: 240px;
+}
+
+.dm-expertise-masonry-card--short {
+  min-height: 320px;
+}
+
+.dm-expertise-masonry-card--short .dm-expertise-masonry-card__visual {
+  min-height: 200px;
+}
+
 .dm-expertise-card {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: linear-gradient(155deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
