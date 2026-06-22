@@ -1310,6 +1310,63 @@ a {
   color: #0a0f1c;
 }
 
+.dm-landing--interactive {
+  isolation: isolate;
+}
+
+.dm-ambient-particle {
+  background: radial-gradient(circle, rgba(255, 107, 44, 0.45) 0%, rgba(59, 130, 246, 0.15) 70%, transparent 100%);
+  box-shadow: 0 0 10px rgba(255, 107, 44, 0.2);
+}
+
+.dm-cursor-glow {
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+
+.dm-hero-float-icon {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.dm-feature-row {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.dm-service-card--interactive {
+  will-change: transform;
+  transition: box-shadow 0.35s ease;
+}
+
+.dm-service-card--interactive:hover {
+  box-shadow:
+    0 28px 64px rgba(255, 107, 44, 0.18),
+    0 0 0 1px rgba(255, 107, 44, 0.28),
+    0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+.dm-process-progress {
+  background: linear-gradient(90deg, #ff6b2c, #ff8f5c, #3b82f6);
+  box-shadow: 0 0 16px rgba(255, 107, 44, 0.45);
+}
+
+.dm-process-card--active {
+  border-color: rgba(255, 107, 44, 0.28);
+  box-shadow:
+    0 22px 56px rgba(10, 15, 28, 0.1),
+    0 0 28px rgba(255, 107, 44, 0.14);
+}
+
+.dm-process-card--next {
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.dm-why-section {
+  isolation: isolate;
+}
+
 .dm-container {
   margin-left: auto;
   margin-right: auto;
