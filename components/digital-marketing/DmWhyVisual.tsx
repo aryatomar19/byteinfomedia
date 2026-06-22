@@ -1,163 +1,133 @@
 "use client";
 
-import {
-  AtSign,
-  BarChart3,
-  LineChart,
-  MessageCircle,
-  Search,
-  Share2,
-  Target,
-  TrendingUp,
-} from "lucide-react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect } from "react";
+import { BarChart3, LineChart, Search, Share2, TrendingUp, Users } from "lucide-react";
+import { motion } from "framer-motion";
 
-const FLOATING_ELEMENTS = [
-  { Icon: Search, label: "SEO", x: "8%", y: "14%", delay: 0, depth: 14 },
-  { Icon: BarChart3, label: "Analytics", x: "78%", y: "18%", delay: 0.4, depth: 18 },
-  { Icon: LineChart, label: "Growth", x: "84%", y: "52%", delay: 0.8, depth: 16 },
-  { Icon: Target, label: "Target", x: "10%", y: "62%", delay: 0.2, depth: 12 },
-  { Icon: TrendingUp, label: "ROI", x: "72%", y: "78%", delay: 1, depth: 20 },
+const DASHBOARD_WIDGETS = [
+  {
+    icon: Search,
+    label: "SEO",
+    value: "Top 3",
+    sub: "Rankings",
+    x: "6%",
+    y: "10%",
+    delay: 0,
+  },
+  {
+    icon: BarChart3,
+    label: "Analytics",
+    value: "Live",
+    sub: "Dashboard",
+    x: "68%",
+    y: "8%",
+    delay: 0.4,
+  },
+  {
+    icon: TrendingUp,
+    label: "ROI",
+    value: "300%",
+    sub: "Growth",
+    x: "72%",
+    y: "58%",
+    delay: 0.8,
+  },
+  {
+    icon: Users,
+    label: "Leads",
+    value: "2.4k",
+    sub: "Generated",
+    x: "8%",
+    y: "55%",
+    delay: 0.2,
+  },
+  {
+    icon: Share2,
+    label: "Social",
+    value: "3.2x",
+    sub: "Engagement",
+    x: "58%",
+    y: "78%",
+    delay: 1,
+  },
+  {
+    icon: LineChart,
+    label: "Traffic",
+    value: "+84%",
+    sub: "Website",
+    x: "12%",
+    y: "82%",
+    delay: 0.6,
+  },
 ] as const;
 
-const SOCIAL_ICONS = [
-  { Icon: Share2, x: "18%", y: "28%", delay: 0.3 },
-  { Icon: AtSign, x: "62%", y: "8%", delay: 0.7 },
-  { Icon: MessageCircle, x: "88%", y: "36%", delay: 1.1 },
-] as const;
-
-function FloatingBadge({
-  Icon,
+function GlassWidget({
+  icon: Icon,
   label,
+  value,
+  sub,
   x,
   y,
   delay,
-  parallaxX,
-  parallaxY,
-  depth,
-}: {
-  Icon: typeof Search;
-  label: string;
-  x: string;
-  y: string;
-  delay: number;
-  parallaxX: ReturnType<typeof useSpring>;
-  parallaxY: ReturnType<typeof useSpring>;
-  depth: number;
-}) {
-  const dx = useTransform(parallaxX, (v) => v * depth);
-  const dy = useTransform(parallaxY, (v) => v * depth);
-
+}: (typeof DASHBOARD_WIDGETS)[number]) {
   return (
     <motion.div
-      className="dm-why-float-badge pointer-events-none absolute flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-3 py-2 backdrop-blur-md"
-      style={{ left: x, top: y, x: dx, y: dy }}
-      animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 4.2 + delay, repeat: Infinity, ease: "easeInOut", delay }}
+      className="dm-why-widget pointer-events-none absolute min-w-[108px] rounded-2xl border border-white/15 bg-white/10 px-3 py-2.5 backdrop-blur-md"
+      style={{ left: x, top: y }}
+      animate={{ y: [0, -8, 0] }}
+      transition={{ duration: 5 + delay, repeat: Infinity, ease: "easeInOut", delay }}
       aria-hidden
     >
-      <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#FF6B2C]/20">
-        <Icon className="h-4 w-4 text-[#FF6B2C]" />
-      </span>
-      <span className="text-[0.65rem] font-bold uppercase tracking-wider text-white/75">{label}</span>
+      <div className="flex items-center gap-2">
+        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#FF6B2C]/20">
+          <Icon className="h-3.5 w-3.5 text-[#FF6B2C]" />
+        </span>
+        <span className="text-[0.6rem] font-bold uppercase tracking-wider text-white/55">{label}</span>
+      </div>
+      <p className="mt-1.5 text-lg font-extrabold leading-none text-white">{value}</p>
+      <p className="mt-0.5 text-[0.6rem] font-semibold text-[#FF6B2C]/90">{sub}</p>
     </motion.div>
   );
 }
 
-function FloatingSocial({
-  Icon,
-  x,
-  y,
-  delay,
-  parallaxX,
-  parallaxY,
-}: {
-  Icon: typeof Share2;
-  x: string;
-  y: string;
-  delay: number;
-  parallaxX: ReturnType<typeof useSpring>;
-  parallaxY: ReturnType<typeof useSpring>;
-}) {
-  const dx = useTransform(parallaxX, (v) => v * 10);
-  const dy = useTransform(parallaxY, (v) => v * 10);
-
-  return (
-    <motion.span
-      className="dm-why-float-social pointer-events-none absolute flex h-10 w-10 items-center justify-center rounded-xl border border-white/12 bg-white/8 backdrop-blur-md"
-      style={{ left: x, top: y, x: dx, y: dy }}
-      animate={{ y: [0, -8, 0], rotate: [0, 4, 0] }}
-      transition={{ duration: 3.8 + delay, repeat: Infinity, ease: "easeInOut", delay }}
-      aria-hidden
-    >
-      <Icon className="h-4 w-4 text-[#FF6B2C]" />
-    </motion.span>
-  );
-}
-
 export function DmWhyVisual({ image, imageAlt }: { image: string; imageAlt: string }) {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 48, damping: 24 });
-  const springY = useSpring(mouseY, { stiffness: 48, damping: 24 });
-  const illustrationX = useTransform(springX, [-0.5, 0.5], [-12, 12]);
-  const illustrationY = useTransform(springY, [-0.5, 0.5], [-10, 10]);
-  const tiltX = useTransform(springY, [-0.5, 0.5], [4, -4]);
-  const tiltY = useTransform(springX, [-0.5, 0.5], [-4, 4]);
-
-  useEffect(() => {
-    const onMove = (event: MouseEvent) => {
-      mouseX.set(event.clientX / window.innerWidth - 0.5);
-      mouseY.set(event.clientY / window.innerHeight - 0.5);
-    };
-    const onLeave = () => {
-      mouseX.set(0);
-      mouseY.set(0);
-    };
-    window.addEventListener("mousemove", onMove, { passive: true });
-    window.addEventListener("mouseleave", onLeave);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseleave", onLeave);
-    };
-  }, [mouseX, mouseY]);
-
   return (
-    <div className="dm-why-visual relative" style={{ perspective: 1000 }}>
+    <div className="dm-why-visual relative h-full min-h-[400px] sm:min-h-[460px] lg:min-h-[540px]">
       <div
-        className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-[#FF6B2C]/25 via-transparent to-[#3B82F6]/20 blur-3xl"
+        className="pointer-events-none absolute -inset-3 rounded-[1.75rem] bg-gradient-to-br from-[#FF6B2C]/30 via-[#3B82F6]/10 to-[#3B82F6]/25 blur-3xl"
         aria-hidden
       />
-      <div className="dm-why-visual__frame relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#121a2e] to-[#0A0F1C] p-6 sm:p-8">
+
+      <motion.div
+        className="dm-why-visual__frame relative h-full min-h-[inherit] overflow-hidden rounded-3xl border border-white/10"
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <img
+          src={image}
+          alt={imageAlt}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          loading="lazy"
+          decoding="async"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A0F1C]/55 via-[#0A0F1C]/25 to-[#0A0F1C]/65" aria-hidden />
+        <div
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,107,44,0.15),transparent_55%)]"
+          aria-hidden
+        />
+        <div
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_70%,rgba(59,130,246,0.18),transparent_50%)]"
+          aria-hidden
+        />
+
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-          {FLOATING_ELEMENTS.map((item) => (
-            <FloatingBadge key={item.label} {...item} parallaxX={springX} parallaxY={springY} />
-          ))}
-          {SOCIAL_ICONS.map(({ Icon, x, y, delay }) => (
-            <FloatingSocial key={x} Icon={Icon} x={x} y={y} delay={delay} parallaxX={springX} parallaxY={springY} />
+          {DASHBOARD_WIDGETS.map((widget) => (
+            <GlassWidget key={widget.label} {...widget} />
           ))}
         </div>
 
-        <motion.div
-          className="relative z-10 flex min-h-[360px] items-center justify-center sm:min-h-[420px] lg:min-h-[500px]"
-          style={{
-            x: illustrationX,
-            y: illustrationY,
-            rotateX: tiltX,
-            rotateY: tiltY,
-            transformStyle: "preserve-3d",
-          }}
-        >
-          <img
-            src={image}
-            alt={imageAlt}
-            className="max-h-[420px] w-full object-contain sm:max-h-[460px] lg:max-h-[500px]"
-            loading="lazy"
-            decoding="async"
-          />
-        </motion.div>
-      </div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0A0F1C]/80 to-transparent" aria-hidden />
+      </motion.div>
     </div>
   );
 }

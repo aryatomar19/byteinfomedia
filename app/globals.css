@@ -1386,7 +1386,14 @@ a {
 }
 
 .dm-why-visual__frame {
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35), 0 0 48px rgba(255, 107, 44, 0.1);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.4),
+    0 0 56px rgba(255, 107, 44, 0.12),
+    0 0 72px rgba(59, 130, 246, 0.1);
+}
+
+.dm-why-widget {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28), 0 0 20px rgba(255, 107, 44, 0.08);
 }
 
 .dm-why-float-badge {
