@@ -1,40 +1,5 @@
 const img = "/images/dm-landing";
 
-const serviceItems = [
-  {
-    id: "website" as const,
-    title: "Website Development",
-    description: "Fast, elegant websites engineered to impress visitors and drive conversions.",
-    href: "/website-development/",
-    image: `${img}/website.jpg`,
-    imageAlt: "Orange laptop digital marketing and website development scene",
-  },
-  {
-    id: "seo" as const,
-    title: "Search Engine Optimization",
-    description: "Rank higher, attract qualified traffic, and grow organic visibility.",
-    href: "/search-engine-optimization/",
-    image: `${img}/seo.jpg`,
-    imageAlt: "Glowing SEO analytics and growth dashboard scene",
-  },
-  {
-    id: "content" as const,
-    title: "Content Writing",
-    description: "Clear, compelling copy that builds trust, authority, and engagement.",
-    href: "/content-writing/",
-    image: `${img}/content.jpg`,
-    imageAlt: "Content writing and brand storytelling",
-  },
-  {
-    id: "social" as const,
-    title: "Social Media Marketing",
-    description: "Grow your brand presence and engage audiences across social channels.",
-    href: "/social-media-marketing/",
-    image: `${img}/social.jpg`,
-    imageAlt: "Floating social media marketing and analytics scene",
-  },
-] as const;
-
 const heroStats = [
   { value: 100, suffix: "+", label: "Projects" },
   { value: 95, suffix: "%", label: "Client Satisfaction" },
@@ -59,61 +24,168 @@ export const digitalMarketingPage = {
     secondaryCta: "View Services",
     stats: heroStats,
   },
-  whoWeAre: {
-    title: "Strategic Digital Marketing for Modern Businesses",
-    description:
-      "Byte Infomedia partners with ambitious brands to deliver measurable growth through premium digital marketing — from stunning websites to search visibility, compelling content, and social engagement.",
-    image: `${img}/who-we-are.jpg`,
-    imageAlt: "Digital marketing strategy team collaboration",
-    features: [
-      "End-to-end digital marketing under one roof",
-      "Transparent reporting with clear ROI metrics",
-      "Strategies tailored to your industry and goals",
-    ],
-  },
-  services: {
-    title: "Our Digital Marketing Services",
-    items: serviceItems,
-  },
-  process: {
-    title: "Our Process",
-    steps: [
-      { title: "Discover", description: "Understand your brand, audience, and goals." },
-      { title: "Research", description: "Analyze market, competitors, and opportunities." },
-      { title: "Strategy", description: "Build a data-led roadmap for growth." },
-      { title: "Execute", description: "Launch campaigns and assets with precision." },
-      { title: "Optimize", description: "Measure, refine, and scale what works." },
-    ],
-  },
   whyByte: {
     title: "Why Byte Infomedia",
     image: `${img}/why-byte-digital-world.jpg`,
-    imageAlt: "Immersive digital marketing dashboard with analytics, globe, and connected channels",
+    imageAlt: "Immersive digital marketing ecosystem with analytics, globe, and connected channels",
     stats: whyByteStats,
     features: [
       {
         title: "Growth-Focused Team",
-        description: "Digital marketers, designers, and strategists working as one team.",
+        description: "Digital marketers, designers, and strategists working as one unified team.",
       },
       {
-        title: "Data-Driven Decisions",
-        description: "Every campaign backed by analytics and measurable insights.",
+        title: "Data-Driven Strategy",
+        description: "Every campaign backed by analytics and measurable business insights.",
       },
       {
         title: "Transparent Reporting",
-        description: "Real-time performance tracking with clear KPIs.",
+        description: "Real-time performance tracking with clear KPIs you can act on.",
       },
       {
-        title: "ROI-Centered Campaigns",
-        description: "Marketing strategies built to maximize revenue growth.",
+        title: "ROI-Focused Campaigns",
+        description: "Marketing strategies engineered to maximize revenue and growth.",
       },
       {
         title: "Tailored Marketing Solutions",
-        description: "Customized campaigns for every business stage.",
+        description: "Customized campaigns designed for every business stage and goal.",
       },
       {
-        title: "Sustainable Brand Growth",
-        description: "Long-term strategies that build authority and trust.",
+        title: "Long-Term Brand Growth",
+        description: "Sustainable strategies that build authority, trust, and market share.",
+      },
+    ],
+  },
+  capabilities: {
+    title: "Digital Marketing Capabilities",
+    eyebrow: "What We Deliver",
+    items: [
+      {
+        id: "seo",
+        title: "SEO Optimization",
+        description: "Dominate search rankings with technical SEO, content strategy, and authority building.",
+        href: "/search-engine-optimization/",
+      },
+      {
+        id: "google-ads",
+        title: "Google Ads Management",
+        description: "High-intent PPC campaigns that convert clicks into qualified leads and revenue.",
+        href: "/book-consultation/",
+      },
+      {
+        id: "social",
+        title: "Social Media Marketing",
+        description: "Build engaged communities and drive brand awareness across every major platform.",
+        href: "/social-media-marketing/",
+      },
+      {
+        id: "content",
+        title: "Content Marketing",
+        description: "Compelling content that educates, converts, and positions your brand as an authority.",
+        href: "/content-writing/",
+      },
+      {
+        id: "website",
+        title: "Website Development",
+        description: "High-performance websites engineered for speed, conversions, and growth.",
+        href: "/website-development/",
+      },
+      {
+        id: "analytics",
+        title: "Marketing Analytics",
+        description: "Deep performance insights that turn data into actionable growth decisions.",
+        href: "/book-consultation/",
+      },
+    ],
+  },
+  performanceMetrics: {
+    title: "Performance That Speaks for Itself",
+    eyebrow: "Our Impact",
+    metrics: [
+      { value: 100, suffix: "+", label: "Projects Delivered" },
+      { value: 95, suffix: "%", label: "Client Satisfaction" },
+      { value: 300, suffix: "%", label: "Average ROI Growth" },
+      { value: null as number | null, display: "24/7", label: "Support" },
+      { value: 50, suffix: "+", label: "Active Campaigns" },
+      { value: 1000, suffix: "+", label: "Qualified Leads Generated" },
+    ],
+  },
+  workflow: {
+    title: "Digital Marketing Workflow",
+    eyebrow: "How We Work",
+    steps: [
+      {
+        number: "01",
+        title: "Discovery",
+        description: "Deep-dive into your brand, audience, goals, and competitive landscape.",
+      },
+      {
+        number: "02",
+        title: "Market Research",
+        description: "Analyze trends, competitors, and opportunities to uncover growth levers.",
+      },
+      {
+        number: "03",
+        title: "Strategy Planning",
+        description: "Build a data-led roadmap with clear KPIs and channel priorities.",
+      },
+      {
+        number: "04",
+        title: "Campaign Launch",
+        description: "Execute campaigns, creative assets, and tracking with precision.",
+      },
+      {
+        number: "05",
+        title: "Optimization",
+        description: "Continuously test, refine, and improve performance across all channels.",
+      },
+      {
+        number: "06",
+        title: "Scaling",
+        description: "Scale winning strategies to accelerate revenue and market presence.",
+      },
+    ],
+  },
+  resultsApproach: {
+    eyebrow: "Results Driven",
+    title: "Marketing That Drives Measurable Growth",
+    description:
+      "We don't just run campaigns — we engineer growth systems. From traffic acquisition to lead generation and conversion optimization, every strategy is built around ROI, qualified leads, and sustainable business outcomes.",
+    cta: "Book Free Consultation",
+  },
+  clientsChoose: {
+    title: "Why Clients Choose Us",
+    eyebrow: "The Byte Advantage",
+    cards: [
+      {
+        title: "Dedicated Account Managers",
+        description: "A single point of contact who knows your business inside and out.",
+        size: "large" as const,
+      },
+      {
+        title: "Transparent Reporting",
+        description: "Real-time dashboards with clear metrics you can trust.",
+        size: "small" as const,
+      },
+      {
+        title: "Fast Campaign Execution",
+        description: "Rapid deployment without sacrificing quality or strategy.",
+        size: "small" as const,
+      },
+      {
+        title: "Data-Driven Decisions",
+        description: "Every move backed by analytics, not assumptions.",
+        size: "medium" as const,
+      },
+      {
+        title: "Custom Marketing Strategies",
+        description: "Tailored plans built for your industry, audience, and goals.",
+        size: "medium" as const,
+      },
+      {
+        title: "Long-Term Growth Focus",
+        description: "Strategies designed to compound results over time.",
+        size: "full" as const,
       },
     ],
   },
