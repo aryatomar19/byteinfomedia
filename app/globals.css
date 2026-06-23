@@ -2520,33 +2520,91 @@ a {
   position: relative;
 }
 
+@media (min-width: 1024px) {
+  .dm-process-timeline__track {
+    min-height: 650px;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.dm-process-timeline__connector {
+  top: 11.5rem;
+  height: 8.75rem;
+}
+
+@media (min-width: 1280px) {
+  .dm-process-timeline__connector {
+    top: 12rem;
+  }
+}
+
+.dm-process-timeline__row {
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-top: 2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+@media (min-width: 1280px) {
+  .dm-process-timeline__row {
+    gap: 4.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.dm-process-timeline__circle-wrap {
+  display: inline-block;
+}
+
+.dm-process-timeline__badge {
+  position: absolute;
+  top: -0.875rem;
+  left: 50%;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 1.75rem;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  border: 2px solid #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
+}
+
 .dm-process-timeline__circle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 11.25rem;
-  height: 11.25rem;
+  width: 15.625rem;
+  height: 15.625rem;
   border-radius: 9999px;
-  border: 4px solid #ffffff;
-  transition: box-shadow 0.35s ease;
-}
-
-@media (min-width: 640px) {
-  .dm-process-timeline__circle {
-    width: 12.5rem;
-    height: 12.5rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .dm-process-timeline__circle {
-    width: 13.75rem;
-    height: 13.75rem;
-  }
+  border: 5px solid #ffffff;
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
 }
 
 .dm-process-timeline__step:hover .dm-process-timeline__circle {
   box-shadow: var(--process-hover-shadow);
+}
+
+.dm-process-timeline__icon {
+  width: 5rem;
+  height: 5rem;
+  color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  .dm-process-timeline__icon {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
 }
 
 .dm-process-timeline__icon-inner {
@@ -2557,24 +2615,34 @@ a {
 
 .dm-process-timeline__icon-inner--dual {
   position: relative;
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 5.75rem;
+  height: 5.75rem;
 }
 
-.dm-process-timeline__icon-inner--dual svg:first-child {
+.dm-process-timeline__icon--primary {
   position: absolute;
   left: 0;
   top: 0;
+  width: 4.375rem;
+  height: 4.375rem;
 }
 
-.dm-process-timeline__icon-inner--dual svg:last-child {
+.dm-process-timeline__icon--secondary {
   position: absolute;
-  right: -2px;
-  bottom: -2px;
+  right: -0.25rem;
+  bottom: -0.25rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  opacity: 0.92;
+}
+
+.dm-process-timeline__visual {
+  position: relative;
+  z-index: 10;
 }
 
 .dm-process-timeline__label {
-  margin-top: 1.5rem;
+  margin-top: 2.25rem;
   font-size: 0.875rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -2591,7 +2659,7 @@ a {
 
 .dm-process-timeline__desc {
   margin-top: 0.5rem;
-  max-width: 15rem;
+  max-width: 16rem;
   font-size: 0.875rem;
   line-height: 1.6;
   color: rgba(10, 15, 28, 0.58);
