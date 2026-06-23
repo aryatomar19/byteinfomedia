@@ -1,12 +1,12 @@
-const SPLINE_EMBED_URL = "https://my.spline.design/web3agencysaasherosection-sQb88mFs59KUzxn476QixZBQ/";
+const SPLINE_EMBED_URL = "https://my.spline.design/boxeshover-gNs9Fil0MtnLFNiYEdMLQZ8v/";
 
 export function MarketingHero3D() {
   return (
-    <div className="dm-hero-spline-bg spline-bg">
+    <div className="dm-hero-spline-bg spline-bg" aria-hidden>
       <iframe
         src={SPLINE_EMBED_URL}
-        title="Web3 agency SaaS hero 3D scene"
-        loading="lazy"
+        title="Boxes hover 3D hero background"
+        loading="eager"
         frameBorder={0}
         width="100%"
         height="100%"
