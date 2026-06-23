@@ -33,11 +33,10 @@ export const digitalMarketingPage = {
       "Scalable Marketing Strategies",
     ],
     highlightStats: [
-      { value: "100+", label: "Projects Delivered" },
+      { value: "100+", label: "Projects" },
       { value: "95%", label: "Client Satisfaction" },
       { value: "300%", label: "Average Growth" },
-      { value: "1000+", label: "Qualified Leads Generated" },
-      { value: "24/7", label: "Expert Support" },
+      { value: "24/7", label: "Support" },
     ],
   },
   expertise: {
@@ -54,7 +53,7 @@ export const digitalMarketingPage = {
       },
       {
         id: "google-ads",
-        title: "Google Ads Management",
+        title: "Google Ads",
         description: "Maximize ROI with performance campaigns.",
         image: `${img}/expertise/expertise-google-ads.jpg`,
         imageAlt: "PPC campaign performance dashboard",
@@ -119,13 +118,17 @@ export const digitalMarketingPage = {
         title: "SEO Optimization",
         description: "Rank higher and attract qualified organic traffic that converts.",
         href: "/search-engine-optimization/",
+        image: `${img}/expertise/expertise-seo.jpg`,
+        imageAlt: "SEO dashboard with ranking growth analytics",
         bullets: ["Keyword Research", "Technical SEO", "On Page SEO", "Local SEO"],
       },
       {
         id: "google-ads",
-        title: "Google Ads Management",
+        title: "Google Ads",
         description: "High-intent paid campaigns engineered for leads and revenue.",
         href: "/book-consultation/",
+        image: `${img}/expertise/expertise-google-ads.jpg`,
+        imageAlt: "PPC campaign performance dashboard",
         bullets: ["Search Ads", "Display Ads", "Remarketing", "Performance Max"],
       },
       {
@@ -133,6 +136,8 @@ export const digitalMarketingPage = {
         title: "Social Media Marketing",
         description: "Build brand presence and engage audiences across social platforms.",
         href: "/social-media-marketing/",
+        image: `${img}/expertise/expertise-social.jpg`,
+        imageAlt: "Social media marketing analytics across major platforms",
         bullets: ["Instagram Marketing", "Facebook Marketing", "LinkedIn Marketing", "Content Strategy"],
       },
       {
@@ -140,6 +145,8 @@ export const digitalMarketingPage = {
         title: "Content Writing",
         description: "Compelling copy that builds trust, authority, and conversions.",
         href: "/content-writing/",
+        image: `${img}/expertise/expertise-content.jpg`,
+        imageAlt: "Content creation and blog writing illustration",
         bullets: ["Blog Writing", "Website Content", "SEO Content", "Copywriting"],
       },
       {
@@ -147,6 +154,8 @@ export const digitalMarketingPage = {
         title: "Website Development",
         description: "Fast, elegant websites built to impress and convert visitors.",
         href: "/website-development/",
+        image: `${img}/expertise/expertise-website.jpg`,
+        imageAlt: "Modern responsive website design mockup",
         bullets: ["Business Websites", "Landing Pages", "WordPress Development", "Performance Optimization"],
       },
       {
@@ -154,6 +163,8 @@ export const digitalMarketingPage = {
         title: "Analytics & Reporting",
         description: "Data-driven insights that power smarter marketing decisions.",
         href: "/book-consultation/",
+        image: `${img}/expertise/expertise-analytics.jpg`,
+        imageAlt: "Marketing analytics and reporting dashboard",
         bullets: ["GA4 Setup", "Conversion Tracking", "Search Console", "Monthly Reports"],
       },
     ],
@@ -165,26 +176,22 @@ export const digitalMarketingPage = {
       {
         number: "01",
         title: "Research & Analysis",
-        items: ["Market research", "Competitor analysis", "Audience insights"],
-        glow: "green" as const,
+        description: "We study your market, competitors, and audience to uncover high-impact growth opportunities.",
       },
       {
         number: "02",
         title: "Strategy Planning",
-        items: ["Marketing roadmap", "Channel selection", "Campaign planning"],
-        glow: "orange" as const,
+        description: "A tailored marketing roadmap with the right channels, messaging, and campaign structure.",
       },
       {
         number: "03",
         title: "Campaign Execution",
-        items: ["SEO implementation", "Google Ads", "Social Media Marketing"],
-        glow: "blue" as const,
+        description: "SEO, Google Ads, and social campaigns launched with precision and creative excellence.",
       },
       {
         number: "04",
         title: "Optimization & Growth",
-        items: ["Analytics monitoring", "Conversion optimization", "Scaling successful campaigns"],
-        glow: "orange" as const,
+        description: "Continuous analytics, A/B testing, and scaling of what drives the best results.",
       },
     ],
     features: [
@@ -195,7 +202,7 @@ export const digitalMarketingPage = {
       },
       {
         icon: "chart" as const,
-        title: "Data-Driven Decisions",
+        title: "Data Driven Decisions",
         description: "All decisions backed by analytics and real insights.",
       },
       {
@@ -225,6 +232,10 @@ export const digitalMarketingPage = {
   faq: {
     title: "Frequently Asked Questions",
     eyebrow: "FAQ",
+    description:
+      "Everything you need to know about our digital marketing services. Can't find your answer? Book a free consultation and our team will walk you through the right strategy.",
+    image: `${img}/why-byte-team.jpg`,
+    imageAlt: "Byte Infomedia marketing team ready for consultation",
     items: [
       {
         question: "What digital marketing services do you provide?",
@@ -263,6 +274,6 @@ export const digitalMarketingPage = {
     description:
       "Partner with Byte Infomedia for data-driven strategies, transparent reporting, and measurable ROI. Book a free consultation and discover how we can scale your business.",
     primaryCta: "Book Free Consultation",
-    secondaryCta: "Explore Services",
+    secondaryCta: "View Our Services",
   },
 } as const;

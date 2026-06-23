@@ -1998,8 +1998,16 @@ a {
 
 .dm-why-image {
   box-shadow:
-    0 32px 80px rgba(0, 0, 0, 0.5),
-    0 0 56px rgba(255, 107, 44, 0.1);
+    0 24px 64px rgba(0, 0, 0, 0.35),
+    0 8px 24px rgba(10, 15, 28, 0.12);
+}
+
+.dm-why-image--clear {
+  border-radius: 1.5rem;
+}
+
+.dm-why-image--clear img {
+  display: block;
 }
 
 .dm-why-image__glass {
@@ -2094,6 +2102,74 @@ a {
 
 .dm-expertise-masonry-card--short .dm-expertise-masonry-card__visual {
   min-height: 200px;
+}
+
+/* Light alternating sections */
+.dm-section--white {
+  background: #ffffff;
+}
+
+.dm-expertise-masonry-card--light {
+  border: 1px solid rgba(10, 15, 28, 0.08);
+  background: #ffffff;
+  box-shadow: 0 16px 48px rgba(10, 15, 28, 0.08);
+  backdrop-filter: none;
+}
+
+.dm-expertise-masonry-card--light:hover {
+  border-color: rgba(255, 107, 53, 0.25);
+  box-shadow:
+    0 28px 64px rgba(10, 15, 28, 0.12),
+    0 0 0 1px rgba(255, 107, 53, 0.08);
+}
+
+.dm-expertise-masonry-card__content--light {
+  background: #ffffff;
+}
+
+.dm-service-light {
+  border: 1px solid rgba(10, 15, 28, 0.06);
+  box-shadow: 0 16px 48px rgba(10, 15, 28, 0.07);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.dm-service-light:hover {
+  border-color: rgba(255, 107, 53, 0.2);
+  box-shadow:
+    0 24px 56px rgba(10, 15, 28, 0.1),
+    0 0 0 1px rgba(255, 107, 53, 0.06);
+}
+
+.dm-process-premium--light {
+  background: #ffffff;
+}
+
+.dm-process-milestone--light .dm-process-milestone__circle {
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.dm-process-feature-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.dm-process-feature-card:hover {
+  border-color: rgba(255, 107, 53, 0.2);
+  box-shadow: 0 16px 48px rgba(10, 15, 28, 0.1);
+}
+
+.dm-faq-image {
+  box-shadow: 0 20px 56px rgba(10, 15, 28, 0.1);
+}
+
+.dm-numbered-faq__item.dm-numbered-faq__item--light:hover,
+.dm-faq-section .dm-numbered-faq__item:hover {
+  border-color: rgba(255, 107, 53, 0.22);
 }
 
 .dm-expertise-card {
