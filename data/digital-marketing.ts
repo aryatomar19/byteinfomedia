@@ -170,50 +170,35 @@ export const digitalMarketingPage = {
     ],
   },
   process: {
-    eyebrow: "HOW WE WORK",
     title: "Our Working Process",
     steps: [
       {
         number: "01",
         title: "Research & Analysis",
-        description: "We study your market, competitors, and audience to uncover high-impact growth opportunities.",
+        description: "Deep market, competitor, and audience research to uncover growth opportunities.",
+        image: `${img}/expertise/expertise-analytics.jpg`,
+        imageAlt: "3D analytics dashboard illustration for research and analysis",
       },
       {
         number: "02",
         title: "Strategy Planning",
-        description: "A tailored marketing roadmap with the right channels, messaging, and campaign structure.",
+        description: "A tailored roadmap with the right channels, messaging, and campaign structure.",
+        image: `${img}/expertise/expertise-brand.jpg`,
+        imageAlt: "3D brand strategy illustration for marketing planning",
       },
       {
         number: "03",
         title: "Campaign Execution",
-        description: "SEO, Google Ads, and social campaigns launched with precision and creative excellence.",
+        description: "SEO, Google Ads, and social campaigns launched with precision and creativity.",
+        image: `${img}/expertise/expertise-google-ads.jpg`,
+        imageAlt: "3D Google Ads campaign illustration for execution",
       },
       {
         number: "04",
         title: "Optimization & Growth",
-        description: "Continuous analytics, A/B testing, and scaling of what drives the best results.",
-      },
-    ],
-    features: [
-      {
-        icon: "target" as const,
-        title: "Strategy First",
-        description: "Every campaign starts with research and planning.",
-      },
-      {
-        icon: "chart" as const,
-        title: "Data Driven Decisions",
-        description: "All decisions backed by analytics and real insights.",
-      },
-      {
-        icon: "trending" as const,
-        title: "Performance Focused",
-        description: "Focused on leads, conversions and ROI.",
-      },
-      {
-        icon: "rocket" as const,
-        title: "Long-Term Growth",
-        description: "Scalable strategies for sustainable business growth.",
+        description: "Continuous analytics, testing, and scaling of what drives the best results.",
+        image: `${img}/expertise/expertise-leads.jpg`,
+        imageAlt: "3D lead generation illustration for optimization and growth",
       },
     ],
   },

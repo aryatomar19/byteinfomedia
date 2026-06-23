@@ -2147,20 +2147,42 @@ a {
   background: #ffffff;
 }
 
-.dm-process-milestone--light .dm-process-milestone__circle {
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
+.dm-process-hero {
+  isolation: isolate;
 }
 
-.dm-process-feature-card {
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+.dm-process-track {
+  position: relative;
 }
 
-.dm-process-feature-card:hover {
-  border-color: rgba(255, 107, 53, 0.2);
-  box-shadow: 0 16px 48px rgba(10, 15, 28, 0.1);
+.dm-process-step__visual {
+  position: relative;
+}
+
+.dm-process-step__badge {
+  letter-spacing: 0.18em;
+}
+
+.dm-process-step__circle {
+  transition: box-shadow 0.45s ease;
+}
+
+.dm-process-step__ring {
+  transition: transform 0.45s ease;
+}
+
+.dm-process-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 107, 53, 0.35) transparent;
+}
+
+.dm-process-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.dm-process-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 53, 0.4);
+  border-radius: 4px;
 }
 
 .dm-faq-image {
