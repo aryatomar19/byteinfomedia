@@ -43,7 +43,7 @@ function StatItem({ stat, index }: { stat: Stat; index: number }) {
       whileHover={{ y: -2 }}
       className="dm-hero-stat dm-hero-stat--equal flex min-h-[88px] flex-col items-center justify-center rounded-2xl px-3 py-4 text-center"
     >
-      <p className="text-xl font-extrabold text-[#FF6B35] sm:text-2xl">{display}</p>
+      <p className="text-xl font-extrabold text-[#ff6b2c] sm:text-2xl">{display}</p>
       <p className="mt-1 text-[0.65rem] font-semibold uppercase tracking-wide text-white/60 sm:text-xs">{stat.label}</p>
     </motion.div>
   );

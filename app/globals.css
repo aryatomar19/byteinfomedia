@@ -1699,6 +1699,32 @@ a {
   display: block;
 }
 
+.dm-spline-hero {
+  width: 100%;
+  overflow: visible;
+}
+
+.dm-spline-hero__canvas,
+.dm-spline-hero__canvas > canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.dm-spline-hero__loader {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dm-spline-hero-wrap {
+  min-height: 400px;
+}
+
+@media (min-width: 1024px) {
+  .dm-spline-hero-wrap {
+    min-height: 650px;
+  }
+}
+
 .dm-hero-stat--equal {
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.04);
@@ -1710,7 +1736,7 @@ a {
 }
 
 .dm-hero-stat--equal:hover {
-  border-color: rgba(255, 107, 53, 0.28);
+  border-color: rgba(255, 107, 44, 0.28);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
 }
 

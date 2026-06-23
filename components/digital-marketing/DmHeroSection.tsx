@@ -3,11 +3,10 @@
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import { SplineMarketingHero } from "@/components/SplineMarketingHero";
 import { DmHeroStats } from "@/components/digital-marketing/DmHeroStats";
 import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
-
-const HERO_IMAGE = "/images/dm-landing/why-byte-growth.jpg";
 
 type HeroContent = {
   badge: string;
@@ -27,10 +26,10 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
   return (
     <section
       className="dm-hero dm-hero--clean relative overflow-hidden"
-      style={{ background: "#060B23" }}
+      style={{ background: "#070b1f" }}
       aria-labelledby="dm-hero-heading"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(255,107,53,0.08),transparent_55%)]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(255,107,44,0.08),transparent_55%)]" aria-hidden />
 
       <div className="dm-container relative">
         <div className="grid min-h-[calc(100vh-5rem)] items-center gap-10 py-14 sm:py-16 lg:grid-cols-[45%_55%] lg:gap-12 lg:py-20">
@@ -40,7 +39,7 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-[600px]"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B35]/35 bg-[#FF6B35]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#ff6b2c]/35 bg-[#ff6b2c]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
               <Sparkles className="h-3.5 w-3.5" />
               {hero.badge}
             </span>
@@ -58,7 +57,7 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
               <Button
                 size="lg"
                 asChild
-                className="rounded-full bg-[#FF6B35] px-8 font-bold text-white shadow-[0_8px_28px_rgba(255,107,53,0.3)] transition-colors hover:bg-[#e85a1c]"
+                className="rounded-full bg-[#ff6b2c] px-8 font-bold text-white shadow-[0_8px_28px_rgba(255,107,44,0.3)] transition-colors hover:bg-[#e85a1c]"
               >
                 <Link href="/book-consultation/">{hero.primaryCta}</Link>
               </Button>
@@ -81,16 +80,9 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="dm-hero-image relative w-full"
+            className="dm-spline-hero-wrap relative w-full"
           >
-            <div className="overflow-hidden rounded-3xl">
-              <img
-                src={HERO_IMAGE}
-                alt="Digital marketing team reviewing analytics dashboards and campaign growth metrics"
-                className="aspect-[4/3] h-full w-full object-cover object-center lg:aspect-[5/4]"
-                loading="eager"
-              />
-            </div>
+            <SplineMarketingHero />
           </motion.div>
         </div>
       </div>
