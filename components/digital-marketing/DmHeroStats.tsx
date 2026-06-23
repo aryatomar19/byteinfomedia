@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
 
 type Stat = {
   value: number | null;
@@ -38,28 +37,21 @@ function StatItem({ stat, index }: { stat: Stat; index: number }) {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 16 }}
-      animate={{
-        opacity: 1,
-        y: [0, -6, 0],
-      }}
-      transition={{
-        opacity: { delay: 0.3 + index * 0.08, duration: 0.5 },
-        y: { delay: 0.8 + index * 0.4, duration: 3.5 + index * 0.3, repeat: Infinity, ease: "easeInOut" },
-      }}
-      whileHover={{ y: -8, scale: 1.04, transition: { duration: 0.25 } }}
-      className="dm-hero-stat rounded-2xl px-4 py-4 text-center"
-      style={{ transformStyle: "preserve-3d" }}
+      initial={{ opacity: 0, y: 12 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ delay: 0.2 + index * 0.06, duration: 0.45 }}
+      whileHover={{ y: -2 }}
+      className="dm-hero-stat dm-hero-stat--equal flex min-h-[88px] flex-col items-center justify-center rounded-2xl px-3 py-4 text-center"
     >
-      <p className="text-2xl font-extrabold text-[#FF6B2C] sm:text-3xl">{display}</p>
-      <p className="mt-1 text-xs font-semibold text-white/70">{stat.label}</p>
+      <p className="text-xl font-extrabold text-[#FF6B35] sm:text-2xl">{display}</p>
+      <p className="mt-1 text-[0.65rem] font-semibold uppercase tracking-wide text-white/60 sm:text-xs">{stat.label}</p>
     </motion.div>
   );
 }
 
 export function DmHeroStats({ stats }: { stats: readonly Stat[] }) {
   return (
-    <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+    <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
       {stats.map((stat, i) => (
         <StatItem key={stat.label} stat={stat} index={i} />
       ))}
