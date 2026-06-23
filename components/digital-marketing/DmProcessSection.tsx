@@ -76,8 +76,8 @@ function ProcessStepCard({ step, index }: { step: ProcessStep; index: number }) 
         </div>
       </motion.div>
 
-      <h3 className="mt-10 text-xl font-extrabold text-[#0A0F1C] sm:text-2xl">{step.title}</h3>
-      <p className="mt-3 max-w-[240px] text-sm leading-7 text-[#0A0F1C]/60 sm:max-w-[260px] sm:text-base">
+      <h3 className="mt-8 text-lg font-extrabold text-[#0A0F1C] sm:text-xl">{step.title}</h3>
+      <p className="mt-2 max-w-[240px] text-sm leading-6 text-[#0A0F1C]/60 sm:max-w-[260px]">
         {step.description}
       </p>
     </motion.article>
@@ -97,7 +97,7 @@ export function DmProcessSection({
   return (
     <section
       id="dm-process"
-      className="dm-process-hero dm-section dm-section--2xl dm-section--white relative w-full overflow-hidden bg-white"
+      className="dm-process-hero dm-section dm-section--white relative w-full overflow-hidden bg-white"
       aria-labelledby="dm-process-heading"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,107,53,0.05),transparent_55%)]" aria-hidden />
@@ -115,7 +115,7 @@ export function DmProcessSection({
           </h2>
         </motion.div>
 
-        <div ref={trackRef} className="dm-process-track relative mt-16 lg:mt-24 xl:mt-28">
+        <div ref={trackRef} className="dm-process-track relative mt-10 lg:mt-14">
           <CurvedConnector active={connectorActive} />
 
           <div className="relative hidden items-start justify-between gap-6 lg:flex xl:gap-10">

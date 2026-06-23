@@ -15,7 +15,6 @@ import { DmGsapReveal } from "@/components/digital-marketing/DmGsapReveal";
 const trustIcons: LucideIcon[] = [Target, Users, BarChart3, LineChart, Shield];
 
 type WhyByteContent = {
-  eyebrow: string;
   title: string;
   description: string;
   image: string;
@@ -25,7 +24,6 @@ type WhyByteContent = {
 };
 
 export function DmWhyTrustSection({
-  eyebrow,
   title,
   description,
   image,
@@ -36,14 +34,14 @@ export function DmWhyTrustSection({
   return (
     <section
       id="dm-why"
-      className="dm-section dm-section--xl dm-why-trust relative overflow-hidden"
+      className="dm-section dm-why-trust relative overflow-hidden"
       style={{ background: "#060B23" }}
       aria-labelledby="dm-why-heading"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_40%,rgba(255,107,53,0.08),transparent_50%)]" aria-hidden />
 
       <div className="dm-container relative">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           <DmGsapReveal y={40}>
             <motion.div
               className="dm-why-image dm-why-image--clear group overflow-hidden rounded-3xl"
@@ -62,13 +60,12 @@ export function DmWhyTrustSection({
           </DmGsapReveal>
 
           <DmGsapReveal y={32}>
-            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#FF6B35]">{eyebrow}</span>
-            <h2 id="dm-why-heading" className="dm-heading dm-heading--2xl mt-5 max-w-xl text-white">
+            <h2 id="dm-why-heading" className="dm-heading dm-heading--2xl max-w-xl text-white">
               {title}
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-white/65">{description}</p>
+            <p className="mt-5 max-w-xl text-base leading-7 text-white/65 sm:text-lg sm:leading-8">{description}</p>
 
-            <ul className="mt-10 space-y-4">
+            <ul className="mt-8 space-y-3">
               {trustIndicators.map((item, index) => {
                 const Icon = trustIcons[index] ?? Check;
                 return (
@@ -82,7 +79,7 @@ export function DmWhyTrustSection({
               })}
             </ul>
 
-            <div className="mt-12 grid grid-cols-2 gap-6 border-t border-white/10 pt-10 sm:grid-cols-4">
+            <div className="mt-8 grid grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:grid-cols-4 sm:gap-5">
               {highlightStats.map((stat, index) => (
                 <motion.div
                   key={stat.label}

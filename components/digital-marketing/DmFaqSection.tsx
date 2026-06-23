@@ -6,14 +6,12 @@ import { DmNumberedFaq } from "@/components/digital-marketing/DmNumberedFaq";
 
 export function DmFaqSection({
   title,
-  eyebrow,
   description,
   image,
   imageAlt,
   items,
 }: {
   title: string;
-  eyebrow: string;
   description: string;
   image: string;
   imageAlt: string;
@@ -22,24 +20,23 @@ export function DmFaqSection({
   return (
     <section
       id="dm-faq"
-      className="dm-section dm-section--xl dm-faq-section dm-section--white relative overflow-hidden bg-white"
+      className="dm-section dm-faq-section dm-section--white relative overflow-hidden bg-white"
       aria-labelledby="dm-faq-heading"
     >
       <div className="dm-container relative">
-        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-          <DmGsapReveal y={32}>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#FF6B35]">{eyebrow}</span>
-            <h2 id="dm-faq-heading" className="dm-heading dm-heading--xl mt-4 text-[#0A0F1C]">
+        <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-10">
+          <DmGsapReveal y={24}>
+            <h2 id="dm-faq-heading" className="dm-heading dm-heading--xl text-[#0A0F1C]">
               {title}
             </h2>
-            <p className="mt-5 max-w-md text-lg leading-8 text-[#0A0F1C]/60">{description}</p>
+            <p className="mt-3 max-w-md text-base leading-7 text-[#0A0F1C]/60">{description}</p>
 
             <motion.div
-              className="dm-faq-image mt-10 overflow-hidden rounded-3xl"
+              className="dm-faq-image mt-6 overflow-hidden rounded-2xl"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative h-44 overflow-hidden sm:h-48 lg:h-52">
                 <img
                   src={image}
                   alt={imageAlt}
@@ -50,8 +47,8 @@ export function DmFaqSection({
             </motion.div>
           </DmGsapReveal>
 
-          <DmGsapReveal y={40}>
-            <DmNumberedFaq items={items} variant="light" />
+          <DmGsapReveal y={28}>
+            <DmNumberedFaq items={items} variant="light" compact />
           </DmGsapReveal>
         </div>
       </div>

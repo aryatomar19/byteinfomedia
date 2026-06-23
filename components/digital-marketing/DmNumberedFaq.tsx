@@ -9,15 +9,17 @@ type FaqItem = { question: string; answer: string };
 export function DmNumberedFaq({
   items,
   variant = "dark",
+  compact = false,
 }: {
   items: readonly FaqItem[];
   variant?: "dark" | "light";
+  compact?: boolean;
 }) {
   const [open, setOpen] = useState<number | null>(0);
   const isLight = variant === "light";
 
   return (
-    <div className="dm-numbered-faq space-y-3">
+    <div className={`dm-numbered-faq ${compact ? "dm-numbered-faq--compact space-y-2" : "space-y-3"}`}>
       {items.map((item, index) => {
         const isOpen = open === index;
         const number = String(index + 1).padStart(2, "0");
@@ -37,7 +39,7 @@ export function DmNumberedFaq({
           >
             <button
               type="button"
-              className="flex w-full items-start gap-4 px-5 py-4 text-left sm:px-6 sm:py-5"
+              className={`flex w-full items-start gap-3 text-left ${compact ? "px-4 py-3 sm:px-5" : "px-5 py-4 sm:px-6 sm:py-5"}`}
               onClick={() => setOpen(isOpen ? null : index)}
               aria-expanded={isOpen}
             >
@@ -69,7 +71,7 @@ export function DmNumberedFaq({
                   className="overflow-hidden"
                 >
                   <p
-                    className={`border-t px-5 pb-5 pl-[3.25rem] pt-4 text-sm leading-7 sm:px-6 sm:pb-6 sm:pl-[3.5rem] ${
+                    className={`border-t px-4 pb-4 pl-[2.75rem] pt-3 text-sm leading-6 sm:px-5 sm:pb-4 sm:pl-[3rem] ${
                       isLight ? "border-[#0A0F1C]/8 text-[#0A0F1C]/65" : "border-white/8 text-white/55"
                     }`}
                   >

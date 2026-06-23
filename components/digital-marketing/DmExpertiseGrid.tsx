@@ -20,7 +20,7 @@ const sizeClasses: Record<ExpertiseItem["size"], string> = {
 
 function ExpertiseCard({ item, index }: { item: ExpertiseItem; index: number }) {
   return (
-    <DmGsapReveal delay={index * 0.05} y={32} className="dm-expertise-masonry-item mb-6 break-inside-avoid md:mb-8">
+    <DmGsapReveal delay={index * 0.05} y={24} className="dm-expertise-masonry-item mb-4 break-inside-avoid md:mb-5">
       <motion.article
         className={`dm-expertise-masonry-card dm-expertise-masonry-card--light group ${sizeClasses[item.size]}`}
         whileHover={{ y: -8 }}
@@ -34,8 +34,8 @@ function ExpertiseCard({ item, index }: { item: ExpertiseItem; index: number }) 
           />
         </div>
         <div className="dm-expertise-masonry-card__content dm-expertise-masonry-card__content--light">
-          <h3 className="text-xl font-extrabold text-[#0A0F1C]">{item.title}</h3>
-          <p className="mt-2 text-sm leading-7 text-[#0A0F1C]/60">{item.description}</p>
+          <h3 className="text-lg font-extrabold text-[#0A0F1C]">{item.title}</h3>
+          <p className="mt-1.5 text-sm leading-6 text-[#0A0F1C]/60">{item.description}</p>
         </div>
       </motion.article>
     </DmGsapReveal>
@@ -54,18 +54,18 @@ export function DmExpertiseGrid({
   return (
     <section
       id="dm-expertise"
-      className="dm-section dm-section--xl dm-expertise-section dm-section--white relative overflow-hidden bg-white"
+      className="dm-section dm-expertise-section dm-section--white relative overflow-hidden bg-white"
       aria-labelledby="dm-expertise-heading"
     >
       <div className="dm-container relative">
-        <DmGsapReveal className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
+        <DmGsapReveal className="mx-auto mb-8 max-w-3xl text-center lg:mb-10">
           <h2 id="dm-expertise-heading" className="dm-heading dm-heading--xl text-[#0A0F1C]">
             {title}
           </h2>
-          <p className="mt-4 text-lg leading-8 text-[#0A0F1C]/60">{subheading}</p>
+          <p className="mt-3 text-base leading-7 text-[#0A0F1C]/60 sm:text-lg">{subheading}</p>
         </DmGsapReveal>
 
-        <div className="dm-expertise-masonry columns-1 gap-6 md:columns-2 md:gap-8 lg:columns-4">
+        <div className="dm-expertise-masonry columns-1 gap-4 md:columns-2 md:gap-5 lg:columns-4">
           {items.map((item, index) => (
             <ExpertiseCard key={item.id} item={item} index={index} />
           ))}

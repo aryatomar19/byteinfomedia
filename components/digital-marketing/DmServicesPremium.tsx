@@ -24,7 +24,7 @@ function ServiceCard({ item, index }: { item: ServiceItem; index: number }) {
         whileHover={{ y: -8 }}
         transition={{ type: "spring", stiffness: 340, damping: 26 }}
       >
-        <div className="relative h-48 overflow-hidden sm:h-52">
+        <div className="relative h-40 overflow-hidden sm:h-44">
           <img
             src={item.image}
             alt={item.imageAlt}
@@ -32,11 +32,11 @@ function ServiceCard({ item, index }: { item: ServiceItem; index: number }) {
           />
         </div>
 
-        <div className="flex flex-1 flex-col p-7 sm:p-8">
-          <h3 className="text-xl font-extrabold text-[#0A0F1C] sm:text-2xl">{item.title}</h3>
-          <p className="mt-3 text-sm leading-7 text-[#0A0F1C]/60 sm:text-base">{item.description}</p>
+        <div className="flex flex-1 flex-col p-5 sm:p-6">
+          <h3 className="text-lg font-extrabold text-[#0A0F1C] sm:text-xl">{item.title}</h3>
+          <p className="mt-2 text-sm leading-6 text-[#0A0F1C]/60">{item.description}</p>
 
-          <ul className="mt-5 flex-1 space-y-2.5">
+          <ul className="mt-4 flex-1 space-y-2">
             {item.bullets.map((bullet) => (
               <li key={bullet} className="flex items-center gap-2.5 text-sm text-[#0A0F1C]/75">
                 <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF6B35]" />
@@ -48,7 +48,7 @@ function ServiceCard({ item, index }: { item: ServiceItem; index: number }) {
           <Button
             asChild
             variant="outline"
-            className="mt-6 w-full rounded-xl border-[#0A0F1C]/12 font-bold text-[#0A0F1C] hover:border-[#FF6B35]/50 hover:bg-[#FF6B35]/5 hover:text-[#0A0F1C]"
+            className="mt-5 w-full rounded-xl border-[#0A0F1C]/12 font-bold text-[#0A0F1C] hover:border-[#FF6B35]/50 hover:bg-[#FF6B35]/5 hover:text-[#0A0F1C]"
           >
             <Link href={item.href} scroll>
               Learn More
@@ -73,19 +73,19 @@ export function DmServicesPremium({
   return (
     <section
       id="dm-services"
-      className="dm-section dm-section--xl dm-services-light relative overflow-hidden"
+      className="dm-section dm-services-light relative overflow-hidden"
       style={{ background: "#F8F9FC" }}
       aria-labelledby="dm-services-heading"
     >
       <div className="dm-container relative">
-        <DmGsapReveal className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
+        <DmGsapReveal className="mx-auto mb-8 max-w-3xl text-center lg:mb-10">
           <h2 id="dm-services-heading" className="dm-heading dm-heading--xl text-[#0A0F1C]">
             {title}
           </h2>
-          <p className="mt-4 text-lg leading-8 text-[#0A0F1C]/60">{subheading}</p>
+          <p className="mt-3 text-base leading-7 text-[#0A0F1C]/60 sm:text-lg">{subheading}</p>
         </DmGsapReveal>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="dm-services-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {items.map((item, index) => (
             <ServiceCard key={item.id} item={item} index={index} />
           ))}

@@ -20,7 +20,7 @@ export function DmCtaSection({
 }) {
   return (
     <section
-      className="dm-section dm-section--xl dm-cta-section relative overflow-hidden"
+      className="dm-section dm-cta-section relative overflow-hidden"
       style={{ background: "#060B23" }}
       aria-labelledby="dm-cta-heading"
     >
@@ -32,9 +32,9 @@ export function DmCtaSection({
           <h2 id="dm-cta-heading" className="dm-heading dm-heading--xl text-white">
             {title}
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/60">{description}</p>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/60 sm:text-lg sm:leading-8">{description}</p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <DmMagnetic strength={0.2}>
               <Button
                 size="lg"
