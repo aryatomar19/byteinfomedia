@@ -153,11 +153,13 @@ function ProcessStepNode({ step, index }: { step: ProcessStep; index: number }) 
         </motion.div>
       </div>
 
-      <p className="dm-process-timeline__label" style={{ marginTop: yOffset > 0 ? "2rem" : "2.75rem" }}>
-        {step.number}. {step.shortLabel}
-      </p>
-      <h3 className="dm-process-timeline__title">{step.title}</h3>
-      <p className="dm-process-timeline__desc">{step.description}</p>
+      <div className="dm-process-timeline__copy">
+        <p className="dm-process-timeline__label">
+          {step.number}. {step.shortLabel}
+        </p>
+        <h3 className="dm-process-timeline__title">{step.title}</h3>
+        <p className="dm-process-timeline__desc">{step.description}</p>
+      </div>
     </motion.article>
   );
 }
@@ -175,7 +177,7 @@ export function DmProcessSection({
   return (
     <section
       id="dm-process"
-      className="dm-process-timeline dm-section dm-section--white relative overflow-hidden bg-white"
+      className="dm-process-timeline dm-section dm-section--white relative overflow-visible bg-white"
       aria-labelledby="dm-process-heading"
     >
       <div className="dm-container relative">

@@ -2515,16 +2515,26 @@ a {
   isolation: isolate;
 }
 
+.dm-process-timeline {
+  overflow: visible;
+}
+
+.dm-process-timeline .dm-container {
+  overflow: visible;
+}
+
 /* Circular process timeline */
 .dm-process-timeline__track {
   position: relative;
+  height: auto;
+  overflow: visible;
 }
 
 @media (min-width: 1024px) {
   .dm-process-timeline__track {
     min-height: 650px;
     padding-top: 1.5rem;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
   }
 }
 
@@ -2543,7 +2553,10 @@ a {
   align-items: flex-start;
   justify-content: space-between;
   gap: 3rem;
+  height: auto;
+  overflow: visible;
   padding-top: 2rem;
+  padding-bottom: 2rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
@@ -2558,6 +2571,27 @@ a {
 
 .dm-process-timeline__circle-wrap {
   display: inline-block;
+  overflow: visible;
+}
+
+.dm-process-timeline__step {
+  height: auto;
+  overflow: visible;
+}
+
+.dm-process-timeline__visual {
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+}
+
+.dm-process-timeline__copy {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  padding-bottom: 0.5rem;
 }
 
 .dm-process-timeline__badge {
@@ -2636,13 +2670,8 @@ a {
   opacity: 0.92;
 }
 
-.dm-process-timeline__visual {
-  position: relative;
-  z-index: 10;
-}
-
 .dm-process-timeline__label {
-  margin-top: 2.25rem;
+  margin-top: 2rem;
   font-size: 0.875rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -2659,6 +2688,7 @@ a {
 
 .dm-process-timeline__desc {
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   max-width: 16rem;
   font-size: 0.875rem;
   line-height: 1.6;
@@ -2688,6 +2718,9 @@ a {
 .dm-process-scroll {
   scrollbar-width: thin;
   scrollbar-color: rgba(99, 102, 241, 0.35) transparent;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 2rem;
 }
 
 .dm-process-scroll::-webkit-scrollbar {
