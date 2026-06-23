@@ -9,31 +9,24 @@ type ExpertiseItem = {
   description: string;
   image: string;
   imageAlt: string;
-  size: "tall" | "medium" | "short";
-};
-
-const sizeClasses: Record<ExpertiseItem["size"], string> = {
-  tall: "dm-expertise-masonry-card--tall",
-  medium: "dm-expertise-masonry-card--medium",
-  short: "dm-expertise-masonry-card--short",
 };
 
 function ExpertiseCard({ item, index }: { item: ExpertiseItem; index: number }) {
   return (
-    <DmGsapReveal delay={index * 0.05} y={24} className="dm-expertise-masonry-item mb-4 break-inside-avoid md:mb-5">
+    <DmGsapReveal delay={index * 0.05} y={24} className="h-full">
       <motion.article
-        className={`dm-expertise-masonry-card dm-expertise-masonry-card--light group ${sizeClasses[item.size]}`}
+        className="expertise-card group"
         whileHover={{ y: -8 }}
         transition={{ type: "spring", stiffness: 320, damping: 24 }}
       >
-        <div className="dm-expertise-masonry-card__visual relative overflow-hidden">
+        <div className="expertise-card__visual relative overflow-hidden">
           <img
             src={item.image}
             alt={item.imageAlt}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
         </div>
-        <div className="dm-expertise-masonry-card__content dm-expertise-masonry-card__content--light">
+        <div className="expertise-card-content">
           <h3 className="text-lg font-extrabold text-[#0A0F1C]">{item.title}</h3>
           <p className="mt-1.5 text-sm leading-6 text-[#0A0F1C]/60">{item.description}</p>
         </div>
@@ -65,7 +58,7 @@ export function DmExpertiseGrid({
           <p className="mt-3 text-base leading-7 text-[#0A0F1C]/60 sm:text-lg">{subheading}</p>
         </DmGsapReveal>
 
-        <div className="dm-expertise-masonry columns-1 gap-4 md:columns-2 md:gap-5 lg:columns-4">
+        <div className="expertise-grid">
           {items.map((item, index) => (
             <ExpertiseCard key={item.id} item={item} index={index} />
           ))}
