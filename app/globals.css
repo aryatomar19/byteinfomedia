@@ -1932,6 +1932,24 @@ a {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
 }
 
+.dm-hero-stat--glass {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(10, 15, 28, 0.42);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.dm-hero-stat--glass:hover {
+  border-color: rgba(255, 107, 53, 0.35);
+  background: rgba(10, 15, 28, 0.52);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
 .dm-hero {
   isolation: isolate;
 }

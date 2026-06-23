@@ -2,23 +2,32 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { DmHeroStats } from "@/components/digital-marketing/DmHeroStats";
 import { MarketingHero3D } from "@/components/MarketingHero3D";
 import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
+
+type HeroStat = {
+  value: number | null;
+  suffix?: string;
+  display?: string;
+  label: string;
+};
 
 type HeroContent = {
   title: string;
   description: string;
   primaryCta: string;
   secondaryCta: string;
+  stats: readonly HeroStat[];
 };
 
 export function DmHeroSection({ hero }: { hero: HeroContent }) {
   return (
-    <section className="dm-hero hero relative min-h-[100vh] overflow-hidden" aria-labelledby="dm-hero-heading">
+    <section className="dm-hero hero relative min-h-[100vh] w-full overflow-hidden" aria-labelledby="dm-hero-heading">
       <MarketingHero3D />
 
-      <div className="dm-container relative z-10 flex min-h-[100vh] items-center py-12 sm:py-14">
+      <div className="dm-container pointer-events-none relative z-10 flex min-h-[100vh] items-center py-12 sm:py-14">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,6 +62,8 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
               </Link>
             </Button>
           </div>
+
+          <DmHeroStats stats={hero.stats} variant="glass" />
         </motion.div>
       </div>
     </section>

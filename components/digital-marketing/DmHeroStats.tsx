@@ -14,10 +14,12 @@ function StatItem({
   stat,
   index,
   variant,
+  glass = false,
 }: {
   stat: Stat;
   index: number;
   variant: "dark" | "light";
+  glass?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
@@ -52,7 +54,7 @@ function StatItem({
       whileHover={{ y: -2 }}
       className={`dm-hero-stat dm-hero-stat--equal flex min-h-[88px] flex-col items-center justify-center rounded-2xl px-3 py-4 text-center ${
         isLight ? "dm-hero-stat--light" : ""
-      }`}
+      } ${glass ? "dm-hero-stat--glass" : ""}`}
     >
       <p className="text-xl font-extrabold text-[#ff6b35] sm:text-2xl">{display}</p>
       <p
@@ -71,12 +73,12 @@ export function DmHeroStats({
   variant = "dark",
 }: {
   stats: readonly Stat[];
-  variant?: "dark" | "light";
+  variant?: "dark" | "light" | "glass";
 }) {
   return (
     <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
       {stats.map((stat, i) => (
-        <StatItem key={stat.label} stat={stat} index={i} variant={variant} />
+        <StatItem key={stat.label} stat={stat} index={i} variant={variant === "glass" ? "dark" : variant} glass={variant === "glass"} />
       ))}
     </div>
   );
