@@ -1706,47 +1706,35 @@ a {
   min-height: 100vh;
 }
 
-.dm-hero-overlay {
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.65) 0%,
-    rgba(0, 0, 0, 0.35) 35%,
-    rgba(0, 0, 0, 0.1) 60%,
-    rgba(0, 0, 0, 0) 100%
-  );
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-@media (max-width: 1023px) {
-  .dm-hero-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.72) 0%,
-      rgba(0, 0, 0, 0.45) 38%,
-      rgba(0, 0, 0, 0.12) 62%,
-      rgba(0, 0, 0, 0) 100%
-    );
-  }
-}
-
-.marketing-hero-3d {
+.dm-hero-spline-bg,
+.spline-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
+  width: 100%;
+  height: 100%;
 }
 
-.marketing-hero-3d__frame {
-  position: absolute;
-  left: 50%;
-  top: 46%;
-  z-index: 0;
-  width: 106%;
-  height: 106%;
+.dm-hero-spline-bg iframe,
+.spline-bg iframe {
+  width: 100%;
+  height: 100%;
   border: none;
   display: block;
   pointer-events: auto;
-  transform: translate(-50%, -50%);
+}
+
+.dm-hero-content,
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 650px;
 }
 
 .dm-hero-stat--light {
