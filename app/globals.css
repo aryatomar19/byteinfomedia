@@ -2178,6 +2178,40 @@ a {
   min-height: 180px;
 }
 
+/* Premium working process */
+.dm-process-premium {
+  isolation: isolate;
+}
+
+.dm-process-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 107, 44, 0.3) transparent;
+}
+
+.dm-process-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.dm-process-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 44, 0.35);
+  border-radius: 4px;
+}
+
+.dm-process-milestone {
+  transition: transform 0.4s ease;
+}
+
+.dm-process-features {
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: border-color 0.35s ease;
+}
+
+.dm-process-features:hover {
+  border-color: rgba(255, 107, 44, 0.15);
+}
+
 /* Horizontal workflow process */
 .dm-workflow-section {
   isolation: isolate;
