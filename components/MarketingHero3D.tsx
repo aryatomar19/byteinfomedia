@@ -2,13 +2,14 @@ const SPLINE_EMBED_URL = "https://my.spline.design/web3agencysaasherosection-sQb
 
 export function MarketingHero3D() {
   return (
-    <div className="marketing-hero-3d" aria-hidden>
+    <div className="dm-hero-spline-bg spline-bg">
       <iframe
         src={SPLINE_EMBED_URL}
         title="Web3 agency SaaS hero 3D scene"
         loading="lazy"
         frameBorder={0}
-        className="marketing-hero-3d__frame"
+        width="100%"
+        height="100%"
         allow="autoplay; fullscreen"
       />
     </div>
