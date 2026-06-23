@@ -22,12 +22,6 @@ export const digitalMarketingPage = {
       "SEO, Ads & Social Media Experts",
       "Scalable Marketing Strategies",
     ],
-    highlightStats: [
-      { value: "100+", label: "Projects" },
-      { value: "95%", label: "Client Satisfaction" },
-      { value: "300%", label: "Average Growth" },
-      { value: "24/7", label: "Support" },
-    ],
   },
   expertise: {
     title: "Our Expertise",
@@ -39,7 +33,6 @@ export const digitalMarketingPage = {
         description: "Improve rankings, traffic, and visibility.",
         image: `${img}/expertise/expertise-seo.jpg`,
         imageAlt: "SEO dashboard with ranking growth analytics",
-        size: "tall" as const,
       },
       {
         id: "google-ads",
@@ -47,7 +40,6 @@ export const digitalMarketingPage = {
         description: "Maximize ROI with performance campaigns.",
         image: `${img}/expertise/expertise-google-ads.jpg`,
         imageAlt: "PPC campaign performance dashboard",
-        size: "short" as const,
       },
       {
         id: "social",
@@ -55,7 +47,6 @@ export const digitalMarketingPage = {
         description: "Build engagement and brand awareness.",
         image: `${img}/expertise/expertise-social.jpg`,
         imageAlt: "Social media marketing analytics across major platforms",
-        size: "medium" as const,
       },
       {
         id: "content",
@@ -63,7 +54,6 @@ export const digitalMarketingPage = {
         description: "Content that drives traffic and conversions.",
         image: `${img}/expertise/expertise-content.jpg`,
         imageAlt: "Content creation and blog writing illustration",
-        size: "short" as const,
       },
       {
         id: "website",
@@ -71,7 +61,6 @@ export const digitalMarketingPage = {
         description: "Fast, responsive business websites.",
         image: `${img}/expertise/expertise-website.jpg`,
         imageAlt: "Modern responsive website design mockup",
-        size: "tall" as const,
       },
       {
         id: "analytics",
@@ -79,7 +68,6 @@ export const digitalMarketingPage = {
         description: "Real-time performance insights.",
         image: `${img}/expertise/expertise-analytics.jpg`,
         imageAlt: "Marketing analytics and reporting dashboard",
-        size: "medium" as const,
       },
       {
         id: "leads",
@@ -87,7 +75,6 @@ export const digitalMarketingPage = {
         description: "Generate high-quality business leads.",
         image: `${img}/expertise/expertise-leads.jpg`,
         imageAlt: "Sales funnel and lead generation visualization",
-        size: "short" as const,
       },
       {
         id: "brand",
@@ -95,7 +82,6 @@ export const digitalMarketingPage = {
         description: "Long-term business growth and positioning.",
         image: `${img}/expertise/expertise-brand.jpg`,
         imageAlt: "Brand growth chart and strategic positioning",
-        size: "medium" as const,
       },
     ],
   },

@@ -20,7 +20,6 @@ type WhyByteContent = {
   image: string;
   imageAlt: string;
   trustIndicators: readonly string[];
-  highlightStats: readonly { value: string; label: string }[];
 };
 
 export function DmWhyTrustSection({
@@ -29,12 +28,11 @@ export function DmWhyTrustSection({
   image,
   imageAlt,
   trustIndicators,
-  highlightStats,
 }: WhyByteContent) {
   return (
     <section
       id="dm-why"
-      className="dm-section dm-why-trust relative overflow-hidden"
+      className="dm-section dm-why-trust dm-why-trust--compact relative overflow-hidden"
       style={{ background: "#060B23" }}
       aria-labelledby="dm-why-heading"
     >
@@ -78,23 +76,6 @@ export function DmWhyTrustSection({
                 );
               })}
             </ul>
-
-            <div className="mt-8 grid grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:grid-cols-4 sm:gap-5">
-              {highlightStats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08, duration: 0.45 }}
-                >
-                  <p className="text-2xl font-extrabold text-[#FF6B35] sm:text-3xl">{stat.value}</p>
-                  <p className="mt-1.5 text-[0.65rem] font-semibold uppercase tracking-wider text-white/45 sm:text-xs">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
           </DmGsapReveal>
         </div>
       </div>
