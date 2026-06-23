@@ -18,10 +18,6 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
     <section className="dm-hero hero relative min-h-[100vh] overflow-hidden" aria-labelledby="dm-hero-heading">
       <MarketingHero3D />
 
-      <div className="hero-mini-card spline-badge-cover" aria-hidden>
-        Digital Growth 🚀
-      </div>
-
       <div className="dm-container relative z-10 flex min-h-[100vh] items-center py-12 sm:py-14">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
