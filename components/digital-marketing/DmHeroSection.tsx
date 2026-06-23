@@ -1,25 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { MarketingHero3D } from "@/components/MarketingHero3D";
-import { DmHeroStats } from "@/components/digital-marketing/DmHeroStats";
 import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 
 type HeroContent = {
-  badge: string;
   title: string;
   description: string;
   primaryCta: string;
   secondaryCta: string;
-  stats: readonly {
-    value: number | null;
-    suffix?: string;
-    display?: string;
-    label: string;
-  }[];
 };
 
 export function DmHeroSection({ hero }: { hero: HeroContent }) {
@@ -33,22 +24,17 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
 
       <div className="dm-hero-overlay pointer-events-none absolute inset-0 z-[1]" aria-hidden />
 
-      <div className="dm-container relative z-10 flex h-full min-h-[100vh] flex-col lg:block">
-        <div className="grid flex-1 items-center py-12 sm:py-14 lg:h-full lg:min-h-[100vh] lg:grid-cols-[40%_60%] lg:py-0">
+      <div className="dm-container relative z-10 h-full min-h-[100vh]">
+        <div className="grid h-full min-h-[100vh] items-center lg:grid-cols-[40%_60%]">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="pointer-events-auto max-w-[600px]"
+            className="pointer-events-auto max-w-[600px] py-10 lg:py-0"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#ff6b35]/35 bg-[#ff6b35]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
-              <Sparkles className="h-3.5 w-3.5" />
-              {hero.badge}
-            </span>
-
             <h1
               id="dm-hero-heading"
-              className="mt-5 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.25rem]"
+              className="font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.25rem]"
             >
               {hero.title}
             </h1>
@@ -74,11 +60,9 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
                 </Link>
               </Button>
             </div>
-
-            <DmHeroStats stats={hero.stats} />
           </motion.div>
 
-          <div className="min-h-[42vh] lg:min-h-0" aria-hidden />
+          <div className="hidden min-h-0 lg:block" aria-hidden />
         </div>
       </div>
     </section>
