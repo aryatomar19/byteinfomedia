@@ -1,4 +1,5 @@
 const img = "/images/dm-landing";
+const svc = `${img}/services`;
 
 export const digitalMarketingPage = {
   hero: {
@@ -95,6 +96,8 @@ export const digitalMarketingPage = {
         description:
           "Improve search visibility and drive qualified organic traffic with data-led SEO strategies built for sustainable, long-term growth.",
         href: "/search-engine-optimization/",
+        image: `${svc}/service-seo.svg`,
+        imageAlt: "SEO dashboard with keyword rankings and analytics growth chart",
         bullets: ["Keyword Research", "Technical SEO", "On-Page SEO", "Local SEO"],
       },
       {
@@ -103,6 +106,8 @@ export const digitalMarketingPage = {
         description:
           "Launch high-intent paid campaigns that maximize ROI across Search, Display, Remarketing, and Performance Max channels.",
         href: "/book-consultation/",
+        image: `${svc}/service-google-ads.svg`,
+        imageAlt: "PPC campaign dashboard with ad performance charts and ROI metrics",
         bullets: ["Search Ads", "Display Ads", "Remarketing", "Performance Max"],
       },
       {
@@ -111,6 +116,8 @@ export const digitalMarketingPage = {
         description:
           "Grow brand presence and engage audiences with platform-specific social strategies that turn followers into loyal customers.",
         href: "/social-media-marketing/",
+        image: `${svc}/service-social.svg`,
+        imageAlt: "Instagram, Facebook, and LinkedIn marketing with engagement growth",
         bullets: ["Instagram Marketing", "Facebook Marketing", "LinkedIn Marketing", "Content Strategy"],
       },
       {
@@ -119,6 +126,8 @@ export const digitalMarketingPage = {
         description:
           "Compelling, SEO-optimized copy that builds authority, earns trust, and drives measurable conversions across every channel.",
         href: "/content-writing/",
+        image: `${svc}/service-content.svg`,
+        imageAlt: "Content creation workspace with blogging and copywriting tools",
         bullets: ["Blog Writing", "Website Content", "SEO Content", "Copywriting"],
       },
       {
@@ -127,6 +136,8 @@ export const digitalMarketingPage = {
         description:
           "Fast, responsive websites engineered for performance, user experience, and conversion — from landing pages to full business sites.",
         href: "/website-development/",
+        image: `${svc}/service-website.svg`,
+        imageAlt: "Website UI design, coding, and responsive web development",
         bullets: ["Business Websites", "Landing Pages", "WordPress Development", "Performance Optimization"],
       },
       {
@@ -135,6 +146,8 @@ export const digitalMarketingPage = {
         description:
           "Clear, actionable reporting with GA4, conversion tracking, and monthly insights that fuel smarter marketing decisions.",
         href: "/book-consultation/",
+        image: `${svc}/service-analytics.svg`,
+        imageAlt: "Analytics dashboard with reports, charts, and KPI monitoring",
         bullets: ["GA4 Setup", "Conversion Tracking", "Search Console", "Monthly Reports"],
       },
     ],
