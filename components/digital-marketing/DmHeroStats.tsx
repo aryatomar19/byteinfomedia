@@ -10,10 +10,19 @@ type Stat = {
   label: string;
 };
 
-function StatItem({ stat, index }: { stat: Stat; index: number }) {
+function StatItem({
+  stat,
+  index,
+  variant,
+}: {
+  stat: Stat;
+  index: number;
+  variant: "dark" | "light";
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const [count, setCount] = useState(0);
+  const isLight = variant === "light";
 
   useEffect(() => {
     if (!isInView || stat.value === null) return;
@@ -41,19 +50,33 @@ function StatItem({ stat, index }: { stat: Stat; index: number }) {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: 0.2 + index * 0.06, duration: 0.45 }}
       whileHover={{ y: -2 }}
-      className="dm-hero-stat dm-hero-stat--equal flex min-h-[88px] flex-col items-center justify-center rounded-2xl px-3 py-4 text-center"
+      className={`dm-hero-stat dm-hero-stat--equal flex min-h-[88px] flex-col items-center justify-center rounded-2xl px-3 py-4 text-center ${
+        isLight ? "dm-hero-stat--light" : ""
+      }`}
     >
-      <p className="text-xl font-extrabold text-[#ff6b2c] sm:text-2xl">{display}</p>
-      <p className="mt-1 text-[0.65rem] font-semibold uppercase tracking-wide text-white/60 sm:text-xs">{stat.label}</p>
+      <p className="text-xl font-extrabold text-[#ff6b35] sm:text-2xl">{display}</p>
+      <p
+        className={`mt-1 text-[0.65rem] font-semibold uppercase tracking-wide sm:text-xs ${
+          isLight ? "text-[#0A0F1C]/55" : "text-white/60"
+        }`}
+      >
+        {stat.label}
+      </p>
     </motion.div>
   );
 }
 
-export function DmHeroStats({ stats }: { stats: readonly Stat[] }) {
+export function DmHeroStats({
+  stats,
+  variant = "dark",
+}: {
+  stats: readonly Stat[];
+  variant?: "dark" | "light";
+}) {
   return (
     <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
       {stats.map((stat, i) => (
-        <StatItem key={stat.label} stat={stat} index={i} />
+        <StatItem key={stat.label} stat={stat} index={i} variant={variant} />
       ))}
     </div>
   );

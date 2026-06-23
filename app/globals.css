@@ -1587,8 +1587,8 @@ a {
 
 @media (min-width: 1024px) {
   .dm-section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
   }
 }
 
@@ -1606,8 +1606,8 @@ a {
 
 @media (min-width: 1024px) {
   .dm-section--xl {
-    padding-top: 4.375rem;
-    padding-bottom: 4.375rem;
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
   }
 }
 
@@ -1699,30 +1699,48 @@ a {
   display: block;
 }
 
-.dm-spline-hero {
+.dm-hero--light {
+  background: #ffffff;
+}
+
+.marketing-hero-3d {
   width: 100%;
-  overflow: visible;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  box-shadow:
+    0 20px 56px rgba(10, 15, 28, 0.08),
+    0 0 48px rgba(255, 107, 53, 0.12);
 }
 
-.dm-spline-hero__canvas,
-.dm-spline-hero__canvas > canvas {
-  width: 100% !important;
-  height: 100% !important;
+.marketing-hero-3d iframe {
+  display: block;
 }
 
-.dm-spline-hero__loader {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.dm-spline-hero-wrap {
+.marketing-hero-3d-wrap {
   min-height: 400px;
 }
 
+@media (min-width: 768px) {
+  .marketing-hero-3d-wrap {
+    min-height: 500px;
+  }
+}
+
 @media (min-width: 1024px) {
-  .dm-spline-hero-wrap {
+  .marketing-hero-3d-wrap {
     min-height: 650px;
   }
+}
+
+.dm-hero-stat--light {
+  border: 1px solid rgba(10, 15, 28, 0.08);
+  background: #f8f9fc;
+  box-shadow: 0 8px 24px rgba(10, 15, 28, 0.06);
+}
+
+.dm-hero-stat--light:hover {
+  border-color: rgba(255, 107, 53, 0.25);
+  box-shadow: 0 12px 32px rgba(10, 15, 28, 0.08);
 }
 
 .dm-hero-stat--equal {
