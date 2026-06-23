@@ -2317,7 +2317,7 @@ a {
 
 .dm-process-scroll {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 107, 53, 0.35) transparent;
+  scrollbar-color: rgba(99, 102, 241, 0.35) transparent;
 }
 
 .dm-process-scroll::-webkit-scrollbar {
@@ -2325,7 +2325,7 @@ a {
 }
 
 .dm-process-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255, 107, 53, 0.4);
+  background: linear-gradient(90deg, #06b6d4, #ff6b35, #8b5cf6, #10b981);
   border-radius: 4px;
 }
 
@@ -2423,20 +2423,6 @@ a {
 /* Premium working process */
 .dm-process-premium {
   isolation: isolate;
-}
-
-.dm-process-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 107, 44, 0.3) transparent;
-}
-
-.dm-process-scroll::-webkit-scrollbar {
-  height: 4px;
-}
-
-.dm-process-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255, 107, 44, 0.35);
-  border-radius: 4px;
 }
 
 .dm-process-milestone {

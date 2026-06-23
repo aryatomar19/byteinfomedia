@@ -3,12 +3,65 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+type ProcessTheme = "cyan" | "orange" | "purple" | "emerald";
+
 type ProcessStep = {
   number: string;
   title: string;
   description: string;
+  theme: ProcessTheme;
   image: string;
   imageAlt: string;
+};
+
+const STEP_THEMES: Record<
+  ProcessTheme,
+  {
+    ring: string;
+    badge: string;
+    badgeShadow: string;
+    circleShadow: string;
+    circleHover: string;
+    tint: string;
+    dot: string;
+  }
+> = {
+  cyan: {
+    ring: "from-[#06B6D4]/35 via-[#0EA5E9]/20 to-[#3B82F6]/10",
+    badge: "bg-gradient-to-r from-[#0EA5E9] to-[#06B6D4]",
+    badgeShadow: "shadow-[0_10px_28px_rgba(6,182,212,0.45)]",
+    circleShadow: "shadow-[0_20px_60px_rgba(6,182,212,0.22)]",
+    circleHover: "group-hover:shadow-[0_28px_72px_rgba(6,182,212,0.38)]",
+    tint: "bg-gradient-to-br from-[#0EA5E9]/30 via-transparent to-[#06B6D4]/25]",
+    dot: "#06B6D4",
+  },
+  orange: {
+    ring: "from-[#FF6B35]/35 via-[#F59E0B]/22 to-[#FBBF24]/10",
+    badge: "bg-gradient-to-r from-[#FF6B35] to-[#F59E0B]",
+    badgeShadow: "shadow-[0_10px_28px_rgba(255,107,53,0.45)]",
+    circleShadow: "shadow-[0_20px_60px_rgba(255,107,53,0.22)]",
+    circleHover: "group-hover:shadow-[0_28px_72px_rgba(255,107,53,0.38)]",
+    tint: "bg-gradient-to-br from-[#FF6B35]/28 via-transparent to-[#FBBF24]/22]",
+    dot: "#FF6B35",
+  },
+  purple: {
+    ring: "from-[#8B5CF6]/35 via-[#6366F1]/22 to-[#4F46E5]/10",
+    badge: "bg-gradient-to-r from-[#7C3AED] to-[#6366F1]",
+    badgeShadow: "shadow-[0_10px_28px_rgba(99,102,241,0.45)]",
+    circleShadow: "shadow-[0_20px_60px_rgba(99,102,241,0.22)]",
+    circleHover: "group-hover:shadow-[0_28px_72px_rgba(124,58,237,0.38)]",
+    tint: "bg-gradient-to-br from-[#8B5CF6]/28 via-transparent to-[#6366F1]/22]",
+    dot: "#8B5CF6",
+  },
+  emerald: {
+    ring: "from-[#10B981]/35 via-[#059669]/22 to-[#34D399]/10",
+    badge: "bg-gradient-to-r from-[#059669] to-[#10B981]",
+    badgeShadow: "shadow-[0_10px_28px_rgba(16,185,129,0.45)]",
+    circleShadow: "shadow-[0_20px_60px_rgba(16,185,129,0.22)]",
+    circleHover: "group-hover:shadow-[0_28px_72px_rgba(16,185,129,0.38)]",
+    tint: "bg-gradient-to-br from-[#10B981]/28 via-transparent to-[#34D399]/22]",
+    dot: "#10B981",
+  },
 };
 
 function CurvedConnector({ active }: { active: boolean }) {
@@ -19,10 +72,18 @@ function CurvedConnector({ active }: { active: boolean }) {
       preserveAspectRatio="none"
       aria-hidden
     >
+      <defs>
+        <linearGradient id="dm-process-line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#06B6D4" />
+          <stop offset="33%" stopColor="#FF6B35" />
+          <stop offset="66%" stopColor="#8B5CF6" />
+          <stop offset="100%" stopColor="#10B981" />
+        </linearGradient>
+      </defs>
       <motion.path
         d="M 32 48 Q 248 6, 500 42 T 968 48"
         fill="none"
-        stroke="rgba(255,107,53,0.32)"
+        stroke="url(#dm-process-line-gradient)"
         strokeWidth="2.5"
         strokeDasharray="8 14"
         strokeLinecap="round"
@@ -32,7 +93,7 @@ function CurvedConnector({ active }: { active: boolean }) {
       />
       <motion.circle
         r="5"
-        fill="#FF6B35"
+        fill="url(#dm-process-line-gradient)"
         initial={{ opacity: 0 }}
         animate={active ? { opacity: 1, offsetDistance: ["0%", "100%"] } : { opacity: 0 }}
         transition={{
@@ -46,9 +107,11 @@ function CurvedConnector({ active }: { active: boolean }) {
 }
 
 function ProcessStepCard({ step, index }: { step: ProcessStep; index: number }) {
+  const theme = STEP_THEMES[step.theme];
+
   return (
     <motion.article
-      className="dm-process-step group relative z-10 flex w-[280px] shrink-0 snap-center flex-col items-center text-center sm:w-[300px] lg:w-auto lg:max-w-none"
+      className={`dm-process-step dm-process-step--${step.theme} group relative z-10 flex w-[280px] shrink-0 snap-center flex-col items-center text-center sm:w-[300px] lg:w-auto lg:max-w-none`}
       initial={{ opacity: 0, y: 48 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -59,19 +122,26 @@ function ProcessStepCard({ step, index }: { step: ProcessStep; index: number }) 
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 320, damping: 22 }}
       >
-        <span className="dm-process-step__badge absolute -top-2 left-1/2 z-20 -translate-x-1/2 rounded-full bg-[#FF6B35] px-4 py-1.5 text-xs font-extrabold tracking-widest text-white shadow-[0_10px_28px_rgba(255,107,53,0.4)]">
+        <span
+          className={`dm-process-step__badge absolute -top-2 left-1/2 z-20 -translate-x-1/2 rounded-full px-4 py-1.5 text-xs font-extrabold tracking-widest text-white ${theme.badge} ${theme.badgeShadow}`}
+        >
           {step.number}
         </span>
 
-        <div className="dm-process-step__ring relative flex h-[220px] w-[220px] items-center justify-center rounded-full bg-gradient-to-br from-[#FF6B35]/18 via-[#FF6B35]/6 to-transparent p-[3px] sm:h-[240px] sm:w-[240px] lg:h-[260px] lg:w-[260px] xl:h-[280px] xl:w-[280px]">
-          <div className="dm-process-step__circle relative h-full w-full overflow-hidden rounded-full border-[3px] border-white bg-white shadow-[0_20px_60px_rgba(10,15,28,0.12)] transition-shadow duration-500 group-hover:shadow-[0_28px_72px_rgba(255,107,53,0.22)]">
+        <div
+          className={`dm-process-step__ring relative flex h-[220px] w-[220px] items-center justify-center rounded-full bg-gradient-to-br p-[3px] sm:h-[240px] sm:w-[240px] lg:h-[260px] lg:w-[260px] xl:h-[280px] xl:w-[280px] ${theme.ring}`}
+        >
+          <div
+            className={`dm-process-step__circle relative h-full w-full overflow-hidden rounded-full border-[3px] border-white bg-white transition-shadow duration-500 ${theme.circleShadow} ${theme.circleHover}`}
+          >
             <img
               src={step.image}
               alt={step.imageAlt}
               className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
               loading="lazy"
             />
-            <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-[#0A0F1C]/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className={`pointer-events-none absolute inset-0 rounded-full ${theme.tint} opacity-50`} />
+            <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-[#0A0F1C]/15 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           </div>
         </div>
       </motion.div>
@@ -100,8 +170,6 @@ export function DmProcessSection({
       className="dm-process-hero dm-section dm-section--white relative w-full overflow-hidden bg-white"
       aria-labelledby="dm-process-heading"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,107,53,0.05),transparent_55%)]" aria-hidden />
-
       <div className="dm-container relative">
         <motion.div
           className="mx-auto max-w-4xl text-center"
