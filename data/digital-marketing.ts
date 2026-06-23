@@ -18,7 +18,6 @@ export const digitalMarketingPage = {
     stats: heroStats,
   },
   whyByte: {
-    eyebrow: "WHY CHOOSE BYTE INFOMEDIA",
     title: "Driving Measurable Growth Through Strategy, Creativity & Performance",
     description:
       "Byte Infomedia is a full-service digital marketing agency built for brands that demand results. We engineer high-performance campaigns across SEO, Google Ads, social media marketing, and website development — combining data, creativity, and conversion strategy to generate qualified leads and maximize ROI at every stage of growth.",
@@ -204,7 +203,6 @@ export const digitalMarketingPage = {
   },
   results: {
     title: "Results That Speak",
-    eyebrow: "Our Impact",
     metrics: [
       { value: 100, suffix: "+", label: "Projects Delivered" },
       { value: 95, suffix: "%", label: "Client Satisfaction" },
@@ -216,7 +214,6 @@ export const digitalMarketingPage = {
   },
   faq: {
     title: "Frequently Asked Questions",
-    eyebrow: "FAQ",
     description:
       "Everything you need to know about our digital marketing services. Can't find your answer? Book a free consultation and our team will walk you through the right strategy.",
     image: `${img}/why-byte-team.jpg`,
