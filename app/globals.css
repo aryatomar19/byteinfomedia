@@ -1737,6 +1737,28 @@ a {
   max-width: 650px;
 }
 
+.hero-mini-card,
+.spline-badge-cover {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 20;
+  min-width: 140px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  pointer-events: none;
+  background: #111111;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(255, 102, 0, 0.4);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(255, 107, 53, 0.12);
+}
+
 .dm-hero-stat--light {
   border: 1px solid rgba(10, 15, 28, 0.08);
   background: rgba(255, 255, 255, 0.82);
