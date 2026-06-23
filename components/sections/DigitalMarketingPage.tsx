@@ -5,7 +5,6 @@ import { DmCtaSection } from "@/components/digital-marketing/DmCtaSection";
 import { DmExpertiseGrid } from "@/components/digital-marketing/DmExpertiseGrid";
 import { DmFaqSection } from "@/components/digital-marketing/DmFaqSection";
 import { DmHeroSection } from "@/components/digital-marketing/DmHeroSection";
-import { DmPageAmbient } from "@/components/digital-marketing/DmPageAmbient";
 import { DmProcessSection } from "@/components/digital-marketing/DmProcessSection";
 import { DmResultsStats } from "@/components/digital-marketing/DmResultsStats";
 import { DmServicesPremium } from "@/components/digital-marketing/DmServicesPremium";
@@ -16,7 +15,6 @@ export function DigitalMarketingPage() {
 
   return (
     <div className="dm-landing dm-landing--enterprise relative overflow-x-hidden">
-      <DmPageAmbient />
       <DmHeroSection hero={hero} />
       <DmWhyTrustSection {...whyByte} />
       <DmExpertiseGrid {...expertise} />

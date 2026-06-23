@@ -2,9 +2,9 @@ const img = "/images/dm-landing";
 
 const heroStats = [
   { value: 100, suffix: "+", label: "Projects" },
-  { value: 95, suffix: "%", label: "Client Satisfaction" },
-  { value: 300, suffix: "%", label: "Average Growth" },
-  { value: null as number | null, display: "24x7", label: "Support" },
+  { value: 95, suffix: "%", label: "Satisfaction" },
+  { value: 300, suffix: "%", label: "Growth" },
+  { value: null as number | null, display: "24/7", label: "Support" },
 ] as const;
 
 export const digitalMarketingPage = {
