@@ -20,10 +20,10 @@ const sizeClasses: Record<ExpertiseItem["size"], string> = {
 
 function ExpertiseCard({ item, index }: { item: ExpertiseItem; index: number }) {
   return (
-    <DmGsapReveal delay={index * 0.05} y={40} className="dm-expertise-masonry-item mb-6 break-inside-avoid md:mb-8">
+    <DmGsapReveal delay={index * 0.05} y={32} className="dm-expertise-masonry-item mb-6 break-inside-avoid md:mb-8">
       <motion.article
-        className={`dm-expertise-masonry-card group ${sizeClasses[item.size]}`}
-        whileHover={{ y: -10 }}
+        className={`dm-expertise-masonry-card dm-expertise-masonry-card--light group ${sizeClasses[item.size]}`}
+        whileHover={{ y: -8 }}
         transition={{ type: "spring", stiffness: 320, damping: 24 }}
       >
         <div className="dm-expertise-masonry-card__visual relative overflow-hidden">
@@ -32,13 +32,10 @@ function ExpertiseCard({ item, index }: { item: ExpertiseItem; index: number }) 
             alt={item.imageAlt}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#030B2A] via-[#030B2A]/20 to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(255,107,44,0.12),transparent_60%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         </div>
-
-        <div className="dm-expertise-masonry-card__content">
-          <h3 className="text-xl font-extrabold text-white sm:text-2xl">{item.title}</h3>
-          <p className="mt-2 text-sm leading-7 text-white/55 sm:text-base">{item.description}</p>
+        <div className="dm-expertise-masonry-card__content dm-expertise-masonry-card__content--light">
+          <h3 className="text-xl font-extrabold text-[#0A0F1C]">{item.title}</h3>
+          <p className="mt-2 text-sm leading-7 text-[#0A0F1C]/60">{item.description}</p>
         </div>
       </motion.article>
     </DmGsapReveal>
@@ -57,20 +54,15 @@ export function DmExpertiseGrid({
   return (
     <section
       id="dm-expertise"
-      className="dm-section dm-section--xl dm-expertise-section relative overflow-hidden"
-      style={{ background: "#030B2A" }}
+      className="dm-section dm-section--xl dm-expertise-section dm-section--white relative overflow-hidden bg-white"
       aria-labelledby="dm-expertise-heading"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_20%_10%,rgba(255,107,44,0.08),transparent_45%)]" aria-hidden />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_85%_80%,rgba(59,130,246,0.05),transparent_45%)]" aria-hidden />
-      <div className="pointer-events-none absolute inset-0 grid-pattern-light opacity-[0.03]" aria-hidden />
-
       <div className="dm-container relative">
-        <DmGsapReveal className="mx-auto mb-16 max-w-3xl text-center lg:mb-20">
-          <h2 id="dm-expertise-heading" className="dm-heading dm-heading--xl text-white">
+        <DmGsapReveal className="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
+          <h2 id="dm-expertise-heading" className="dm-heading dm-heading--xl text-[#0A0F1C]">
             {title}
           </h2>
-          <p className="mt-5 text-lg leading-8 text-white/55">{subheading}</p>
+          <p className="mt-4 text-lg leading-8 text-[#0A0F1C]/60">{subheading}</p>
         </DmGsapReveal>
 
         <div className="dm-expertise-masonry columns-1 gap-6 md:columns-2 md:gap-8 lg:columns-4">

@@ -21,7 +21,7 @@ export function DmCtaSection({
   return (
     <section
       className="dm-section dm-section--xl dm-cta-section relative overflow-hidden"
-      style={{ background: "linear-gradient(165deg, #050B24 0%, #0A1228 50%, #050B24 100%)" }}
+      style={{ background: "#060B23" }}
       aria-labelledby="dm-cta-heading"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(255,107,44,0.12),transparent_55%)]" aria-hidden />
