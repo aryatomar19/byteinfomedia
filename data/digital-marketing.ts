@@ -8,6 +8,12 @@ export const digitalMarketingPage = {
       "Data-led strategies across web, SEO, content, and social — built to attract, engage, and convert your ideal customers.",
     primaryCta: "Book Consultation",
     secondaryCta: "View Services",
+    stats: [
+      { value: 100, suffix: "+", label: "Projects Delivered" },
+      { value: 95, suffix: "%", label: "Client Satisfaction" },
+      { value: 300, suffix: "%", label: "Average Growth" },
+      { value: null as number | null, display: "24/7", label: "Expert Support" },
+    ],
   },
   whyByte: {
     title: "Driving Measurable Growth Through Strategy, Creativity & Performance",
