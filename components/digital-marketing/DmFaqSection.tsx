@@ -24,15 +24,10 @@ export function DmFaqSection({
       aria-labelledby="dm-faq-heading"
     >
       <div className="dm-container relative">
-        <div className="faq-grid grid gap-8 lg:grid-cols-2 lg:gap-10">
-          <DmGsapReveal y={24} className="flex flex-col">
-            <h2 id="dm-faq-heading" className="dm-heading dm-heading--xl text-[#0A0F1C]">
-              {title}
-            </h2>
-            <p className="mt-3 max-w-md text-base leading-7 text-[#0A0F1C]/60">{description}</p>
-
+        <div className="faq-container grid gap-8 lg:grid-cols-2 lg:gap-10">
+          <DmGsapReveal y={0}>
             <motion.div
-              className="faq-image mt-6 flex-1 overflow-hidden"
+              className="faq-image overflow-hidden"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
@@ -45,8 +40,14 @@ export function DmFaqSection({
             </motion.div>
           </DmGsapReveal>
 
-          <DmGsapReveal y={28} className="flex flex-col">
-            <DmNumberedFaq items={items} variant="light" compact />
+          <DmGsapReveal y={0} className="faq-content">
+            <h2 id="dm-faq-heading" className="dm-heading dm-heading--xl text-[#0A0F1C]">
+              {title}
+            </h2>
+            <p className="mt-3 max-w-md text-base leading-7 text-[#0A0F1C]/60">{description}</p>
+            <div className="mt-6">
+              <DmNumberedFaq items={items} variant="light" compact />
+            </div>
           </DmGsapReveal>
         </div>
       </div>

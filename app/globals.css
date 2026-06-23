@@ -2410,8 +2410,16 @@ a {
   box-shadow: 0 20px 56px rgba(10, 15, 28, 0.1);
 }
 
-.faq-grid {
-  align-items: stretch;
+.faq-container {
+  display: grid;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .faq-container {
+    gap: 2.5rem;
+  }
 }
 
 .faq-image {
