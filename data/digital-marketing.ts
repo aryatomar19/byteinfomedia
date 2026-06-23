@@ -1,21 +1,12 @@
 const img = "/images/dm-landing";
 
-const heroStats = [
-  { value: 100, suffix: "+", label: "Projects" },
-  { value: 95, suffix: "%", label: "Satisfaction" },
-  { value: 300, suffix: "%", label: "Growth" },
-  { value: null as number | null, display: "24/7", label: "Support" },
-] as const;
-
 export const digitalMarketingPage = {
   hero: {
-    badge: "DIGITAL MARKETING SOLUTIONS",
     title: "Grow Your Business With Smart Digital Marketing",
     description:
       "Data-led strategies across web, SEO, content, and social — built to attract, engage, and convert your ideal customers.",
     primaryCta: "Book Consultation",
     secondaryCta: "View Services",
-    stats: heroStats,
   },
   whyByte: {
     title: "Driving Measurable Growth Through Strategy, Creativity & Performance",
