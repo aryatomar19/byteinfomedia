@@ -1,55 +1,133 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { DmHeroStats } from "@/components/digital-marketing/DmHeroStats";
-import { MarketingHero3D } from "@/components/MarketingHero3D";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 
-type HeroStat = {
-  value: number | null;
-  suffix?: string;
-  display?: string;
-  label: string;
-};
+const DmHeroOrbCanvas = dynamic(() => import("@/components/digital-marketing/DmHeroOrbCanvas"), {
+  ssr: false,
+  loading: () => <div className="dm-hero-future__canvas dm-hero-future__canvas--fallback" aria-hidden />,
+});
 
 type HeroContent = {
-  title: string;
+  badge: string;
+  titleLine1: string;
+  titleLine2: string;
   description: string;
   primaryCta: string;
   secondaryCta: string;
-  stats: readonly HeroStat[];
 };
 
-export function DmHeroSection({ hero }: { hero: HeroContent }) {
-  return (
-    <section className="dm-hero hero relative min-h-[100vh] w-full overflow-hidden" aria-labelledby="dm-hero-heading">
-      <MarketingHero3D />
+const BG_LINES = [
+  "BYTE INFOMEDIA",
+  "DIGITAL MARKETING",
+  "SEO • PPC • SOCIAL MEDIA",
+  "LEAD GENERATION",
+] as const;
 
-      <div className="dm-container pointer-events-none relative z-10 flex min-h-[100vh] items-center py-12 sm:py-14">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="dm-hero-content hero-content pointer-events-auto max-w-[650px]"
-        >
-          <h1
-            id="dm-hero-heading"
-            className="font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.25rem]"
+export function DmHeroSection({ hero }: { hero: HeroContent }) {
+  const heroRef = useRef<HTMLElement>(null);
+  const mouseRef = useRef({ x: 0, y: 0 });
+  const [quality, setQuality] = useState<"high" | "low">("low");
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const updateQuality = () => setQuality(mq.matches ? "high" : "low");
+    updateQuality();
+    mq.addEventListener("change", updateQuality);
+    return () => mq.removeEventListener("change", updateQuality);
+  }, []);
+
+  useEffect(() => {
+    const onMove = (event: MouseEvent) => {
+      mouseRef.current = {
+        x: (event.clientX / window.innerWidth) * 2 - 1,
+        y: -(event.clientY / window.innerHeight) * 2 + 1,
+      };
+    };
+
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
+
+  useEffect(() => {
+    setReady(true);
+  }, []);
+
+  useEffect(() => {
+    if (!ready || !heroRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.set(".dm-hero-future__bg-line", { opacity: 0, x: 48 });
+      gsap.set(".dm-hero-future__badge", { opacity: 0, y: 18 });
+      gsap.set(".dm-hero-future__title-line", { opacity: 0, y: 36 });
+      gsap.set(".dm-hero-future__desc", { opacity: 0, y: 24 });
+      gsap.set(".dm-hero-future__actions", { opacity: 0, y: 20 });
+
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      tl.to(".dm-hero-future__bg-line", { opacity: 1, x: 0, duration: 1.1, stagger: 0.1 }, 0)
+        .to(".dm-hero-future__badge", { opacity: 1, y: 0, duration: 0.7 }, 0.15)
+        .to(".dm-hero-future__title-line", { opacity: 1, y: 0, duration: 0.85, stagger: 0.12 }, 0.3)
+        .to(".dm-hero-future__desc", { opacity: 1, y: 0, duration: 0.75 }, 0.55)
+        .to(".dm-hero-future__actions", { opacity: 1, y: 0, duration: 0.7 }, 0.68);
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, [ready]);
+
+  return (
+    <section
+      ref={heroRef}
+      className="dm-hero-future relative min-h-[100vh] w-full overflow-hidden"
+      style={{ background: "#050816" }}
+      aria-labelledby="dm-hero-heading"
+    >
+      <div className="dm-hero-future__scene" aria-hidden>
+        {ready ? <DmHeroOrbCanvas mouseRef={mouseRef} quality={quality} /> : null}
+      </div>
+
+      <div className="dm-hero-future__bg-text pointer-events-none absolute inset-0 z-[1]" aria-hidden>
+        {BG_LINES.map((line, index) => (
+          <span
+            key={line}
+            className="dm-hero-future__bg-line"
+            style={{ ["--line-index" as string]: index }}
           >
-            {hero.title}
+            {line}
+          </span>
+        ))}
+      </div>
+
+      <div className="dm-hero-future__vignette pointer-events-none absolute inset-0 z-[2]" aria-hidden />
+
+      <div className="dm-container pointer-events-none relative z-10 flex min-h-[100vh] items-center py-14 sm:py-16">
+        <div className="dm-hero-future__content pointer-events-auto max-w-[650px]">
+          <span className="dm-hero-future__badge">{hero.badge}</span>
+
+          <h1 id="dm-hero-heading" className="dm-hero-future__heading">
+            <span className="dm-hero-future__title-line block">{hero.titleLine1}</span>
+            <span className="dm-hero-future__title-line dm-hero-future__title-line--accent block">
+              {hero.titleLine2}
+            </span>
           </h1>
 
-          <p className="mt-5 text-base leading-7 text-white/70 sm:text-lg sm:leading-8">{hero.description}</p>
+          <p className="dm-hero-future__desc">{hero.description}</p>
 
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="dm-hero-future__actions mt-8 flex flex-wrap gap-3">
             <Button
               size="lg"
               asChild
-              className="rounded-full bg-[#ff6b35] px-8 font-bold text-white shadow-[0_8px_28px_rgba(255,107,53,0.28)] transition-colors hover:bg-[#e85a1c]"
+              className="rounded-full bg-[#ff6b35] px-8 font-bold text-white shadow-[0_8px_32px_rgba(255,107,53,0.35)] transition-colors hover:bg-[#e85a1c]"
             >
-              <Link href="/book-consultation/">{hero.primaryCta}</Link>
+              <Link href="/book-consultation/">
+                {hero.primaryCta}
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
             <Button
               size="lg"
@@ -62,9 +140,7 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
               </Link>
             </Button>
           </div>
-
-          <DmHeroStats stats={hero.stats} variant="glass" />
-        </motion.div>
+        </div>
       </div>
     </section>
   );
