@@ -1702,42 +1702,41 @@ a {
 .dm-hero--immersive {
   background: #070b1f;
   isolation: isolate;
+  height: 100vh;
+  min-height: 100vh;
 }
 
 .dm-hero-overlay {
   background: linear-gradient(
     90deg,
-    rgba(7, 11, 31, 0.94) 0%,
-    rgba(7, 11, 31, 0.78) 42%,
-    rgba(7, 11, 31, 0.35) 68%,
-    rgba(7, 11, 31, 0.08) 100%
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.35) 35%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0) 100%
   );
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .dm-hero-overlay {
     background: linear-gradient(
       180deg,
-      rgba(7, 11, 31, 0.96) 0%,
-      rgba(7, 11, 31, 0.88) 50%,
-      rgba(7, 11, 31, 0.55) 80%,
-      rgba(7, 11, 31, 0.2) 100%
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.45) 38%,
+      rgba(0, 0, 0, 0.12) 62%,
+      rgba(0, 0, 0, 0) 100%
     );
   }
 }
 
-.marketing-hero-3d {
+.marketing-hero-3d__frame {
   position: absolute;
   inset: 0;
   z-index: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.marketing-hero-sphere {
-  will-change: transform;
+  border: none;
+  display: block;
+  pointer-events: auto;
 }
 
 .dm-hero-stat--light {
