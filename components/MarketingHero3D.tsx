@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { useCallback, useEffect, useRef } from "react";
 import type { Application } from "@splinetool/runtime";
 
-const SPLINE_SCENE_URL = "/spline/particles-hand.splinecode";
+const SPLINE_SCENE_URL = "/spline/happy-robot.splinecode";
 const LOCKED_ZOOM = 1;
 
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
@@ -48,6 +48,7 @@ export function MarketingHero3D() {
 
   const onLoad = useCallback((spline: Application) => {
     lockSplineCamera(spline);
+    spline.setBackgroundColor("#000000");
   }, []);
 
   useEffect(() => {
@@ -63,12 +64,12 @@ export function MarketingHero3D() {
   }, []);
 
   return (
-    <div ref={containerRef} className="dm-hero-spline-bg spline-bg" aria-hidden>
+    <div ref={containerRef} className="dm-hero-spline-bg dm-hero-spline-bg--robot spline-bg" aria-hidden>
       <Spline
         scene={SPLINE_SCENE_URL}
         onLoad={onLoad}
         renderOnDemand={false}
-        className="dm-hero-spline-canvas"
+        className="dm-hero-spline-canvas dm-hero-spline-canvas--robot"
       />
     </div>
   );

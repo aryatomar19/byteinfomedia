@@ -4,15 +4,10 @@ const svc = `${img}/services`;
 export const digitalMarketingPage = {
   hero: {
     title: "Grow Your Business With Smart Digital Marketing",
-    description: "Data-driven strategies that generate traffic, leads and revenue.",
-    primaryCta: "Get Started",
+    description:
+      "Data-driven SEO, PPC, Social Media Marketing and Growth Strategies that generate real business results.",
+    primaryCta: "Book Consultation",
     secondaryCta: "View Services",
-    stats: [
-      { value: 100, suffix: "+", label: "Projects Delivered" },
-      { value: 95, suffix: "%", label: "Client Satisfaction" },
-      { value: 300, suffix: "%", label: "Average Growth" },
-      { value: null as number | null, display: "24/7", label: "Expert Support" },
-    ],
   },
   whyByte: {
     title: "Driving Measurable Growth Through Strategy, Creativity & Performance",
