@@ -1868,7 +1868,11 @@ a {
 }
 
 .dm-hero-spline-bg iframe,
-.spline-bg iframe {
+.spline-bg iframe,
+.dm-hero-spline-bg canvas,
+.spline-bg canvas,
+.dm-hero-spline-canvas,
+.dm-hero-spline-canvas > canvas {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1876,6 +1880,13 @@ a {
   border: none;
   display: block;
   pointer-events: auto;
+}
+
+.dm-hero-spline-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .dm-hero-spline__overlay {
