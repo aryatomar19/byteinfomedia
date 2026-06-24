@@ -1,10 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  specialityIllustrations,
-  type SpecialityIllustrationId,
-} from "@/components/digital-marketing/DmSpecialityIllustrations";
 
 type SpecialityVariant = "orange" | "white";
 
@@ -12,13 +8,12 @@ type SpecialityItem = {
   id: string;
   title: string;
   description: string;
-  illustration: SpecialityIllustrationId;
+  image: string;
+  imageAlt: string;
   variant: SpecialityVariant;
 };
 
 function SpecialityCard({ item, index }: { item: SpecialityItem; index: number }) {
-  const Illustration = specialityIllustrations[item.illustration];
-
   return (
     <motion.article
       className={`dm-speciality-card dm-speciality-card--${item.variant}`}
@@ -26,11 +21,17 @@ function SpecialityCard({ item, index }: { item: SpecialityItem; index: number }
       whileInView={{ y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.55, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -10, scale: 1.03 }}
+      whileHover={{ y: -10, scale: 1.02 }}
     >
       <div className="dm-speciality-card__art">
         <div className={`dm-speciality-card__art-frame dm-speciality-card__art-frame--${item.variant}`}>
-          <Illustration className="dm-speciality-card__illustration" aria-hidden />
+          <img
+            src={item.image}
+            alt={item.imageAlt}
+            className="dm-speciality-card__illustration"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
       <div className="dm-speciality-card__body">
@@ -76,6 +77,13 @@ export function DmSpecialitySection({
             <SpecialityCard key={item.id} item={item} index={index} />
           ))}
         </div>
+
+        <p className="dm-speciality-attribution">
+          Illustrations by{" "}
+          <a href="https://storyset.com/" target="_blank" rel="noopener noreferrer">
+            Storyset
+          </a>
+        </p>
       </div>
     </section>
   );
