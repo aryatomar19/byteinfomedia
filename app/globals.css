@@ -2540,7 +2540,189 @@ a {
   padding-bottom: 0.75rem;
 }
 
-/* Expertise agency grid */
+/* Our Speciality masonry grid */
+.dm-speciality-section {
+  background: #ffffff;
+}
+
+.dm-speciality-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ff8a00;
+}
+
+.dm-speciality-heading {
+  position: relative;
+  margin-top: 0.75rem;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+}
+
+.dm-speciality-heading__underline {
+  display: block;
+  width: 3.5rem;
+  height: 4px;
+  margin: 0.875rem auto 0;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #ff8a00, #ffb347);
+}
+
+.dm-speciality-masonry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+@media (min-width: 640px) {
+  .dm-speciality-masonry {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .dm-speciality-masonry {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.dm-speciality-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.5rem;
+  border-radius: 24px;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.dm-speciality-card--tall {
+  min-height: 300px;
+}
+
+.dm-speciality-card--medium {
+  min-height: 252px;
+}
+
+@media (min-width: 1024px) {
+  .dm-speciality-masonry .dm-speciality-card:nth-child(1),
+  .dm-speciality-masonry .dm-speciality-card:nth-child(4),
+  .dm-speciality-masonry .dm-speciality-card:nth-child(5),
+  .dm-speciality-masonry .dm-speciality-card:nth-child(8) {
+    min-height: 320px;
+  }
+
+  .dm-speciality-masonry .dm-speciality-card:nth-child(2),
+  .dm-speciality-masonry .dm-speciality-card:nth-child(3),
+  .dm-speciality-masonry .dm-speciality-card:nth-child(6),
+  .dm-speciality-masonry .dm-speciality-card:nth-child(7) {
+    min-height: 268px;
+    margin-top: 1.5rem;
+  }
+}
+
+.dm-speciality-card--orange {
+  border: 1px solid rgba(255, 138, 0, 0.2);
+  background: linear-gradient(145deg, #ff8a00 0%, #ff6b00 55%, #e85a00 100%);
+  box-shadow: 0 16px 40px rgba(255, 138, 0, 0.22);
+  color: #ffffff;
+}
+
+.dm-speciality-card--orange:hover {
+  box-shadow:
+    0 24px 52px rgba(255, 138, 0, 0.32),
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+}
+
+.dm-speciality-card--white {
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  background: #ffffff;
+  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.07);
+  color: #0f172a;
+}
+
+.dm-speciality-card--white:hover {
+  border-color: rgba(255, 138, 0, 0.18);
+  box-shadow:
+    0 22px 48px rgba(15, 23, 42, 0.1),
+    0 0 0 1px rgba(255, 138, 0, 0.08);
+}
+
+.dm-speciality-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.75rem;
+  height: 4.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 9999px;
+  transition: transform 0.35s ease;
+}
+
+.dm-speciality-card:hover .dm-speciality-card__icon {
+  transform: scale(1.06) translateY(-2px);
+}
+
+.dm-speciality-card__icon--orange {
+  background: rgba(255, 255, 255, 0.95);
+  color: #ff8a00;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.dm-speciality-card__icon--white {
+  background: rgba(255, 138, 0, 0.12);
+  color: #ff8a00;
+}
+
+.dm-speciality-card__icon-svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.dm-speciality-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.dm-speciality-card__title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.dm-speciality-card--white .dm-speciality-card__title {
+  color: #0f172a;
+}
+
+.dm-speciality-card--orange .dm-speciality-card__title {
+  color: #ffffff;
+}
+
+.dm-speciality-card__desc {
+  margin-top: 0.625rem;
+  flex: 1;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.dm-speciality-card--white .dm-speciality-card__desc {
+  color: #64748b;
+}
+
+.dm-speciality-card--orange .dm-speciality-card__desc {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Expertise agency grid (legacy) */
 .dm-expertise-agency-grid {
   display: grid;
   grid-template-columns: 1fr;
