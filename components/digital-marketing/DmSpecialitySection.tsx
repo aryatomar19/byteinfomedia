@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 type SpecialityVariant = "orange" | "white";
 
 type SpecialityItem = {
@@ -13,16 +11,9 @@ type SpecialityItem = {
   variant: SpecialityVariant;
 };
 
-function SpecialityCard({ item, index }: { item: SpecialityItem; index: number }) {
+function SpecialityCard({ item }: { item: SpecialityItem }) {
   return (
-    <motion.article
-      className={`dm-speciality-card dm-speciality-card--${item.variant}`}
-      initial={{ y: 32 }}
-      whileInView={{ y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.55, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -10, scale: 1.02 }}
-    >
+    <article className={`dm-speciality-card dm-speciality-card--${item.variant}`}>
       <div className="dm-speciality-card__art">
         <div className={`dm-speciality-card__art-frame dm-speciality-card__art-frame--${item.variant}`}>
           <img
@@ -38,7 +29,7 @@ function SpecialityCard({ item, index }: { item: SpecialityItem; index: number }
         <h3 className="dm-speciality-card__title">{item.title}</h3>
         <p className="dm-speciality-card__desc">{item.description}</p>
       </div>
-    </motion.article>
+    </article>
   );
 }
 
@@ -54,27 +45,21 @@ export function DmSpecialitySection({
   return (
     <section
       id="dm-speciality"
-      className="dm-section dm-speciality-section relative overflow-hidden bg-white"
+      className="dm-section dm-speciality-section relative bg-white"
       aria-labelledby="dm-speciality-heading"
     >
       <div className="dm-container relative">
-        <motion.header
-          className="dm-speciality-header mx-auto mb-10 max-w-3xl text-center lg:mb-12"
-          initial={{ y: 24 }}
-          whileInView={{ y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <header className="dm-speciality-header mx-auto mb-6 max-w-3xl text-center lg:mb-8">
           <span className="dm-speciality-eyebrow">{eyebrow}</span>
           <h2 id="dm-speciality-heading" className="dm-speciality-heading">
             {title}
             <span className="dm-speciality-heading__underline" aria-hidden />
           </h2>
-        </motion.header>
+        </header>
 
         <div className="dm-speciality-grid">
-          {items.map((item, index) => (
-            <SpecialityCard key={item.id} item={item} index={index} />
+          {items.map((item) => (
+            <SpecialityCard key={item.id} item={item} />
           ))}
         </div>
 
