@@ -1,125 +1,55 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { DmHeroStats } from "@/components/digital-marketing/DmHeroStats";
+import { MarketingHero3D } from "@/components/MarketingHero3D";
 import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
 
-const DmHeroOrbCanvas = dynamic(() => import("@/components/digital-marketing/DmHeroOrbCanvas"), {
-  ssr: false,
-  loading: () => <div className="dm-hero-future__canvas dm-hero-future__canvas--fallback" aria-hidden />,
-});
+type HeroStat = {
+  value: number | null;
+  suffix?: string;
+  display?: string;
+  label: string;
+};
 
 type HeroContent = {
-  badge: string;
-  titleLine1: string;
-  titleLine2: string;
+  title: string;
   description: string;
   primaryCta: string;
   secondaryCta: string;
+  stats: readonly HeroStat[];
 };
 
-const BG_LINES = [
-  "BYTE INFOMEDIA",
-  "DIGITAL MARKETING",
-  "SEO • PPC • SOCIAL MEDIA",
-  "LEAD GENERATION",
-] as const;
-
 export function DmHeroSection({ hero }: { hero: HeroContent }) {
-  const heroRef = useRef<HTMLElement>(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
-  const [quality, setQuality] = useState<"high" | "low">("low");
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    const updateQuality = () => setQuality(mq.matches ? "high" : "low");
-    updateQuality();
-    mq.addEventListener("change", updateQuality);
-    return () => mq.removeEventListener("change", updateQuality);
-  }, []);
-
-  useEffect(() => {
-    const onMove = (event: MouseEvent) => {
-      mouseRef.current = {
-        x: (event.clientX / window.innerWidth) * 2 - 1,
-        y: -(event.clientY / window.innerHeight) * 2 + 1,
-      };
-    };
-
-    window.addEventListener("mousemove", onMove, { passive: true });
-    return () => window.removeEventListener("mousemove", onMove);
-  }, []);
-
-  useEffect(() => {
-    setReady(true);
-  }, []);
-
-  useEffect(() => {
-    if (!ready || !heroRef.current) return;
-
-    const ctx = gsap.context(() => {
-      gsap.set(".dm-hero-future__bg-line", { opacity: 0, x: 48 });
-      gsap.set(".dm-hero-future__badge", { opacity: 0, y: 18 });
-      gsap.set(".dm-hero-future__title-line", { opacity: 0, y: 36 });
-      gsap.set(".dm-hero-future__desc", { opacity: 0, y: 24 });
-      gsap.set(".dm-hero-future__actions", { opacity: 0, y: 20 });
-
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-      tl.to(".dm-hero-future__bg-line", { opacity: 1, x: 0, duration: 1.1, stagger: 0.1 }, 0)
-        .to(".dm-hero-future__badge", { opacity: 1, y: 0, duration: 0.7 }, 0.15)
-        .to(".dm-hero-future__title-line", { opacity: 1, y: 0, duration: 0.85, stagger: 0.12 }, 0.3)
-        .to(".dm-hero-future__desc", { opacity: 1, y: 0, duration: 0.75 }, 0.55)
-        .to(".dm-hero-future__actions", { opacity: 1, y: 0, duration: 0.7 }, 0.68);
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, [ready]);
-
   return (
     <section
-      ref={heroRef}
-      className="dm-hero-future relative min-h-[100vh] w-full overflow-hidden"
-      style={{ background: "#050816" }}
+      className="dm-hero dm-hero--particles hero relative min-h-[100vh] w-full overflow-hidden bg-black"
       aria-labelledby="dm-hero-heading"
     >
-      <div className="dm-hero-future__scene" aria-hidden>
-        {ready ? <DmHeroOrbCanvas mouseRef={mouseRef} quality={quality} /> : null}
-      </div>
+      <MarketingHero3D />
 
-      <div className="dm-hero-future__bg-text pointer-events-none absolute inset-0 z-[1]" aria-hidden>
-        {BG_LINES.map((line, index) => (
-          <span
-            key={line}
-            className="dm-hero-future__bg-line"
-            style={{ ["--line-index" as string]: index }}
+      <div className="dm-hero-spline__overlay pointer-events-none absolute inset-0 z-[2]" aria-hidden />
+
+      <div className="dm-container pointer-events-none relative z-10 flex min-h-[100vh] items-center py-12 sm:py-14">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="dm-hero-content hero-content pointer-events-auto max-w-[650px]"
+        >
+          <h1
+            id="dm-hero-heading"
+            className="font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.08] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.25rem]"
           >
-            {line}
-          </span>
-        ))}
-      </div>
-
-      <div className="dm-hero-future__vignette pointer-events-none absolute inset-0 z-[2]" aria-hidden />
-
-      <div className="dm-container pointer-events-none relative z-10 flex min-h-[100vh] items-center py-14 sm:py-16">
-        <div className="dm-hero-future__content pointer-events-auto max-w-[650px]">
-          <span className="dm-hero-future__badge">{hero.badge}</span>
-
-          <h1 id="dm-hero-heading" className="dm-hero-future__heading">
-            <span className="dm-hero-future__title-line block">{hero.titleLine1}</span>
-            <span className="dm-hero-future__title-line dm-hero-future__title-line--accent block">
-              {hero.titleLine2}
-            </span>
+            {hero.title}
           </h1>
 
-          <p className="dm-hero-future__desc">{hero.description}</p>
+          <p className="mt-5 text-base leading-7 text-white/70 sm:text-lg sm:leading-8">{hero.description}</p>
 
-          <div className="dm-hero-future__actions mt-8 flex flex-wrap gap-3">
+          <div className="mt-7 flex flex-wrap gap-3">
             <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 24 }}>
               <Button
                 size="lg"
@@ -145,7 +75,9 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
               </Button>
             </motion.div>
           </div>
-        </div>
+
+          <DmHeroStats stats={hero.stats} variant="glass" />
+        </motion.div>
       </div>
     </section>
   );
