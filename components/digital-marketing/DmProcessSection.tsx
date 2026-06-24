@@ -26,7 +26,7 @@ const STEP_ICONS = [
 /** Crest steps (02, 04) need badges nudged down to match 01/03 overlap on the circle */
 const BADGE_OFFSETS = [0, 16, 0, 16] as const;
 
-const STEP_OFFSETS = [16, -16, 16, -16] as const;
+const STEP_OFFSETS = [24, -24, 24, -24] as const;
 
 function StepIcons({ icons }: { icons: readonly LucideIcon[] }) {
   if (icons.length === 1) {
@@ -73,7 +73,7 @@ function ProcessStepNode({ step, index }: { step: ProcessStep; index: number }) 
   const badgeOffset = BADGE_OFFSETS[index] ?? 0;
 
   return (
-    <article className="dm-process-timeline__step group relative z-10 flex w-[240px] shrink-0 snap-center flex-col items-center text-center lg:w-auto lg:flex-1">
+    <article className="dm-process-timeline__step group relative z-10 flex w-[280px] shrink-0 snap-center flex-col items-center text-center lg:w-auto lg:flex-1">
       <div className="dm-process-timeline__visual" style={{ transform: `translateY(${yOffset}px)` }}>
         <div className="dm-process-timeline__circle-wrap relative">
           <span
@@ -124,7 +124,7 @@ export function DmProcessSection({
           </h2>
         </div>
 
-        <div className="dm-process-timeline__track relative mt-5 lg:mt-6">
+        <div className="dm-process-timeline__track relative mt-8 lg:mt-10">
           <WaveConnector />
 
           <div className="dm-process-timeline__row relative z-10 hidden lg:flex">
@@ -133,7 +133,7 @@ export function DmProcessSection({
             ))}
           </div>
 
-          <div className="dm-process-scroll -mx-4 flex justify-start gap-8 overflow-x-auto px-4 pb-6 pt-2 snap-x snap-mandatory lg:hidden">
+          <div className="dm-process-scroll -mx-4 flex justify-start gap-10 overflow-x-auto px-4 pb-8 pt-4 snap-x snap-mandatory lg:hidden">
             {steps.map((step, index) => (
               <ProcessStepNode key={step.number} step={step} index={index} />
             ))}
