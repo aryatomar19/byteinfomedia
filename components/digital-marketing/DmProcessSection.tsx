@@ -16,28 +16,15 @@ type ProcessStep = {
   description: string;
 };
 
-const STEP_STYLES = [
-  {
-    badgeBg: "#22C55E",
-    badgeText: "#FFFFFF",
-    icons: [Search, ClipboardList] as LucideIcon[],
-  },
-  {
-    badgeBg: "#FF9500",
-    badgeText: "#FFFFFF",
-    icons: [Lightbulb] as LucideIcon[],
-  },
-  {
-    badgeBg: "#2563EB",
-    badgeText: "#FFFFFF",
-    icons: [Cog] as LucideIcon[],
-  },
-  {
-    badgeBg: "#0F172A",
-    badgeText: "#FFFFFF",
-    icons: [TrendingUp] as LucideIcon[],
-  },
+const STEP_ICONS = [
+  [Search, ClipboardList] as LucideIcon[],
+  [Lightbulb] as LucideIcon[],
+  [Cog] as LucideIcon[],
+  [TrendingUp] as LucideIcon[],
 ] as const;
+
+/** Crest steps (02, 04) need badges nudged down to match 01/03 overlap on the circle */
+const BADGE_OFFSETS = [0, 16, 0, 16] as const;
 
 const STEP_OFFSETS = [16, -16, 16, -16] as const;
 
@@ -81,8 +68,9 @@ function WaveConnector() {
 }
 
 function ProcessStepNode({ step, index }: { step: ProcessStep; index: number }) {
-  const style = STEP_STYLES[index] ?? STEP_STYLES[0];
+  const icons = STEP_ICONS[index] ?? STEP_ICONS[0];
   const yOffset = STEP_OFFSETS[index] ?? 0;
+  const badgeOffset = BADGE_OFFSETS[index] ?? 0;
 
   return (
     <article className="dm-process-timeline__step group relative z-10 flex w-[240px] shrink-0 snap-center flex-col items-center text-center lg:w-auto lg:flex-1">
@@ -90,16 +78,17 @@ function ProcessStepNode({ step, index }: { step: ProcessStep; index: number }) 
         <div className="dm-process-timeline__circle-wrap relative">
           <span
             className="dm-process-timeline__badge"
-            style={{
-              backgroundColor: style.badgeBg,
-              color: style.badgeText,
-            }}
+            style={
+              badgeOffset
+                ? { top: `calc(-0.9rem + ${badgeOffset}px)` }
+                : undefined
+            }
           >
             {step.number}
           </span>
 
           <div className="dm-process-timeline__circle relative z-10">
-            <StepIcons icons={style.icons} />
+            <StepIcons icons={icons} />
           </div>
         </div>
       </div>
