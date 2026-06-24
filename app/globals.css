@@ -2538,15 +2538,54 @@ a {
 }
 
 .dm-why-trust--compact {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 @media (min-width: 1024px) {
   .dm-why-trust--compact {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
   }
+}
+
+.dm-why-trust__heading {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 2.125rem;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+@media (min-width: 640px) {
+  .dm-why-trust__heading {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dm-why-trust__heading {
+    font-size: 2.875rem;
+  }
+}
+
+.dm-why-trust__desc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+@media (min-width: 640px) {
+  .dm-why-trust__desc {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+.dm-why-trust__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .dm-heading--2xl {
@@ -2626,18 +2665,9 @@ a {
   padding-inline: clamp(1rem, 2.5vw, 2rem);
 }
 
-.dm-speciality-eyebrow {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #ff7a00;
-}
-
 .dm-speciality-heading {
   position: relative;
-  margin-top: 0.625rem;
+  margin-top: 0;
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: clamp(1.875rem, 3.5vw, 2.5rem);
   font-weight: 800;
@@ -3431,13 +3461,14 @@ a {
 
 @media (min-width: 1024px) {
   .faq-container {
+    align-items: stretch;
     gap: 1.5rem;
   }
 }
 
 .faq-image {
   width: 100%;
-  min-height: 140px;
+  min-height: 175px;
   border-radius: 16px;
   box-shadow: 0 14px 40px rgba(10, 15, 28, 0.08);
 }
@@ -3453,13 +3484,15 @@ a {
 
 @media (min-width: 640px) {
   .faq-image {
-    min-height: 170px;
+    min-height: 215px;
   }
 }
 
 @media (min-width: 1024px) {
   .faq-image {
-    min-height: 252px;
+    flex: 1;
+    min-height: 340px;
+    height: 100%;
   }
 }
 

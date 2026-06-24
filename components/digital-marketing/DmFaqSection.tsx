@@ -22,8 +22,8 @@ export function DmFaqSection({
       aria-labelledby="dm-faq-heading"
     >
       <div className="dm-container relative">
-        <div className="faq-container grid gap-4 lg:grid-cols-2 lg:gap-6">
-          <div className="faq-image overflow-hidden">
+        <div className="faq-container grid gap-4 lg:grid-cols-2 lg:items-stretch lg:gap-6">
+          <div className="faq-image overflow-hidden lg:flex lg:min-h-0">
             <img
               src={image}
               alt={imageAlt}

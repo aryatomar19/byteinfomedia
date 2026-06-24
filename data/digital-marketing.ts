@@ -25,7 +25,6 @@ export const digitalMarketingPage = {
     ],
   },
   speciality: {
-    eyebrow: "WHAT WE DO BEST",
     title: "Our Speciality",
     items: [
       {

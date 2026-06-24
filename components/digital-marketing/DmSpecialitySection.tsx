@@ -34,11 +34,9 @@ function SpecialityCard({ item }: { item: SpecialityItem }) {
 }
 
 export function DmSpecialitySection({
-  eyebrow,
   title,
   items,
 }: {
-  eyebrow: string;
   title: string;
   items: readonly SpecialityItem[];
 }) {
@@ -50,7 +48,6 @@ export function DmSpecialitySection({
     >
       <div className="dm-container relative">
         <header className="dm-speciality-header mx-auto mb-4 max-w-3xl text-center lg:mb-5">
-          <span className="dm-speciality-eyebrow">{eyebrow}</span>
           <h2 id="dm-speciality-heading" className="dm-speciality-heading">
             {title}
             <span className="dm-speciality-heading__underline" aria-hidden />
