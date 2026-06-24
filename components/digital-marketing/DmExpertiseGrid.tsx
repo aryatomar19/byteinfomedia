@@ -1,45 +1,69 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  BarChart3,
+  Code2,
+  FilePenLine,
+  Filter,
+  LineChart,
+  Megaphone,
+  Share2,
+  TrendingUp,
+  type LucideIcon,
+} from "lucide-react";
 import { DmGsapReveal } from "@/components/digital-marketing/DmGsapReveal";
+
+type ExpertiseIcon = "seo" | "google-ads" | "social" | "content" | "website" | "analytics" | "leads" | "brand";
+type ExpertiseColor = "green" | "orange" | "blue" | "purple" | "pink" | "cyan" | "yellow";
 
 type ExpertiseItem = {
   id: string;
   title: string;
   description: string;
-  image: string;
-  imageAlt: string;
+  icon: ExpertiseIcon;
+  color: ExpertiseColor;
 };
 
-function ExpertiseCard({ item, index }: { item: ExpertiseItem; index: number }) {
+const iconMap: Record<ExpertiseIcon, LucideIcon> = {
+  seo: LineChart,
+  "google-ads": Megaphone,
+  social: Share2,
+  content: FilePenLine,
+  website: Code2,
+  analytics: BarChart3,
+  leads: Filter,
+  brand: TrendingUp,
+};
+
+function ExpertiseCard({ item }: { item: ExpertiseItem }) {
+  const Icon = iconMap[item.icon];
+
   return (
-    <DmGsapReveal delay={index * 0.05} y={24} className="h-full">
-      <motion.article
-        className="expertise-card group"
-        whileHover={{ y: -8 }}
-        transition={{ type: "spring", stiffness: 320, damping: 24 }}
-      >
-        <div className="expertise-card__visual relative overflow-hidden">
-          <img
-            src={item.image}
-            alt={item.imageAlt}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-        </div>
-        <div className="expertise-card-content">
-          <h3 className="text-lg font-extrabold text-[#0A0F1C]">{item.title}</h3>
-          <p className="mt-1.5 text-sm leading-6 text-[#0A0F1C]/60">{item.description}</p>
-        </div>
-      </motion.article>
-    </DmGsapReveal>
+    <motion.article
+      className={`dm-expertise-agency-card dm-expertise-agency-card--${item.color} group h-full`}
+      whileHover={{ y: -6 }}
+      transition={{ type: "spring", stiffness: 360, damping: 28 }}
+    >
+      <div className={`dm-expertise-agency-card__icon dm-expertise-agency-card__icon--${item.color}`}>
+        <Icon className="dm-expertise-agency-card__icon-svg" aria-hidden />
+      </div>
+      <div className="dm-expertise-agency-card__body">
+        <h3 className="dm-expertise-agency-card__title">{item.title}</h3>
+        <p className="dm-expertise-agency-card__desc">{item.description}</p>
+        <span className={`dm-expertise-agency-card__accent dm-expertise-agency-card__accent--${item.color}`} aria-hidden />
+      </div>
+    </motion.article>
   );
 }
 
 export function DmExpertiseGrid({
+  eyebrow,
   title,
   subheading,
   items,
 }: {
+  eyebrow: string;
   title: string;
   subheading: string;
   items: readonly ExpertiseItem[];
@@ -51,16 +75,17 @@ export function DmExpertiseGrid({
       aria-labelledby="dm-expertise-heading"
     >
       <div className="dm-container relative">
-        <DmGsapReveal className="mx-auto mb-8 max-w-3xl text-center lg:mb-10">
-          <h2 id="dm-expertise-heading" className="dm-heading dm-heading--xl text-[#0A0F1C]">
+        <DmGsapReveal className="mx-auto mb-10 max-w-3xl text-center lg:mb-12">
+          <span className="dm-eyebrow">{eyebrow}</span>
+          <h2 id="dm-expertise-heading" className="dm-heading dm-heading--xl mt-3 text-[#0A0F1C]">
             {title}
           </h2>
-          <p className="mt-3 text-base leading-7 text-[#0A0F1C]/60 sm:text-lg">{subheading}</p>
+          <p className="mt-4 text-base leading-7 text-[#0A0F1C]/60 sm:text-lg">{subheading}</p>
         </DmGsapReveal>
 
-        <div className="expertise-grid">
-          {items.map((item, index) => (
-            <ExpertiseCard key={item.id} item={item} index={index} />
+        <div className="dm-expertise-agency-grid">
+          {items.map((item) => (
+            <ExpertiseCard key={item.id} item={item} />
           ))}
         </div>
       </div>
