@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 export type CounterStat = {
@@ -20,13 +19,32 @@ export function DmAnimatedCounter({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const [isInView, setIsInView] = useState(false);
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "-60px", threshold: 0.2 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     if (!isInView || stat.value === null) return;
+
     let frame = 0;
-    const total = 48;
+    const total = 32;
     const inc = stat.value / total;
     const timer = window.setInterval(() => {
       frame += 1;
@@ -36,34 +54,19 @@ export function DmAnimatedCounter({
         return;
       }
       setCount(Math.round(inc * frame));
-    }, 20);
+    }, 16);
+
     return () => window.clearInterval(timer);
   }, [isInView, stat.value]);
 
   const display = stat.display ?? `${count}${stat.suffix ?? ""}`;
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 24 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: index * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
-    >
-      <motion.p
-        className="text-3xl font-extrabold text-[#FF6B2C] sm:text-4xl lg:text-5xl"
-        animate={
-          isInView
-            ? { textShadow: ["0 0 0px rgba(255,107,44,0)", "0 0 24px rgba(255,107,44,0.4)", "0 0 0px rgba(255,107,44,0)"] }
-            : {}
-        }
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: index * 0.35 }}
-      >
-        {display}
-      </motion.p>
+    <div ref={ref} className={className} style={{ transitionDelay: `${index * 40}ms` }}>
+      <p className="text-3xl font-extrabold text-[#FF6B2C] sm:text-4xl lg:text-5xl">{display}</p>
       <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-white/55 sm:text-sm">
         {stat.label}
       </p>
-    </motion.div>
+    </div>
   );
 }
