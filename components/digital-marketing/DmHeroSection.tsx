@@ -3,42 +3,33 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { DmHeroStats } from "@/components/digital-marketing/DmHeroStats";
 import { MarketingHero3D } from "@/components/MarketingHero3D";
 import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
-
-type HeroStat = {
-  value: number | null;
-  suffix?: string;
-  display?: string;
-  label: string;
-};
 
 type HeroContent = {
   title: string;
   description: string;
   primaryCta: string;
   secondaryCta: string;
-  stats: readonly HeroStat[];
 };
 
 export function DmHeroSection({ hero }: { hero: HeroContent }) {
   return (
     <section
-      className="dm-hero dm-hero--particles hero relative min-h-[100vh] w-full overflow-hidden bg-black"
+      className="dm-hero dm-hero--robot hero relative min-h-[100vh] w-full overflow-hidden bg-black"
       aria-labelledby="dm-hero-heading"
     >
       <MarketingHero3D />
 
-      <div className="dm-hero-spline__overlay pointer-events-none absolute inset-0 z-[2]" aria-hidden />
+      <div className="dm-hero-spline__overlay dm-hero-spline__overlay--robot pointer-events-none absolute inset-0 z-[2]" aria-hidden />
 
       <div className="dm-container pointer-events-none relative z-10 flex min-h-[100vh] items-center py-12 sm:py-14">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="dm-hero-content hero-content pointer-events-auto max-w-[650px]"
+          className="dm-hero-content dm-hero-content--robot hero-content pointer-events-auto max-w-[650px]"
         >
           <h1
             id="dm-hero-heading"
@@ -75,8 +66,6 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
               </Button>
             </motion.div>
           </div>
-
-          <DmHeroStats stats={hero.stats} variant="glass" />
         </motion.div>
       </div>
     </section>
