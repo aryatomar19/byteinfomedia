@@ -1,38 +1,37 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  specialityIllustrations,
+  type SpecialityIllustrationId,
+} from "@/components/digital-marketing/DmSpecialityIllustrations";
 
 type SpecialityVariant = "orange" | "white";
-type SpecialitySize = "tall" | "medium";
 
 type SpecialityItem = {
   id: string;
   title: string;
   description: string;
-  image: string;
-  imageAlt: string;
+  illustration: SpecialityIllustrationId;
   variant: SpecialityVariant;
-  size: SpecialitySize;
 };
 
 function SpecialityCard({ item, index }: { item: SpecialityItem; index: number }) {
+  const Illustration = specialityIllustrations[item.illustration];
+
   return (
     <motion.article
-      className={`dm-speciality-card dm-speciality-card--${item.variant} dm-speciality-card--${item.size}`}
-      initial={{ y: 28 }}
+      className={`dm-speciality-card dm-speciality-card--${item.variant}`}
+      initial={{ y: 32 }}
       whileInView={{ y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.55, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -8, scale: 1.03 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.55, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -10, scale: 1.03 }}
     >
-      <div className="dm-speciality-card__visual">
-        <img
-          src={item.image}
-          alt={item.imageAlt}
-          className="dm-speciality-card__image"
-          loading="lazy"
-          decoding="async"
-        />
+      <div className="dm-speciality-card__art">
+        <div className={`dm-speciality-card__art-frame dm-speciality-card__art-frame--${item.variant}`}>
+          <Illustration className="dm-speciality-card__illustration" aria-hidden />
+        </div>
       </div>
       <div className="dm-speciality-card__body">
         <h3 className="dm-speciality-card__title">{item.title}</h3>
@@ -59,7 +58,7 @@ export function DmSpecialitySection({
     >
       <div className="dm-container relative">
         <motion.header
-          className="dm-speciality-header mx-auto mb-10 max-w-3xl text-center lg:mb-14"
+          className="dm-speciality-header mx-auto mb-12 max-w-3xl text-center lg:mb-16"
           initial={{ y: 24 }}
           whileInView={{ y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
@@ -72,7 +71,7 @@ export function DmSpecialitySection({
           </h2>
         </motion.header>
 
-        <div className="dm-speciality-masonry">
+        <div className="dm-speciality-grid">
           {items.map((item, index) => (
             <SpecialityCard key={item.id} item={item} index={index} />
           ))}
