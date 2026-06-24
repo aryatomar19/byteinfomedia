@@ -23,7 +23,7 @@ const STEP_ICONS = [
   [TrendingUp] as LucideIcon[],
 ] as const;
 
-const STEP_OFFSETS = [24, -24, 24, -24] as const;
+const STEP_OFFSETS = [24, 18, 24, -24] as const;
 
 function StepIcons({ icons }: { icons: readonly LucideIcon[] }) {
   if (icons.length === 1) {
@@ -53,7 +53,7 @@ function WaveConnector() {
       aria-hidden
     >
       <path
-        d="M 60 88 C 185 114, 315 5, 450 86 C 595 114, 725 5, 820 86 C 955 114, 1005 5, 1140 86"
+        d="M 60 88 C 185 114, 315 -7, 450 86 C 595 114, 725 5, 820 86 C 955 114, 1005 5, 1140 86"
         fill="none"
         stroke="#94A3B8"
         strokeWidth="2.5"
