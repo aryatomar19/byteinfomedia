@@ -2540,41 +2540,43 @@ a {
   padding-bottom: 0.75rem;
 }
 
-/* Our Speciality masonry grid */
+/* Our Speciality premium grid */
 .dm-speciality-section {
   background: #ffffff;
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
 }
 
 .dm-speciality-eyebrow {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #ff8a00;
+  color: #ff7a00;
 }
 
 .dm-speciality-heading {
   position: relative;
-  margin-top: 0.75rem;
+  margin-top: 0.875rem;
   font-family: var(--font-inter), system-ui, sans-serif;
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(2.25rem, 4.5vw, 3rem);
   font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
   color: #0f172a;
 }
 
 .dm-speciality-heading__underline {
   display: block;
-  width: 3.5rem;
+  width: 4rem;
   height: 4px;
-  margin: 0.875rem auto 0;
+  margin: 1rem auto 0;
   border-radius: 9999px;
-  background: linear-gradient(90deg, #ff8a00, #ffb347);
+  background: linear-gradient(90deg, #ff7a00, #ff9500);
 }
 
-.dm-speciality-masonry {
+.dm-speciality-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
@@ -2582,122 +2584,131 @@ a {
 }
 
 @media (min-width: 640px) {
-  .dm-speciality-masonry {
+  .dm-speciality-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
-  .dm-speciality-masonry {
+  .dm-speciality-grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
   }
 }
 
 .dm-speciality-card {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  min-height: 460px;
+  padding: 2rem 1.75rem 1.75rem;
   border-radius: 24px;
   transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-.dm-speciality-card--tall {
-  min-height: 420px;
-}
-
-.dm-speciality-card--medium {
-  min-height: 380px;
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (min-width: 1024px) {
-  .dm-speciality-masonry .dm-speciality-card:nth-child(1),
-  .dm-speciality-masonry .dm-speciality-card:nth-child(4),
-  .dm-speciality-masonry .dm-speciality-card:nth-child(5),
-  .dm-speciality-masonry .dm-speciality-card:nth-child(8) {
-    min-height: 440px;
-  }
-
-  .dm-speciality-masonry .dm-speciality-card:nth-child(2),
-  .dm-speciality-masonry .dm-speciality-card:nth-child(3),
-  .dm-speciality-masonry .dm-speciality-card:nth-child(6),
-  .dm-speciality-masonry .dm-speciality-card:nth-child(7) {
-    min-height: 400px;
-    margin-top: 1.5rem;
+  .dm-speciality-card {
+    min-height: 500px;
+    padding: 2.25rem 2rem 2rem;
   }
 }
 
 .dm-speciality-card--orange {
-  border: 1px solid rgba(255, 138, 0, 0.2);
-  background: linear-gradient(145deg, #ff8a00 0%, #ff6b00 55%, #e85a00 100%);
-  box-shadow: 0 16px 40px rgba(255, 138, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(155deg, #ff7a00 0%, #ff9500 100%);
+  box-shadow:
+    0 20px 48px rgba(255, 122, 0, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
   color: #ffffff;
 }
 
 .dm-speciality-card--orange:hover {
   box-shadow:
-    0 24px 52px rgba(255, 138, 0, 0.32),
-    0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+    0 32px 64px rgba(255, 122, 0, 0.38),
+    0 0 48px rgba(255, 149, 0, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.14) inset;
 }
 
 .dm-speciality-card--white {
   border: 1px solid rgba(15, 23, 42, 0.06);
   background: #ffffff;
-  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.07);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
   color: #0f172a;
 }
 
 .dm-speciality-card--white:hover {
-  border-color: rgba(255, 138, 0, 0.18);
+  border-color: rgba(255, 122, 0, 0.16);
   box-shadow:
-    0 22px 48px rgba(15, 23, 42, 0.1),
-    0 0 0 1px rgba(255, 138, 0, 0.08);
+    0 28px 56px rgba(15, 23, 42, 0.12),
+    0 0 0 1px rgba(255, 122, 0, 0.06);
 }
 
-.dm-speciality-card__visual {
+.dm-speciality-card__art {
   display: flex;
-  flex: 1 1 70%;
+  flex: 1 1 68%;
   align-items: center;
   justify-content: center;
-  min-height: 210px;
-  padding: 1rem 0.75rem 0.25rem;
-  overflow: hidden;
+  min-height: 240px;
+  margin-bottom: 1.5rem;
 }
 
-.dm-speciality-card__image {
+.dm-speciality-card__art-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100%;
-  min-height: 190px;
-  object-fit: contain;
-  object-position: center bottom;
-  transition: transform 0.45s ease;
+  max-width: 220px;
+  aspect-ratio: 1;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.dm-speciality-card--orange .dm-speciality-card__image {
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.14));
+.dm-speciality-card__art-frame--orange {
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.14),
+    0 0 0 8px rgba(255, 255, 255, 0.12),
+    0 0 60px rgba(255, 255, 255, 0.18);
 }
 
-.dm-speciality-card--white .dm-speciality-card__image {
-  filter: drop-shadow(0 8px 20px rgba(15, 23, 42, 0.08));
+.dm-speciality-card__art-frame--white {
+  max-width: 100%;
+  aspect-ratio: auto;
+  min-height: 220px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #fff9f3 0%, #ffffff 100%);
+  border: 1px solid rgba(255, 122, 0, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-.dm-speciality-card:hover .dm-speciality-card__image {
-  transform: scale(1.05) translateY(-4px);
+.dm-speciality-card:hover .dm-speciality-card__art-frame {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.dm-speciality-card__illustration {
+  width: 78%;
+  height: auto;
+  max-height: 170px;
+}
+
+.dm-speciality-card__art-frame--white .dm-speciality-card__illustration {
+  width: 88%;
+  max-height: 190px;
 }
 
 .dm-speciality-card__body {
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
-  padding: 0.75rem 1.375rem 1.375rem;
+  gap: 0.75rem;
 }
 
 .dm-speciality-card__title {
-  font-size: 1.125rem;
-  font-weight: 800;
-  line-height: 1.35;
-  letter-spacing: -0.02em;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
 }
 
 .dm-speciality-card--white .dm-speciality-card__title {
@@ -2709,8 +2720,10 @@ a {
 }
 
 .dm-speciality-card__desc {
-  margin-top: 0.625rem;
-  flex: 1;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   font-size: 0.9375rem;
   line-height: 1.65;
 }
@@ -2720,7 +2733,7 @@ a {
 }
 
 .dm-speciality-card--orange .dm-speciality-card__desc {
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Expertise agency grid (legacy) */
