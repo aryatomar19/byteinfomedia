@@ -59,7 +59,7 @@ export function DmSpecialitySection({
     >
       <div className="dm-container relative">
         <motion.header
-          className="dm-speciality-header mx-auto mb-12 max-w-3xl text-center lg:mb-16"
+          className="dm-speciality-header mx-auto mb-10 max-w-3xl text-center lg:mb-12"
           initial={{ y: 24 }}
           whileInView={{ y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
