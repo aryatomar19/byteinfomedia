@@ -107,8 +107,8 @@ export const digitalMarketingPage = {
         description:
           "Improve search visibility and drive organic traffic with proven SEO strategies.",
         href: "/search-engine-optimization/",
-        image: `${svc}/seo.svg`,
-        imageAlt: "SEO optimization illustration with search engine and magnifying glass",
+        image: `${svc}/seo.png`,
+        imageAlt: "SEO illustration with search results, magnifying glass and ranking analytics graph",
       },
       {
         id: "google-ads",
@@ -116,8 +116,8 @@ export const digitalMarketingPage = {
         description:
           "Launch high-converting ad campaigns that deliver quality leads and sales.",
         href: "/book-consultation/",
-        image: `${svc}/google-ads.svg`,
-        imageAlt: "Google Ads illustration with campaign performance charts and targeting",
+        image: `${svc}/google-ads.png`,
+        imageAlt: "Google Ads illustration with campaign dashboard and conversion tracking",
       },
       {
         id: "social",
@@ -125,8 +125,8 @@ export const digitalMarketingPage = {
         description:
           "Grow brand presence and engage your audience across social platforms.",
         href: "/social-media-marketing/",
-        image: `${svc}/social-media.svg`,
-        imageAlt: "Social media marketing illustration with megaphone and platform icons",
+        image: `${svc}/social-media.png`,
+        imageAlt: "Social media megaphone illustration with Facebook, Instagram and LinkedIn growth",
       },
       {
         id: "content",
@@ -134,16 +134,16 @@ export const digitalMarketingPage = {
         description:
           "Create valuable content that attracts, engages, and converts your audience.",
         href: "/content-writing/",
-        image: `${svc}/content-marketing.svg`,
-        imageAlt: "Content marketing illustration with blog, video, and creative assets",
+        image: `${svc}/content-marketing.png`,
+        imageAlt: "Content creation workspace illustration with blog writing and media assets",
       },
       {
         id: "website",
         title: "Website Development",
         description: "Build fast, responsive, and user-friendly websites that drive results.",
         href: "/website-development/",
-        image: `${svc}/website-development.svg`,
-        imageAlt: "Website development illustration with code editor and UI design",
+        image: `${svc}/website-development.png`,
+        imageAlt: "Website builder illustration with code editor and responsive design interface",
       },
       {
         id: "analytics",
@@ -151,8 +151,8 @@ export const digitalMarketingPage = {
         description:
           "Track performance, analyze data, and make smarter marketing decisions.",
         href: "/book-consultation/",
-        image: `${svc}/analytics.svg`,
-        imageAlt: "Analytics and reporting illustration with charts and performance data",
+        image: `${svc}/analytics.png`,
+        imageAlt: "Analytics dashboard illustration with charts, pie graphs and reporting metrics",
       },
     ],
   },
