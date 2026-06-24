@@ -3261,6 +3261,8 @@ a {
   transform: translateX(-50%);
   border-radius: 9999px;
   border: 2px solid #ffffff;
+  background-color: #ff7a00;
+  color: #ffffff;
   font-size: 0.8125rem;
   font-weight: 800;
   letter-spacing: 0.08em;
