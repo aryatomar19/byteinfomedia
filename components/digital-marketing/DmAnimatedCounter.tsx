@@ -43,20 +43,23 @@ export function DmAnimatedCounter({
   useEffect(() => {
     if (!isInView || stat.value === null) return;
 
+    const target = stat.value;
+    const duration = 520;
+    const start = performance.now();
     let frame = 0;
-    const total = 32;
-    const inc = stat.value / total;
-    const timer = window.setInterval(() => {
-      frame += 1;
-      if (frame >= total) {
-        setCount(stat.value!);
-        window.clearInterval(timer);
-        return;
-      }
-      setCount(Math.round(inc * frame));
-    }, 16);
 
-    return () => window.clearInterval(timer);
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - (1 - progress) ** 3;
+      setCount(Math.round(target * eased));
+
+      if (progress < 1) {
+        frame = requestAnimationFrame(tick);
+      }
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
   }, [isInView, stat.value]);
 
   const display = stat.display ?? `${count}${stat.suffix ?? ""}`;
