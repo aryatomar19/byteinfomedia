@@ -1985,8 +1985,12 @@ a {
   );
 }
 
-.dm-hero-spline-bg--robot {
-  background: #000000;
+.dm-hero-spline-bg--robot,
+.dm-hero-spline-bg--robot .dm-hero-spline-canvas,
+.dm-hero-spline-bg--robot canvas,
+.dm-hero-spline-canvas--robot,
+.dm-hero-spline-canvas--robot > canvas {
+  pointer-events: none;
 }
 
 .dm-hero-spline-canvas--robot,

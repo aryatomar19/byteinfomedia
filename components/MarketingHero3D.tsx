@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback } from "react";
 import type { Application } from "@splinetool/runtime";
 
 const SPLINE_SCENE_URL = "/spline/happy-robot.splinecode";
@@ -44,27 +44,13 @@ function lockSplineCamera(spline: Application) {
 }
 
 export function MarketingHero3D() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   const onLoad = useCallback((spline: Application) => {
     lockSplineCamera(spline);
     spline.setBackgroundColor("#000000");
   }, []);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const blockWheel = (event: WheelEvent) => {
-      event.preventDefault();
-    };
-
-    container.addEventListener("wheel", blockWheel, { passive: false });
-    return () => container.removeEventListener("wheel", blockWheel);
-  }, []);
-
   return (
-    <div ref={containerRef} className="dm-hero-spline-bg dm-hero-spline-bg--robot spline-bg" aria-hidden>
+    <div className="dm-hero-spline-bg dm-hero-spline-bg--robot spline-bg" aria-hidden>
       <Spline
         scene={SPLINE_SCENE_URL}
         onLoad={onLoad}
