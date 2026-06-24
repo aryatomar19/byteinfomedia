@@ -23,9 +23,6 @@ const STEP_ICONS = [
   [TrendingUp] as LucideIcon[],
 ] as const;
 
-/** Crest steps (02, 04) need badges nudged down to match 01/03 overlap on the circle */
-const BADGE_OFFSETS = [0, 16, 0, 16] as const;
-
 const STEP_OFFSETS = [24, -24, 24, -24] as const;
 
 function StepIcons({ icons }: { icons: readonly LucideIcon[] }) {
@@ -56,7 +53,7 @@ function WaveConnector() {
       aria-hidden
     >
       <path
-        d="M 60 84 C 200 112, 290 18, 420 80 C 550 112, 640 18, 780 80 C 910 112, 1000 18, 1140 80"
+        d="M 60 88 C 185 114, 315 5, 450 86 C 595 114, 725 5, 820 86 C 955 114, 1005 5, 1140 86"
         fill="none"
         stroke="#94A3B8"
         strokeWidth="2.5"
@@ -70,22 +67,12 @@ function WaveConnector() {
 function ProcessStepNode({ step, index }: { step: ProcessStep; index: number }) {
   const icons = STEP_ICONS[index] ?? STEP_ICONS[0];
   const yOffset = STEP_OFFSETS[index] ?? 0;
-  const badgeOffset = BADGE_OFFSETS[index] ?? 0;
 
   return (
     <article className="dm-process-timeline__step group relative z-10 flex w-[280px] shrink-0 snap-center flex-col items-center text-center lg:w-auto lg:flex-1">
       <div className="dm-process-timeline__visual" style={{ transform: `translateY(${yOffset}px)` }}>
         <div className="dm-process-timeline__circle-wrap relative">
-          <span
-            className="dm-process-timeline__badge"
-            style={
-              badgeOffset
-                ? { top: `calc(-0.9rem + ${badgeOffset}px)` }
-                : undefined
-            }
-          >
-            {step.number}
-          </span>
+          <span className="dm-process-timeline__badge">{step.number}</span>
 
           <div className="dm-process-timeline__circle relative z-10">
             <StepIcons icons={icons} />
