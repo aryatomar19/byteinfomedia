@@ -20,35 +20,23 @@ type ProcessStep = {
 
 const STEP_STYLES = [
   {
-    color: "#34C759",
     badgeBg: "#22C55E",
     badgeText: "#FFFFFF",
-    shadow: "0 24px 56px rgba(52, 199, 89, 0.32), 0 8px 20px rgba(52, 199, 89, 0.18)",
-    hoverShadow: "0 32px 72px rgba(52, 199, 89, 0.42), 0 12px 28px rgba(52, 199, 89, 0.24)",
     icons: [Search, ClipboardList] as LucideIcon[],
   },
   {
-    color: "#FFC857",
     badgeBg: "#FF9500",
     badgeText: "#FFFFFF",
-    shadow: "0 24px 56px rgba(255, 200, 87, 0.36), 0 8px 20px rgba(255, 149, 0, 0.2)",
-    hoverShadow: "0 32px 72px rgba(255, 200, 87, 0.46), 0 12px 28px rgba(255, 149, 0, 0.28)",
     icons: [Lightbulb] as LucideIcon[],
   },
   {
-    color: "#4A86F7",
     badgeBg: "#2563EB",
     badgeText: "#FFFFFF",
-    shadow: "0 24px 56px rgba(74, 134, 247, 0.32), 0 8px 20px rgba(74, 134, 247, 0.18)",
-    hoverShadow: "0 32px 72px rgba(74, 134, 247, 0.42), 0 12px 28px rgba(74, 134, 247, 0.24)",
     icons: [Cog] as LucideIcon[],
   },
   {
-    color: "#111111",
     badgeBg: "#0F172A",
     badgeText: "#FFFFFF",
-    shadow: "0 24px 56px rgba(17, 17, 17, 0.28), 0 8px 20px rgba(0, 0, 0, 0.16)",
-    hoverShadow: "0 32px 72px rgba(17, 17, 17, 0.38), 0 12px 28px rgba(0, 0, 0, 0.22)",
     icons: [TrendingUp] as LucideIcon[],
   },
 ] as const;
@@ -126,29 +114,22 @@ function ProcessStepNode({ step, index }: { step: ProcessStep; index: number }) 
             ease: "easeInOut",
             delay: index * 0.5,
           }}
-          whileHover={{ scale: 1.04 }}
+          whileHover={{ scale: 1 }}
         >
           <div className="dm-process-timeline__circle-wrap relative">
-          <span
-            className="dm-process-timeline__badge"
-            style={{
-              backgroundColor: style.badgeBg,
-              color: style.badgeText,
-            }}
-          >
-            {step.number}
-          </span>
+            <span
+              className="dm-process-timeline__badge"
+              style={{
+                backgroundColor: style.badgeBg,
+                color: style.badgeText,
+              }}
+            >
+              {step.number}
+            </span>
 
-          <div
-            className="dm-process-timeline__circle relative z-10"
-            style={{
-              backgroundColor: style.color,
-              boxShadow: style.shadow,
-              ["--process-hover-shadow" as string]: style.hoverShadow,
-            }}
-          >
-            <StepIcons icons={style.icons} />
-          </div>
+            <div className="dm-process-timeline__circle relative z-10">
+              <StepIcons icons={style.icons} />
+            </div>
           </div>
         </motion.div>
       </div>
