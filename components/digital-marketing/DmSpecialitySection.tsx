@@ -49,7 +49,7 @@ export function DmSpecialitySection({
       aria-labelledby="dm-speciality-heading"
     >
       <div className="dm-container relative">
-        <header className="dm-speciality-header mx-auto mb-6 max-w-3xl text-center lg:mb-8">
+        <header className="dm-speciality-header mx-auto mb-4 max-w-3xl text-center lg:mb-5">
           <span className="dm-speciality-eyebrow">{eyebrow}</span>
           <h2 id="dm-speciality-heading" className="dm-speciality-heading">
             {title}
@@ -62,13 +62,6 @@ export function DmSpecialitySection({
             <SpecialityCard key={item.id} item={item} />
           ))}
         </div>
-
-        <p className="dm-speciality-attribution">
-          Illustrations by{" "}
-          <a href="https://storyset.com/" target="_blank" rel="noopener noreferrer">
-            Storyset
-          </a>
-        </p>
       </div>
     </section>
   );

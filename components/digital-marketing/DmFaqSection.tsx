@@ -22,7 +22,7 @@ export function DmFaqSection({
       aria-labelledby="dm-faq-heading"
     >
       <div className="dm-container relative">
-        <div className="faq-container grid gap-6 lg:grid-cols-2 lg:gap-8">
+        <div className="faq-container grid gap-4 lg:grid-cols-2 lg:gap-6">
           <div className="faq-image overflow-hidden">
             <img
               src={image}
@@ -38,7 +38,7 @@ export function DmFaqSection({
               {title}
             </h2>
             <p className="mt-2 max-w-md text-base leading-7 text-[#0A0F1C]/60">{description}</p>
-            <div className="mt-5">
+            <div className="mt-4">
               <DmNumberedFaq items={items} variant="light" compact />
             </div>
           </div>

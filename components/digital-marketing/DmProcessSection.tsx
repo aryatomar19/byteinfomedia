@@ -39,7 +39,7 @@ const STEP_STYLES = [
   },
 ] as const;
 
-const STEP_OFFSETS = [24, -24, 24, -24] as const;
+const STEP_OFFSETS = [16, -16, 16, -16] as const;
 
 function StepIcons({ icons }: { icons: readonly LucideIcon[] }) {
   if (icons.length === 1) {
@@ -135,7 +135,7 @@ export function DmProcessSection({
           </h2>
         </div>
 
-        <div className="dm-process-timeline__track relative mt-8 lg:mt-10">
+        <div className="dm-process-timeline__track relative mt-5 lg:mt-6">
           <WaveConnector />
 
           <div className="dm-process-timeline__row relative z-10 hidden lg:flex">
