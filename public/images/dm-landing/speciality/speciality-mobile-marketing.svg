@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" fill="none" role="img" aria-label="Mobile marketing illustration">
+  <circle cx="180" cy="100" r="72" fill="white" fill-opacity="0.12"/>
+  <rect x="118" y="24" width="124" height="152" rx="24" fill="white" fill-opacity="0.95" stroke="white" stroke-opacity="0.5"/>
+  <rect x="132" y="40" width="96" height="112" rx="12" fill="#FFF7ED"/>
+  <rect x="148" y="56" width="64" height="10" rx="5" fill="#FF8A00" opacity="0.85"/>
+  <rect x="148" y="74" width="48" height="6" rx="3" fill="#0F172A" opacity="0.2"/>
+  <rect x="148" y="88" width="56" height="6" rx="3" fill="#0F172A" opacity="0.12"/>
+  <circle cx="180" cy="118" r="18" fill="#FF8A00" opacity="0.2"/>
+  <path d="M172 118 L178 124 L190 110" stroke="#FF8A00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="40" y="56" width="56" height="36" rx="12" fill="white" fill-opacity="0.22" stroke="white" stroke-opacity="0.4"/>
+  <circle cx="56" cy="68" r="6" fill="#FF8A00"/>
+  <rect x="68" y="64" width="20" height="5" rx="2.5" fill="white" fill-opacity="0.8"/>
+  <rect x="68" y="76" width="16" height="4" rx="2" fill="white" fill-opacity="0.5"/>
+  <rect x="264" y="48" width="64" height="44" rx="14" fill="white" fill-opacity="0.22" stroke="white" stroke-opacity="0.4"/>
+  <path d="M280 84 L292 60 L304 76 L316 52" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="316" cy="52" r="4" fill="white"/>
+  <rect x="252" y="128" width="72" height="40" rx="14" fill="white" fill-opacity="0.18"/>
+  <text x="268" y="154" fill="white" font-size="18" font-family="system-ui,sans-serif" font-weight="800">+42%</text>
+</svg>

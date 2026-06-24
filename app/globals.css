@@ -2596,7 +2596,7 @@ a {
 .dm-speciality-card {
   display: flex;
   flex-direction: column;
-  padding: 1.75rem 1.5rem;
+  overflow: hidden;
   border-radius: 24px;
   transition:
     transform 0.35s ease,
@@ -2604,11 +2604,11 @@ a {
 }
 
 .dm-speciality-card--tall {
-  min-height: 300px;
+  min-height: 380px;
 }
 
 .dm-speciality-card--medium {
-  min-height: 252px;
+  min-height: 340px;
 }
 
 @media (min-width: 1024px) {
@@ -2616,14 +2616,14 @@ a {
   .dm-speciality-masonry .dm-speciality-card:nth-child(4),
   .dm-speciality-masonry .dm-speciality-card:nth-child(5),
   .dm-speciality-masonry .dm-speciality-card:nth-child(8) {
-    min-height: 320px;
+    min-height: 400px;
   }
 
   .dm-speciality-masonry .dm-speciality-card:nth-child(2),
   .dm-speciality-masonry .dm-speciality-card:nth-child(3),
   .dm-speciality-masonry .dm-speciality-card:nth-child(6),
   .dm-speciality-masonry .dm-speciality-card:nth-child(7) {
-    min-height: 268px;
+    min-height: 360px;
     margin-top: 1.5rem;
   }
 }
@@ -2655,41 +2655,34 @@ a {
     0 0 0 1px rgba(255, 138, 0, 0.08);
 }
 
-.dm-speciality-card__icon {
+.dm-speciality-card__visual {
   display: flex;
+  flex: 1 1 68%;
   align-items: center;
   justify-content: center;
-  width: 4.75rem;
-  height: 4.75rem;
-  margin-bottom: 1.5rem;
-  border-radius: 9999px;
-  transition: transform 0.35s ease;
+  min-height: 0;
+  padding: 1.25rem 1rem 0.5rem;
+  overflow: hidden;
 }
 
-.dm-speciality-card:hover .dm-speciality-card__icon {
-  transform: scale(1.06) translateY(-2px);
+.dm-speciality-card__image {
+  width: 100%;
+  height: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.4s ease;
 }
 
-.dm-speciality-card__icon--orange {
-  background: rgba(255, 255, 255, 0.95);
-  color: #ff8a00;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-.dm-speciality-card__icon--white {
-  background: rgba(255, 138, 0, 0.12);
-  color: #ff8a00;
-}
-
-.dm-speciality-card__icon-svg {
-  width: 2rem;
-  height: 2rem;
+.dm-speciality-card:hover .dm-speciality-card__image {
+  transform: scale(1.04) translateY(-2px);
 }
 
 .dm-speciality-card__body {
   display: flex;
-  flex: 1;
+  flex: 0 0 auto;
   flex-direction: column;
+  padding: 0 1.375rem 1.375rem;
 }
 
 .dm-speciality-card__title {

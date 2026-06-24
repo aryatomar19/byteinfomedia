@@ -1,27 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  BadgeCheck,
-  Globe,
-  LayoutDashboard,
-  LineChart,
-  Megaphone,
-  Search,
-  Share2,
-  Smartphone,
-  type LucideIcon,
-} from "lucide-react";
-
-type SpecialityIcon =
-  | "branding"
-  | "digital-marketing"
-  | "mobile-marketing"
-  | "online-marketing"
-  | "sem"
-  | "paid-marketing"
-  | "seo"
-  | "social-media";
 
 type SpecialityVariant = "orange" | "white";
 type SpecialitySize = "tall" | "medium";
@@ -30,25 +9,13 @@ type SpecialityItem = {
   id: string;
   title: string;
   description: string;
-  icon: SpecialityIcon;
+  image: string;
+  imageAlt: string;
   variant: SpecialityVariant;
   size: SpecialitySize;
 };
 
-const iconMap: Record<SpecialityIcon, LucideIcon> = {
-  branding: BadgeCheck,
-  "digital-marketing": LayoutDashboard,
-  "mobile-marketing": Smartphone,
-  "online-marketing": Globe,
-  sem: Search,
-  "paid-marketing": Megaphone,
-  seo: LineChart,
-  "social-media": Share2,
-};
-
 function SpecialityCard({ item, index }: { item: SpecialityItem; index: number }) {
-  const Icon = iconMap[item.icon];
-
   return (
     <motion.article
       className={`dm-speciality-card dm-speciality-card--${item.variant} dm-speciality-card--${item.size}`}
@@ -58,8 +25,14 @@ function SpecialityCard({ item, index }: { item: SpecialityItem; index: number }
       transition={{ duration: 0.55, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -8, scale: 1.03 }}
     >
-      <div className={`dm-speciality-card__icon dm-speciality-card__icon--${item.variant}`}>
-        <Icon className="dm-speciality-card__icon-svg" aria-hidden />
+      <div className="dm-speciality-card__visual">
+        <img
+          src={item.image}
+          alt={item.imageAlt}
+          className="dm-speciality-card__image"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div className="dm-speciality-card__body">
         <h3 className="dm-speciality-card__title">{item.title}</h3>

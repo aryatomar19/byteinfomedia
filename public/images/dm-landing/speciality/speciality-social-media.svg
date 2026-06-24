@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" fill="none" role="img" aria-label="Social media marketing illustration">
+  <circle cx="180" cy="100" r="70" fill="#FF8A00" opacity="0.06"/>
+  <rect x="36" y="40" width="72" height="96" rx="18" fill="white" stroke="#E2E8F0"/>
+  <rect x="48" y="54" width="48" height="48" rx="12" fill="#FFF7ED" stroke="#FF8A00" stroke-opacity="0.35"/>
+  <circle cx="72" cy="78" r="12" stroke="#FF8A00" stroke-width="2"/>
+  <circle cx="78" cy="72" r="2.5" fill="#FF8A00"/>
+  <rect x="48" y="112" width="40" height="6" rx="3" fill="#0F172A" opacity="0.2"/>
+  <rect x="48" y="122" width="28" height="5" rx="2.5" fill="#CBD5E1"/>
+  <rect x="124" y="32" width="72" height="104" rx="18" fill="white" stroke="#E2E8F0"/>
+  <rect x="140" y="48" width="40" height="40" rx="10" fill="#1877F2" opacity="0.15"/>
+  <text x="150" y="76" fill="#1877F2" font-size="22" font-family="system-ui,sans-serif" font-weight="800">f</text>
+  <rect x="136" y="100" width="48" height="6" rx="3" fill="#0F172A" opacity="0.2"/>
+  <rect x="136" y="112" width="36" height="5" rx="2.5" fill="#CBD5E1"/>
+  <rect x="212" y="40" width="72" height="96" rx="18" fill="white" stroke="#E2E8F0"/>
+  <rect x="228" y="56" width="40" height="40" rx="8" fill="#0A66C2" opacity="0.12"/>
+  <text x="236" y="82" fill="#0A66C2" font-size="16" font-family="system-ui,sans-serif" font-weight="800">in</text>
+  <rect x="224" y="108" width="48" height="6" rx="3" fill="#0F172A" opacity="0.2"/>
+  <rect x="300" y="48" width="48" height="80" rx="14" fill="#FFF7ED" stroke="#FF8A00" stroke-opacity="0.25"/>
+  <path d="M312 108 Q324 88 336 96 T352 72" stroke="#FF8A00" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <circle cx="352" cy="72" r="4" fill="#FF8A00"/>
+  <path d="M314 72 C314 66 320 62 324 66 C328 62 334 66 334 72 C334 80 324 88 324 88 C324 88 314 80 314 72Z" fill="#FF8A00" opacity="0.75"/>
+  <rect x="48" y="152" width="264" height="32" rx="12" fill="white" stroke="#E2E8F0"/>
+  <path d="M64 168 L88 160 L112 164 L136 154 L160 158 L184 148 L208 152 L232 144 L256 148 L280 140" stroke="#FF8A00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="64" y="178" fill="#64748B" font-size="9" font-family="system-ui,sans-serif" font-weight="600">Audience Growth</text>
+</svg>
