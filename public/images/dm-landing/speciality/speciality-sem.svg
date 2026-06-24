@@ -1,22 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" fill="none" role="img" aria-label="Search engine marketing illustration">
-  <circle cx="280" cy="48" r="40" fill="#FF8A00" opacity="0.08"/>
-  <rect x="32" y="36" width="200" height="44" rx="14" fill="white" stroke="#E2E8F0"/>
-  <circle cx="56" cy="58" r="10" stroke="#FF8A00" stroke-width="2.5"/>
-  <path d="M63 65l6 6" stroke="#FF8A00" stroke-width="2.5" stroke-linecap="round"/>
-  <rect x="80" y="50" width="100" height="8" rx="4" fill="#0F172A" opacity="0.75"/>
-  <rect x="80" y="64" width="72" height="5" rx="2.5" fill="#CBD5E1"/>
-  <rect x="248" y="32" width="88" height="88" rx="20" fill="#FFF7ED" stroke="#FF8A00" stroke-opacity="0.2"/>
-  <circle cx="292" cy="64" r="22" fill="none" stroke="#FF8A00" stroke-width="3"/>
-  <circle cx="292" cy="64" r="8" fill="#FF8A00"/>
-  <path d="M308 80l14 14" stroke="#FF8A00" stroke-width="3" stroke-linecap="round"/>
-  <rect x="32" y="96" width="148" height="88" rx="16" fill="white" stroke="#E2E8F0"/>
-  <rect x="48" y="112" width="56" height="8" rx="4" fill="#FF8A00" opacity="0.85"/>
-  <rect x="48" y="128" width="100" height="6" rx="3" fill="#CBD5E1"/>
-  <rect x="48" y="142" width="80" height="6" rx="3" fill="#E2E8F0"/>
-  <rect x="48" y="156" width="60" height="6" rx="3" fill="#E2E8F0"/>
-  <rect x="196" y="96" width="132" height="88" rx="16" fill="white" stroke="#E2E8F0"/>
-  <circle cx="228" cy="132" r="16" fill="#FF8A00" opacity="0.15"/>
-  <circle cx="262" cy="124" r="12" fill="#FF8A00" opacity="0.25"/>
-  <circle cx="296" cy="136" r="18" fill="#FF8A00" opacity="0.12"/>
-  <path d="M216 160 Q248 120 292 140 T312 108" stroke="#FF8A00" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" fill="none" role="img" aria-label="Search engine marketing illustration">
+  <ellipse cx="200" cy="232" rx="130" ry="16" fill="#0F172A" opacity="0.06"/>
+  <circle cx="108" cy="92" r="34" fill="#FDE68A"/>
+  <path d="M76 156c0-26 14-44 32-44s32 18 32 44" fill="#6366F1"/>
+  <circle cx="108" cy="84" r="18" fill="#FDBA74"/>
+  <rect x="152" y="56" width="168" height="44" rx="14" fill="white" stroke="#CBD5E1" stroke-width="2"/>
+  <circle cx="176" cy="78" r="12" stroke="#FF8A00" stroke-width="3"/>
+  <path d="M184 86l8 8" stroke="#FF8A00" stroke-width="3" stroke-linecap="round"/>
+  <rect x="200" y="70" width="88" height="8" rx="4" fill="#0F172A" opacity="0.75"/>
+  <rect x="200" y="84" width="64" height="6" rx="3" fill="#CBD5E1"/>
+  <rect x="152" y="112" width="168" height="28" rx="10" fill="#FFF7ED" stroke="#FF8A00" stroke-width="2"/>
+  <text x="168" y="132" fill="#FF8A00" font-size="11" font-family="system-ui,sans-serif" font-weight="700">Sponsored · Targeted Ad</text>
+  <circle cx="300" cy="168" r="30" fill="#FEE2E2"/>
+  <circle cx="300" cy="168" r="18" fill="none" stroke="#EF4444" stroke-width="3"/>
+  <circle cx="300" cy="168" r="6" fill="#EF4444"/>
+  <path d="M312 180l16 16" stroke="#EF4444" stroke-width="3" stroke-linecap="round"/>
+  <rect x="56" y="176" width="88" height="44" rx="12" fill="#EEF2FF" stroke="#6366F1" stroke-width="2"/>
+  <text x="72" y="198" fill="#4F46E5" font-size="10" font-family="system-ui,sans-serif" font-weight="700">Keywords</text>
+  <rect x="72" y="204" width="24" height="6" rx="3" fill="#A5B4FC"/>
+  <rect x="100" y="204" width="32" height="6" rx="3" fill="#C7D2FE"/>
+  <path d="M188 188c20-10 42-6 56 8s38 12 58 0" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="188" cy="188" r="6" fill="#22C55E"/>
+  <circle cx="244" cy="180" r="6" fill="#FF8A00"/>
+  <circle cx="302" cy="188" r="6" fill="#3B82F6"/>
 </svg>

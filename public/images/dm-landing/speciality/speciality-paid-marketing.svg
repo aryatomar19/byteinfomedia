@@ -1,17 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" fill="none" role="img" aria-label="Paid marketing illustration">
-  <rect x="36" y="40" width="128" height="120" rx="18" fill="white" fill-opacity="0.2" stroke="white" stroke-opacity="0.35"/>
-  <text x="68" y="88" fill="white" font-size="36" font-family="system-ui,sans-serif" font-weight="800">G</text>
-  <rect x="68" y="100" width="64" height="8" rx="4" fill="white" fill-opacity="0.75"/>
-  <rect x="68" y="116" width="48" height="6" rx="3" fill="white" fill-opacity="0.45"/>
-  <rect x="68" y="130" width="56" height="16" rx="8" fill="white" fill-opacity="0.9"/>
-  <text x="82" y="142" fill="#FF8A00" font-size="9" font-family="system-ui,sans-serif" font-weight="700">Ad Click</text>
-  <rect x="188" y="32" width="136" height="136" rx="18" fill="white" fill-opacity="0.18" stroke="white" stroke-opacity="0.35"/>
-  <text x="220" y="84" fill="white" font-size="32" font-family="system-ui,sans-serif" font-weight="800">f</text>
-  <rect x="212" y="96" width="88" height="8" rx="4" fill="white" fill-opacity="0.75"/>
-  <rect x="212" y="112" width="64" height="6" rx="3" fill="white" fill-opacity="0.45"/>
-  <rect x="212" y="128" width="72" height="24" rx="10" fill="white" fill-opacity="0.9"/>
-  <text x="226" y="144" fill="#1877F2" font-size="10" font-family="system-ui,sans-serif" font-weight="700">Campaign</text>
-  <circle cx="300" cy="52" r="20" fill="white" fill-opacity="0.25"/>
-  <text x="292" y="58" fill="white" font-size="14" font-family="system-ui,sans-serif" font-weight="800">$</text>
-  <path d="M48 168 L88 148 L128 158 L168 132 L208 142 L248 118 L288 128" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" fill="none" role="img" aria-label="Paid marketing illustration">
+  <ellipse cx="200" cy="232" rx="120" ry="14" fill="white" opacity="0.14"/>
+  <rect x="48" y="64" width="112" height="132" rx="20" fill="white" opacity="0.2" stroke="white" stroke-width="2.5"/>
+  <text x="78" y="118" fill="white" font-size="42" font-family="system-ui,sans-serif" font-weight="800">G</text>
+  <rect x="72" y="132" width="64" height="10" rx="5" fill="white" opacity="0.8"/>
+  <rect x="72" y="150" width="48" height="7" rx="3.5" fill="white" opacity="0.5"/>
+  <rect x="72" y="166" width="56" height="18" rx="9" fill="white" opacity="0.92"/>
+  <text x="84" y="179" fill="#FF8A00" font-size="9" font-family="system-ui,sans-serif" font-weight="700">Convert</text>
+  <rect x="184" y="48" width="112" height="148" rx="20" fill="white" opacity="0.18" stroke="white" stroke-width="2.5"/>
+  <text x="214" y="104" fill="white" font-size="38" font-family="system-ui,sans-serif" font-weight="800">f</text>
+  <rect x="208" y="120" width="64" height="10" rx="5" fill="white" opacity="0.8"/>
+  <rect x="208" y="138" width="48" height="7" rx="3.5" fill="white" opacity="0.5"/>
+  <rect x="208" y="156" width="64" height="24" rx="10" fill="white" opacity="0.92"/>
+  <text x="220" y="172" fill="#1877F2" font-size="9" font-family="system-ui,sans-serif" font-weight="700">Campaign</text>
+  <circle cx="318" cy="88" r="26" fill="white" opacity="0.22"/>
+  <text x="308" y="96" fill="white" font-size="22" font-family="system-ui,sans-serif" font-weight="800">$</text>
+  <path d="M56 208c32-16 64-8 88 8s56 14 88 0 72-10 104 8" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+  <circle cx="148" cy="44" r="8" fill="white" opacity="0.45"/>
+  <circle cx="332" cy="168" r="6" fill="white" opacity="0.55"/>
+  <path d="M300 44l12-8 8 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
 </svg>
