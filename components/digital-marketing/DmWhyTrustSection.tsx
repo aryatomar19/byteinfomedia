@@ -37,9 +37,9 @@ export function DmWhyTrustSection({
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_40%,rgba(255,107,53,0.08),transparent_50%)]" aria-hidden />
 
       <div className="dm-container relative">
-        <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-8">
+        <div className="grid items-center gap-5 lg:grid-cols-2 lg:gap-6">
           <div className="dm-why-image dm-why-image--clear group overflow-hidden rounded-3xl">
-            <div className="relative aspect-[4/3] max-h-[320px] overflow-hidden lg:aspect-[5/4] lg:max-h-[360px]">
+            <div className="relative aspect-[4/3] max-h-[358px] overflow-hidden lg:aspect-[5/4] lg:max-h-[403px]">
               <img
                 src={image}
                 alt={imageAlt}
@@ -50,13 +50,13 @@ export function DmWhyTrustSection({
             </div>
           </div>
 
-          <div>
-            <h2 id="dm-why-heading" className="dm-heading dm-heading--2xl max-w-xl text-white">
+          <div className="dm-why-trust__content">
+            <h2 id="dm-why-heading" className="dm-why-trust__heading max-w-xl text-white">
               {title}
             </h2>
-            <p className="mt-4 max-w-xl text-base leading-7 text-white/65 sm:text-lg sm:leading-8">{description}</p>
+            <p className="dm-why-trust__desc mt-3 max-w-xl">{description}</p>
 
-            <ul className="mt-6 space-y-2.5">
+            <ul className="dm-why-trust__list mt-4">
               {trustIndicators.map((item, index) => {
                 const Icon = trustIcons[index] ?? Check;
                 return (
@@ -64,7 +64,7 @@ export function DmWhyTrustSection({
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#FF6B35]/12">
                       <Icon className="h-4 w-4 text-[#FF6B35]" strokeWidth={2} />
                     </span>
-                    <span className="text-sm font-semibold text-white/90 sm:text-base">{item}</span>
+                    <span className="text-sm font-semibold text-white/90">{item}</span>
                   </li>
                 );
               })}

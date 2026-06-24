@@ -56,7 +56,7 @@ function WaveConnector() {
       aria-hidden
     >
       <path
-        d="M 40 78 C 180 118, 260 38, 400 78 S 640 38, 800 78 S 980 118, 1160 78"
+        d="M 60 84 C 200 112, 290 18, 420 80 C 550 112, 640 18, 780 80 C 910 112, 1000 18, 1140 80"
         fill="none"
         stroke="#94A3B8"
         strokeWidth="2.5"
