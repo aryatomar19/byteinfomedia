@@ -34,13 +34,9 @@ export const serviceNav = [
   { label: "Generative AI", href: "/generative-ai/" },
 ] as const;
 
-export const techSolutionsServiceNav = [
-  { label: "Tech Solutions Home", href: "/tech-solutions/" },
-  ...serviceNav,
-] as const;
+export const techSolutionsServiceNav = serviceNav;
 
 export const brandingServiceNav = [
-  { label: "Digital Marketing Home", href: "/digital-marketing/" },
   { label: "Website Development", href: "/website-development/" },
   { label: "SEO", href: "/search-engine-optimization/" },
   { label: "Content Writing", href: "/content-writing/" },
