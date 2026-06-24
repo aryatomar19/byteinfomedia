@@ -67,13 +67,6 @@ export function DmServicesPremium({
             <ServiceCard key={item.id} item={item} />
           ))}
         </div>
-
-        <p className="dm-svc-attribution">
-          Illustrations by{" "}
-          <a href="https://storyset.com/" target="_blank" rel="noopener noreferrer">
-            Storyset
-          </a>
-        </p>
       </div>
     </section>
   );

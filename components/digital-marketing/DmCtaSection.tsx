@@ -30,9 +30,9 @@ export function DmCtaSection({
           <h2 id="dm-cta-heading" className="dm-heading dm-heading--xl text-white">
             {title}
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-white/60 sm:text-lg sm:leading-8">{description}</p>
+          <p className="mx-auto mt-2 max-w-2xl text-base leading-7 text-white/60 sm:text-lg sm:leading-8">{description}</p>
 
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+          <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
             <Button
               size="lg"
               asChild
