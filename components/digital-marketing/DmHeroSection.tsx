@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { darkHeroSecondaryButtonClass } from "@/lib/utils";
@@ -119,26 +120,30 @@ export function DmHeroSection({ hero }: { hero: HeroContent }) {
           <p className="dm-hero-future__desc">{hero.description}</p>
 
           <div className="dm-hero-future__actions mt-8 flex flex-wrap gap-3">
-            <Button
-              size="lg"
-              asChild
-              className="rounded-full bg-[#ff6b35] px-8 font-bold text-white shadow-[0_8px_32px_rgba(255,107,53,0.35)] transition-colors hover:bg-[#e85a1c]"
-            >
-              <Link href="/book-consultation/">
-                {hero.primaryCta}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="dark"
-              className={`${darkHeroSecondaryButtonClass} transition-colors`}
-              asChild
-            >
-              <Link href="#dm-services" className="!text-white hover:!text-white">
-                {hero.secondaryCta}
-              </Link>
-            </Button>
+            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 24 }}>
+              <Button
+                size="lg"
+                asChild
+                className="rounded-full bg-[#ff6b35] px-8 font-bold text-white shadow-[0_8px_32px_rgba(255,107,53,0.35)] transition-colors hover:bg-[#e85a1c]"
+              >
+                <Link href="/book-consultation/">
+                  {hero.primaryCta}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.03, y: -2 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 24 }}>
+              <Button
+                size="lg"
+                variant="dark"
+                className={`${darkHeroSecondaryButtonClass} transition-colors`}
+                asChild
+              >
+                <Link href="#dm-services" className="!text-white hover:!text-white">
+                  {hero.secondaryCta}
+                </Link>
+              </Button>
+            </motion.div>
           </div>
         </div>
       </div>
