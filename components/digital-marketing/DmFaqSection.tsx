@@ -1,5 +1,6 @@
 "use client";
 
+import { DmFaqSplineBackground } from "@/components/digital-marketing/DmFaqSplineBackground";
 import { DmNumberedFaq } from "@/components/digital-marketing/DmNumberedFaq";
 
 export function DmFaqSection({
@@ -33,13 +34,16 @@ export function DmFaqSection({
             />
           </div>
 
-          <div className="faq-content">
+          <div className="faq-content relative">
             <h2 id="dm-faq-heading" className="dm-heading dm-heading--xl text-[#0A0F1C]">
               {title}
             </h2>
             <p className="mt-2 max-w-md text-base leading-7 text-[#0A0F1C]/60">{description}</p>
-            <div className="mt-4">
-              <DmNumberedFaq items={items} variant="light" compact />
+            <div className="faq-accordion-stage relative mt-4 overflow-hidden">
+              <DmFaqSplineBackground />
+              <div className="faq-accordion-stage__content relative z-[2]">
+                <DmNumberedFaq items={items} variant="light" compact />
+              </div>
             </div>
           </div>
         </div>
