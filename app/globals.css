@@ -3500,6 +3500,53 @@ a {
   }
 }
 
+.faq-accordion-stage {
+  min-height: 0;
+}
+
+.dm-faq-spline {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 78%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  transform: translateZ(0);
+  will-change: transform;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 18%, #000 42%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.15) 18%, #000 42%);
+}
+
+@media (min-width: 1024px) {
+  .dm-faq-spline {
+    display: block;
+  }
+}
+
+.dm-faq-spline__iframe {
+  position: absolute;
+  top: 50%;
+  right: -8%;
+  width: 1920px;
+  height: 1080px;
+  max-width: none;
+  border: 0;
+  background: transparent;
+  transform: translate3d(0, -50%, 0) scale(0.52);
+  transform-origin: center right;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@media (min-width: 1280px) {
+  .dm-faq-spline__iframe {
+    transform: translate3d(0, -50%, 0) scale(0.58);
+  }
+}
+
 .dm-numbered-faq__item.dm-numbered-faq__item--light:hover,
 .dm-faq-section .dm-numbered-faq__item:hover {
   border-color: rgba(255, 107, 53, 0.22);
