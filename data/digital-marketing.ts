@@ -199,8 +199,6 @@ export const digitalMarketingPage = {
     title: "Frequently Asked Questions",
     description:
       "Everything you need to know about our digital marketing services. Can't find your answer? Book a free consultation and our team will walk you through the right strategy.",
-    image: `${img}/why-byte-team.jpg`,
-    imageAlt: "Byte Infomedia marketing team ready for consultation",
     items: [
       {
         question: "What digital marketing services do you provide?",
