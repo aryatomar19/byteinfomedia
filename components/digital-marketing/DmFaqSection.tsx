@@ -23,7 +23,7 @@ export function DmFaqSection({
 
       <div className="dm-container dm-faq-section__content">
         <div className="faq-container grid gap-4 lg:grid-cols-2 lg:items-stretch lg:gap-6">
-          <div className="hidden lg:block" aria-hidden />
+          <div className="hidden lg:block pointer-events-none" aria-hidden />
 
           <div className="faq-content">
             <h2 id="dm-faq-heading" className="dm-heading dm-heading--xl dm-faq-section__heading">
