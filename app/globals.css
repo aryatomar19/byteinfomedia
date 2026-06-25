@@ -3454,9 +3454,25 @@ a {
 }
 
 .dm-faq-section {
-  container-type: size;
+  position: relative;
+  overflow: hidden;
   isolation: isolate;
   background: #ffffff;
+}
+
+.dm-faq-section__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateZ(0);
+  container-type: size;
+}
+
+.dm-faq-section__content {
+  position: relative;
+  z-index: 2;
 }
 
 .faq-container {
@@ -3470,18 +3486,6 @@ a {
     align-items: stretch;
     gap: 1.5rem;
   }
-}
-
-.dm-faq-spline {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-  transform: translateZ(0);
-  will-change: transform;
-  contain: strict;
-  background: #ffffff;
 }
 
 .dm-faq-spline-overlay {
@@ -3501,6 +3505,7 @@ a {
   max-width: none;
   border: 0;
   background: transparent;
+  pointer-events: none;
   transform: translate3d(0, -50%, 0);
   transform-origin: left center;
   will-change: transform;

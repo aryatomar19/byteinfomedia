@@ -15,17 +15,17 @@ export function DmFaqSection({
   return (
     <section
       id="dm-faq"
-      className="dm-section dm-faq-section relative overflow-hidden"
+      className="dm-section dm-faq-section"
       aria-labelledby="dm-faq-heading"
     >
       <DmFaqSplineBackground />
       <div className="dm-faq-spline-overlay" aria-hidden />
 
-      <div className="dm-container relative z-[2]">
-        <div className="faq-container faq-container--spline-bg grid gap-4 lg:grid-cols-2 lg:items-stretch lg:gap-6">
+      <div className="dm-container dm-faq-section__content">
+        <div className="faq-container grid gap-4 lg:grid-cols-2 lg:items-stretch lg:gap-6">
           <div className="hidden lg:block" aria-hidden />
 
-          <div className="faq-content relative">
+          <div className="faq-content">
             <h2 id="dm-faq-heading" className="dm-heading dm-heading--xl text-[#0A0F1C]">
               {title}
             </h2>
