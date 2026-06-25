@@ -3453,8 +3453,10 @@ a {
   border-radius: 4px;
 }
 
-.dm-faq-image {
-  box-shadow: 0 20px 56px rgba(10, 15, 28, 0.1);
+.dm-faq-section {
+  container-type: size;
+  isolation: isolate;
+  background: #ffffff;
 }
 
 .faq-container {
@@ -3470,75 +3472,68 @@ a {
   }
 }
 
-.faq-image {
-  width: 100%;
-  min-height: 175px;
-  border-radius: 16px;
-  box-shadow: 0 14px 40px rgba(10, 15, 28, 0.08);
-}
-
-.faq-image--spline {
-  position: relative;
-  container-type: size;
-  background: #ffffff;
-}
-
-@media (min-width: 640px) {
-  .faq-image {
-    min-height: 215px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .faq-image {
-    flex: 1;
-    min-height: 340px;
-    height: 100%;
-  }
-}
-
 .dm-faq-spline {
   position: absolute;
   inset: 0;
+  z-index: 0;
   overflow: hidden;
-  border-radius: 16px;
-  background: #ffffff;
   pointer-events: none;
   transform: translateZ(0);
   will-change: transform;
-  contain: layout style paint;
+  contain: strict;
+  background: #ffffff;
+}
+
+.dm-faq-spline-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .dm-faq-spline__iframe {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 0;
   width: 1920px;
   height: 1080px;
   max-width: none;
   border: 0;
   background: transparent;
-  transform: translate3d(-50%, -50%, 0);
-  transform-origin: center center;
+  transform: translate3d(0, -50%, 0);
+  transform-origin: left center;
   will-change: transform;
   backface-visibility: hidden;
 }
 
 @supports (container-type: size) {
   .dm-faq-spline__iframe {
-    transform: translate3d(-50%, -50%, 0)
-      scale(min(calc(100cqw / 1920), calc(100cqh / 1080)));
+    transform: translate3d(0, -50%, 0)
+      scale(max(calc(100cqh / 1080), calc(100cqw / 1280)));
   }
 }
 
 @supports not (container-type: size) {
   .dm-faq-spline__iframe {
-    inset: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: none;
+    left: 50%;
+    transform: translate3d(-42%, -50%, 0) scale(0.72);
+  }
+}
+
+@media (min-width: 768px) {
+  @supports not (container-type: size) {
+    .dm-faq-spline__iframe {
+      transform: translate3d(-38%, -50%, 0) scale(0.82);
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  @supports not (container-type: size) {
+    .dm-faq-spline__iframe {
+      transform: translate3d(-35%, -50%, 0) scale(0.92);
+    }
   }
 }
 
