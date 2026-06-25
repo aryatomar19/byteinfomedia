@@ -26,10 +26,10 @@ export function DmFaqSection({
           <div className="hidden lg:block" aria-hidden />
 
           <div className="faq-content">
-            <h2 id="dm-faq-heading" className="dm-heading dm-heading--xl text-[#0A0F1C]">
+            <h2 id="dm-faq-heading" className="dm-heading dm-heading--xl dm-faq-section__heading">
               {title}
             </h2>
-            <p className="mt-2 max-w-md text-base leading-7 text-[#0A0F1C]/60">{description}</p>
+            <p className="dm-faq-section__description mt-2 max-w-md text-base leading-7">{description}</p>
             <div className="mt-4">
               <DmNumberedFaq items={items} variant="light" compact />
             </div>

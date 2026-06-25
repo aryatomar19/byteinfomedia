@@ -3475,6 +3475,15 @@ a {
   z-index: 2;
 }
 
+.dm-faq-section__heading {
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.dm-faq-section__description {
+  color: #d1d5db;
+}
+
 .faq-container {
   display: grid;
   align-items: center;
