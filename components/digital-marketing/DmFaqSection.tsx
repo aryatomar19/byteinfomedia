@@ -6,14 +6,10 @@ import { DmNumberedFaq } from "@/components/digital-marketing/DmNumberedFaq";
 export function DmFaqSection({
   title,
   description,
-  image,
-  imageAlt,
   items,
 }: {
   title: string;
   description: string;
-  image: string;
-  imageAlt: string;
   items: readonly { question: string; answer: string }[];
 }) {
   return (
@@ -24,14 +20,8 @@ export function DmFaqSection({
     >
       <div className="dm-container relative">
         <div className="faq-container grid gap-4 lg:grid-cols-2 lg:items-stretch lg:gap-6">
-          <div className="faq-image overflow-hidden lg:flex lg:min-h-0">
-            <img
-              src={image}
-              alt={imageAlt}
-              className="faq-image__img h-full w-full object-cover object-center"
-              loading="lazy"
-              decoding="async"
-            />
+          <div className="faq-image faq-image--spline overflow-hidden lg:flex lg:min-h-0">
+            <DmFaqSplineBackground />
           </div>
 
           <div className="faq-content relative">
@@ -39,11 +29,8 @@ export function DmFaqSection({
               {title}
             </h2>
             <p className="mt-2 max-w-md text-base leading-7 text-[#0A0F1C]/60">{description}</p>
-            <div className="faq-accordion-stage relative mt-4 overflow-hidden">
-              <DmFaqSplineBackground />
-              <div className="faq-accordion-stage__content relative z-[2]">
-                <DmNumberedFaq items={items} variant="light" compact />
-              </div>
+            <div className="mt-4">
+              <DmNumberedFaq items={items} variant="light" compact />
             </div>
           </div>
         </div>
