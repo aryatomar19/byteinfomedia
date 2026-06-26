@@ -17,18 +17,19 @@ export function TechSolutionsPage() {
 
   return (
     <>
-      <section className="relative min-h-[72vh] overflow-hidden bg-[#07162d] lg:min-h-[78vh]">
-        <div className="absolute inset-0 hero-ken-burns" aria-hidden>
-          <img src={hero.image} alt="" className="h-full min-h-full w-full min-w-full object-cover object-center" />
+      <section className="tech-solutions-hero relative min-h-[72vh] overflow-hidden bg-[#07162d] lg:min-h-[78vh]">
+        <div className="tech-solutions-hero__art" aria-hidden>
+          <img src={hero.image} alt="" />
         </div>
-        <div className="absolute inset-0 bg-[#07162d]/70" aria-hidden />
+        <div className="absolute inset-0 bg-[#07162d]" aria-hidden />
+        <div className="absolute inset-0 tech-solutions-hero__overlay" aria-hidden />
         <div
           className="absolute inset-0 bg-gradient-to-r from-[#07162d]/90 via-[#07162d]/55 to-[#07162d]/30"
           aria-hidden
         />
         <div className="absolute inset-0 grid-pattern opacity-25" aria-hidden />
 
-        <div className="relative mx-auto grid min-h-[72vh] max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:min-h-[78vh] lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-16">
+        <div className="relative z-[2] mx-auto grid min-h-[72vh] max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:min-h-[78vh] lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-16">
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
               <Sparkles className="h-3.5 w-3.5" />
@@ -50,12 +51,7 @@ export function TechSolutionsPage() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1} className="relative hidden lg:block">
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.35)]">
-              <img src={hero.image} alt={hero.imageAlt} className="aspect-[4/3] w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#07162d]/40 via-transparent to-transparent" />
-            </div>
-          </Reveal>
+          <div className="hidden lg:block" aria-hidden />
         </div>
       </section>
 
