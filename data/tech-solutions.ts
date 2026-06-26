@@ -8,8 +8,8 @@ export const techSolutionsPage = {
     title: "Enterprise Technology Built for Scale and Security",
     description:
       "From cloud consulting and migration to managed operations and cybersecurity, we help organizations modernize infrastructure, reduce risk, and operate with confidence.",
-    image: homeImages.cloudServices,
-    imageAlt: "Enterprise cloud infrastructure, data center operations, and technology consulting",
+    image: "/images/tech-solutions/hero-enterprise-tech.jpg",
+    imageAlt: "Premium enterprise cloud infrastructure with glowing digital network connections in dark navy and blue tones",
   },
   overview: {
     title: "Overview",
