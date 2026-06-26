@@ -1,12 +1,21 @@
 "use client";
 
-import { memo, useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
+import { memo, useCallback, useEffect, useRef } from "react";
+import type { Application } from "@splinetool/runtime";
+import { lockFaqSplineScene } from "@/components/digital-marketing/lockFaqSplineScene";
 
-const SPLINE_FAQ_URL = "https://my.spline.design/cubic-TgJVknRbsodiNyHIv8MIwo45/";
+const SPLINE_SCENE_URL = "/spline/faq-cubic.splinecode";
 const SPLINE_HEIGHT = 1080;
+
+const Spline = dynamic(() => import("@splinetool/react-spline"), {
+  ssr: false,
+  loading: () => null,
+});
 
 function DmFaqSplineBackgroundInner() {
   const bgRef = useRef<HTMLDivElement>(null);
+  const unlockRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     const bg = bgRef.current;
@@ -26,10 +35,22 @@ function DmFaqSplineBackgroundInner() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => () => unlockRef.current?.(), []);
+
+  const onLoad = useCallback((spline: Application) => {
+    unlockRef.current?.();
+    unlockRef.current = lockFaqSplineScene(spline);
+  }, []);
+
   return (
     <div ref={bgRef} className="dm-faq-section__bg" aria-hidden>
       <div className="dm-faq-spline__stage">
-        <iframe src={SPLINE_FAQ_URL} title="" loading="lazy" className="dm-faq-spline__iframe" />
+        <Spline
+          scene={SPLINE_SCENE_URL}
+          onLoad={onLoad}
+          renderOnDemand={false}
+          className="dm-faq-spline-canvas"
+        />
       </div>
     </div>
   );
