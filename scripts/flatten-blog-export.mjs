@@ -4,6 +4,7 @@ import { dirname, join } from "node:path";
 const blogSlugs = [
   "digital-marketing-key-to-online-business-growth",
   "move-beyond-limits-unlock-the-power-of-cloud-services",
+  "aeo-vs-geo-vs-axo-vs-aio-2026",
 ];
 
 for (const blogSlug of blogSlugs) {
