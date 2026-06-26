@@ -6,7 +6,6 @@ import type { Application } from "@splinetool/runtime";
 import { lockFaqSplineScene } from "@/components/digital-marketing/lockFaqSplineScene";
 
 const SPLINE_SCENE_URL = "/spline/faq-cubic.splinecode";
-const SPLINE_HEIGHT = 1080;
 
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
@@ -14,23 +13,25 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 });
 
 function DmFaqSplineBackgroundInner() {
-  const bgRef = useRef<HTMLDivElement>(null);
+  const coverRef = useRef<HTMLDivElement>(null);
+  const splineRef = useRef<Application | null>(null);
   const unlockRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
-    const bg = bgRef.current;
-    if (!bg) return;
+    const cover = coverRef.current;
+    if (!cover) return;
 
-    const updateScale = () => {
-      const { width, height } = bg.getBoundingClientRect();
-      const scale = Math.max(height / SPLINE_HEIGHT, width / 1280);
-      bg.style.setProperty("--dm-faq-spline-scale", scale.toFixed(4));
+    const syncCanvasSize = () => {
+      const { width, height } = cover.getBoundingClientRect();
+      if (width > 0 && height > 0) {
+        splineRef.current?.setSize(Math.round(width), Math.round(height));
+      }
     };
 
-    updateScale();
+    syncCanvasSize();
 
-    const observer = new ResizeObserver(updateScale);
-    observer.observe(bg);
+    const observer = new ResizeObserver(syncCanvasSize);
+    observer.observe(cover);
 
     return () => observer.disconnect();
   }, []);
@@ -38,19 +39,30 @@ function DmFaqSplineBackgroundInner() {
   useEffect(() => () => unlockRef.current?.(), []);
 
   const onLoad = useCallback((spline: Application) => {
+    splineRef.current = spline;
     unlockRef.current?.();
     unlockRef.current = lockFaqSplineScene(spline);
+
+    const cover = coverRef.current;
+    if (cover) {
+      const { width, height } = cover.getBoundingClientRect();
+      if (width > 0 && height > 0) {
+        spline.setSize(Math.round(width), Math.round(height));
+      }
+    }
   }, []);
 
   return (
-    <div ref={bgRef} className="dm-faq-section__bg" aria-hidden>
+    <div className="dm-faq-section__bg" aria-hidden>
       <div className="dm-faq-spline__stage">
-        <Spline
-          scene={SPLINE_SCENE_URL}
-          onLoad={onLoad}
-          renderOnDemand={false}
-          className="dm-faq-spline-canvas"
-        />
+        <div ref={coverRef} className="dm-faq-spline__cover">
+          <Spline
+            scene={SPLINE_SCENE_URL}
+            onLoad={onLoad}
+            renderOnDemand={false}
+            className="dm-faq-spline-canvas"
+          />
+        </div>
       </div>
     </div>
   );
