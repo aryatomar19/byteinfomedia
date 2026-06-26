@@ -3835,6 +3835,60 @@ a {
   }
 }
 
+.blog-article-toc-sticky {
+  position: sticky;
+  top: 6.5rem;
+}
+
+.blog-article-toc__link {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #334155;
+  transition: color 0.2s ease;
+}
+
+.blog-article-toc__link:hover {
+  color: #ff6b2c;
+}
+
+.blog-article-table-wrap {
+  border: 1px solid rgba(10, 15, 28, 0.08);
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(10, 15, 28, 0.05);
+}
+
+.blog-article-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+}
+
+.blog-article-table th,
+.blog-article-table td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(10, 15, 28, 0.08);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.blog-article-table th {
+  background: #f7f8fa;
+  color: #0a0f1c;
+  font-weight: 800;
+}
+
+.blog-article-table td {
+  color: #334155;
+}
+
+.blog-article-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

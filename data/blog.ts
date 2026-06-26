@@ -1,3 +1,4 @@
+import { aiSearchBlog, aiSearchBlogArticle } from "@/data/ai-search-blog";
 import { cloudServicesBlog, cloudServicesBlogArticle } from "@/data/cloud-services-blog";
 
 export const latestBlogSection = {
@@ -7,6 +8,16 @@ export const latestBlogSection = {
   viewAllLabel: "View All Blogs",
   viewAllHref: "/blogs/",
 } as const;
+
+export type BlogArticleTable = {
+  headers: readonly string[];
+  rows: readonly (readonly string[])[];
+};
+
+export type BlogArticleFaq = {
+  question: string;
+  answer: string;
+};
 
 export type BlogArticleSubsection = {
   heading: string;
@@ -20,6 +31,7 @@ export type BlogArticleSection = {
   body?: string;
   bullets?: readonly string[];
   subsections?: readonly BlogArticleSubsection[];
+  table?: BlogArticleTable;
 };
 
 export const featuredBlog = {
@@ -148,14 +160,25 @@ export const featuredBlogArticle = {
   ] satisfies readonly BlogArticleSection[],
 } as const;
 
-export const blogPosts = [featuredBlog, cloudServicesBlog] as const;
+export const blogPosts = [featuredBlog, cloudServicesBlog, aiSearchBlog] as const;
 
 export const blogArticles = {
   [featuredBlog.slug]: featuredBlogArticle,
   [cloudServicesBlog.slug]: cloudServicesBlogArticle,
+  [aiSearchBlog.slug]: aiSearchBlogArticle,
 } as const;
+
+export function getBlogNavigation(slug: string) {
+  const index = blogPosts.findIndex((post) => post.slug === slug);
+
+  return {
+    previous: index > 0 ? blogPosts[index - 1] : null,
+    next: index >= 0 && index < blogPosts.length - 1 ? blogPosts[index + 1] : null,
+  };
+}
 
 export type BlogPost = (typeof blogPosts)[number];
 export type BlogArticle = (typeof blogArticles)[keyof typeof blogArticles];
 
+export { aiSearchBlog, aiSearchBlogArticle } from "@/data/ai-search-blog";
 export { cloudServicesBlog, cloudServicesBlogArticle } from "@/data/cloud-services-blog";
