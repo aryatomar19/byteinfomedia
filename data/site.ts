@@ -18,7 +18,7 @@ export const company = {
   phone: "+91 70427 27803",
   phoneHref: "tel:+917042727803",
   whatsappHref: "https://wa.me/917042727803",
-  email: "byteinfomedia@gmail.com",
+  email: "support@byteinfomedia.com",
   website: "https://www.byteinfomedia.com/",
   linkedin: "https://www.linkedin.com/company/byte-infomedia",
   instagram: "https://www.instagram.com/byte_infomedia_/",
