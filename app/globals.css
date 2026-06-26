@@ -3790,12 +3790,7 @@ a {
 }
 
 .tech-solutions-hero__art {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-  width: min(58%, 780px);
+  position: relative;
   overflow: hidden;
   pointer-events: none;
 }
@@ -3803,35 +3798,86 @@ a {
 .tech-solutions-hero__art img {
   position: absolute;
   inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0.28;
-  filter: blur(10px);
-  transform: scale(1.06);
-  transform-origin: center center;
+}
+
+.tech-solutions-hero__art-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 22, 45, 0.45);
+}
+
+.tech-solutions-hero__art--desktop {
+  display: none;
+}
+
+.tech-solutions-hero__art--mobile {
+  position: relative;
+  margin-top: 2rem;
+  height: 220px;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .tech-solutions-hero__art--mobile {
+    height: 280px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tech-solutions-hero__art--desktop {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    width: 55%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 14%, #000 32%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.35) 14%, #000 32%);
+  }
+
+  .tech-solutions-hero__art--desktop img {
+    transform: scale(1.03);
+    transform-origin: center right;
+  }
+
+  .tech-solutions-hero__art-fade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #07162d 0%, rgba(7, 22, 45, 0.72) 18%, transparent 42%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .tech-solutions-hero__art--mobile {
+    display: none;
+  }
 }
 
 .tech-solutions-hero__overlay {
   z-index: 1;
   background: linear-gradient(
     90deg,
-    rgba(7, 22, 45, 0.92) 0%,
-    rgba(7, 22, 45, 0.72) 45%,
-    rgba(7, 22, 45, 0.5) 100%
+    rgba(7, 22, 45, 0.94) 0%,
+    rgba(7, 22, 45, 0.78) 42%,
+    rgba(7, 22, 45, 0.35) 72%,
+    rgba(7, 22, 45, 0.18) 100%
   );
 }
 
 @media (max-width: 1023px) {
-  .tech-solutions-hero__art {
-    width: 100%;
-    max-width: none;
-  }
-
-  .tech-solutions-hero__art img {
-    opacity: 0.22;
-    object-position: 75% center;
+  .tech-solutions-hero__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(7, 22, 45, 0.35) 0%,
+      rgba(7, 22, 45, 0.82) 58%,
+      rgba(7, 22, 45, 0.94) 100%
+    );
   }
 }
 

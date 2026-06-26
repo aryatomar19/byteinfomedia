@@ -18,38 +18,44 @@ export function TechSolutionsPage() {
   return (
     <>
       <section className="tech-solutions-hero relative min-h-[72vh] overflow-hidden bg-[#07162d] lg:min-h-[78vh]">
-        <div className="tech-solutions-hero__art" aria-hidden>
+        <div className="tech-solutions-hero__art tech-solutions-hero__art--desktop" aria-hidden>
           <img src={hero.image} alt="" />
+          <div className="tech-solutions-hero__art-overlay" />
+          <div className="tech-solutions-hero__art-fade" />
         </div>
+
         <div className="absolute inset-0 bg-[#07162d]" aria-hidden />
         <div className="absolute inset-0 tech-solutions-hero__overlay" aria-hidden />
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-[#07162d]/90 via-[#07162d]/55 to-[#07162d]/30"
-          aria-hidden
-        />
         <div className="absolute inset-0 grid-pattern opacity-25" aria-hidden />
 
-        <div className="relative z-[2] mx-auto grid min-h-[72vh] max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:min-h-[78vh] lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-16">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
-              <Sparkles className="h-3.5 w-3.5" />
-              {hero.badge}
-            </span>
-            <h1 className="mt-5 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.15rem]">
-              {hero.title}
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-white/80">{hero.description}</p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button size="lg" asChild>
-                <Link href="/book-consultation/">Book Consultation</Link>
-              </Button>
-              <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
-                <Link href="#tech-services" className="!text-white hover:!text-white">
-                  View Services
-                </Link>
-              </Button>
+        <div className="relative z-[2] mx-auto grid min-h-[72vh] max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 lg:min-h-[78vh] lg:grid-cols-[minmax(0,55%)_minmax(0,45%)] lg:gap-12 lg:px-8 lg:py-16">
+          <div className="min-w-0">
+            <Reveal>
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#FF6B2C]/40 bg-[#FF6B2C]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#ffb088]">
+                <Sparkles className="h-3.5 w-3.5" />
+                {hero.badge}
+              </span>
+              <h1 className="mt-5 font-[family-name:var(--font-inter)] text-4xl font-extrabold leading-[1.05] tracking-[-0.04em] text-white sm:text-5xl lg:text-[3.15rem]">
+                {hero.title}
+              </h1>
+              <p className="mt-5 max-w-xl text-lg leading-8 text-white/80">{hero.description}</p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Button size="lg" asChild>
+                  <Link href="/book-consultation/">Book Consultation</Link>
+                </Button>
+                <Button variant="dark" size="lg" className={darkHeroSecondaryButtonClass} asChild>
+                  <Link href="#tech-services" className="!text-white hover:!text-white">
+                    View Services
+                  </Link>
+                </Button>
+              </div>
+            </Reveal>
+
+            <div className="tech-solutions-hero__art tech-solutions-hero__art--mobile" aria-hidden>
+              <img src={hero.image} alt="" />
+              <div className="tech-solutions-hero__art-overlay" />
             </div>
-          </Reveal>
+          </div>
 
           <div className="hidden lg:block" aria-hidden />
         </div>
