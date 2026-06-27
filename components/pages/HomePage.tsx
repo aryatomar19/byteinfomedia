@@ -1,3 +1,4 @@
+import { WelcomePopup } from "@/components/WelcomePopup";
 import { EsteemedClients } from "@/components/sections/EsteemedClients";
 import { GrowYourBusiness } from "@/components/sections/GrowYourBusiness";
 import { OurVision } from "@/components/sections/OurVision";
@@ -9,6 +10,7 @@ import { TrustedTechnologyPartners } from "@/components/sections/TrustedTechnolo
 export function HomePage() {
   return (
     <>
+      <WelcomePopup />
       <HomeHero />
       <OurVision />
       <HomeServiceCategories />

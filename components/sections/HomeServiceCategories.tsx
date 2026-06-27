@@ -10,7 +10,7 @@ const MotionLink = motion.create(Link);
 
 export function HomeServiceCategories() {
   return (
-    <section className="-mt-10 bg-white pb-10 pt-8 md:-mt-11 md:pb-10 md:pt-9 lg:-mt-12 lg:pb-10 lg:pt-10">
+    <section id="our-services" className="-mt-10 bg-white pb-10 pt-8 md:-mt-11 md:pb-10 md:pt-9 lg:-mt-12 lg:pb-10 lg:pt-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative top-3 md:top-3.5">
           <SectionHeading title={servicesSection.title} compact />
