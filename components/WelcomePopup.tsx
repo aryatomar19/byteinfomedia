@@ -8,8 +8,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const STORAGE_KEY = "byteinfomedia_welcome_popup_dismissed";
-const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
 const SHOW_DELAY_MS = 1500;
 const CHARACTER_IMAGE = "/images/welcome-popup/character.png";
 
@@ -62,30 +60,6 @@ const cardAccentClass: Record<ServiceCard["accent"], string> = {
   green: "welcome-popup-card--green",
 };
 
-function shouldShowPopup(): boolean {
-  if (typeof window === "undefined") return false;
-
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return true;
-
-    const parsed = JSON.parse(raw) as { dismissedAt?: number };
-    if (typeof parsed.dismissedAt !== "number") return true;
-
-    return Date.now() - parsed.dismissedAt >= THIRTY_DAYS_MS;
-  } catch {
-    return true;
-  }
-}
-
-function markDismissed(): void {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ dismissedAt: Date.now() }));
-  } catch {
-    /* storage unavailable */
-  }
-}
-
 const popupEase = [0, 0, 0.2, 1] as const;
 
 export function WelcomePopup() {
@@ -97,7 +71,6 @@ export function WelcomePopup() {
 
   const close = useCallback(() => {
     setIsOpen(false);
-    markDismissed();
   }, []);
 
   useEffect(() => {
@@ -105,7 +78,7 @@ export function WelcomePopup() {
   }, []);
 
   useEffect(() => {
-    if (!mounted || !shouldShowPopup()) return;
+    if (!mounted) return;
 
     const timer = window.setTimeout(() => setIsOpen(true), SHOW_DELAY_MS);
     return () => window.clearTimeout(timer);
