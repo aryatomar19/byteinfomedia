@@ -1,64 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Calendar, X } from "lucide-react";
+import { WelcomePopupIllustration } from "@/components/WelcomePopupIllustration";
 
 const SHOW_DELAY_MS = 1500;
-const CHARACTER_IMAGE = "/images/welcome-popup/character.png";
 
 const FOCUSABLE_SELECTOR =
   'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-type ServiceCard = {
-  emoji: string;
-  title: string;
-  description: string;
-  href: string;
-  accent: "orange" | "blue" | "purple" | "green";
-};
-
-const serviceCards: ServiceCard[] = [
-  {
-    emoji: "📈",
-    title: "Grow My Business",
-    description: "SEO • Google Ads • Social Media",
-    href: "/digital-marketing/",
-    accent: "orange",
-  },
-  {
-    emoji: "☁",
-    title: "Cloud & DevOps",
-    description: "AWS • Azure • Kubernetes",
-    href: "/cloud-services/",
-    accent: "blue",
-  },
-  {
-    emoji: "🧠",
-    title: "AI Solutions",
-    description: "Automation • Chatbots",
-    href: "/generative-ai/",
-    accent: "purple",
-  },
-  {
-    emoji: "💻",
-    title: "Website Development",
-    description: "Modern Websites",
-    href: "/website-development/",
-    accent: "green",
-  },
-];
-
-const cardAccentClass: Record<ServiceCard["accent"], string> = {
-  orange: "welcome-popup-card--orange",
-  blue: "welcome-popup-card--blue",
-  purple: "welcome-popup-card--purple",
-  green: "welcome-popup-card--green",
-};
+const serviceCards = [
+  { emoji: "☁️", title: "Cloud & DevOps", description: "Scalable • Secure • Reliable" },
+  { emoji: "🤖", title: "AI Solutions", description: "Smart Automation" },
+  { emoji: "💻", title: "Website Development", description: "Modern • Responsive" },
+  { emoji: "📈", title: "Digital Marketing", description: "Rank • Reach • Grow" },
+] as const;
 
 const popupEase = [0, 0, 0.2, 1] as const;
 
@@ -159,10 +118,6 @@ export function WelcomePopup() {
     [close],
   );
 
-  const handleNavigate = useCallback(() => {
-    close();
-  }, [close]);
-
   if (!mounted) return null;
 
   return createPortal(
@@ -181,137 +136,111 @@ export function WelcomePopup() {
             ref={panelRef}
             role="dialog"
             aria-modal="true"
-            aria-labelledby="welcome-popup-title"
-            aria-describedby="welcome-popup-subtitle"
-            className="welcome-popup-panel relative flex w-[95%] max-h-[min(620px,92vh)] max-w-[980px] flex-col overflow-hidden rounded-[28px] bg-white shadow-[0_32px_80px_rgba(15,23,42,0.18)] sm:w-[92%] md:max-h-[620px] md:flex-row"
+            aria-labelledby="welcome-popup-brand"
+            aria-describedby="welcome-popup-description"
+            className="welcome-popup-panel welcome-popup-font relative flex w-[95%] max-h-[min(92vh,720px)] max-w-[1100px] flex-col overflow-hidden rounded-[28px] bg-white shadow-[0_32px_80px_rgba(15,23,42,0.16)] lg:flex-row"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.35, ease: popupEase }}
             onMouseDown={(event) => event.stopPropagation()}
           >
-            <button
+            <motion.button
               ref={closeButtonRef}
               type="button"
               onClick={close}
-              className="welcome-popup-close absolute right-4 top-4 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full border border-transparent bg-white text-[#0F172A] shadow-[0_4px_16px_rgba(15,23,42,0.12)] transition duration-200 hover:border-[#FF6A2B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A2B]/40"
+              className="welcome-popup-close absolute right-4 top-4 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#E5E7EB] bg-white text-[#0F172A] shadow-[0_4px_16px_rgba(15,23,42,0.08)] transition-colors duration-200 hover:border-[#FF6A1A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A1A]/40"
               aria-label="Close welcome popup"
+              whileHover={{ rotate: 90 }}
+              transition={{ duration: 0.2 }}
             >
               <X className="h-4 w-4" strokeWidth={2.25} aria-hidden />
-            </button>
+            </motion.button>
 
-            <div className="welcome-popup-left flex min-h-0 flex-1 flex-col overflow-y-auto px-6 py-7 sm:px-8 sm:py-8 md:w-[55%] md:py-9 md:pl-9 md:pr-5">
+            <div className="welcome-popup-left flex min-h-0 flex-1 flex-col overflow-y-auto px-6 py-8 sm:px-8 sm:py-9 lg:w-[45%] lg:py-10 lg:pl-10 lg:pr-6">
               <header>
-                <p className="font-[family-name:var(--font-inter)] text-sm font-medium text-[#64748B]">
-                  👋 Welcome to
-                </p>
-                <h2
-                  id="welcome-popup-title"
-                  className="mt-1 font-[family-name:var(--font-inter)] text-[1.65rem] font-extrabold leading-[1.1] tracking-[-0.04em] sm:text-[1.85rem]"
-                >
+                <p className="text-sm font-medium text-[#64748B]">👋 Welcome to</p>
+                <p id="welcome-popup-brand" className="mt-1 text-xl font-extrabold tracking-[-0.03em] sm:text-[1.35rem]">
                   <span className="text-[#0F172A]">Byte</span>{" "}
-                  <span className="text-[#FF6A2B]">Infomedia</span>
-                </h2>
-                <p id="welcome-popup-subtitle" className="mt-2 text-sm font-medium text-[#64748B] sm:text-[0.95rem]">
-                  Building Digital Solutions That Scale.
+                  <span className="text-[#FF6A1A]">Infomedia</span>
                 </p>
-                <div className="welcome-popup-divider mt-4 h-[3px] w-12 rounded-full bg-[#FF6A2B]" aria-hidden />
               </header>
 
-              <h3 className="mt-6 font-[family-name:var(--font-inter)] text-base font-bold tracking-[-0.02em] text-[#0F172A] sm:text-lg">
-                Explore Our Services
-              </h3>
+              <h2 className="mt-5 text-[1.65rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-[#0F172A] sm:text-[1.85rem]">
+                Grow Your Business
+                <br />
+                with{" "}
+                <span className="text-[#FF6A1A]">Expert Solutions</span>
+              </h2>
 
-              <div className="mt-4 grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-4">
+              <p id="welcome-popup-description" className="mt-4 max-w-md text-sm leading-6 text-[#64748B] sm:text-[0.95rem] sm:leading-7">
+                From Cloud &amp; DevOps to AI, Website Development, and Digital Marketing, our experts help
+                businesses build, scale, and grow with confidence.
+              </p>
+
+              <div className="mt-6 grid grid-cols-2 gap-3">
                 {serviceCards.map((card, index) => (
                   <motion.div
                     key={card.title}
-                    initial={{ opacity: 0, y: 14 }}
+                    initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      delay: 0.08 + index * 0.05,
-                      duration: 0.4,
-                      ease: popupEase,
-                    }}
+                    transition={{ delay: 0.08 + index * 0.05, duration: 0.4, ease: popupEase }}
+                    whileHover={{ y: -4 }}
+                    className="welcome-popup-card rounded-xl border border-[#E5E7EB] bg-white p-3.5 shadow-[0_6px_20px_rgba(15,23,42,0.05)] transition-shadow duration-300 hover:shadow-[0_12px_28px_rgba(15,23,42,0.1)] sm:p-4"
                   >
-                    <Link
-                      href={card.href}
-                      onClick={handleNavigate}
-                      className={cn(
-                        "welcome-popup-card group flex h-full flex-col rounded-2xl bg-white p-3 transition-[transform,box-shadow] duration-300 will-change-transform hover:-translate-y-1 sm:p-3.5",
-                        cardAccentClass[card.accent],
-                      )}
-                    >
-                      <span className="text-lg leading-none sm:text-xl" aria-hidden>
-                        {card.emoji}
-                      </span>
-                      <h4 className="mt-2.5 font-[family-name:var(--font-inter)] text-[0.72rem] font-bold leading-tight tracking-[-0.02em] text-[#0F172A] sm:text-xs">
-                        {card.title}
-                      </h4>
-                      <p className="mt-1 text-[0.62rem] leading-4 text-[#64748B] sm:text-[0.68rem]">
-                        {card.description}
-                      </p>
-                    </Link>
+                    <span className="text-lg leading-none" aria-hidden>
+                      {card.emoji}
+                    </span>
+                    <h3 className="mt-2.5 text-xs font-bold tracking-[-0.02em] text-[#0F172A] sm:text-sm">
+                      {card.title}
+                    </h3>
+                    <p className="mt-1 text-[0.68rem] leading-4 text-[#64748B] sm:text-xs">{card.description}</p>
                   </motion.div>
                 ))}
               </div>
 
               <motion.div
-                className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:items-center"
+                className="mt-7 flex flex-col items-stretch"
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.28, duration: 0.4, ease: popupEase }}
               >
                 <Link
                   href="/book-consultation/"
-                  onClick={handleNavigate}
-                  className="welcome-popup-primary-btn inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-[#FF6A2B] px-5 text-sm font-bold text-white shadow-[0_12px_28px_rgba(255,106,43,0.32)] transition-[transform,box-shadow] duration-200 will-change-transform hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(255,106,43,0.42)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A2B]/40"
+                  onClick={close}
+                  className="welcome-popup-primary-btn inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-[#FF6A1A] text-sm font-bold text-white shadow-[0_12px_28px_rgba(255,106,26,0.32)] transition-[transform,box-shadow] duration-200 will-change-transform hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(255,106,26,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A1A]/40 sm:text-base"
                 >
+                  <Calendar className="h-[18px] w-[18px]" aria-hidden />
                   Book Free Consultation
-                  <ArrowRight className="h-4 w-4" aria-hidden />
                 </Link>
-                <Link
-                  href="/#our-services"
-                  onClick={handleNavigate}
-                  className="welcome-popup-secondary-btn inline-flex h-11 items-center justify-center rounded-xl border border-[#0F172A]/12 bg-white px-5 text-sm font-bold text-[#0F172A] transition-[transform,background-color,border-color] duration-200 hover:-translate-y-0.5 hover:border-[#0F172A]/20 hover:bg-[#F8FAFC] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0F172A]/15"
+
+                <button
+                  type="button"
+                  onClick={close}
+                  className="mt-3 text-center text-sm font-medium text-[#64748B] underline decoration-[#CBD5E1] underline-offset-4 transition-colors duration-200 hover:text-[#0F172A] hover:decoration-[#94A3B8]"
                 >
-                  Explore Services
-                </Link>
+                  Maybe Later
+                </button>
               </motion.div>
 
               <motion.p
-                className="mt-5 text-xs font-medium text-[#0F172A] sm:text-sm"
+                className="mt-6 text-center text-xs font-medium text-[#0F172A] sm:text-sm"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.34, duration: 0.4, ease: popupEase }}
               >
-                <span className="tracking-[0.15em] text-[#FF6A2B]" aria-hidden>
-                  ★★★★★
+                <span className="tracking-[0.12em] text-[#FF6A1A]" aria-hidden>
+                  ⭐⭐⭐⭐⭐
                 </span>
                 <span className="sr-only">5 out of 5 stars. </span>
                 <span className="ml-1.5">
-                  Trusted by <span className="font-bold text-[#FF6A2B]">100+</span> Businesses
+                  Trusted by <span className="font-bold text-[#FF6A1A]">100+</span> Businesses
                 </span>
               </motion.p>
             </div>
 
-            <div className="welcome-popup-right relative hidden min-h-[280px] overflow-hidden md:flex md:w-[45%]">
-              <div className="welcome-popup-right__glow pointer-events-none absolute inset-0" aria-hidden />
-              <motion.div
-                className="welcome-popup-character relative mx-auto flex h-full w-full items-end justify-center"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.12, duration: 0.5, ease: popupEase }}
-              >
-                <Image
-                  src={CHARACTER_IMAGE}
-                  alt="Byte Infomedia team member welcoming you"
-                  width={520}
-                  height={620}
-                  priority
-                  className="welcome-popup-character__img h-auto max-h-[94%] w-auto max-w-[108%] object-contain object-bottom"
-                />
-              </motion.div>
+            <div className="welcome-popup-right relative flex min-h-[260px] w-full items-center justify-center border-t border-[#E5E7EB] bg-gradient-to-br from-[#FFF9F6] via-white to-[#FFFDFC] lg:min-h-0 lg:w-[55%] lg:border-l lg:border-t-0">
+              <WelcomePopupIllustration />
             </div>
           </motion.div>
         </motion.div>
