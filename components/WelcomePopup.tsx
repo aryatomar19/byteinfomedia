@@ -124,7 +124,7 @@ export function WelcomePopup() {
     <AnimatePresence>
       {isOpen ? (
         <motion.div
-          className="welcome-popup-overlay fixed inset-0 z-[9999] flex items-center justify-center p-4"
+          className="welcome-popup-overlay fixed inset-0 z-[9999] flex items-center justify-center"
           role="presentation"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -132,18 +132,20 @@ export function WelcomePopup() {
           transition={{ duration: 0.3, ease: popupEase }}
           onMouseDown={handleBackdropClick}
         >
-          <div className="welcome-popup-scale">
-            <motion.div
+          <motion.div
+            className="welcome-popup-scale"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.35, ease: popupEase }}
+          >
+            <div
               ref={panelRef}
               role="dialog"
               aria-modal="true"
               aria-labelledby="welcome-popup-brand"
               aria-describedby="welcome-popup-description"
-              className="welcome-popup-panel welcome-popup-font relative flex w-full flex-col overflow-hidden rounded-[24px] bg-white p-10 shadow-[0_32px_80px_rgba(15,23,42,0.16)] lg:flex-row"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.35, ease: popupEase }}
+              className="welcome-popup-panel welcome-popup-font relative flex w-[1180px] flex-col overflow-hidden rounded-[24px] bg-white p-10 shadow-[0_32px_80px_rgba(15,23,42,0.16)] lg:flex-row"
               onMouseDown={(event) => event.stopPropagation()}
             >
               <motion.button
@@ -158,7 +160,7 @@ export function WelcomePopup() {
                 <X className="h-4 w-4" strokeWidth={2.25} aria-hidden />
               </motion.button>
 
-              <div className="welcome-popup-left order-1 flex h-full w-full flex-col justify-center lg:order-none lg:w-[45%] lg:pr-4">
+              <div className="welcome-popup-left order-1 flex h-full w-full flex-col justify-center lg:order-none lg:w-[44%] lg:pr-4">
                 <header>
                   <p className="text-sm font-medium text-[#64748B]">👋 Welcome to</p>
                   <p id="welcome-popup-brand" className="mt-0.5 text-lg font-extrabold tracking-[-0.03em]">
@@ -242,7 +244,7 @@ export function WelcomePopup() {
                 </p>
               </div>
 
-              <div className="welcome-popup-right relative order-2 flex min-h-[200px] w-full flex-shrink-0 items-center justify-center overflow-hidden border-t border-[#E5E7EB] lg:order-none lg:h-full lg:min-h-0 lg:w-[55%] lg:border-l lg:border-t-0">
+              <div className="welcome-popup-right relative order-2 flex min-h-[200px] w-full flex-shrink-0 items-center justify-center overflow-hidden border-t border-[#E5E7EB] lg:order-none lg:h-full lg:min-h-0 lg:w-[56%] lg:border-l lg:border-t-0">
                 <img
                   src={ILLUSTRATION_IMAGE}
                   alt="Modern laptop showing business analytics dashboard with cloud, AI, website, marketing, and security icons"
@@ -253,8 +255,8 @@ export function WelcomePopup() {
                   decoding="async"
                 />
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </motion.div>
       ) : null}
     </AnimatePresence>,
