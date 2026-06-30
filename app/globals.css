@@ -3890,8 +3890,7 @@ a {
 }
 
 .welcome-popup-scale {
-  width: min(1200px, calc(100vw - 2rem));
-  max-height: 85vh;
+  width: min(1180px, 92vw);
   transform-origin: center center;
 }
 
@@ -3900,12 +3899,62 @@ a {
 }
 
 .welcome-popup-panel {
+  width: min(1180px, 92vw);
+  height: 720px;
   background: #ffffff;
+  overflow: hidden;
   transform: translateZ(0);
 }
 
 .welcome-popup-left {
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  overflow: visible;
+}
+
+.welcome-popup-heading {
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1.08;
+  margin-bottom: 16px;
+}
+
+.welcome-popup-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.welcome-popup-services-label {
+  margin-bottom: 16px;
+}
+
+.welcome-popup-cards {
+  gap: 16px;
+}
+
+.welcome-popup-card {
+  height: 88px;
+  padding: 18px;
+}
+
+.welcome-popup-cta {
+  margin-top: 24px;
+}
+
+.welcome-popup-primary-btn {
+  height: 58px;
+}
+
+.welcome-popup-maybe-later {
+  margin-top: 12px;
+}
+
+.welcome-popup-trust {
+  margin-top: 18px;
+  font-size: 16px;
 }
 
 .welcome-popup-right {
@@ -3929,21 +3978,18 @@ a {
   .welcome-popup-scale {
     transform: scale(0.88);
   }
-
-  .welcome-popup-panel h2 {
-    font-size: 38px;
-  }
 }
 
 @media (max-width: 1023px) {
   .welcome-popup-scale {
     transform: scale(1);
-    width: min(1200px, calc(100vw - 1.5rem));
+    width: min(1180px, 92vw);
   }
 
   .welcome-popup-panel {
     height: auto;
-    max-height: 85vh;
+    min-height: 0;
+    max-height: min(720px, 92vh);
     padding: 1.5rem;
   }
 

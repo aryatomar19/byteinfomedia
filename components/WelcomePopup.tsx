@@ -139,7 +139,7 @@ export function WelcomePopup() {
               aria-modal="true"
               aria-labelledby="welcome-popup-brand"
               aria-describedby="welcome-popup-description"
-              className="welcome-popup-panel welcome-popup-font relative flex max-h-[85vh] w-full max-w-[1200px] flex-col overflow-hidden rounded-[24px] bg-white p-10 shadow-[0_32px_80px_rgba(15,23,42,0.16)] lg:h-[85vh] lg:flex-row"
+              className="welcome-popup-panel welcome-popup-font relative flex w-full flex-col overflow-hidden rounded-[24px] bg-white p-10 shadow-[0_32px_80px_rgba(15,23,42,0.16)] lg:flex-row"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
@@ -158,7 +158,7 @@ export function WelcomePopup() {
                 <X className="h-4 w-4" strokeWidth={2.25} aria-hidden />
               </motion.button>
 
-              <div className="welcome-popup-left order-1 flex h-full min-h-0 w-full flex-col justify-center overflow-hidden lg:order-none lg:w-[45%] lg:pr-4">
+              <div className="welcome-popup-left order-1 flex h-full w-full flex-col justify-center lg:order-none lg:w-[45%] lg:pr-4">
                 <header>
                   <p className="text-sm font-medium text-[#64748B]">👋 Welcome to</p>
                   <p id="welcome-popup-brand" className="mt-0.5 text-lg font-extrabold tracking-[-0.03em]">
@@ -167,22 +167,22 @@ export function WelcomePopup() {
                   </p>
                 </header>
 
-                <h2 className="mt-3 text-[44px] font-extrabold leading-[1.1] tracking-[-0.03em] text-[#0F172A]">
+                <h2 className="welcome-popup-heading mt-3 font-extrabold tracking-[-0.03em] text-[#0F172A]">
                   Grow Your Business
                   <br />
                   with <span className="text-[#FF6A1A]">Expert Solutions</span>
                 </h2>
 
-                <p
-                  id="welcome-popup-description"
-                  className="mt-2 line-clamp-2 max-w-md text-[0.95rem] leading-6 text-[#64748B]"
-                >
-                  From Cloud &amp; DevOps to AI, Websites, and Digital Marketing — we&apos;re here to help.
+                <p id="welcome-popup-description" className="welcome-popup-description max-w-md text-[#64748B]">
+                  From Cloud &amp; DevOps to AI, Website Development and Digital Marketing, we help businesses grow
+                  with smart technology solutions.
                 </p>
 
-                <p className="mt-4 text-sm font-semibold text-[#0F172A]">What are you looking for?</p>
+                <p className="welcome-popup-services-label text-sm font-semibold text-[#0F172A]">
+                  What are you looking for?
+                </p>
 
-                <div className="mt-2.5 grid grid-cols-2 gap-2.5">
+                <div className="welcome-popup-cards grid grid-cols-2">
                   {serviceCards.map((card, index) => (
                     <motion.div
                       key={card.title}
@@ -190,13 +190,13 @@ export function WelcomePopup() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.08 + index * 0.04, duration: 0.35, ease: popupEase }}
                       whileHover={{ y: -4 }}
-                      className="welcome-popup-card flex h-[90px] flex-col justify-center rounded-xl border border-[#E5E7EB] bg-white px-3 py-2.5 shadow-[0_4px_16px_rgba(15,23,42,0.05)] transition-shadow duration-300 hover:shadow-[0_10px_24px_rgba(15,23,42,0.09)]"
+                      className="welcome-popup-card flex flex-col justify-center rounded-xl border border-[#E5E7EB] bg-white shadow-[0_4px_16px_rgba(15,23,42,0.05)] transition-shadow duration-300 hover:shadow-[0_10px_24px_rgba(15,23,42,0.09)]"
                     >
                       <div className="flex items-start gap-2">
                         <span className="text-base leading-none" aria-hidden>
                           {card.emoji}
                         </span>
-                        <div className="min-w-0">
+                        <div>
                           <h3 className="text-xs font-bold tracking-[-0.02em] text-[#0F172A] sm:text-[0.8rem]">
                             {card.title}
                           </h3>
@@ -208,7 +208,7 @@ export function WelcomePopup() {
                 </div>
 
                 <motion.div
-                  className="mt-4 flex flex-col items-stretch"
+                  className="welcome-popup-cta flex flex-col items-stretch"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.24, duration: 0.35, ease: popupEase }}
@@ -216,7 +216,7 @@ export function WelcomePopup() {
                   <Link
                     href="/book-consultation/"
                     onClick={close}
-                    className="welcome-popup-primary-btn inline-flex h-14 w-full items-center justify-center gap-2.5 rounded-xl bg-[#FF6A1A] text-base font-bold text-white shadow-[0_12px_28px_rgba(255,106,26,0.32)] transition-[transform,box-shadow] duration-200 will-change-transform hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(255,106,26,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A1A]/40"
+                    className="welcome-popup-primary-btn inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#FF6A1A] text-base font-bold text-white shadow-[0_12px_28px_rgba(255,106,26,0.32)] transition-[transform,box-shadow] duration-200 will-change-transform hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(255,106,26,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A1A]/40"
                   >
                     <Calendar className="h-[18px] w-[18px]" aria-hidden />
                     Book Free Consultation
@@ -225,13 +225,13 @@ export function WelcomePopup() {
                   <button
                     type="button"
                     onClick={close}
-                    className="mt-2 text-center text-sm font-medium text-[#64748B] underline decoration-dotted decoration-[#CBD5E1] underline-offset-4 transition-colors duration-200 hover:text-[#0F172A]"
+                    className="welcome-popup-maybe-later text-center text-sm font-medium text-[#64748B] underline decoration-dotted decoration-[#CBD5E1] underline-offset-4 transition-colors duration-200 hover:text-[#0F172A]"
                   >
                     Maybe Later
                   </button>
                 </motion.div>
 
-                <p className="mt-3 text-center text-xs font-medium text-[#0F172A]">
+                <p className="welcome-popup-trust text-center font-medium text-[#0F172A]">
                   <span className="tracking-[0.1em] text-[#FF6A1A]" aria-hidden>
                     ⭐⭐⭐⭐⭐
                   </span>
