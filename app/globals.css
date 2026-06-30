@@ -3887,11 +3887,18 @@ a {
   background: rgba(15, 23, 42, 0.6);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
+  padding: 60px;
 }
 
 .welcome-popup-scale {
-  width: min(1180px, 92vw);
+  --welcome-popup-ratio: 0.806;
+  position: relative;
+  width: min(950px, 88vw);
+  max-width: 1000px;
+  height: min(581px, 82vh);
+  max-height: min(650px, 82vh);
   transform-origin: center center;
+  overflow: hidden;
 }
 
 .welcome-popup-font {
@@ -3899,11 +3906,15 @@ a {
 }
 
 .welcome-popup-panel {
-  width: min(1180px, 92vw);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1180px;
   height: 720px;
   background: #ffffff;
   overflow: hidden;
-  transform: translateZ(0);
+  transform: translate(-50%, -50%) scale(var(--welcome-popup-ratio));
+  transform-origin: center center;
 }
 
 .welcome-popup-left {
@@ -3968,33 +3979,23 @@ a {
   transform-origin: center center;
 }
 
-@media (max-width: 1439px) {
-  .welcome-popup-scale {
-    transform: scale(0.94);
-  }
-}
-
-@media (max-width: 1280px) {
-  .welcome-popup-scale {
-    transform: scale(0.88);
-  }
-}
-
 @media (max-width: 1023px) {
+  .welcome-popup-overlay {
+    padding: 40px 24px;
+  }
+
   .welcome-popup-scale {
-    transform: scale(1);
-    width: min(1180px, 92vw);
+    --welcome-popup-ratio: min(0.806, calc((100vw - 80px) / 1180));
+    width: min(950px, calc(100vw - 80px));
+    height: min(581px, 82vh);
+    max-height: min(650px, 82vh);
   }
 
   .welcome-popup-panel {
-    height: auto;
-    min-height: 0;
-    max-height: min(720px, 92vh);
-    padding: 1.5rem;
+    height: 720px;
   }
 
   .welcome-popup-right {
-    display: flex;
     min-height: 220px;
     border-top: 1px solid #e5e7eb;
   }
@@ -4002,7 +4003,7 @@ a {
   .welcome-popup-hero-image {
     max-height: 100%;
     max-width: 100%;
-    transform: none;
+    transform: scale(1.17);
   }
 }
 
