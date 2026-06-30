@@ -3922,54 +3922,61 @@ a {
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  padding: 28px 36px;
   overflow: visible;
 }
 
+.welcome-popup-header {
+  flex-shrink: 0;
+}
+
 .welcome-popup-heading {
-  font-size: 50px;
+  font-size: 56px;
   font-weight: 800;
-  line-height: 1.08;
-  margin-bottom: 16px;
+  line-height: 1.05;
+  margin-top: 12px;
+  margin-bottom: 18px;
 }
 
 .welcome-popup-description {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 24px;
+  font-size: 17px;
+  line-height: 1.55;
+  margin-bottom: 20px;
 }
 
 .welcome-popup-services-label {
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .welcome-popup-cards {
-  gap: 16px;
+  gap: 14px;
 }
 
 .welcome-popup-card {
-  height: 88px;
-  padding: 18px;
+  height: 84px;
+  padding: 16px;
 }
 
 .welcome-popup-cta {
-  margin-top: 24px;
+  margin-top: 22px;
 }
 
 .welcome-popup-primary-btn {
-  height: 58px;
+  height: 54px;
 }
 
 .welcome-popup-maybe-later {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .welcome-popup-trust {
-  margin-top: 18px;
+  margin-top: 12px;
   font-size: 16px;
 }
 
 .welcome-popup-right {
   background: linear-gradient(135deg, #fff9f6 0%, #ffffff 55%, #fffdfc 100%);
+  padding: 40px;
 }
 
 .welcome-popup-hero-image {
