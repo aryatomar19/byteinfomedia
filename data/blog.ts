@@ -1,5 +1,9 @@
 import { aiSearchBlog, aiSearchBlogArticle } from "@/data/ai-search-blog";
 import { cloudServicesBlog, cloudServicesBlogArticle } from "@/data/cloud-services-blog";
+import {
+  multiCloudHybridCloudBlog,
+  multiCloudHybridCloudBlogArticle,
+} from "@/data/multi-cloud-hybrid-cloud-blog";
 
 export const latestBlogSection = {
   eyebrow: "LATEST INSIGHTS",
@@ -160,12 +164,13 @@ export const featuredBlogArticle = {
   ] satisfies readonly BlogArticleSection[],
 } as const;
 
-export const blogPosts = [featuredBlog, cloudServicesBlog, aiSearchBlog] as const;
+export const blogPosts = [featuredBlog, cloudServicesBlog, aiSearchBlog, multiCloudHybridCloudBlog] as const;
 
 export const blogArticles = {
   [featuredBlog.slug]: featuredBlogArticle,
   [cloudServicesBlog.slug]: cloudServicesBlogArticle,
   [aiSearchBlog.slug]: aiSearchBlogArticle,
+  [multiCloudHybridCloudBlog.slug]: multiCloudHybridCloudBlogArticle,
 } as const;
 
 export function getBlogNavigation(slug: string) {
@@ -182,3 +187,7 @@ export type BlogArticle = (typeof blogArticles)[keyof typeof blogArticles];
 
 export { aiSearchBlog, aiSearchBlogArticle } from "@/data/ai-search-blog";
 export { cloudServicesBlog, cloudServicesBlogArticle } from "@/data/cloud-services-blog";
+export {
+  multiCloudHybridCloudBlog,
+  multiCloudHybridCloudBlogArticle,
+} from "@/data/multi-cloud-hybrid-cloud-blog";
