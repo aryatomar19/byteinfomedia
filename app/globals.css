@@ -3889,6 +3889,12 @@ a {
   backdrop-filter: blur(14px);
 }
 
+.welcome-popup-scale {
+  width: min(1200px, calc(100vw - 2rem));
+  max-height: 85vh;
+  transform-origin: center center;
+}
+
 .welcome-popup-font {
   font-family: var(--font-poppins), var(--font-geist-sans), system-ui, sans-serif;
 }
@@ -3899,21 +3905,58 @@ a {
 }
 
 .welcome-popup-left {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 106, 26, 0.25) transparent;
+  overflow: hidden;
 }
 
 .welcome-popup-right {
   background: linear-gradient(135deg, #fff9f6 0%, #ffffff 55%, #fffdfc 100%);
 }
 
-.welcome-popup-illustration {
-  isolation: isolate;
+.welcome-popup-hero-image {
+  max-height: 118%;
+  max-width: 118%;
+  transform: scale(1.17);
+  transform-origin: center center;
+}
+
+@media (max-width: 1439px) {
+  .welcome-popup-scale {
+    transform: scale(0.94);
+  }
+}
+
+@media (max-width: 1280px) {
+  .welcome-popup-scale {
+    transform: scale(0.88);
+  }
+
+  .welcome-popup-panel h2 {
+    font-size: 38px;
+  }
 }
 
 @media (max-width: 1023px) {
+  .welcome-popup-scale {
+    transform: scale(1);
+    width: min(1200px, calc(100vw - 1.5rem));
+  }
+
   .welcome-popup-panel {
-    max-height: min(92vh, 760px);
+    height: auto;
+    max-height: 85vh;
+    padding: 1.5rem;
+  }
+
+  .welcome-popup-right {
+    display: flex;
+    min-height: 220px;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .welcome-popup-hero-image {
+    max-height: 100%;
+    max-width: 100%;
+    transform: none;
   }
 }
 

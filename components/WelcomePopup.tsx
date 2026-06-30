@@ -5,9 +5,9 @@ import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Calendar, X } from "lucide-react";
-import { WelcomePopupIllustration } from "@/components/WelcomePopupIllustration";
 
 const SHOW_DELAY_MS = 1500;
+const ILLUSTRATION_IMAGE = "/images/welcome-popup/saas-illustration.png";
 
 const FOCUSABLE_SELECTOR =
   'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -124,7 +124,7 @@ export function WelcomePopup() {
     <AnimatePresence>
       {isOpen ? (
         <motion.div
-          className="welcome-popup-overlay fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-5"
+          className="welcome-popup-overlay fixed inset-0 z-[9999] flex items-center justify-center p-4"
           role="presentation"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -132,117 +132,129 @@ export function WelcomePopup() {
           transition={{ duration: 0.3, ease: popupEase }}
           onMouseDown={handleBackdropClick}
         >
-          <motion.div
-            ref={panelRef}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="welcome-popup-brand"
-            aria-describedby="welcome-popup-description"
-            className="welcome-popup-panel welcome-popup-font relative flex w-[95%] max-h-[min(92vh,720px)] max-w-[1100px] flex-col overflow-hidden rounded-[28px] bg-white shadow-[0_32px_80px_rgba(15,23,42,0.16)] lg:flex-row"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.35, ease: popupEase }}
-            onMouseDown={(event) => event.stopPropagation()}
-          >
-            <motion.button
-              ref={closeButtonRef}
-              type="button"
-              onClick={close}
-              className="welcome-popup-close absolute right-4 top-4 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#E5E7EB] bg-white text-[#0F172A] shadow-[0_4px_16px_rgba(15,23,42,0.08)] transition-colors duration-200 hover:border-[#FF6A1A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A1A]/40"
-              aria-label="Close welcome popup"
-              whileHover={{ rotate: 90 }}
-              transition={{ duration: 0.2 }}
+          <div className="welcome-popup-scale">
+            <motion.div
+              ref={panelRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="welcome-popup-brand"
+              aria-describedby="welcome-popup-description"
+              className="welcome-popup-panel welcome-popup-font relative flex max-h-[85vh] w-full max-w-[1200px] flex-col overflow-hidden rounded-[24px] bg-white p-10 shadow-[0_32px_80px_rgba(15,23,42,0.16)] lg:h-[85vh] lg:flex-row"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.35, ease: popupEase }}
+              onMouseDown={(event) => event.stopPropagation()}
             >
-              <X className="h-4 w-4" strokeWidth={2.25} aria-hidden />
-            </motion.button>
+              <motion.button
+                ref={closeButtonRef}
+                type="button"
+                onClick={close}
+                className="welcome-popup-close absolute right-5 top-5 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#E5E7EB] bg-white text-[#0F172A] shadow-[0_4px_16px_rgba(15,23,42,0.08)] transition-colors duration-200 hover:border-[#FF6A1A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A1A]/40"
+                aria-label="Close welcome popup"
+                whileHover={{ rotate: 90 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X className="h-4 w-4" strokeWidth={2.25} aria-hidden />
+              </motion.button>
 
-            <div className="welcome-popup-left flex min-h-0 flex-1 flex-col overflow-y-auto px-6 py-8 sm:px-8 sm:py-9 lg:w-[45%] lg:py-10 lg:pl-10 lg:pr-6">
-              <header>
-                <p className="text-sm font-medium text-[#64748B]">👋 Welcome to</p>
-                <p id="welcome-popup-brand" className="mt-1 text-xl font-extrabold tracking-[-0.03em] sm:text-[1.35rem]">
-                  <span className="text-[#0F172A]">Byte</span>{" "}
-                  <span className="text-[#FF6A1A]">Infomedia</span>
+              <div className="welcome-popup-left order-1 flex h-full min-h-0 w-full flex-col justify-center overflow-hidden lg:order-none lg:w-[45%] lg:pr-4">
+                <header>
+                  <p className="text-sm font-medium text-[#64748B]">👋 Welcome to</p>
+                  <p id="welcome-popup-brand" className="mt-0.5 text-lg font-extrabold tracking-[-0.03em]">
+                    <span className="text-[#0F172A]">Byte</span>{" "}
+                    <span className="text-[#FF6A1A]">Infomedia</span>
+                  </p>
+                </header>
+
+                <h2 className="mt-3 text-[44px] font-extrabold leading-[1.1] tracking-[-0.03em] text-[#0F172A]">
+                  Grow Your Business
+                  <br />
+                  with <span className="text-[#FF6A1A]">Expert Solutions</span>
+                </h2>
+
+                <p
+                  id="welcome-popup-description"
+                  className="mt-2 line-clamp-2 max-w-md text-[0.95rem] leading-6 text-[#64748B]"
+                >
+                  From Cloud &amp; DevOps to AI, Websites, and Digital Marketing — we&apos;re here to help.
                 </p>
-              </header>
 
-              <h2 className="mt-5 text-[1.65rem] font-extrabold leading-[1.15] tracking-[-0.03em] text-[#0F172A] sm:text-[1.85rem]">
-                Grow Your Business
-                <br />
-                with{" "}
-                <span className="text-[#FF6A1A]">Expert Solutions</span>
-              </h2>
+                <p className="mt-4 text-sm font-semibold text-[#0F172A]">What are you looking for?</p>
 
-              <p id="welcome-popup-description" className="mt-4 max-w-md text-sm leading-6 text-[#64748B] sm:text-[0.95rem] sm:leading-7">
-                From Cloud &amp; DevOps to AI, Website Development, and Digital Marketing, our experts help
-                businesses build, scale, and grow with confidence.
-              </p>
+                <div className="mt-2.5 grid grid-cols-2 gap-2.5">
+                  {serviceCards.map((card, index) => (
+                    <motion.div
+                      key={card.title}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.08 + index * 0.04, duration: 0.35, ease: popupEase }}
+                      whileHover={{ y: -4 }}
+                      className="welcome-popup-card flex h-[90px] flex-col justify-center rounded-xl border border-[#E5E7EB] bg-white px-3 py-2.5 shadow-[0_4px_16px_rgba(15,23,42,0.05)] transition-shadow duration-300 hover:shadow-[0_10px_24px_rgba(15,23,42,0.09)]"
+                    >
+                      <div className="flex items-start gap-2">
+                        <span className="text-base leading-none" aria-hidden>
+                          {card.emoji}
+                        </span>
+                        <div className="min-w-0">
+                          <h3 className="text-xs font-bold tracking-[-0.02em] text-[#0F172A] sm:text-[0.8rem]">
+                            {card.title}
+                          </h3>
+                          <p className="mt-0.5 text-[0.68rem] leading-4 text-[#64748B]">{card.description}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
 
-              <div className="mt-6 grid grid-cols-2 gap-3">
-                {serviceCards.map((card, index) => (
-                  <motion.div
-                    key={card.title}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.08 + index * 0.05, duration: 0.4, ease: popupEase }}
-                    whileHover={{ y: -4 }}
-                    className="welcome-popup-card rounded-xl border border-[#E5E7EB] bg-white p-3.5 shadow-[0_6px_20px_rgba(15,23,42,0.05)] transition-shadow duration-300 hover:shadow-[0_12px_28px_rgba(15,23,42,0.1)] sm:p-4"
+                <motion.div
+                  className="mt-4 flex flex-col items-stretch"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.24, duration: 0.35, ease: popupEase }}
+                >
+                  <Link
+                    href="/book-consultation/"
+                    onClick={close}
+                    className="welcome-popup-primary-btn inline-flex h-14 w-full items-center justify-center gap-2.5 rounded-xl bg-[#FF6A1A] text-base font-bold text-white shadow-[0_12px_28px_rgba(255,106,26,0.32)] transition-[transform,box-shadow] duration-200 will-change-transform hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(255,106,26,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A1A]/40"
                   >
-                    <span className="text-lg leading-none" aria-hidden>
-                      {card.emoji}
-                    </span>
-                    <h3 className="mt-2.5 text-xs font-bold tracking-[-0.02em] text-[#0F172A] sm:text-sm">
-                      {card.title}
-                    </h3>
-                    <p className="mt-1 text-[0.68rem] leading-4 text-[#64748B] sm:text-xs">{card.description}</p>
-                  </motion.div>
-                ))}
+                    <Calendar className="h-[18px] w-[18px]" aria-hidden />
+                    Book Free Consultation
+                  </Link>
+
+                  <button
+                    type="button"
+                    onClick={close}
+                    className="mt-2 text-center text-sm font-medium text-[#64748B] underline decoration-dotted decoration-[#CBD5E1] underline-offset-4 transition-colors duration-200 hover:text-[#0F172A]"
+                  >
+                    Maybe Later
+                  </button>
+                </motion.div>
+
+                <p className="mt-3 text-center text-xs font-medium text-[#0F172A]">
+                  <span className="tracking-[0.1em] text-[#FF6A1A]" aria-hidden>
+                    ⭐⭐⭐⭐⭐
+                  </span>
+                  <span className="sr-only">5 out of 5 stars. </span>
+                  <span className="ml-1">
+                    Trusted by <span className="font-bold text-[#FF6A1A]">100+</span> Businesses
+                  </span>
+                </p>
               </div>
 
-              <motion.div
-                className="mt-7 flex flex-col items-stretch"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.28, duration: 0.4, ease: popupEase }}
-              >
-                <Link
-                  href="/book-consultation/"
-                  onClick={close}
-                  className="welcome-popup-primary-btn inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-[#FF6A1A] text-sm font-bold text-white shadow-[0_12px_28px_rgba(255,106,26,0.32)] transition-[transform,box-shadow] duration-200 will-change-transform hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(255,106,26,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A1A]/40 sm:text-base"
-                >
-                  <Calendar className="h-[18px] w-[18px]" aria-hidden />
-                  Book Free Consultation
-                </Link>
-
-                <button
-                  type="button"
-                  onClick={close}
-                  className="mt-3 text-center text-sm font-medium text-[#64748B] underline decoration-[#CBD5E1] underline-offset-4 transition-colors duration-200 hover:text-[#0F172A] hover:decoration-[#94A3B8]"
-                >
-                  Maybe Later
-                </button>
-              </motion.div>
-
-              <motion.p
-                className="mt-6 text-center text-xs font-medium text-[#0F172A] sm:text-sm"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.34, duration: 0.4, ease: popupEase }}
-              >
-                <span className="tracking-[0.12em] text-[#FF6A1A]" aria-hidden>
-                  ⭐⭐⭐⭐⭐
-                </span>
-                <span className="sr-only">5 out of 5 stars. </span>
-                <span className="ml-1.5">
-                  Trusted by <span className="font-bold text-[#FF6A1A]">100+</span> Businesses
-                </span>
-              </motion.p>
-            </div>
-
-            <div className="welcome-popup-right relative flex min-h-[260px] w-full items-center justify-center border-t border-[#E5E7EB] bg-gradient-to-br from-[#FFF9F6] via-white to-[#FFFDFC] lg:min-h-0 lg:w-[55%] lg:border-l lg:border-t-0">
-              <WelcomePopupIllustration />
-            </div>
-          </motion.div>
+              <div className="welcome-popup-right relative order-2 flex min-h-[200px] w-full flex-shrink-0 items-center justify-center overflow-hidden border-t border-[#E5E7EB] lg:order-none lg:h-full lg:min-h-0 lg:w-[55%] lg:border-l lg:border-t-0">
+                <img
+                  src={ILLUSTRATION_IMAGE}
+                  alt="Modern laptop showing business analytics dashboard with cloud, AI, website, marketing, and security icons"
+                  className="welcome-popup-hero-image h-full w-full object-contain"
+                  width={720}
+                  height={620}
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       ) : null}
     </AnimatePresence>,
