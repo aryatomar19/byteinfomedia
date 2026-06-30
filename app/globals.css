@@ -3884,33 +3884,21 @@ a {
 
 /* Welcome popup — premium conversion modal */
 .welcome-popup-overlay {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 32px;
-  overflow: auto;
   background: rgba(15, 23, 42, 0.6);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
+  padding: 60px;
 }
 
 .welcome-popup-scale {
-  --welcome-popup-ratio: min(
-    0.806,
-    calc((100vh - 64px) / 720),
-    calc((min(950px, 88vw)) / 1180)
-  );
+  --welcome-popup-ratio: 0.806;
   position: relative;
-  margin: auto;
-  width: calc(1180px * var(--welcome-popup-ratio));
-  height: calc(720px * var(--welcome-popup-ratio));
-  max-width: min(1000px, calc(100vw - 64px));
-  max-height: calc(100vh - 64px);
-  overflow: hidden;
-  flex-shrink: 0;
+  width: min(950px, 88vw);
+  max-width: 1000px;
+  height: min(581px, 82vh);
+  max-height: min(650px, 82vh);
   transform-origin: center center;
+  overflow: visible;
 }
 
 .welcome-popup-font {
@@ -3918,14 +3906,15 @@ a {
 }
 
 .welcome-popup-panel {
-  position: relative;
-  margin: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: 1180px;
   height: 720px;
   background: #ffffff;
   overflow: hidden;
-  transform: scale(var(--welcome-popup-ratio));
-  transform-origin: top left;
+  transform: translate(-50%, -50%) scale(var(--welcome-popup-ratio));
+  transform-origin: center center;
 }
 
 .welcome-popup-left {
@@ -3991,13 +3980,19 @@ a {
 }
 
 @media (max-width: 1023px) {
+  .welcome-popup-overlay {
+    padding: 40px 24px;
+  }
+
   .welcome-popup-scale {
-    --welcome-popup-ratio: min(
-      0.806,
-      calc((100vh - 64px) / 720),
-      calc((100vw - 64px) / 1180)
-    );
-    max-width: calc(100vw - 64px);
+    --welcome-popup-ratio: min(0.806, calc((100vw - 80px) / 1180));
+    width: min(950px, calc(100vw - 80px));
+    height: min(581px, 82vh);
+    max-height: min(650px, 82vh);
+  }
+
+  .welcome-popup-panel {
+    height: 720px;
   }
 
   .welcome-popup-right {
