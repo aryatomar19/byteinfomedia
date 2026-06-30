@@ -162,8 +162,8 @@ export function WelcomePopup() {
 
               <div className="welcome-popup-left order-1 flex h-full w-full flex-col justify-center lg:order-none lg:w-[44%]">
                 <header className="welcome-popup-header">
-                  <p className="text-sm font-medium text-[#64748B]">👋 Welcome to</p>
-                  <p id="welcome-popup-brand" className="mt-0.5 text-lg font-extrabold tracking-[-0.03em]">
+                  <p className="welcome-popup-welcome font-medium text-[#64748B]">👋 Welcome to</p>
+                  <p id="welcome-popup-brand" className="welcome-popup-logo mt-0.5 font-extrabold tracking-[-0.03em]">
                     <span className="text-[#0F172A]">Byte</span>{" "}
                     <span className="text-[#FF6A1A]">Infomedia</span>
                   </p>
@@ -181,7 +181,7 @@ export function WelcomePopup() {
                   Digital Marketing—we&apos;re here to help.
                 </p>
 
-                <p className="welcome-popup-services-label text-sm font-semibold text-[#0F172A]">
+                <p className="welcome-popup-services-label font-semibold text-[#0F172A]">
                   What are you looking for?
                 </p>
 
@@ -200,10 +200,12 @@ export function WelcomePopup() {
                           {card.emoji}
                         </span>
                         <div>
-                          <h3 className="text-xs font-bold tracking-[-0.02em] text-[#0F172A] sm:text-[0.8rem]">
+                          <h3 className="welcome-popup-card-title font-bold tracking-[-0.02em] text-[#0F172A]">
                             {card.title}
                           </h3>
-                          <p className="mt-0.5 text-[0.68rem] leading-4 text-[#64748B]">{card.description}</p>
+                          <p className="welcome-popup-card-description mt-0.5 leading-snug text-[#64748B]">
+                            {card.description}
+                          </p>
                         </div>
                       </div>
                     </motion.div>
@@ -219,7 +221,7 @@ export function WelcomePopup() {
                   <Link
                     href="/book-consultation/"
                     onClick={close}
-                    className="welcome-popup-primary-btn inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#FF6A1A] text-base font-bold text-white shadow-[0_12px_28px_rgba(255,106,26,0.32)] transition-[transform,box-shadow] duration-200 will-change-transform hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(255,106,26,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A1A]/40"
+                    className="welcome-popup-primary-btn inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#FF6A1A] font-bold text-white shadow-[0_12px_28px_rgba(255,106,26,0.32)] transition-[transform,box-shadow] duration-200 will-change-transform hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(255,106,26,0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A1A]/40"
                   >
                     <Calendar className="h-[18px] w-[18px]" aria-hidden />
                     Book Free Consultation
@@ -228,7 +230,7 @@ export function WelcomePopup() {
                   <button
                     type="button"
                     onClick={close}
-                    className="welcome-popup-maybe-later text-center text-sm font-medium text-[#64748B] underline decoration-dotted decoration-[#CBD5E1] underline-offset-4 transition-colors duration-200 hover:text-[#0F172A]"
+                    className="welcome-popup-maybe-later text-center font-medium text-[#64748B] underline decoration-dotted decoration-[#CBD5E1] underline-offset-4 transition-colors duration-200 hover:text-[#0F172A]"
                   >
                     Maybe Later
                   </button>
