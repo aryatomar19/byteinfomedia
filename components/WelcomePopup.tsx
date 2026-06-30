@@ -145,7 +145,7 @@ export function WelcomePopup() {
               aria-modal="true"
               aria-labelledby="welcome-popup-brand"
               aria-describedby="welcome-popup-description"
-              className="welcome-popup-panel welcome-popup-font relative flex w-[1180px] flex-col overflow-hidden rounded-[24px] bg-white p-10 shadow-[0_32px_80px_rgba(15,23,42,0.16)] lg:flex-row"
+              className="welcome-popup-panel welcome-popup-font relative flex w-[1180px] flex-col overflow-hidden rounded-[24px] bg-white p-0 shadow-[0_32px_80px_rgba(15,23,42,0.16)] lg:flex-row"
               onMouseDown={(event) => event.stopPropagation()}
             >
               <motion.button
@@ -160,8 +160,8 @@ export function WelcomePopup() {
                 <X className="h-4 w-4" strokeWidth={2.25} aria-hidden />
               </motion.button>
 
-              <div className="welcome-popup-left order-1 flex h-full w-full flex-col justify-center lg:order-none lg:w-[44%] lg:pr-4">
-                <header>
+              <div className="welcome-popup-left order-1 flex h-full w-full flex-col justify-center lg:order-none lg:w-[44%]">
+                <header className="welcome-popup-header">
                   <p className="text-sm font-medium text-[#64748B]">👋 Welcome to</p>
                   <p id="welcome-popup-brand" className="mt-0.5 text-lg font-extrabold tracking-[-0.03em]">
                     <span className="text-[#0F172A]">Byte</span>{" "}
@@ -169,15 +169,16 @@ export function WelcomePopup() {
                   </p>
                 </header>
 
-                <h2 className="welcome-popup-heading mt-3 font-extrabold tracking-[-0.03em] text-[#0F172A]">
+                <h2 className="welcome-popup-heading font-extrabold tracking-[-0.03em] text-[#0F172A]">
                   Grow Your Business
                   <br />
                   with <span className="text-[#FF6A1A]">Expert Solutions</span>
                 </h2>
 
-                <p id="welcome-popup-description" className="welcome-popup-description max-w-md text-[#64748B]">
-                  From Cloud &amp; DevOps to AI, Website Development and Digital Marketing, we help businesses grow
-                  with smart technology solutions.
+                <p id="welcome-popup-description" className="welcome-popup-description text-[#64748B]">
+                  From Cloud &amp; DevOps to AI, Websites, and
+                  <br />
+                  Digital Marketing—we&apos;re here to help.
                 </p>
 
                 <p className="welcome-popup-services-label text-sm font-semibold text-[#0F172A]">
