@@ -13,9 +13,9 @@ const FOCUSABLE_SELECTOR =
   'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 const serviceCards = [
-  { emoji: "☁️", title: "Cloud & DevOps", description: "Scalable • Secure • Reliable" },
+  { emoji: "☁️", title: "Cloud & DevOps", description: "Scalable • Secure" },
   { emoji: "🤖", title: "AI Solutions", description: "Smart Automation" },
-  { emoji: "💻", title: "Website Development", description: "Modern • Responsive" },
+  { emoji: "💻", title: "Managed Services", description: "Modern • Responsive" },
   { emoji: "📈", title: "Digital Marketing", description: "Rank • Reach • Grow" },
 ] as const;
 

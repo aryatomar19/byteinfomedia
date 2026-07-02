@@ -3845,7 +3845,19 @@ a {
   color: #ff6b2c;
 }
 
+.blog-article-content {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.blog-article-content img {
+  max-width: 100%;
+  height: auto;
+}
+
 .blog-article-table-wrap {
+  max-width: 100%;
+  overflow-x: hidden;
   border: 1px solid rgba(10, 15, 28, 0.08);
   border-radius: 1rem;
   background: #ffffff;
@@ -3854,7 +3866,8 @@ a {
 
 .blog-article-table {
   width: 100%;
-  min-width: 640px;
+  min-width: 0;
+  table-layout: auto;
   border-collapse: collapse;
 }
 
@@ -3866,6 +3879,9 @@ a {
   border-bottom: 1px solid rgba(10, 15, 28, 0.08);
   font-size: 0.95rem;
   line-height: 1.6;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .blog-article-table th {

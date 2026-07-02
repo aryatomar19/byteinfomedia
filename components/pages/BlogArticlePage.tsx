@@ -49,7 +49,7 @@ function BlogBulletList({
 
 function BlogArticleTable({ table }: { table: BlogArticleTable }) {
   return (
-    <div className="blog-article-table-wrap mt-4 overflow-x-auto">
+    <div className="blog-article-table-wrap mt-4">
       <table className="blog-article-table">
         <thead>
           <tr>
@@ -337,7 +337,7 @@ export function BlogArticlePage({ article }: BlogArticlePageProps) {
           />
         </div>
 
-        <div className={cn("py-4 sm:py-6", showTableOfContents && "lg:py-8")}>
+        <div className={cn("blog-article-content py-4 sm:py-6", showTableOfContents && "lg:py-8")}>
           {showTableOfContents ? (
             <div className="mb-8 rounded-2xl border border-[#0A0F1C]/8 bg-[#F7F8FA] p-5 lg:hidden">
               <BlogTableOfContents headings={tocHeadings} />
