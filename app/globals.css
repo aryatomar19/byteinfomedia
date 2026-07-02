@@ -3986,6 +3986,11 @@ a {
   font-size: 18px;
 }
 
+.welcome-popup-card-title--managed {
+  font-size: 17px;
+  line-height: 1.15;
+}
+
 .welcome-popup-card-description {
   font-size: 14px;
 }
