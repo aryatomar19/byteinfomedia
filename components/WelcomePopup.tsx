@@ -202,17 +202,13 @@ export function WelcomePopup() {
                           {card.emoji}
                         </span>
                         <div>
-                          {card.title === "Managed Services" ? (
-                            <h3 className="welcome-popup-card-title welcome-popup-card-title--managed font-bold tracking-[-0.02em] text-[#0F172A]">
-                              Managed
-                              <br />
-                              Services
-                            </h3>
-                          ) : (
-                            <h3 className="welcome-popup-card-title font-bold tracking-[-0.02em] text-[#0F172A]">
-                              {card.title}
-                            </h3>
-                          )}
+                          <h3
+                            className={`welcome-popup-card-title font-bold tracking-[-0.02em] text-[#0F172A]${
+                              card.title === "Managed Services" ? " welcome-popup-card-title--managed" : ""
+                            }`}
+                          >
+                            {card.title}
+                          </h3>
                           <p className="welcome-popup-card-description mt-0.5 leading-snug text-[#64748B]">
                             {card.description}
                           </p>
