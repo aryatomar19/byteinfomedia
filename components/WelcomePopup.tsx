@@ -162,8 +162,7 @@ export function WelcomePopup() {
 
               <div className="welcome-popup-left order-1 flex h-full w-full flex-col justify-center lg:order-none lg:w-[44%]">
                 <header className="welcome-popup-header">
-                  <p className="welcome-popup-welcome font-medium text-[#64748B]">👋 Welcome to</p>
-                  <p id="welcome-popup-brand" className="welcome-popup-logo mt-0.5 font-extrabold tracking-[-0.03em]">
+                  <p id="welcome-popup-brand" className="welcome-popup-logo font-extrabold tracking-[-0.03em]">
                     <span className="text-[#0F172A]">Byte</span>{" "}
                     <span className="text-[#FF6A1A]">Infomedia</span>
                   </p>
@@ -195,8 +194,11 @@ export function WelcomePopup() {
                       whileHover={{ y: -4 }}
                       className="welcome-popup-card flex flex-col justify-center rounded-xl border border-[#E5E7EB] bg-white shadow-[0_4px_16px_rgba(15,23,42,0.05)] transition-shadow duration-300 hover:shadow-[0_10px_24px_rgba(15,23,42,0.09)]"
                     >
-                      <div className="flex items-start gap-2">
-                        <span className="text-base leading-none" aria-hidden>
+                      <div className="flex items-center gap-2">
+                        <span
+                          className="flex h-5 w-5 shrink-0 items-center justify-center text-[20px] leading-none"
+                          aria-hidden
+                        >
                           {card.emoji}
                         </span>
                         <div>
