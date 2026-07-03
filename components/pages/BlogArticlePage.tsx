@@ -63,8 +63,10 @@ function BlogArticleTable({ table }: { table: BlogArticleTable }) {
         <tbody>
           {table.rows.map((row) => (
             <tr key={row.join("|")}>
-              {row.map((cell) => (
-                <td key={cell}>{cell}</td>
+              {row.map((cell, cellIndex) => (
+                <td key={cell} data-label={table.headers[cellIndex]}>
+                  {cell}
+                </td>
               ))}
             </tr>
           ))}
@@ -337,7 +339,7 @@ export function BlogArticlePage({ article }: BlogArticlePageProps) {
           />
         </div>
 
-        <div className={cn("blog-article-content py-4 sm:py-6", showTableOfContents && "lg:py-8")}>
+        <div className={cn("blog-article-content min-w-0 py-4 sm:py-6", showTableOfContents && "lg:py-8")}>
           {showTableOfContents ? (
             <div className="mb-8 rounded-2xl border border-[#0A0F1C]/8 bg-[#F7F8FA] p-5 lg:hidden">
               <BlogTableOfContents headings={tocHeadings} />
@@ -355,7 +357,7 @@ export function BlogArticlePage({ article }: BlogArticlePageProps) {
               </aside>
             </div>
           ) : (
-            articleBody
+            <div className="min-w-0">{articleBody}</div>
           )}
 
           {showTableOfContents ? (
