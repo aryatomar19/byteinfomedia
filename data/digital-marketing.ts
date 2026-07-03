@@ -13,7 +13,7 @@ export const digitalMarketingPage = {
     title: "Driving Measurable Growth Through Strategy, Creativity & Performance",
     description:
       "Byte Infomedia is a full-service digital marketing agency built for brands that demand results. We engineer high-performance campaigns across SEO, Google Ads, social media marketing, and website development — combining data, creativity, and conversion strategy to generate qualified leads and maximize ROI at every stage of growth.",
-    image: `${img}/why-byte-growth.jpg`,
+    image: `${img}/why-byte-growth.webp`,
     imageAlt:
       "Digital marketing team collaborating in a modern office while reviewing SEO analytics, campaign performance dashboards, and growth reports",
     trustIndicators: [
@@ -106,7 +106,7 @@ export const digitalMarketingPage = {
         description:
           "Improve search visibility and drive organic traffic with proven SEO strategies.",
         href: "/search-engine-optimization/",
-        image: `${svc}/seo.png`,
+        image: `${svc}/seo.webp`,
         imageAlt: "SEO illustration with search results, magnifying glass and ranking analytics graph",
       },
       {
@@ -115,7 +115,7 @@ export const digitalMarketingPage = {
         description:
           "Launch high-converting ad campaigns that deliver quality leads and sales.",
         href: "/book-consultation/",
-        image: `${svc}/google-ads.png`,
+        image: `${svc}/google-ads.webp`,
         imageAlt: "Google Ads illustration with campaign dashboard and conversion tracking",
       },
       {
@@ -124,7 +124,7 @@ export const digitalMarketingPage = {
         description:
           "Grow brand presence and engage your audience across social platforms.",
         href: "/social-media-marketing/",
-        image: `${svc}/social-media.png`,
+        image: `${svc}/social-media.webp`,
         imageAlt: "Social media megaphone illustration with Facebook, Instagram and LinkedIn growth",
       },
       {
@@ -133,7 +133,7 @@ export const digitalMarketingPage = {
         description:
           "Create valuable content that attracts, engages, and converts your audience.",
         href: "/content-writing/",
-        image: `${svc}/content-marketing.png`,
+        image: `${svc}/content-marketing.webp`,
         imageAlt: "Content creation workspace illustration with blog writing and media assets",
       },
       {
@@ -141,7 +141,7 @@ export const digitalMarketingPage = {
         title: "Website Development",
         description: "Build fast, responsive, and user-friendly websites that drive results.",
         href: "/website-development/",
-        image: `${svc}/website-development.png`,
+        image: `${svc}/website-development.webp`,
         imageAlt: "Website builder illustration with code editor and responsive design interface",
       },
       {
@@ -150,7 +150,7 @@ export const digitalMarketingPage = {
         description:
           "Track performance, analyze data, and make smarter marketing decisions.",
         href: "/book-consultation/",
-        image: `${svc}/analytics.png`,
+        image: `${svc}/analytics.webp`,
         imageAlt: "Analytics dashboard illustration with charts, pie graphs and reporting metrics",
       },
     ],

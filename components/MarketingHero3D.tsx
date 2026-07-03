@@ -1,8 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import type { Application } from "@splinetool/runtime";
+import { useDeferUntilIdle } from "@/lib/useDeferUntilIdle";
+import { useInView } from "@/lib/useInView";
 
 const SPLINE_SCENE_URL = "/spline/happy-robot.splinecode";
 const LOCKED_ZOOM = 1;
@@ -44,19 +46,46 @@ function lockSplineCamera(spline: Application) {
 }
 
 export function MarketingHero3D() {
+  const ready = useDeferUntilIdle();
+  const { ref, inView } = useInView<HTMLDivElement>({ rootMargin: "0px", threshold: 0 });
+  const splineRef = useRef<Application | null>(null);
+  const inViewRef = useRef(inView);
+
+  useEffect(() => {
+    inViewRef.current = inView;
+  }, [inView]);
+
+  useEffect(() => {
+    const spline = splineRef.current;
+    if (!spline) return;
+
+    if (inView) {
+      spline.play?.();
+    } else {
+      spline.stop?.();
+    }
+  }, [inView]);
+
   const onLoad = useCallback((spline: Application) => {
+    splineRef.current = spline;
     lockSplineCamera(spline);
     spline.setBackgroundColor("#000000");
+
+    if (!inViewRef.current) {
+      spline.stop?.();
+    }
   }, []);
 
   return (
-    <div className="dm-hero-spline-bg dm-hero-spline-bg--robot spline-bg" aria-hidden>
-      <Spline
-        scene={SPLINE_SCENE_URL}
-        onLoad={onLoad}
-        renderOnDemand={false}
-        className="dm-hero-spline-canvas dm-hero-spline-canvas--robot"
-      />
+    <div ref={ref} className="dm-hero-spline-bg dm-hero-spline-bg--robot spline-bg" aria-hidden>
+      {ready ? (
+        <Spline
+          scene={SPLINE_SCENE_URL}
+          onLoad={onLoad}
+          renderOnDemand
+          className="dm-hero-spline-canvas dm-hero-spline-canvas--robot"
+        />
+      ) : null}
     </div>
   );
 }

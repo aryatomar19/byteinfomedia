@@ -9,5 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <DigitalMarketingPage />;
+  return (
+    <>
+      <link rel="preload" href="/spline/happy-robot.splinecode" as="fetch" crossOrigin="anonymous" />
+      <DigitalMarketingPage />
+    </>
+  );
 }
