@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { memo } from "react";
 import { ArrowRight } from "lucide-react";
 
 type ServiceItem = {
@@ -12,7 +13,7 @@ type ServiceItem = {
   imageAlt: string;
 };
 
-function ServiceCard({ item }: { item: ServiceItem }) {
+const ServiceCard = memo(function ServiceCard({ item }: { item: ServiceItem }) {
   return (
     <article className="dm-svc-card group">
       <div className="dm-svc-card__visual">
@@ -20,6 +21,8 @@ function ServiceCard({ item }: { item: ServiceItem }) {
           src={item.image}
           alt={item.imageAlt}
           className="dm-svc-card__img"
+          width={600}
+          height={600}
           loading="lazy"
           decoding="async"
         />
@@ -36,7 +39,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
       </div>
     </article>
   );
-}
+});
 
 export function DmServicesPremium({
   title,

@@ -1,14 +1,64 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { digitalMarketingPage } from "@/data/digital-marketing";
-import { DmCtaSection } from "@/components/digital-marketing/DmCtaSection";
-import { DmSpecialitySection } from "@/components/digital-marketing/DmSpecialitySection";
-import { DmFaqSection } from "@/components/digital-marketing/DmFaqSection";
 import { DmHeroSection } from "@/components/digital-marketing/DmHeroSection";
-import { DmProcessSection } from "@/components/digital-marketing/DmProcessSection";
-import { DmResultsStats } from "@/components/digital-marketing/DmResultsStats";
-import { DmServicesPremium } from "@/components/digital-marketing/DmServicesPremium";
-import { DmWhyTrustSection } from "@/components/digital-marketing/DmWhyTrustSection";
+
+const DmWhyTrustSection = dynamic(
+  () =>
+    import("@/components/digital-marketing/DmWhyTrustSection").then((mod) => ({
+      default: mod.DmWhyTrustSection,
+    })),
+  { loading: () => null },
+);
+
+const DmSpecialitySection = dynamic(
+  () =>
+    import("@/components/digital-marketing/DmSpecialitySection").then((mod) => ({
+      default: mod.DmSpecialitySection,
+    })),
+  { loading: () => null },
+);
+
+const DmServicesPremium = dynamic(
+  () =>
+    import("@/components/digital-marketing/DmServicesPremium").then((mod) => ({
+      default: mod.DmServicesPremium,
+    })),
+  { loading: () => null },
+);
+
+const DmProcessSection = dynamic(
+  () =>
+    import("@/components/digital-marketing/DmProcessSection").then((mod) => ({
+      default: mod.DmProcessSection,
+    })),
+  { loading: () => null },
+);
+
+const DmResultsStats = dynamic(
+  () =>
+    import("@/components/digital-marketing/DmResultsStats").then((mod) => ({
+      default: mod.DmResultsStats,
+    })),
+  { loading: () => null },
+);
+
+const DmFaqSection = dynamic(
+  () =>
+    import("@/components/digital-marketing/DmFaqSection").then((mod) => ({
+      default: mod.DmFaqSection,
+    })),
+  { loading: () => null },
+);
+
+const DmCtaSection = dynamic(
+  () =>
+    import("@/components/digital-marketing/DmCtaSection").then((mod) => ({
+      default: mod.DmCtaSection,
+    })),
+  { loading: () => null },
+);
 
 export function DigitalMarketingPage() {
   const { hero, whyByte, speciality, services, process, results, faq, cta } = digitalMarketingPage;

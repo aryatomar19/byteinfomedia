@@ -15,7 +15,10 @@ type OrbitControls = {
   zoomLimits?: { min: number; max: number };
 };
 
-export function lockFaqSplineScene(spline: Application): () => void {
+export function lockFaqSplineScene(spline: Application): {
+  setActive: (active: boolean) => void;
+  dispose: () => void;
+} {
   spline.setZoom(LOCKED_ZOOM);
 
   const orbit = spline.controls?.orbitControls as OrbitControls | undefined;
@@ -40,7 +43,14 @@ export function lockFaqSplineScene(spline: Application): () => void {
   );
 
   let raf = 0;
+  let active = false;
+
   const pinScales = () => {
+    if (!active) {
+      raf = 0;
+      return;
+    }
+
     for (const obj of spline.getAllObjects()) {
       const base = frozenScales.get(obj.uuid);
       if (!base) continue;
@@ -59,7 +69,26 @@ export function lockFaqSplineScene(spline: Application): () => void {
     raf = requestAnimationFrame(pinScales);
   };
 
-  raf = requestAnimationFrame(pinScales);
+  const setActive = (next: boolean) => {
+    active = next;
 
-  return () => cancelAnimationFrame(raf);
+    if (active) {
+      spline.play?.();
+      if (!raf) {
+        raf = requestAnimationFrame(pinScales);
+      }
+      return;
+    }
+
+    spline.stop?.();
+    if (raf) {
+      cancelAnimationFrame(raf);
+      raf = 0;
+    }
+  };
+
+  return {
+    setActive,
+    dispose: () => setActive(false),
+  };
 }
