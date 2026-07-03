@@ -3845,9 +3845,20 @@ a {
   color: #ff6b2c;
 }
 
+.blog-article-page {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 .blog-article-content {
   max-width: 100%;
-  overflow-x: hidden;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+.blog-article-content :where(p, li, h2, h3, h4, blockquote) {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .blog-article-content img {
@@ -3855,9 +3866,22 @@ a {
   height: auto;
 }
 
+.blog-article-content pre,
+.blog-article-content code {
+  max-width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.blog-article-layout {
+  min-width: 0;
+  max-width: 100%;
+}
+
 .blog-article-table-wrap {
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   border: 1px solid rgba(10, 15, 28, 0.08);
   border-radius: 1rem;
   background: #ffffff;
@@ -3867,7 +3891,8 @@ a {
 .blog-article-table {
   width: 100%;
   min-width: 0;
-  table-layout: auto;
+  max-width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
 }
 
@@ -3879,8 +3904,10 @@ a {
   border-bottom: 1px solid rgba(10, 15, 28, 0.08);
   font-size: 0.95rem;
   line-height: 1.6;
+  max-width: 0;
   word-wrap: break-word;
   overflow-wrap: anywhere;
+  word-break: break-word;
   hyphens: auto;
 }
 
@@ -3896,6 +3923,60 @@ a {
 
 .blog-article-table tbody tr:last-child td {
   border-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .blog-article-table thead {
+    display: none;
+  }
+
+  .blog-article-table,
+  .blog-article-table tbody,
+  .blog-article-table tr,
+  .blog-article-table td {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .blog-article-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid rgba(10, 15, 28, 0.08);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .blog-article-table tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .blog-article-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(10, 15, 28, 0.08);
+  }
+
+  .blog-article-table td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #0a0f1c;
+  }
+
+  .blog-article-table td:last-child {
+    border-bottom: 0;
+  }
+
+  .blog-article-table tbody tr:last-child td {
+    border-bottom: 1px solid rgba(10, 15, 28, 0.08);
+  }
+
+  .blog-article-table tbody tr:last-child td:last-child {
+    border-bottom: 0;
+  }
 }
 
 /* Welcome popup — premium conversion modal */
